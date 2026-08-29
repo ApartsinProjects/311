@@ -37,17 +37,19 @@ The register varies sharply across cities — a built-in domain-shift signal.
 - **Leave-one-city-out (LOCO):** train on all other cities, test on the held-out city.
 - **Metric:** macro-F1 over classes present in the test set (identical across all arms).
 
-## Results (macro-F1)
+## Results (pooled macro-F1, aligned test set, 95% CI)
 
-| Arm | In-city | Cross-city (LOCO / zero-shot) |
+| Arm | In-city | Cross-city |
 |---|---|---|
-| TF-IDF + LogReg | 0.80 | 0.38 |
-| Fine-tuned DistilBERT | 0.77 | 0.41 |
-| LLM zero-shot (gpt-4o-mini, taxonomy-in-prompt) | — | 0.49 |
+| TF-IDF + LogReg | 0.785 [.76,.81] | 0.523 [.50,.54] |
+| Fine-tuned DistilBERT | 0.827 [.80,.85] | 0.558 [.54,.58] |
+| LLM zero-shot (gpt-4o-mini, taxonomy-in-prompt) | — | 0.654 [.63,.68] |
 
-**Headline:** crossing city boundaries roughly halves performance for both trained models. An off-the-shelf
-LLM given the taxonomy in-context transfers best across cities (0.49 > 0.41 > 0.38), yet all sit far below
-in-domain (~0.8). All numbers use one identical metric (macro-F1 over classes present in the test set).
+**Headline:** crossing city boundaries roughly halves performance for both trained models. A zero-shot LLM
+given the taxonomy transfers best across cities (0.65 > 0.56 > 0.52, all significant), yet all sit below
+in-domain (~0.8). Every arm is scored on one frozen test set. A blind label judge finds **14.3% of city
+labels aren't text-supported**, and under defensibility-adjusted scoring the LLM's cross-city accuracy rises
+to 0.98 — most "errors" are defensible alternatives. See the [paper](paper.html) for the full analysis.
 
 ## Error analysis: much of the "gap" is label artifact, not model error
 
