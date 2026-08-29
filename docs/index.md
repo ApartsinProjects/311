@@ -5,6 +5,7 @@ service-request classification. Citizen complaint narratives from **7 US cities*
 shared **14-class** civic taxonomy, so classifiers can be compared *across* cities — measuring how
 well a model trained on some cities generalizes to an unseen one.
 
+- **📄 [Read the paper (draft)](paper.html)**
 - Code: [github.com/ApartsinProjects/311](https://github.com/ApartsinProjects/311)
 - Background research: [scouting report](scouting.md)
 
@@ -36,17 +37,17 @@ The register varies sharply across cities — a built-in domain-shift signal.
 - **Leave-one-city-out (LOCO):** train on all other cities, test on the held-out city.
 - **Metric:** macro-F1 over classes present in the test set (identical across all arms).
 
-## Results so far (macro-F1)
+## Results (macro-F1)
 
-| Arm | In-city | Cross-city |
+| Arm | In-city | Cross-city (LOCO / zero-shot) |
 |---|---|---|
-| TF-IDF + LogReg | ~0.80 | ~0.38 (LOCO) |
-| LLM zero-shot (gpt-4o-mini, taxonomy-in-prompt) | — | ~0.49 |
-| Fine-tuned DistilBERT | *finalizing* | *finalizing* |
+| TF-IDF + LogReg | 0.80 | 0.38 |
+| Fine-tuned DistilBERT | 0.77 | 0.41 |
+| LLM zero-shot (gpt-4o-mini, taxonomy-in-prompt) | — | 0.49 |
 
-**Headline:** crossing city boundaries roughly halves performance. An off-the-shelf LLM (given the
-taxonomy in-context) transfers *somewhat better* than a classical model whose label space is frozen to
-the training cities — but still far below in-domain.
+**Headline:** crossing city boundaries roughly halves performance for both trained models. An off-the-shelf
+LLM given the taxonomy in-context transfers best across cities (0.49 > 0.41 > 0.38), yet all sit far below
+in-domain (~0.8). All numbers use one identical metric (macro-F1 over classes present in the test set).
 
 ## Error analysis: much of the "gap" is label artifact, not model error
 
