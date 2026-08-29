@@ -5,33 +5,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>A Multi-City Free-Text Benchmark for 311 Service-Request Classification and Cross-Jurisdiction Transfer</title>
 <style>
-  :root { --ink:#1a1a1a; --muted:#555; --rule:#ddd; --bg:#fff; }
-  html, body { background:#fff !important; color:#1a1a1a; }
-  body { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.25rem 5rem;
-         font: 17px/1.65 Georgia, "Times New Roman", serif; }
-  h1 { font-size: 1.85rem; line-height: 1.25; margin: 0 0 .4rem; }
-  h2 { font-size: 1.25rem; margin: 2.2rem 0 .6rem; border-bottom: 1px solid var(--rule); padding-bottom: .2rem; }
-  h3 { font-size: 1.05rem; margin: 1.3rem 0 .35rem; }
-  .authors { color: var(--muted); margin: .2rem 0 .1rem; font-size: 1.02rem; }
-  .affil { color: var(--muted); font-size: .9rem; margin-bottom: 1.4rem; }
-  .abstract { background:#f7f7f5; border:1px solid var(--rule); border-radius:8px; padding: 1rem 1.2rem; font-size: .96rem; }
-  .abstract h2 { border:0; margin: 0 0 .4rem; font-size: .95rem; text-transform: uppercase; letter-spacing:.06em; }
-  table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: .9rem; }
-  th, td { border: 1px solid var(--rule); padding: .38rem .55rem; text-align: left; }
-  th { background:#f2f2f0; }
+  /* SynSmith house style (TMLR/JMLR/NeurIPS camera-ready), light only. */
+  :root { --ink:#111418; --soft:#2c3138; --muted:#5a626c; --navy:#14385c; --rule:#d1d4d8; --code:#f4f5f7; }
+  html, body { background:#fff !important; color:var(--ink); }
+  body { max-width: 720px; margin: 0 auto; padding: 3rem 1.25rem 5rem;
+         font: 11pt/1.55 "Charter","Iowan Old Style","Source Serif Pro",Georgia,"Times New Roman",serif;
+         text-align: justify; hyphens: auto; }
+  h1 { font-size: 19pt; font-weight: 600; line-height: 1.2; text-align: center; margin: 0 0 .5rem; hyphens: none; }
+  .authors { text-align: center; color: var(--soft); font-size: 11.5pt; margin: .2rem 0; }
+  .affil { text-align: center; color: var(--muted); font-size: 9.5pt; margin-bottom: 1.7rem; }
+  h2 { font-size: 13pt; font-weight: 700; margin: 1.9rem 0 .5rem; border: 0; }
+  h3 { font-size: 11.5pt; font-weight: 700; margin: 1.15rem 0 .3rem; }
+  p { margin: 0; text-indent: 1.4em; }
+  h2 + p, h3 + p, figure + p, table + p, ol + p, ul + p, .abstract + h2 + p, .cap + p { text-indent: 0; }
+  .abstract { margin: 1.2rem auto 1.6rem; }
+  .abstract h2 { text-align: center; font-size: 10pt; font-weight: 700; letter-spacing: .12em;
+                 text-transform: uppercase; border: 0; margin: 0 0 .4rem; }
+  .abstract p { font-size: 10pt; text-indent: 0; }
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 9.5pt;
+          border-top: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink); }
+  th, td { border: 0; padding: .34rem .5rem; text-align: left; }
+  tr:first-child th { border-bottom: 1px solid var(--ink); }
   td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
-  code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .86em; background:#f2f2f0; padding:.05em .3em; border-radius:3px; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .86em;
+         background: var(--code); padding: .05em .3em; border-radius: 3px; }
   .muted { color: var(--muted); }
-  figure { margin: 1.4rem 0; text-align:center; }
-  figure img { max-width: 100%; height:auto; border:1px solid var(--rule); border-radius:6px; }
-  figcaption { font-size: .84rem; color: var(--muted); margin-top: .5rem; text-align:left; }
-  .cap { font-size: .84rem; color: var(--muted); margin-top:-.4rem; }
-  a { color: #0645ad; }
-  hr { border:0; border-top:1px solid var(--rule); margin: 2rem 0; }
-  ol.refs { font-size: .84rem; color:#333; line-height:1.5; }
-  ol.refs li { margin-bottom:.35rem; }
-  sup a { text-decoration:none; }
-  .foot { font-size: .85rem; color: var(--muted); margin-top: 2.5rem; }
+  figure { margin: 1.5rem 0; text-align: center; }
+  figure img { max-width: 100%; height: auto; border: 1px solid var(--rule); }
+  figcaption { font-size: 9.5pt; color: var(--muted); margin-top: .5rem; text-align: left; }
+  .cap { font-size: 9.5pt; color: var(--muted); margin-top: -.4rem; text-indent: 0; }
+  a { color: var(--navy); }
+  hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0; }
+  ol.refs { font-size: 9pt; color: var(--soft); line-height: 1.5; }
+  ol.refs li { margin-bottom: .35rem; text-indent: 0; }
+  ol li, ul li { text-indent: 0; }
+  sup a { text-decoration: none; }
+  .foot { font-size: 9pt; color: var(--muted); margin-top: 2.5rem; text-indent: 0; }
 </style>
 </head>
 <body>
