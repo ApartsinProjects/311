@@ -1,0 +1,2196 @@
+{
+ "BatonRouge": [
+  [
+   "DAMAGED GARBAGE CART",
+   116512
+  ],
+  [
+   "MISSED WOODY WASTE SERVICE",
+   91727
+  ],
+  [
+   "MISSED GARBAGE SERVICE DAY (GENERAL PICK-UP)",
+   87311
+  ],
+  [
+   "SAME DAY SERVICE STATUS",
+   76876
+  ],
+  [
+   "MISSING GARBAGE CART",
+   58530
+  ],
+  [
+   "MISSED HANDPILE SERVICE",
+   56806
+  ],
+  [
+   "MISSED RECYCLING SERVICE",
+   38530
+  ],
+  [
+   "TALL GRASS",
+   35477
+  ],
+  [
+   "NEW RESIDENT REQUEST FOR GARBAGE CART",
+   29254
+  ],
+  [
+   "POTHOLE",
+   27872
+  ],
+  [
+   "NEW RESIDENT RECYCLING CART REQUEST",
+   27048
+  ],
+  [
+   "STREET LIGHT OUTAGE OR DAMAGE",
+   21483
+  ],
+  [
+   "REQUEST DEBRIS REMOVAL - PUBLIC PROPERTY",
+   19966
+  ],
+  [
+   "INSIDE RESIDENTIAL BACKUP",
+   19577
+  ],
+  [
+   "JUNK, TRASH, OR DEBRIS ON PRIVATE PROPERTY",
+   18728
+  ],
+  [
+   "CAVE-IN/SINK HOLE (SEWER OR DRAINAGE RELATED)",
+   15391
+  ],
+  [
+   "ROADSIDE DRAINAGE ISSUE",
+   15191
+  ],
+  [
+   "REQUEST REMOVAL/TRIMMING OF TREE",
+   12910
+  ],
+  [
+   "DAMAGED RECYCLING CART",
+   12587
+  ],
+  [
+   "REQUEST FOR MOWING",
+   11626
+  ],
+  [
+   "REQUEST A BARRICADE",
+   11132
+  ],
+  [
+   "MAJOR SIGNAL ISSUE",
+   11032
+  ],
+  [
+   "JUNK, INOPERABLE, OR ABANDONED VEHICLE",
+   10753
+  ],
+  [
+   "REQUEST PICK-UP OF UNWANTED GARBAGE CART",
+   9055
+  ],
+  [
+   "OUTSIDE OVERFLOW",
+   8649
+  ],
+  [
+   "PROPERTY NEEDS TO BE CONDEMNED OR TORN DOWN",
+   7476
+  ],
+  [
+   "MISSED WHITE GOODS SERVICE/TIRES",
+   7145
+  ],
+  [
+   "REQUEST REMOVAL OF DEBRIS IN A DITCH/WATERWAY",
+   6450
+  ],
+  [
+   "NON-ROADSIDE DRAINAGE ISSUE",
+   5666
+  ],
+  [
+   "DAMAGED TRAFFIC SIGN",
+   4994
+  ],
+  [
+   "CAVE-IN/SINK HOLE (DRAINAGE RELATED)",
+   4739
+  ],
+  [
+   "ROAD BUCKLE/BLOWOUT/FAULT",
+   4693
+  ],
+  [
+   "REQUEST ADDITIONAL GARBAGE CART",
+   3967
+  ],
+  [
+   "MINOR SIGNAL ISSUE",
+   3829
+  ],
+  [
+   "SIDEWALK ISSUE",
+   3798
+  ],
+  [
+   "NON-ROADSIDE VEGETATION IN A DITCH",
+   3783
+  ],
+  [
+   "TREE IN ROAD",
+   3557
+  ],
+  [
+   "BUILDING CODE VIOLATIONS",
+   3465
+  ],
+  [
+   "LIBERTY PUMP ISSUE",
+   3326
+  ],
+  [
+   "PICK UP UNWANTED RECYCLING CART",
+   3309
+  ],
+  [
+   "PIPE REPAIRS NEEDED",
+   3213
+  ],
+  [
+   "REQUEST STREET SWEEPING",
+   3071
+  ],
+  [
+   "STOLEN RECYCLING CART",
+   2933
+  ],
+  [
+   "REQUEST TRAFFIC SIGN",
+   2844
+  ],
+  [
+   "GARBAGE TRUCK LEAKS/SPILLS/ISSUES",
+   2738
+  ],
+  [
+   "ZONING CODE VIOLATION",
+   2729
+  ],
+  [
+   "DAMAGED STREET NAME SIGN",
+   2698
+  ],
+  [
+   "FLOODING ISSUE",
+   2618
+  ],
+  [
+   "REQUEST DEBRIS REMOVAL - UNOCCUPIED PROPERTY",
+   2480
+  ],
+  [
+   "REQUEST BARRICADE PICK-UP",
+   2368
+  ],
+  [
+   "CONCRETE ROAD REPAIRS NEEDED",
+   2305
+  ],
+  [
+   "MISSED DEAD ANIMAL PICK-UP",
+   2224
+  ],
+  [
+   "INSIDE COMMERCIAL BACKUP",
+   2201
+  ],
+  [
+   "CATCH BASIN REPAIRS NEEDED",
+   2183
+  ],
+  [
+   "ILLEGAL DUMPING OF TRASH/SOLID WASTE",
+   2124
+  ],
+  [
+   "CATCH BASIN CLEANING NEEDED",
+   2093
+  ],
+  [
+   "DAMAGE TO PERSONAL PROPERTY",
+   2033
+  ],
+  [
+   "MISSED GARBAGE PICKUP FOR DISABLED CUSTOMER",
+   2028
+  ],
+  [
+   "REQUEST TRAFFIC CALMING STUDY",
+   1970
+  ],
+  [
+   "MANHOLE ISSUE",
+   1963
+  ],
+  [
+   "STANDING WATER",
+   1924
+  ],
+  [
+   "LARGE DEAD ANIMAL FOR PICK-UP",
+   1907
+  ],
+  [
+   "SEWER ODOR",
+   1826
+  ],
+  [
+   "PROPERTY MISSING WINDOWS OR DOORS",
+   1770
+  ],
+  [
+   "TIRE DUMPING",
+   1737
+  ],
+  [
+   "REQUEST TO EXCHANGE GARBAGE CART (NON-DAMAGED)",
+   1652
+  ],
+  [
+   "ROAD STRIPING NEEDED",
+   1346
+  ],
+  [
+   "NON-ROADSIDE EROSION ISSUE",
+   1336
+  ],
+  [
+   "REQUEST A STREET LIGHT",
+   1201
+  ],
+  [
+   "MISSING/DAMAGED STORMWATER DRAIN LID",
+   1175
+  ],
+  [
+   "LITTER FOR PICK-UP ON PUBLIC PROPERTY",
+   1166
+  ],
+  [
+   "DAMAGED DRIVEWAY",
+   1065
+  ],
+  [
+   "REQUEST A TRAFFIC SIGNAL STUDY",
+   1054
+  ],
+  [
+   "REQUEST STREET NAME SIGN",
+   953
+  ],
+  [
+   "REPAIR A BROKEN STREET CURB",
+   940
+  ],
+  [
+   "ILLEGAL SIGN IN THE PUBLIC RIGHT-OF-WAY",
+   930
+  ],
+  [
+   "REQUEST A NO DUMPING SIGN",
+   899
+  ],
+  [
+   "CART LEFT AT CURBSIDE",
+   885
+  ],
+  [
+   "CONSTRUCTION TRASH/DEBRIS IN PUBLIC RIGHT-OF-WAY",
+   873
+  ],
+  [
+   "ROADSIDE EROSION ISSUE",
+   869
+  ],
+  [
+   "DIRTY OR UNFENCED SWIMMING POOL",
+   794
+  ],
+  [
+   "SHOULDER REPAIR NEEDED",
+   774
+  ],
+  [
+   "SCHOOL ZONE/SCHOOL FLASHER ISSUE",
+   749
+  ],
+  [
+   "BLIND STREET CORNER",
+   688
+  ],
+  [
+   "REQUEST DISABLED CUSTOMER PICK-UP SERVICES",
+   667
+  ],
+  [
+   "REQUEST FOR STREET GRADING",
+   620
+  ],
+  [
+   "REQUEST SAFETY STUDY",
+   520
+  ],
+  [
+   "MISSING MANHOLE COVER",
+   502
+  ],
+  [
+   "REQUEST ADDITIONAL RECYCLING CART",
+   482
+  ],
+  [
+   "RESIDENTIAL DRAINAGE DISPUTE (CONSTRUCTION-RELATED)",
+   482
+  ],
+  [
+   "FENCE LINE/SERVITUDE ISSUES",
+   473
+  ],
+  [
+   "ZZZ (EXPIRED DO NOT USE) REQUEST SPECIAL DEBRIS COLLECTION",
+   442
+  ],
+  [
+   "GUARDRAIL ISSUES",
+   356
+  ],
+  [
+   "CHEMICAL SPILL OR LEAK",
+   332
+  ],
+  [
+   "PUMP STATION FAILURE",
+   307
+  ],
+  [
+   "PUBLIC TRASH RECEPTACLE MAINTENANCE",
+   266
+  ],
+  [
+   "UTILITY ISSUES (EXISTING UTILITIES BEING RELOCATED)",
+   242
+  ],
+  [
+   "MISSED RECYCLING SERVICE FOR DISABLED CUSTOMER",
+   212
+  ],
+  [
+   "CONCRETE LINED CANAL REPAIRS NEEDED",
+   185
+  ],
+  [
+   "SIGN WITHOUT A PERMIT",
+   183
+  ],
+  [
+   "NEW CONSTRUCTION TRACKING MUD/DIRT ONTO STREETS",
+   163
+  ],
+  [
+   "REQUEST PUMP STATION MOWING",
+   153
+  ],
+  [
+   "CONSTRUCTION SITE ISSUES",
+   151
+  ],
+  [
+   "WATER QUALITY ISSUES",
+   151
+  ],
+  [
+   "STORMDRAIN ISSUES",
+   133
+  ],
+  [
+   "NEW CONSTRUCTION DRAINAGE ISSUES",
+   105
+  ],
+  [
+   "SIGN WITHOUT A PERMIT/ABANDONED SIGN",
+   98
+  ],
+  [
+   "REPAIR A BIKE PATH",
+   97
+  ],
+  [
+   "DEFACED SIDEWALK",
+   96
+  ],
+  [
+   "ZZZ (EXPIRED DO NOT USE) REQUEST DISABLED DOORFRONT RECYCLING SERVICE",
+   88
+  ],
+  [
+   "UTILITY ISSUES (NEW UTILITIES BEING INSTALLED)",
+   76
+  ],
+  [
+   "NEW CONSTRUCTION TRASH/DEBRIS ISSUES",
+   56
+  ],
+  [
+   "LAND CLEARING ISSUES",
+   55
+  ],
+  [
+   "ILLEGAL PLACEMENT OF CULVERTS/PIPES",
+   48
+  ],
+  [
+   "PORT O POTTY ISSUES",
+   47
+  ],
+  [
+   "NEW CONSTRUCTION SIDEWALK FAILURE ISSUES",
+   47
+  ],
+  [
+   "DRAINAGE, EROSION, FLOODING OR HOLES",
+   21
+  ],
+  [
+   "GRAVEL DRIVE ISSUES",
+   20
+  ],
+  [
+   "DAMAGED NO DUMPING SIGN",
+   19
+  ],
+  [
+   "ILLEGAL LANDFILLING",
+   19
+  ],
+  [
+   "SEWER/WASTEWATER",
+   16
+  ],
+  [
+   "OLD QALERT: DAMAGED STREET NAME SIGN",
+   16
+  ],
+  [
+   "VEHICLE GAS TANK DUMPING/STOCKPILING",
+   15
+  ],
+  [
+   "PARADE/RACE CLEAN-UP ROUTE ISSUES",
+   14
+  ],
+  [
+   "NEW CONSTRUCTION ROAD FAILURE ISSUES",
+   13
+  ],
+  [
+   "CENTRAL BUSINESS DISTRICT WASTE ORDINANCE VIOLATION",
+   13
+  ],
+  [
+   "SIDEWALK CAFE ISSUES",
+   13
+  ],
+  [
+   "NEW CONSTRUCTION EROSION ISSUES",
+   10
+  ],
+  [
+   "OLD QALERT: REQUEST STREET NAME SIGN",
+   7
+  ],
+  [
+   "OLD QALERT: REQUEST TRAFFIC SIGN",
+   4
+  ],
+  [
+   "OLD QALERT: REQUEST DEBRIS REMOVAL - PUBLIC PROPERTY",
+   3
+  ],
+  [
+   "OLD QALERT: DAMAGED TRAFFIC SIGN",
+   2
+  ],
+  [
+   "OLD STANDING WATER - DO NOT USE",
+   1
+  ],
+  [
+   "CAVE-IN/SINK HOLE (SEWER RELATED)",
+   1
+  ]
+ ],
+ "Bloomington": [
+  [
+   "Trash",
+   43647
+  ],
+  [
+   "Recycling",
+   19199
+  ],
+  [
+   "Excessive Growth",
+   9774
+  ],
+  [
+   "Potholes, Other Street Repair",
+   7168
+  ],
+  [
+   "Other",
+   4903
+  ],
+  [
+   "Yard Waste",
+   4753
+  ],
+  [
+   "Temporary Signage w/o permit",
+   2604
+  ],
+  [
+   "Sidewalk Snow Removal",
+   2310
+  ],
+  [
+   "Street Lights",
+   2194
+  ],
+  [
+   "Water Utility Problems",
+   2105
+  ],
+  [
+   "Sewer Problems (Sanitary Sewers)",
+   1692
+  ],
+  [
+   "Blocked Sidewalk",
+   1618
+  ],
+  [
+   "Parks & Playgrounds",
+   1577
+  ],
+  [
+   "Blocked Street",
+   1404
+  ],
+  [
+   "Sidewalk & Curb Complaints",
+   1392
+  ],
+  [
+   "Parking on Unimproved Surface",
+   1389
+  ],
+  [
+   "Traffic Related Complaints",
+   1264
+  ],
+  [
+   "Street Snow Removal",
+   1195
+  ],
+  [
+   "Traffic Signals",
+   1139
+  ],
+  [
+   "Trails",
+   1117
+  ],
+  [
+   "Street & Traffic Signs",
+   1076
+  ],
+  [
+   "Water Quality",
+   1003
+  ],
+  [
+   "Line of Sight",
+   985
+  ],
+  [
+   "Graffiti",
+   931
+  ],
+  [
+   "Biking & Walking",
+   913
+  ],
+  [
+   "Animal Control & Neglected Pets",
+   906
+  ],
+  [
+   "Debris Removal (Sand, General Street Debris)",
+   899
+  ],
+  [
+   "City Performance",
+   855
+  ],
+  [
+   "Website & Web Services Feedback",
+   805
+  ],
+  [
+   "Unsafe Buildings",
+   659
+  ],
+  [
+   "Parking Meters and Citations",
+   593
+  ],
+  [
+   "Sewer Problems (Storm Sewers)",
+   586
+  ],
+  [
+   "Drainage or Runoff",
+   578
+  ],
+  [
+   "Traffic Suggestions",
+   574
+  ],
+  [
+   "Street Trees",
+   565
+  ],
+  [
+   "Abandoned Vehicle",
+   553
+  ],
+  [
+   "Water Utility Billing Problems",
+   362
+  ],
+  [
+   "City Construction Projects",
+   323
+  ],
+  [
+   "Sidewalk Requests",
+   284
+  ],
+  [
+   "Scooters, Bike-share and Related Issues",
+   267
+  ],
+  [
+   "Fire Hazards",
+   264
+  ],
+  [
+   "Business",
+   237
+  ],
+  [
+   "Nuisance Lights",
+   213
+  ],
+  [
+   "Parks & Rec Buildings",
+   206
+  ],
+  [
+   "Parking Permits",
+   184
+  ],
+  [
+   "Accessibility Problem",
+   168
+  ],
+  [
+   "Inaccessible Parking",
+   138
+  ],
+  [
+   "Request a new Street Light",
+   138
+  ],
+  [
+   "Parks & Rec Programs",
+   132
+  ],
+  [
+   "Wildlife Conflict",
+   131
+  ],
+  [
+   "Bus Services (Bloomington Transit)",
+   125
+  ],
+  [
+   "Utilities Construction",
+   124
+  ],
+  [
+   "Leaf Collection",
+   93
+  ],
+  [
+   "Utility Construction Projects",
+   71
+  ],
+  [
+   "Utilities Yardwork",
+   67
+  ],
+  [
+   "Parking Garages",
+   51
+  ],
+  [
+   "Report issues with BIRD scooters",
+   41
+  ],
+  [
+   "Smoking Violation",
+   36
+  ],
+  [
+   "Report issues with Lime scooters",
+   23
+  ],
+  [
+   "Illicit Discharge (Storm Sewers)",
+   21
+  ],
+  [
+   "Food Truck Issues",
+   19
+  ],
+  [
+   "Open311 API Key Request",
+   17
+  ],
+  [
+   "Report issues with Veo Scooters",
+   7
+  ],
+  [
+   "Taxi Complaints",
+   5
+  ],
+  [
+   "GIS Issue",
+   4
+  ],
+  [
+   "Crow Sightings",
+   3
+  ]
+ ],
+ "Richmond": [
+  [
+   "Trash/Bulk Pick-ups",
+   23379
+  ],
+  [
+   "Potholes",
+   6246
+  ],
+  [
+   "Other",
+   4487
+  ],
+  [
+   "Overgrown Lots",
+   3166
+  ],
+  [
+   "Non-functioning Street Lights",
+   3086
+  ],
+  [
+   "Illegal Dumping",
+   1479
+  ],
+  [
+   "Abandoned Cars",
+   687
+  ],
+  [
+   "Open and Vacant Properties",
+   414
+  ],
+  [
+   "Non-functioning Traffic Lights",
+   329
+  ]
+ ],
+ "Auburn_WA": [
+  [
+   "Dumping Trash or Debris",
+   5547
+  ],
+  [
+   "Nuisance Vehicle/Illegal Parking",
+   5014
+  ],
+  [
+   "Graffiti",
+   2079
+  ],
+  [
+   "Pothole or Road Condition",
+   1169
+  ],
+  [
+   "Other",
+   1098
+  ],
+  [
+   "Street Sign",
+   1043
+  ],
+  [
+   "Street Lighting",
+   946
+  ],
+  [
+   "Sidewalk",
+   735
+  ],
+  [
+   "Shopping Cart",
+   714
+  ],
+  [
+   "Vegetation and/or Trees",
+   685
+  ],
+  [
+   "Street/Road",
+   684
+  ],
+  [
+   "Storm Drainage",
+   568
+  ],
+  [
+   "Water",
+   534
+  ],
+  [
+   "Tree",
+   520
+  ],
+  [
+   "Traffic Issue - General",
+   456
+  ],
+  [
+   "Traffic - Speeding Concern",
+   437
+  ],
+  [
+   "Dead Animal",
+   395
+  ],
+  [
+   "Vegetation",
+   329
+  ],
+  [
+   "Traffic Signal",
+   302
+  ],
+  [
+   "Street Sweeping",
+   273
+  ],
+  [
+   "Fence",
+   223
+  ],
+  [
+   "Sanitary Sewer",
+   221
+  ],
+  [
+   "Water Quality and/or Appearance",
+   135
+  ],
+  [
+   "Sight Distance",
+   130
+  ],
+  [
+   "Guardrail",
+   80
+  ],
+  [
+   "Residential Solid Waste (WM or Republic) Concern",
+   33
+  ],
+  [
+   "ADA Access",
+   24
+  ],
+  [
+   "Traffic Safety",
+   2
+  ],
+  [
+   "Residential Traffic Concern",
+   2
+  ],
+  [
+   "Emergency Notification",
+   1
+  ]
+ ],
+ "Gainesville": [
+  [
+   "Road Repair",
+   1251
+  ],
+  [
+   "General Code Issue",
+   1213
+  ],
+  [
+   "Trash/Debris (Private Property)",
+   1120
+  ],
+  [
+   "Other",
+   1098
+  ],
+  [
+   "Streetlight/Lamp",
+   963
+  ],
+  [
+   "Vehicle (Abandoned/Non-Operational)",
+   896
+  ],
+  [
+   "Trash/Debris (Public Property)",
+   604
+  ],
+  [
+   "Grass (Overgrown)",
+   594
+  ],
+  [
+   "Tree/Limbs (Public Property)",
+   550
+  ],
+  [
+   "Traffic/Pedestrian Signal",
+   543
+  ],
+  [
+   "Right-of-Way Maintenance",
+   505
+  ],
+  [
+   "Street Sign",
+   503
+  ],
+  [
+   "Sidewalk Repair",
+   480
+  ],
+  [
+   "Parking in Yard (Other Than Driveway)",
+   414
+  ],
+  [
+   "Garbage Pick Up & Recycling",
+   414
+  ],
+  [
+   "Park Repair or Clean Up",
+   384
+  ],
+  [
+   "Parking Enforcement",
+   357
+  ],
+  [
+   "Noise Complaint",
+   309
+  ],
+  [
+   "Maintenance Ditch/Drainage/Flooding",
+   286
+  ],
+  [
+   "Building (Abandoned/Damaged)",
+   284
+  ],
+  [
+   "Trash / Debris (Public Property)",
+   254
+  ],
+  [
+   "General Police Enforcement",
+   219
+  ],
+  [
+   "Traffic / Pedestrian Signal within City Limits",
+   213
+  ],
+  [
+   "Emergency - Tree or Brush Debris",
+   204
+  ],
+  [
+   "Tree / Limbs (Public Property)",
+   199
+  ],
+  [
+   "Neighbor Assistance - myGNV",
+   184
+  ],
+  [
+   "Trash / Debris (Private Property)",
+   160
+  ],
+  [
+   "Residential Rental Maintenance",
+   141
+  ],
+  [
+   "Traffic Enforcement",
+   140
+  ],
+  [
+   "Streetlight Repair",
+   134
+  ],
+  [
+   "Emergency - Other",
+   131
+  ],
+  [
+   "Street Sign Repair",
+   130
+  ],
+  [
+   "Tree/Limbs (Private Property)",
+   125
+  ],
+  [
+   "Dead Animal (Public Property)",
+   115
+  ],
+  [
+   "Mosquito Control",
+   112
+  ],
+  [
+   "Abandoned Vehicle",
+   90
+  ],
+  [
+   "Overgrown Grass",
+   76
+  ],
+  [
+   "Flooding & Ditch Maintenance",
+   75
+  ],
+  [
+   "Tree Planting Suggestion",
+   73
+  ],
+  [
+   "New Infrastructure",
+   68
+  ],
+  [
+   "Graffiti",
+   57
+  ],
+  [
+   "Parking Meter Malfunction",
+   55
+  ],
+  [
+   "Water Pipe Leaks/Spills",
+   55
+  ],
+  [
+   "Tree / Limbs (Private Property)",
+   52
+  ],
+  [
+   "Leaks",
+   51
+  ],
+  [
+   "Request for New Streetlight/Lamp",
+   47
+  ],
+  [
+   "Neighbor Assistance - Clerk",
+   47
+  ],
+  [
+   "Parking in Yard",
+   37
+  ],
+  [
+   "e-Scooter Issues",
+   37
+  ],
+  [
+   "Substandard Rental Housing",
+   35
+  ],
+  [
+   "Emergency - Flooding",
+   33
+  ],
+  [
+   "Dangerous Buildings",
+   32
+  ],
+  [
+   "Sewer/Wastewater",
+   32
+  ],
+  [
+   "Graffiti (Public Property)",
+   31
+  ],
+  [
+   "Construction Sites",
+   30
+  ],
+  [
+   "Wastewater & Sewer",
+   24
+  ],
+  [
+   "Traffic / Pedestrian Signal in Unincorporated Alachua County",
+   22
+  ],
+  [
+   "Holiday Displays",
+   18
+  ],
+  [
+   "Fire Hydrant issues",
+   15
+  ],
+  [
+   "Request Follow Up",
+   14
+  ],
+  [
+   "Water & Sewer",
+   13
+  ],
+  [
+   "Fire Hydrant Issues",
+   12
+  ],
+  [
+   "Health and Wellness Concerns",
+   11
+  ],
+  [
+   "Flooding",
+   10
+  ],
+  [
+   "Flooding Issues",
+   10
+  ],
+  [
+   "Blocked Exits",
+   9
+  ],
+  [
+   "Neighborhood Watch Signs",
+   7
+  ],
+  [
+   "Trash / Debris (Roads)",
+   6
+  ],
+  [
+   "Request a meeting with a City Commissioner",
+   5
+  ],
+  [
+   "Inspections",
+   5
+  ],
+  [
+   "New Streetlight",
+   5
+  ],
+  [
+   "Street Sweeping",
+   4
+  ],
+  [
+   "Low Pressure",
+   4
+  ],
+  [
+   "Say Thanks!",
+   4
+  ],
+  [
+   "Trees Near Wires or Cables",
+   4
+  ],
+  [
+   "Tree Blocking Street",
+   3
+  ],
+  [
+   "Substandard Commercial Rentals",
+   3
+  ],
+  [
+   "Smoke Detector Installation",
+   3
+  ],
+  [
+   "Request to General Manager of Utilities",
+   3
+  ],
+  [
+   "Emergency - Traffic",
+   2
+  ],
+  [
+   "Other Issues",
+   2
+  ],
+  [
+   "Animal Complaints",
+   1
+  ],
+  [
+   "Tree / Brush Debris",
+   1
+  ],
+  [
+   "Request to City Auditor's Office",
+   1
+  ],
+  [
+   "Request for New Signal",
+   1
+  ],
+  [
+   "Overcrowding",
+   1
+  ],
+  [
+   "Sign Violations",
+   1
+  ]
+ ],
+ "Honolulu": [
+  [
+   "Trees – Park & Street",
+   414
+  ],
+  [
+   "Other",
+   282
+  ],
+  [
+   "Streetlight",
+   168
+  ],
+  [
+   "Beach/Park",
+   148
+  ],
+  [
+   "Pothole",
+   134
+  ],
+  [
+   "Street Sign (existing street sign missing/damaged)",
+   133
+  ],
+  [
+   "Traffic Signal",
+   131
+  ],
+  [
+   "Debris/Litter/Dumping",
+   109
+  ],
+  [
+   "Residential (including zoning violations, and obstructed or damaged sidewalks)",
+   70
+  ],
+  [
+   "Homeless – Encampments (bridges, streams, roadways, sidewalks)",
+   58
+  ],
+  [
+   "Stream/Canal Cleaning",
+   51
+  ],
+  [
+   "Feral Chicken Nuisance",
+   42
+  ],
+  [
+   "Bus/Handi-Van",
+   42
+  ],
+  [
+   "Homeless – Beach/Park",
+   37
+  ],
+  [
+   "Refuse/Bulky Item",
+   36
+  ],
+  [
+   "Overgrowth Along Roadway (non-tree)",
+   35
+  ],
+  [
+   "Sidewalk Repair",
+   35
+  ],
+  [
+   "Homeless – Living in Vehicle",
+   34
+  ],
+  [
+   "Storm Drain Clogged",
+   32
+  ],
+  [
+   "Illegal Dumping for Residential",
+   30
+  ],
+  [
+   "Sidewalk Uplift Due to Tree",
+   29
+  ],
+  [
+   "Street Sign (new installation/relocation)",
+   26
+  ],
+  [
+   "Curb/Gutter Damage/Uplift",
+   25
+  ],
+  [
+   "Homeless – Stored Property/Sidewalk Nuisance (SPO/SNO)",
+   25
+  ],
+  [
+   "Homeless – Clean Up (shopping carts, biohazard)",
+   23
+  ],
+  [
+   "Bus Facility Clean Up",
+   22
+  ],
+  [
+   "Restriping",
+   22
+  ],
+  [
+   "Building Code (e.g., construction of structures without a permit)",
+   18
+  ],
+  [
+   "Homeless – Sitting or Lying on Public Sidewalks",
+   17
+  ],
+  [
+   "Roadside Debris/Litter",
+   16
+  ],
+  [
+   "Illegal Dumping for Non-Residential",
+   16
+  ],
+  [
+   "Pavement Markings Faded",
+   14
+  ],
+  [
+   "Drug Activity",
+   14
+  ],
+  [
+   "Manhole Sunken/Raised",
+   13
+  ],
+  [
+   "Electrical Code",
+   12
+  ],
+  [
+   "Dead Animal in Road (Rural Oahu)",
+   12
+  ],
+  [
+   "Submit a Crime Tip",
+   10
+  ],
+  [
+   "Bus Stop Litter Can Problem",
+   10
+  ],
+  [
+   "Commercial or Multi-Family (apartment buildings), Including Zoning Violations",
+   10
+  ],
+  [
+   "Homeless – Well-being Check (not safety/illegal activity issue, removal, or clean up)",
+   9
+  ],
+  [
+   "Bike Path Pavement Problem",
+   9
+  ],
+  [
+   "Fire Hydrant",
+   9
+  ],
+  [
+   "Guardrail/Wall/Fence Issue",
+   9
+  ],
+  [
+   "Water Ponding on Road",
+   8
+  ],
+  [
+   "Graffiti City Roadway Facilities",
+   8
+  ],
+  [
+   "Dead Animal in Road (Honolulu and Aiea)",
+   8
+  ],
+  [
+   "Storm Drain Inlet Damaged",
+   6
+  ],
+  [
+   "Storm Water Pollution Discharge",
+   6
+  ],
+  [
+   "Motor Vehicle Registration/Title",
+   6
+  ],
+  [
+   "Skyline",
+   6
+  ],
+  [
+   "Business License & Loading Zone Permits",
+   5
+  ],
+  [
+   "Parking Meter Broken/Missing",
+   5
+  ],
+  [
+   "Short-Term Rental",
+   5
+  ],
+  [
+   "Median Sprinkler Problem",
+   5
+  ],
+  [
+   "Street Sweeping Issue",
+   5
+  ],
+  [
+   "Bicycle/Moped Registration",
+   3
+  ],
+  [
+   "Sink Hole Under Road",
+   3
+  ],
+  [
+   "Game Houses/Gambling",
+   2
+  ],
+  [
+   "Botanical Gardens",
+   2
+  ],
+  [
+   "Mechanical Code (e.g., plumbing, ventilation, air conditioning)",
+   2
+  ],
+  [
+   "Liquor Commission",
+   2
+  ],
+  [
+   "Driver's License Services",
+   1
+  ],
+  [
+   "Gang Activity",
+   1
+  ],
+  [
+   "Building Permits – Storm Water Best Management Practices",
+   1
+  ],
+  [
+   "Building Permit Status",
+   1
+  ],
+  [
+   "Illegal Storm Drain Connection",
+   1
+  ],
+  [
+   "Development in the Shoreline or Special Management Areas",
+   1
+  ],
+  [
+   "Community Gardens",
+   1
+  ],
+  [
+   "Disability Parking Permits",
+   1
+  ],
+  [
+   "Civil Engineering (grading or trenching within the City right-of-way)",
+   1
+  ]
+ ],
+ "SanFrancisco": [
+  [
+   "Street and Sidewalk Cleaning",
+   3471795
+  ],
+  [
+   "Graffiti",
+   870421
+  ],
+  [
+   "Parking Enforcement",
+   847775
+  ],
+  [
+   "Encampments",
+   394311
+  ],
+  [
+   "Abandoned Vehicle",
+   297241
+  ],
+  [
+   "MUNI Feedback",
+   233512
+  ],
+  [
+   "General Request - PUBLIC WORKS",
+   194371
+  ],
+  [
+   "Tree Maintenance",
+   174351
+  ],
+  [
+   "Graffiti Public",
+   167605
+  ],
+  [
+   "Sewer Issues",
+   141583
+  ],
+  [
+   "Damaged Property",
+   138729
+  ],
+  [
+   "Illegal Postings",
+   134723
+  ],
+  [
+   "General Request - MTA",
+   129541
+  ],
+  [
+   "General Request",
+   105680
+  ],
+  [
+   "Litter Receptacles",
+   105571
+  ],
+  [
+   "Encampment",
+   99938
+  ],
+  [
+   "Street Defects",
+   99858
+  ],
+  [
+   "Sign Repair",
+   99661
+  ],
+  [
+   "Streetlights",
+   99199
+  ],
+  [
+   "Rec and Park Requests",
+   98250
+  ],
+  [
+   "Sidewalk or Curb",
+   86623
+  ],
+  [
+   "SFHA Requests",
+   74283
+  ],
+  [
+   "Noise Report",
+   62018
+  ],
+  [
+   "Graffiti Private",
+   53752
+  ],
+  [
+   "Blocked Street or SideWalk",
+   44067
+  ],
+  [
+   "General Request - DPH",
+   38741
+  ],
+  [
+   "Muni Service Feedback",
+   37154
+  ],
+  [
+   "General Request - PUC",
+   36010
+  ],
+  [
+   "Muni Employee Feedback",
+   36000
+  ],
+  [
+   "Noise",
+   32790
+  ],
+  [
+   "Blocked Street and Sidewalk",
+   32479
+  ],
+  [
+   "Sidewalk and Curb",
+   31201
+  ],
+  [
+   "Homeless Concerns",
+   29498
+  ],
+  [
+   "Temporary Sign Request",
+   28454
+  ],
+  [
+   "Residential Building Request",
+   25666
+  ],
+  [
+   "Sewer",
+   25397
+  ],
+  [
+   "RPD General",
+   25266
+  ],
+  [
+   "311 External Request",
+   23562
+  ],
+  [
+   "Litter Receptacle Maintenance",
+   21969
+  ],
+  [
+   "Street Defect",
+   20655
+  ],
+  [
+   "General Request - 311CUSTOMERSERVICECENTER",
+   17174
+  ],
+  [
+   "MTA Parking Traffic Signs Normal Priority",
+   17061
+  ],
+  [
+   "General Request - BUILDING INSPECTION",
+   17049
+  ],
+  [
+   "Damage Property",
+   16930
+  ],
+  [
+   "Color Curb",
+   15487
+  ],
+  [
+   "Construction Zone Permits",
+   13092
+  ],
+  [
+   "General Request - ANIMAL CARE CONTROL",
+   9703
+  ],
+  [
+   "Residential Building",
+   9643
+  ],
+  [
+   "Catch Basin Maintenance",
+   9373
+  ],
+  [
+   "Child Request",
+   8738
+  ],
+  [
+   "MTA Parking Traffic Signs High Priority",
+   6762
+  ],
+  [
+   "Shared Spaces Violation",
+   6368
+  ],
+  [
+   "General Request - RENT BOARD",
+   5426
+  ],
+  [
+   "Shared Spaces Request",
+   4695
+  ],
+  [
+   "General Request - RPD",
+   3747
+  ],
+  [
+   "General Request - SFPD",
+   3413
+  ],
+  [
+   "General Request - CITY ATTORNEY",
+   3254
+  ],
+  [
+   "General Request - MONS",
+   3012
+  ],
+  [
+   "General Request - FIRE DEPARTMENT",
+   2913
+  ],
+  [
+   "General Request - PLANNING",
+   2892
+  ],
+  [
+   "DPW Volunteer Programs",
+   2527
+  ],
+  [
+   "General Request - DTIS",
+   1877
+  ],
+  [
+   "General Request - HSH",
+   1572
+  ],
+  [
+   "General Request - PORT AUTHORITY",
+   1180
+  ],
+  [
+   "General Request - BOARD OF SUPERVISORS",
+   1113
+  ],
+  [
+   "General Request - HUMAN SERVICES AGENCY",
+   989
+  ],
+  [
+   "General Request - COUNTY CLERK",
+   928
+  ],
+  [
+   "Autonomous Vehicle Complaints",
+   909
+  ],
+  [
+   "General Request - ENTERTAINMENT COMMISSION",
+   733
+  ],
+  [
+   "General Request - MOD",
+   730
+  ],
+  [
+   "Temporary Sign Applications",
+   696
+  ],
+  [
+   "Water Quality",
+   679
+  ],
+  [
+   "General Request - HUMAN RESOURCES",
+   550
+  ],
+  [
+   "General Request - DPT",
+   519
+  ],
+  [
+   "General Request - DISTRICT ATTORNEY",
+   518
+  ],
+  [
+   "General Request - ART COMMISSION",
+   514
+  ],
+  [
+   "Taxi Complaint",
+   494
+  ],
+  [
+   "General Request - ENVIRONMENT",
+   382
+  ],
+  [
+   "General Request - CITY HALL",
+   381
+  ],
+  [
+   "General Request - MOCD",
+   372
+  ],
+  [
+   "General Request - TAXI COMMISSION",
+   372
+  ],
+  [
+   "Citations Questions Comments",
+   361
+  ],
+  [
+   "General Request - OCC",
+   360
+  ],
+  [
+   "General Request - MOH",
+   356
+  ],
+  [
+   "General Request - CITYADMINISTRATOR GSA",
+   338
+  ],
+  [
+   "General Request -",
+   336
+  ],
+  [
+   "Waste of Water",
+   322
+  ],
+  [
+   "General Request - TT COLLECTOR",
+   308
+  ],
+  [
+   "General Request - ELECTIONS",
+   270
+  ],
+  [
+   "General Request - SMALL BUSINESS",
+   265
+  ],
+  [
+   "General Request - LABOR STANDARDS ENFORCEMENT",
+   258
+  ],
+  [
+   "General Request - CONTROLLER",
+   249
+  ],
+  [
+   "311 Complaints",
+   247
+  ],
+  [
+   "General Request - ECONOMICS AND WORKFORCE DEVELOPMENT",
+   232
+  ],
+  [
+   "General Request - ASSESSOR RECORDER",
+   230
+  ],
+  [
+   "General Request - LIBRARY PUBLIC",
+   207
+  ],
+  [
+   "General Request - SHERIFF",
+   191
+  ],
+  [
+   "General Request - SHORT TERM RENTALS",
+   190
+  ],
+  [
+   "General Request - CENTRAL SHOPS",
+   187
+  ],
+  [
+   "General Request - HUMAN RIGHTS COMMISSION",
+   167
+  ],
+  [
+   "Citations Payment Status",
+   165
+  ],
+  [
+   "OOC Feedback",
+   160
+  ],
+  [
+   "General Request - REAL ESTATE DEPARTMENT",
+   160
+  ],
+  [
+   "Citations Protest Status",
+   156
+  ],
+  [
+   "Volunteer Programs",
+   153
+  ],
+  [
+   "General Request - AGING ADULT SERVICES",
+   149
+  ],
+  [
+   "RPP Application Status",
+   142
+  ],
+  [
+   "General Request - CONTRACT ADMINISTRATION",
+   128
+  ],
+  [
+   "General Request - FILM COMMISSION",
+   108
+  ],
+  [
+   "General Request - TIDA",
+   90
+  ],
+  [
+   "General Request - MEDICAL EXAMINER",
+   90
+  ],
+  [
+   "General Request - CHILDSUPPORTSERVICES",
+   90
+  ],
+  [
+   "General Request - AIRPORT SFO",
+   89
+  ],
+  [
+   "RPP Questions Comments",
+   82
+  ],
+  [
+   "Information Provided",
+   81
+  ],
+  [
+   "General Request - CHILDREN YOUTH FAMILIES",
+   80
+  ],
+  [
+   "General Request - MOCJ",
+   76
+  ],
+  [
+   "General Request - ETHICS COMMISSION",
+   56
+  ],
+  [
+   "General Request - PUBLIC DEFENDER",
+   52
+  ],
+  [
+   "General Request - ADULT PROBATION",
+   43
+  ],
+  [
+   "General Request - DEM",
+   39
+  ],
+  [
+   "General Request - STATUS OF WOMEN",
+   25
+  ],
+  [
+   "General Request - LANGUAGE SERVICES",
+   23
+  ],
+  [
+   "General Request - AGINGADULTSERVICES",
+   23
+  ],
+  [
+   "Taxi Compliment",
+   21
+  ],
+  [
+   "General Request - WAR MEMORIAL",
+   15
+  ],
+  [
+   "General Request - CITY COLLEGE",
+   13
+  ],
+  [
+   "Charging Station Site Nomination",
+   12
+  ],
+  [
+   "General Request - MUNI",
+   11
+  ],
+  [
+   "General Request - CONVENTION FACILITIES",
+   10
+  ],
+  [
+   "Service Request Copy",
+   9
+  ],
+  [
+   "General Request - JUVENILE PROBATION",
+   6
+  ],
+  [
+   "General Request - BOARD OF APPEALS",
+   5
+  ],
+  [
+   "General Request - RISK MANAGEMENT",
+   4
+  ],
+  [
+   "Escalation Callback",
+   3
+  ],
+  [
+   "General Request - GRANTS FOR THE ARTS",
+   3
+  ],
+  [
+   "Outbound Email",
+   3
+  ],
+  [
+   "Well-Being Check",
+   2
+  ],
+  [
+   "Records Request",
+   2
+  ],
+  [
+   "Followup",
+   2
+  ],
+  [
+   "TTX General",
+   2
+  ],
+  [
+   "Outbound Call",
+   1
+  ],
+  [
+   "General Request - REDEVELOPMENT AGENCY",
+   1
+  ],
+  [
+   "v15",
+   1
+  ],
+  [
+   "General Request - MUSEUMS",
+   1
+  ],
+  [
+   "Waitlist Request",
+   1
+  ],
+  [
+   "Behavioral Third Party",
+   1
+  ],
+  [
+   "Aggressive/Threatening",
+   1
+  ],
+  [
+   "Tent Count",
+   1
+  ]
+ ]
+}

@@ -1,0 +1,2242 @@
+[
+ {
+  "city": "BatonRouge",
+  "native": "POTHOLE",
+  "gold": "Streets_Sidewalks",
+  "pred": "Streets_Sidewalks",
+  "correct": true,
+  "text": "POTHOLE ACROSS THE STREET FROM 20412 HOO SHOO TOO & MONTRACHET DRIVE, BATON ROUGE LA  70817"
+ },
+ {
+  "city": "BatonRouge",
+  "native": "MISSING GARBAGE CART",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "REPLACE MISSING CART BURN UP IN A FIRE"
+ },
+ {
+  "city": "BatonRouge",
+  "native": "MISSED GARBAGE SERVICE DAY (GENERAL PICK-UP)",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "CALLER GARBAGE WAS MISSED ON 9THURS. 1/4/24) NO OOPS CARD LEFT..., GAVE ID#"
+ },
+ {
+  "city": "BatonRouge",
+  "native": "MISSED GARBAGE SERVICE DAY (GENERAL PICK-UP)",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "ENTIRE STREET GARBAGE CARTS HASN�T BEEN SERVICED TODAY (FRI 4/19)"
+ },
+ {
+  "city": "BatonRouge",
+  "native": "INSIDE RESIDENTIAL BACKUP",
+  "gold": "Waste_Sanitation",
+  "pred": "Property_Housing_Code",
+  "correct": false,
+  "text": "B/U RECEIPT ON HAND"
+ },
+ {
+  "city": "BatonRouge",
+  "native": "MISSED GARBAGE SERVICE DAY (GENERAL PICK-UP)",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "I PUT IN A REQUEST BECAUSE OUR GARBAGE WASN�T PICKED UP 2 TIMES IN A ROW. Y�ALL SENT ME A MESSAGE TO LEAVE IT OUT AND THEY WOULD GET IT THE FIRST THING THE NEXT MORNING AND STILL NO ONE PICKED IT UP. WE HAVE SO MUCH GARBAGE WE CAN�T EVEN GET IT ALL IN THE CAN NOW AND THERE ARE FLIES EVERYWHERE AND POSSUM TEARING IT UP. I DON�T KNOW WHAT ELSE TO DO WE PULLED EVERYTHING BACK IN SINCE NO ONE EVER CAME BUT THE SMELL IS TERRIBLE AND THE ANIMALS ARE TEARING IT UP EVERYWHERE (THE CAN HAS NO LID, IT HASN�T HAD ONE SINCE WE MOVED HERE) I�VE PUT IN A REQUEST TO SEE WHAT WE CAN DO ABOUT GETTING ONE WITH A LID BUT NO ONE HAS RESPONDED YET. WE JUST HAVE SO MUCH GARBAGE PILING UP EVERYWHERE AT THIS POINT AND IT�S EXTREMELY UNSANITARY. I HAVE 2 SPECIAL NEEDS PRESCHOOLERS AND I HATE TO EVEN BRING THEM OUT TO GET FRESH AIR BECAUSE OR THE STENCH AND THE BUGS."
+ },
+ {
+  "city": "BatonRouge",
+  "native": "SIDEWALK ISSUE",
+  "gold": "Streets_Sidewalks",
+  "pred": "Streets_Sidewalks",
+  "correct": true,
+  "text": "CALLED IN BY TONEISHA HAWKINS.  #554 ROBERT BUSBY WENT TO LOCATION 2/16/24 @ 12:36 PM FOR BROKEN SIDEWALK LOCATED IN THE REAR.  HE PLACED 2 BARS, 2 LEGS, 2 CONES, 40 FT. FENCE AND 8 STAKES.  AFTER JOB IS COMPLETE PLEASE CHANGE TYPE TO  BARRICADE PICK UP ........SO SOMEONE FROM OUR DIVISION CAN PROPERLY PICK UP."
+ },
+ {
+  "city": "BatonRouge",
+  "native": "POTHOLE",
+  "gold": "Streets_Sidewalks",
+  "pred": "Streets_Sidewalks",
+  "correct": true,
+  "text": "LARGE POTHOLE NEAR CASUAL CREATION ON PERKINS RD. ALSO SEVERAL BEFORE PECUE LN. HAD TO REPLACE A TIRE."
+ },
+ {
+  "city": "BatonRouge",
+  "native": "MISSED WOODY WASTE SERVICE",
+  "gold": "Waste_Sanitation",
+  "pred": "Trees_Vegetation",
+  "correct": false,
+  "text": "TREE LIMBS THAT WAS NOT PICKED-UP ON LAST WEDNESDAY (05/15/24)."
+ },
+ {
+  "city": "BatonRouge",
+  "native": "MISSED WOODY WASTE SERVICE",
+  "gold": "Waste_Sanitation",
+  "pred": "Trees_Vegetation",
+  "correct": false,
+  "text": "PLEASE REMOVE TREE TRIMMINGS. THANKS A BUNCH!"
+ },
+ {
+  "city": "BatonRouge",
+  "native": "CAVE-IN/SINK HOLE (DRAINAGE RELATED)",
+  "gold": "Water_Sewer_Drainage",
+  "pred": "Streets_Sidewalks",
+  "correct": false,
+  "text": "CALLER STATED THERES A SINKHOLE LOCATED ON THE CORNER OF LSU AVE AND HARVARD AVE..NEEDS TO BE REPAIRED"
+ },
+ {
+  "city": "BatonRouge",
+  "native": "DAMAGED STREET NAME SIGN",
+  "gold": "Traffic_Signals_Signs",
+  "pred": "Traffic_Signals_Signs",
+  "correct": true,
+  "text": "CALLER STATED THAT THE STREET SIGN AT THE ABOVE LOCATION YOU CAN NOT READ IT ANYMORE..., GAVE ID#"
+ },
+ {
+  "city": "BatonRouge",
+  "native": "SIDEWALK ISSUE",
+  "gold": "Streets_Sidewalks",
+  "pred": "Streets_Sidewalks",
+  "correct": true,
+  "text": "CALLER STATE THAT THE SIDEWALK IS CRACKED NEXT TO THE RIGHT OF THE DRIVE WAY.   GIVEN TO 552  AT 4:40  AFTER JOB IS COMPLETE PLEASE CHANGE TYPE TO  BARRICADE PICK UP ........SO SOMEONE FROM OUR DIVISION CAN PROPERLY PICK UP."
+ },
+ {
+  "city": "BatonRouge",
+  "native": "STOLEN RECYCLING CART",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "CALLER STATED THAT THE RECYCLING CART IS MISSING ..., GAVE ID#"
+ },
+ {
+  "city": "BatonRouge",
+  "native": "JUNK, TRASH, OR DEBRIS ON PRIVATE PROPERTY",
+  "gold": "Waste_Sanitation",
+  "pred": "Trees_Vegetation",
+  "correct": false,
+  "text": "WEDNESDAY JUNE 12, 2024; DIRECTLY ON ASTER STREET ARE SEVERAL PILES OF OVERSIZED TREE STUMPS/TREE LIMBS, THAT IS OVERFLOWING INTO THE STREET OF ONCOMING TRAFFIC.  LOCATED BETWEEN RIVER ROAD & RAILROAD TRACK. HORRIBLE & DANGEROUS. THE OVERSIZED STUMPS IS PILED TOO HIGH & ITS GOING TO RAIN NEXT WEEK & THE STUMPS WILL FALL ONTO THE STREET/S OR ONTO A PEDESTRIAN OR LSU STUDENT. PLEASE PICK UP ASAP BEFORE SOMEONE GETS HURT. THEY WILL FALL IF NOT REMOVED SOON."
+ },
+ {
+  "city": "BatonRouge",
+  "native": "MISSED RECYCLING SERVICE",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "MISSED RECYCLING SERVICE"
+ },
+ {
+  "city": "BatonRouge",
+  "native": "DAMAGED GARBAGE CART",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "96-GAL CART/ HOLE IN CART AND LID MISSING"
+ },
+ {
+  "city": "BatonRouge",
+  "native": "MISSING GARBAGE CART",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "CALLER STATED THAT HER 96 GALLON GARBAGE CART FELL INTO THE TRUCK.  GAVE CALLER ID NUMBER."
+ },
+ {
+  "city": "BatonRouge",
+  "native": "DAMAGED GARBAGE CART",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "PLEASE REPLACE MY GARBAGE CART WITH A NEW ONE."
+ },
+ {
+  "city": "BatonRouge",
+  "native": "MISSED WOODY WASTE SERVICE",
+  "gold": "Waste_Sanitation",
+  "pred": "Trees_Vegetation",
+  "correct": false,
+  "text": "CALLER STATED THAT THE TREE DEBRIS BEEN MISSED FOR TWO WEEKS."
+ },
+ {
+  "city": "BatonRouge",
+  "native": "POTHOLE",
+  "gold": "Streets_Sidewalks",
+  "pred": "Streets_Sidewalks",
+  "correct": true,
+  "text": "GIANT HOLE LEFT LANE"
+ },
+ {
+  "city": "BatonRouge",
+  "native": "MISSING GARBAGE CART",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "LOT #12 NEEDS NEW CAN, HES BORROWING MINE FROM MAIL ROOM.  WHEELS ARE PAINTED SILVER."
+ },
+ {
+  "city": "BatonRouge",
+  "native": "MISSED GARBAGE SERVICE DAY (GENERAL PICK-UP)",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "HI, MY TRASH HASNT BEEN PICKED UP SINCE LAST WEEK. I LIVE ON RED OAK DR. 70815. IVE BEEN LEAVING IT NEAR THE STREET. I LIVE IN THE TOWNHOME/SUBDIVISION AND WE ALL LINE THE TRASH CANS NEAR THE STREET, BUT ITS NOT BEING EMPTIED. CAN SOMETHING BE DONE ABOUT IT?"
+ },
+ {
+  "city": "BatonRouge",
+  "native": "NEW RESIDENT REQUEST FOR GARBAGE CART",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "NEW CART"
+ },
+ {
+  "city": "BatonRouge",
+  "native": "POTHOLE",
+  "gold": "Streets_Sidewalks",
+  "pred": "Streets_Sidewalks",
+  "correct": true,
+  "text": "POTHOLE/PAVEMENT WASHOUT NEAR THE INTERSECTION OF LEE DRIVE AND HYACINTH AVENUE."
+ },
+ {
+  "city": "BatonRouge",
+  "native": "MAJOR SIGNAL ISSUE",
+  "gold": "Traffic_Signals_Signs",
+  "pred": "Traffic_Signals_Signs",
+  "correct": true,
+  "text": "LIGHTS ARE FLASHING RED IN ALL DIRECTIONS"
+ },
+ {
+  "city": "BatonRouge",
+  "native": "REQUEST FOR MOWING",
+  "gold": "Trees_Vegetation",
+  "pred": "Streets_Sidewalks",
+  "correct": false,
+  "text": "STATE DOTD NEEDS TO CUT ROADSIDE"
+ },
+ {
+  "city": "BatonRouge",
+  "native": "INSIDE RESIDENTIAL BACKUP",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "B/U"
+ },
+ {
+  "city": "BatonRouge",
+  "native": "MISSED WOODY WASTE SERVICE",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "MISSED TREE WASTE PICK UP"
+ },
+ {
+  "city": "BatonRouge",
+  "native": "REQUEST REMOVAL/TRIMMING OF TREE",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "REQUEST TREE LIMBS HANGING OVER ROAD WAY ON CARNEY RD BETWEEN BARNETT AND OLD SCENIC HWY."
+ },
+ {
+  "city": "BatonRouge",
+  "native": "REQUEST ADDITIONAL GARBAGE CART",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "H/O REQUEST ADDITIONAL CART"
+ },
+ {
+  "city": "BatonRouge",
+  "native": "DAMAGED RECYCLING CART",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "CALLER STATED THAT THE CART IS CRACKED IN THE FRONT."
+ },
+ {
+  "city": "BatonRouge",
+  "native": "MISSED HANDPILE SERVICE",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "MISSED PILE OF BRANCHES PICK UP"
+ },
+ {
+  "city": "BatonRouge",
+  "native": "MISSED GARBAGE SERVICE DAY (GENERAL PICK-UP)",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "GARBAGE CART HAVE NOT BEEN SERVICED AS OF YET TODAY SATURDAY (12/30/23) THE TRUCK HAVE ALREADY PASSED ON THERE STREET."
+ },
+ {
+  "city": "BatonRouge",
+  "native": "ROADSIDE DRAINAGE ISSUE",
+  "gold": "Water_Sewer_Drainage",
+  "pred": "Water_Sewer_Drainage",
+  "correct": true,
+  "text": "THIS STRETCH OF HIGHLAND, FROM 1 MILE EAST OF SIEGEN TO PAST BLUEBONNET, HAS HAZARDOUS AMOUNTS OF WATER, EITHER PARTIALLY OR FULLY, OCCUPYING WESTBOUND LANES IN OVER A DOZEN LOCATIONS DUE TO THE ABSENCE OF PROPER STREET DRAINAGE.  PLEASE ADD TO DRAINAGE PROJECTS FOR PUBLIC SAFETY."
+ },
+ {
+  "city": "BatonRouge",
+  "native": "MISSED WOODY WASTE SERVICE",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "NO TRASH PICKUP WEEKS ON A (MON) THE ENTIRE STREET WAS MISSED THERE IS SOME LIMBS OUT..., GAVE ID#"
+ },
+ {
+  "city": "BatonRouge",
+  "native": "DAMAGED STREET NAME SIGN",
+  "gold": "Traffic_Signals_Signs",
+  "pred": "Traffic_Signals_Signs",
+  "correct": true,
+  "text": "CALLER STATED THAT THE STREET SIGN IS DOWN AT THE ABOVE LOCATION..., GAVE ID#"
+ },
+ {
+  "city": "BatonRouge",
+  "native": "ROAD BUCKLE/BLOWOUT/FAULT",
+  "gold": "Streets_Sidewalks",
+  "pred": "Streets_Sidewalks",
+  "correct": true,
+  "text": "AT THE CORNER OF SILO AND SETTLERS CIRCLE, THERE IS A POTHOLE ADJACENT TO A MANHOLE COVER.  THIS NEEDS REPAIR."
+ },
+ {
+  "city": "BatonRouge",
+  "native": "JUNK, TRASH, OR DEBRIS ON PRIVATE PROPERTY",
+  "gold": "Waste_Sanitation",
+  "pred": "Property_Housing_Code",
+  "correct": false,
+  "text": "PLEASE HAVE THE OWNER AT THIS ADDRESS, CLEAN UP ALL THE JUNK DEBRIS AND ABANDONED VEHICLE ON THE PROPERTY. IT IS NEXT TO PROPERTY I OWN AND I�M TRYING TO SELL AND IT�S MAKING IT DIFFICULT FOR ME TO SELL MY PROPERTY."
+ },
+ {
+  "city": "BatonRouge",
+  "native": "MISSED WOODY WASTE SERVICE",
+  "gold": "Waste_Sanitation",
+  "pred": "Trees_Vegetation",
+  "correct": false,
+  "text": "PILE OF TREE DEBRIS HAS BEEN MISSED FOR TWO WEEKS ON WEDNESDAY"
+ },
+ {
+  "city": "Bloomington",
+  "native": "Unsafe Buildings",
+  "gold": "Property_Housing_Code",
+  "pred": "Property_Housing_Code",
+  "correct": true,
+  "text": "complaintant said that there are two trailers on the 1500 block of s. olive st. that are in really bad shape.  they are currently vacant and would like something done before someone else moves in to them.  they also said that they are rentals."
+ },
+ {
+  "city": "Bloomington",
+  "native": "Excessive Growth",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "The grass is never cut and all of the neighbors would like to have something done."
+ },
+ {
+  "city": "Bloomington",
+  "native": "Trash",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "must have sticker"
+ },
+ {
+  "city": "Bloomington",
+  "native": "Water Quality",
+  "gold": "Water_Sewer_Drainage",
+  "pred": "Water_Sewer_Drainage",
+  "correct": true,
+  "text": "NO WATER"
+ },
+ {
+  "city": "Bloomington",
+  "native": "Trash",
+  "gold": "Waste_Sanitation",
+  "pred": "Parking_Vehicles",
+  "correct": false,
+  "text": "There is a tent in the yard that is falling down, a junk car and an old door in the driveway."
+ },
+ {
+  "city": "Bloomington",
+  "native": "Trash",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "no stickers"
+ },
+ {
+  "city": "Bloomington",
+  "native": "Excessive Growth",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "grass not cut."
+ },
+ {
+  "city": "Bloomington",
+  "native": "Trash",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Bags must have sticker attached"
+ },
+ {
+  "city": "Bloomington",
+  "native": "Trash",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Resident has been written up three times in the last three weeks in regards to the trash can being larger than 35 gallons and the bags/cans not having stickers attached.  950"
+ },
+ {
+  "city": "Bloomington",
+  "native": "Excessive Growth",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "The bushes have over grown the sidewalk at the southeast corner of 1st & Walker causing people to have to walk in the street."
+ },
+ {
+  "city": "Bloomington",
+  "native": "Trash",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Bags must have sticker attached."
+ },
+ {
+  "city": "Bloomington",
+  "native": "Trash",
+  "gold": "Waste_Sanitation",
+  "pred": "Parking_Vehicles",
+  "correct": false,
+  "text": "no sticker"
+ },
+ {
+  "city": "Bloomington",
+  "native": "Excessive Growth",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "Tall grass."
+ },
+ {
+  "city": "Bloomington",
+  "native": "Water Utility Problems",
+  "gold": "Water_Sewer_Drainage",
+  "pred": "Water_Sewer_Drainage",
+  "correct": true,
+  "text": "CUSTOMER SAYS IT LOOKS LIKE OIL IS COMMING FROM WATER METER PIT"
+ },
+ {
+  "city": "Bloomington",
+  "native": "Yard Waste",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "no tags"
+ },
+ {
+  "city": "Bloomington",
+  "native": "Trash",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "no stickers"
+ },
+ {
+  "city": "Bloomington",
+  "native": "Excessive Growth",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "Large pile of tree limbs and brush in the tree plot."
+ },
+ {
+  "city": "Bloomington",
+  "native": "Excessive Growth",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "Caller stated that the North/South Ally (between Hillside and Southern) is blocked oon the north end by trees by the property to the west."
+ },
+ {
+  "city": "Bloomington",
+  "native": "Yard Waste",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Courtesy Pick up.  paul picked it up"
+ },
+ {
+  "city": "Bloomington",
+  "native": "Recycling",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Recyclable items not properly sorted. Must be sorted for pick-up 945 las"
+ },
+ {
+  "city": "Bloomington",
+  "native": "Excessive Growth",
+  "gold": "Trees_Vegetation",
+  "pred": "Waste_Sanitation",
+  "correct": false,
+  "text": "There is trash all over the whole yard - it keeps going into the complaintant's yard."
+ },
+ {
+  "city": "Bloomington",
+  "native": "Trash",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "can exceeds 35 gal"
+ },
+ {
+  "city": "Bloomington",
+  "native": "Sewer Problems (Sanitary Sewers)",
+  "gold": "Water_Sewer_Drainage",
+  "pred": "Water_Sewer_Drainage",
+  "correct": true,
+  "text": "SEWER BACKUP"
+ },
+ {
+  "city": "Bloomington",
+  "native": "Yard Waste",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Courtesy Pick up.  By Hatchett and Livingston"
+ },
+ {
+  "city": "Bloomington",
+  "native": "Trash",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Bags must have sticker attached."
+ },
+ {
+  "city": "Bloomington",
+  "native": "Excessive Growth",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "High grass."
+ },
+ {
+  "city": "Bloomington",
+  "native": "Trash",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Exceeds weight limit of 40 lbs. $1 per can or bag."
+ },
+ {
+  "city": "Bloomington",
+  "native": "Recycling",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Recycable items not properly sorted.  947"
+ },
+ {
+  "city": "Bloomington",
+  "native": "Excessive Growth",
+  "gold": "Trees_Vegetation",
+  "pred": "Streets_Sidewalks",
+  "correct": false,
+  "text": "Resident (Darryl Marshall) has swept debri and leaves into the street causing lost parking spaces for neighbors."
+ },
+ {
+  "city": "Bloomington",
+  "native": "Recycling",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "TRASH MIXED IN"
+ },
+ {
+  "city": "Bloomington",
+  "native": "Trash",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Bags must have sticker attached."
+ },
+ {
+  "city": "Bloomington",
+  "native": "Trash",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Bags must have sticker attached."
+ },
+ {
+  "city": "Bloomington",
+  "native": "Trash",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Bags must have sticker attached."
+ },
+ {
+  "city": "Bloomington",
+  "native": "Street Snow Removal",
+  "gold": "Streets_Sidewalks",
+  "pred": "Streets_Sidewalks",
+  "correct": true,
+  "text": "A citizen called to report that the management at Woodbridge Apartments have not touched the sidwalks at all.  The only part that has been shoveled was done by tenants."
+ },
+ {
+  "city": "Bloomington",
+  "native": "Excessive Growth",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "There are high weeds and grass growing up against the house and an old car.  There has been a big rat spotted on the property."
+ },
+ {
+  "city": "Bloomington",
+  "native": "Trash",
+  "gold": "Waste_Sanitation",
+  "pred": "Parks_Recreation",
+  "correct": false,
+  "text": "o.w."
+ },
+ {
+  "city": "Bloomington",
+  "native": "Sidewalk Snow Removal",
+  "gold": "Streets_Sidewalks",
+  "pred": "Water_Sewer_Drainage",
+  "correct": false,
+  "text": "PIPE WITH NO CAP ON IT AND HOLE IN THE STREET"
+ },
+ {
+  "city": "Bloomington",
+  "native": "Recycling",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Items are not properly sorted. No broken glass."
+ },
+ {
+  "city": "Bloomington",
+  "native": "Trash",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "no stickers"
+ },
+ {
+  "city": "Bloomington",
+  "native": "Recycling",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Recyclables & non-recylables waste mixed.  Items are not included in recycling program.  Recyclable items not properly sorted  Mixed paper with co-mingle & non reyclables.  945"
+ },
+ {
+  "city": "Richmond",
+  "native": "Potholes",
+  "gold": "Streets_Sidewalks",
+  "pred": "Streets_Sidewalks",
+  "correct": true,
+  "text": "between 4800 and 5100 block lots of potholes"
+ },
+ {
+  "city": "Richmond",
+  "native": "Trash/Bulk Pick-ups",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "sofa, a tv and other miscellaneous household items located in the  rear of the property in the alley"
+ },
+ {
+  "city": "Richmond",
+  "native": "Overgrown Lots",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "tall grass at this location"
+ },
+ {
+  "city": "Richmond",
+  "native": "Trash/Bulk Pick-ups",
+  "gold": "Waste_Sanitation",
+  "pred": "Trees_Vegetation",
+  "correct": false,
+  "text": "tree branches need to be picked up located in the front of the property"
+ },
+ {
+  "city": "Richmond",
+  "native": "Trash/Bulk Pick-ups",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "CITIZEN IS REPORTING A PILE OF TRASH DEBRIS ON HUGUENOT RD BRIDGE BETWEEN HUGUENOT RD & CHEROKEE RD. HE SAYS YOU CANNOT MISS THIS BIG PILE OF DEBRIS. ITS FLYING AROUND AS PPL TURN THAT CORNER TO THE BRIDGE. THANK YOU."
+ },
+ {
+  "city": "Richmond",
+  "native": "Trash/Bulk Pick-ups",
+  "gold": "Waste_Sanitation",
+  "pred": "Trees_Vegetation",
+  "correct": false,
+  "text": "TREE LIMBS AND BRUSH AT THE BACK OF THE ADDRESS AT GRANITE HALL AVE."
+ },
+ {
+  "city": "Richmond",
+  "native": "Trash/Bulk Pick-ups",
+  "gold": "Waste_Sanitation",
+  "pred": "Trees_Vegetation",
+  "correct": false,
+  "text": "tree branches need to be pick up and a board that was dumped against the fence"
+ },
+ {
+  "city": "Richmond",
+  "native": "Trash/Bulk Pick-ups",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "furniture in the alley"
+ },
+ {
+  "city": "Richmond",
+  "native": "Potholes",
+  "gold": "Streets_Sidewalks",
+  "pred": "Streets_Sidewalks",
+  "correct": true,
+  "text": "on Hastings Drive and Garfield Road"
+ },
+ {
+  "city": "Richmond",
+  "native": "Trash/Bulk Pick-ups",
+  "gold": "Waste_Sanitation",
+  "pred": "Trees_Vegetation",
+  "correct": false,
+  "text": "Please pick up yard waste in front ditch... Mostly tree limbs."
+ },
+ {
+  "city": "Richmond",
+  "native": "Overgrown Lots",
+  "gold": "Trees_Vegetation",
+  "pred": "Property_Housing_Code",
+  "correct": false,
+  "text": "THis is an abandoned property.    The backyard is overgrown and full of weeds and tree branches. There is garbage in the front yard.  The house roof is missing.  THere has been work on house roof but no building permits have been posted"
+ },
+ {
+  "city": "Richmond",
+  "native": "Trash/Bulk Pick-ups",
+  "gold": "Waste_Sanitation",
+  "pred": "Trees_Vegetation",
+  "correct": false,
+  "text": "This is not a duplicate request. Tree Limbs and Branches to be Picked Up at rear of house (along Westview Avenue)"
+ },
+ {
+  "city": "Richmond",
+  "native": "Trash/Bulk Pick-ups",
+  "gold": "Waste_Sanitation",
+  "pred": "Trees_Vegetation",
+  "correct": false,
+  "text": "Tree debris in the alley behind this location for pickup asap."
+ },
+ {
+  "city": "Richmond",
+  "native": "Trash/Bulk Pick-ups",
+  "gold": "Waste_Sanitation",
+  "pred": "Trees_Vegetation",
+  "correct": false,
+  "text": "Citizen needs large branches picked up."
+ },
+ {
+  "city": "Richmond",
+  "native": "Overgrown Lots",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "The grass is over 3 feet tall at this vacant lot. A contract cut lot."
+ },
+ {
+  "city": "Richmond",
+  "native": "Illegal Dumping",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "tires being dumped in alley way"
+ },
+ {
+  "city": "Richmond",
+  "native": "Open and Vacant Properties",
+  "gold": "Property_Housing_Code",
+  "pred": "Trees_Vegetation",
+  "correct": false,
+  "text": "Tall Grass/ weeds and old dumpster sitting - caller having terrible problems with termites"
+ },
+ {
+  "city": "Richmond",
+  "native": "Potholes",
+  "gold": "Streets_Sidewalks",
+  "pred": "Streets_Sidewalks",
+  "correct": true,
+  "text": "Ridiculous potholes - are these meant for motocross or cars?"
+ },
+ {
+  "city": "Richmond",
+  "native": "Non-functioning Street Lights",
+  "gold": "Street_Lighting",
+  "pred": "Street_Lighting",
+  "correct": true,
+  "text": "Street light is completely out at the corner of Falcon and Duryea on Duryea; caller states the area is real dark without this street light working."
+ },
+ {
+  "city": "Richmond",
+  "native": "Trash/Bulk Pick-ups",
+  "gold": "Waste_Sanitation",
+  "pred": "Trees_Vegetation",
+  "correct": false,
+  "text": "Please pick up tree brush in the alley of the location"
+ },
+ {
+  "city": "Richmond",
+  "native": "Trash/Bulk Pick-ups",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "CHAIRS, TABLE, OLD GATE AND ETC."
+ },
+ {
+  "city": "Richmond",
+  "native": "Trash/Bulk Pick-ups",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "yard debris located in the back alley"
+ },
+ {
+  "city": "Richmond",
+  "native": "Potholes",
+  "gold": "Streets_Sidewalks",
+  "pred": "Streets_Sidewalks",
+  "correct": true,
+  "text": "Broken road at 29th & Bainbridge."
+ },
+ {
+  "city": "Richmond",
+  "native": "Non-functioning Street Lights",
+  "gold": "Street_Lighting",
+  "pred": "Street_Lighting",
+  "correct": true,
+  "text": "The street light on the northeast corner of Rennie Ave and Loxley is not working."
+ },
+ {
+  "city": "Richmond",
+  "native": "Overgrown Lots",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "Grass is over 12 inches, please have someone go out and cite the property owner"
+ },
+ {
+  "city": "Richmond",
+  "native": "Overgrown Lots",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "Citizen states the property is not being kept up.  The grass and hedges stay overgrown. Shirley Butts 804-359-6859"
+ },
+ {
+  "city": "Richmond",
+  "native": "Trash/Bulk Pick-ups",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "citizen expressed that there is a bulk pick-up that needs to be performed at this location."
+ },
+ {
+  "city": "Richmond",
+  "native": "Trash/Bulk Pick-ups",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "in alley behind 1203 n 24th st"
+ },
+ {
+  "city": "Richmond",
+  "native": "Illegal Dumping",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Citizen needs sofa and trash picked up"
+ },
+ {
+  "city": "Richmond",
+  "native": "Trash/Bulk Pick-ups",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Lots of trash, yard waste, and general refuse in the alley between 2300 and 2400 North Avenue and Barton Avenue."
+ },
+ {
+  "city": "Richmond",
+  "native": "Trash/Bulk Pick-ups",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "A lot of debris behind 4506"
+ },
+ {
+  "city": "Richmond",
+  "native": "Trash/Bulk Pick-ups",
+  "gold": "Waste_Sanitation",
+  "pred": "Trees_Vegetation",
+  "correct": false,
+  "text": "brush pickup in front of this address"
+ },
+ {
+  "city": "Richmond",
+  "native": "Trash/Bulk Pick-ups",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Pickup of abandoned sofas"
+ },
+ {
+  "city": "Richmond",
+  "native": "Potholes",
+  "gold": "Streets_Sidewalks",
+  "pred": "Streets_Sidewalks",
+  "correct": true,
+  "text": "please investigate pothole in the right lane"
+ },
+ {
+  "city": "Richmond",
+  "native": "Overgrown Lots",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "customer would like the grass cut on city easement beside her property"
+ },
+ {
+  "city": "Richmond",
+  "native": "Overgrown Lots",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "CITIZEN EXPRESSED CONCERNS WITH HIGH GRASS IN THE BACK OF THIS LOCALITY THAT VIOLATES CITY ORDNANCE. THE CITIZEN WOULD LIKE FOR THE SITUATION TO BE ASSESSED. *PRIVATE PROPERTY"
+ },
+ {
+  "city": "Richmond",
+  "native": "Trash/Bulk Pick-ups",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "yard waste located in the rear of the property in the alley"
+ },
+ {
+  "city": "Richmond",
+  "native": "Trash/Bulk Pick-ups",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Please pick up bulk items."
+ },
+ {
+  "city": "Richmond",
+  "native": "Trash/Bulk Pick-ups",
+  "gold": "Waste_Sanitation",
+  "pred": "Property_Housing_Code",
+  "correct": false,
+  "text": "small desk at the street"
+ },
+ {
+  "city": "Richmond",
+  "native": "Trash/Bulk Pick-ups",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Citizen has a disassembled entertainment system,wood and scrap fencing that needs to be picked up[."
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Dumping Trash or Debris",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Dumped lawnmower"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Nuisance Vehicle/Illegal Parking",
+  "gold": "Parking_Vehicles",
+  "pred": "Homelessness",
+  "correct": false,
+  "text": "Back again"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Nuisance Vehicle/Illegal Parking",
+  "gold": "Parking_Vehicles",
+  "pred": "Parking_Vehicles",
+  "correct": true,
+  "text": "Illegal parking"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Water",
+  "gold": "Water_Sewer_Drainage",
+  "pred": "Water_Sewer_Drainage",
+  "correct": true,
+  "text": "Jeremy said there is a lot of work being done in his neighborhood and there have been issues.  Meters installed backwards, weird tasting water..He would like to talk to the inspector or project manager to make sure all issues get resolved before this project is complete.\n__________________________________\nThis request was originally submitted to the City of Auburn outside of SeeClickFix, via phone, email, or web.\n__________________________________"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Nuisance Vehicle/Illegal Parking",
+  "gold": "Parking_Vehicles",
+  "pred": "Parking_Vehicles",
+  "correct": true,
+  "text": "Red car has been parked in front of stop sign for several weeks. No plates and filled with trash (including driver and passenger side). These neighbors just fill the car with trash and wait for a tow over paying for garbage service."
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "gang tagging!!"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Dumping Trash or Debris",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Trash in ditch on east side of 304th st just west of 132 ave se near new school at sharp corner by chevron signs"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Tree",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "Tree in wetland has fallen on fence, there are branches in the road\n__________________________________\nThis request was originally submitted to the City of Auburn outside of SeeClickFix, via phone, email, or web.\n__________________________________"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Street Lighting",
+  "gold": "Street_Lighting",
+  "pred": "Street_Lighting",
+  "correct": true,
+  "text": "Burned out"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Nuisance Vehicle/Illegal Parking",
+  "gold": "Parking_Vehicles",
+  "pred": "Parking_Vehicles",
+  "correct": true,
+  "text": "parked on 29th and I st SE, Auburn. hasn't moved and none broken window"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Sanitary Sewer",
+  "gold": "Water_Sewer_Drainage",
+  "pred": "Waste_Sanitation",
+  "correct": false,
+  "text": "Test"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Dumping Trash or Debris",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Trash in 3 or 4 places along east side of I street , all the way to copper gate !"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Street Sign",
+  "gold": "Traffic_Signals_Signs",
+  "pred": "Traffic_Signals_Signs",
+  "correct": true,
+  "text": "The Lowe's sign facing east on 15th St NE is partially out of its frame. This could be a hazard to drivers or pedestrians on a windy day as it is very large."
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Dumping Trash or Debris",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Lots of litter along sidewalk"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Vegetation",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "Can you please have someone come and trim back the vegetation along this corner so that it the corner is more visible when driving around it! Thank you!"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Vegetation and/or Trees",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "The vegetation along the Lake Tapps Blvd trail need some long over due trimming"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Dumping Trash or Debris",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Tires have been dumped on the corner of Green River Road SE and 100th Ave SE, in Auburn, WA, for quite a few days now.  Thank you for your help with this."
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Street Sign",
+  "gold": "Traffic_Signals_Signs",
+  "pred": "Traffic_Signals_Signs",
+  "correct": true,
+  "text": "Sign post damaged"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Nuisance Vehicle/Illegal Parking",
+  "gold": "Parking_Vehicles",
+  "pred": "Parking_Vehicles",
+  "correct": true,
+  "text": "vehicle has been parked over night the horn keeps going off every 20-30 seconds. Car looks to be from different state not sure if abandoned."
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Street Lighting",
+  "gold": "Street_Lighting",
+  "pred": "Street_Lighting",
+  "correct": true,
+  "text": "Street light at location notes is working intermittently."
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Nuisance Vehicle/Illegal Parking",
+  "gold": "Parking_Vehicles",
+  "pred": "Parking_Vehicles",
+  "correct": true,
+  "text": "Another dumped car, doesn't run! Tow immediately ! !"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Street Lighting",
+  "gold": "Street_Lighting",
+  "pred": "Traffic_Signals_Signs",
+  "correct": false,
+  "text": "Car accident involving light pole, pole is fine!"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Dead Animal",
+  "gold": "Animals_Pests",
+  "pred": "Parks_Recreation",
+  "correct": false,
+  "text": "Roegner park. 601 Oravetz RD SE, Auburn, WA 98092. First beach access left of the park entrance in front of the bathrooms"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Vegetation and/or Trees",
+  "gold": "Trees_Vegetation",
+  "pred": "Streets_Sidewalks",
+  "correct": false,
+  "text": "Street strips need maintained on BOTH sides of the street"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Pothole or Road Condition",
+  "gold": "Streets_Sidewalks",
+  "pred": "Streets_Sidewalks",
+  "correct": true,
+  "text": "Two large pot holes at the entrance of Gildo Rey Elementary"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Dumping Trash or Debris",
+  "gold": "Waste_Sanitation",
+  "pred": "Homelessness",
+  "correct": false,
+  "text": "another homeless encampment"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Nuisance Vehicle/Illegal Parking",
+  "gold": "Parking_Vehicles",
+  "pred": "Parking_Vehicles",
+  "correct": true,
+  "text": "Nissan, trail blazer and crashed up Kia sedan. These vehicles haven't moved insa couple weeks. They're all busted andbroken downt. The trail blazer is parked up on the curb still and now hassa flat tire.e Kia had no tabs and often there's objects or vehicles pushed right up behind the Kia to block thetkab-less license plate. looseneiditemil"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Nuisance Vehicle/Illegal Parking",
+  "gold": "Parking_Vehicles",
+  "pred": "Trees_Vegetation",
+  "correct": false,
+  "text": "Moss under car not been moved"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Street Sign",
+  "gold": "Traffic_Signals_Signs",
+  "pred": "Traffic_Signals_Signs",
+  "correct": true,
+  "text": "Please add a stop sign to the intersection of S 302nd St and 60th Ave S.  Cars routinely speed through the intersection without slowing down or looking both directions.  Several houses in the immediate vicinity of this intersection have very young children who often are outside and at risk of being hit.   Thank you."
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Vegetation and/or Trees",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "The tree and gardens have not been tended in the past year at the dentist office. The tree is blocking 1/2 of the sidewalk and the weeds on the other side of this tree are an eye sore, it is at the end of my driveway, right on D ST SE."
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Street Sign",
+  "gold": "Traffic_Signals_Signs",
+  "pred": "Waste_Sanitation",
+  "correct": false,
+  "text": "Test1"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Property_Housing_Code",
+  "correct": false,
+  "text": "Has been here for a week. Vacant Cleaners building. Management company hasn’t covered it up."
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Dumping Trash or Debris",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Large pile of debris dumped at night at Kendall Ridge entrance"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Pothole or Road Condition",
+  "gold": "Streets_Sidewalks",
+  "pred": "Streets_Sidewalks",
+  "correct": true,
+  "text": "Repair pothole"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Traffic - Speeding Concern",
+  "gold": "Traffic_Signals_Signs",
+  "pred": "Traffic_Signals_Signs",
+  "correct": true,
+  "text": "Cars street racing and doing donuts on residential street. This happened 7/24 at 6pm.\nCars also speed and don’t stop or yield for people.\nCrosswalk is ruined!"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Dumping Trash or Debris",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Fire pit, cans and other trash in old bushes by old MultiCare lot along North side of 12th St SE"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Street Lighting",
+  "gold": "Street_Lighting",
+  "pred": "Street_Lighting",
+  "correct": true,
+  "text": "The street light in front of 2231 K St SE is out."
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Shopping Cart",
+  "gold": "Parking_Vehicles",
+  "pred": "Parks_Recreation",
+  "correct": false,
+  "text": "Lowes"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Street/Road",
+  "gold": "Streets_Sidewalks",
+  "pred": "Water_Sewer_Drainage",
+  "correct": false,
+  "text": "Temporary water service patch"
+ },
+ {
+  "city": "Auburn_WA",
+  "native": "Tree",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "Owner of DQ would like us to look at a tree that he is unsure of.  Please call first so he can meet you.\n__________________________________\nThis request was originally submitted to the City of Auburn outside of SeeClickFix, via phone, email, or web.\n__________________________________"
+ },
+ {
+  "city": "Gainesville",
+  "native": "Traffic Enforcement",
+  "gold": "Traffic_Signals_Signs",
+  "pred": "Parking_Vehicles",
+  "correct": false,
+  "text": "Silver Honda CR-V parked illegally in a marked no parking fire lane in Marchwood neighborhood. FL plate # Y93-NUN."
+ },
+ {
+  "city": "Gainesville",
+  "native": "Road Repair",
+  "gold": "Streets_Sidewalks",
+  "pred": "Streets_Sidewalks",
+  "correct": true,
+  "text": "Potholes all over the road and bumps causing car damage"
+ },
+ {
+  "city": "Gainesville",
+  "native": "Trash/Debris (Public Property)",
+  "gold": "Waste_Sanitation",
+  "pred": "Homelessness",
+  "correct": false,
+  "text": "The front of the fire station is turning into a trash dump and homeless camp."
+ },
+ {
+  "city": "Gainesville",
+  "native": "Parking Enforcement",
+  "gold": "Parking_Vehicles",
+  "pred": "Traffic_Signals_Signs",
+  "correct": false,
+  "text": "When turning right from 19th to 15th ave you cannot see what coming towards you on 15th Ave because of the vehicles parked on corner. Almost hit a vehicle head on due to wide turn vehicle obstruction"
+ },
+ {
+  "city": "Gainesville",
+  "native": "Vehicle (Abandoned/Non-Operational)",
+  "gold": "Parking_Vehicles",
+  "pred": "Parking_Vehicles",
+  "correct": true,
+  "text": "There is an abandoned gray car. It appears to be totaled parked near the 300's building of Arbor Park apartments. It is parked at the very end of parking lot."
+ },
+ {
+  "city": "Gainesville",
+  "native": "Road Repair",
+  "gold": "Streets_Sidewalks",
+  "pred": "Water_Sewer_Drainage",
+  "correct": false,
+  "text": "Crushed sewer drain on corner of NE 17th Dr. and NE 20th Pl. Could this please be repaired?"
+ },
+ {
+  "city": "Gainesville",
+  "native": "Park Repair or Clean Up",
+  "gold": "Parks_Recreation",
+  "pred": "Trees_Vegetation",
+  "correct": false,
+  "text": "Unless it has been trimmed recently, the metal entrance sign for Depot Park is quite overgrown."
+ },
+ {
+  "city": "Gainesville",
+  "native": "Trash / Debris (Private Property)",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "trash has been here for months"
+ },
+ {
+  "city": "Gainesville",
+  "native": "General Code Issue",
+  "gold": "Property_Housing_Code",
+  "pred": "Homelessness",
+  "correct": false,
+  "text": "Homeless have been loitering here regularly"
+ },
+ {
+  "city": "Gainesville",
+  "native": "Residential Rental Maintenance",
+  "gold": "Property_Housing_Code",
+  "pred": "Property_Housing_Code",
+  "correct": true,
+  "text": "Good evening..I have ooicupied 2203 for an year now.Dealing with alot of issuses that the landlord DeAnna Langille.The bathroom amd alot of other problems with this house that she refuses to repair.I have pictures of when I first moved in .I wonder how she was getting away with renting thisplace out with all these issuses:the toliet backs up in the tub at least monthly.Sunshine plumming  is the company that comes.They have made her aware of roots growing in the pipes;in which the tissue gets clogged around it.she has yet to repair.Feces and urine will flot in the tub.which doesnt allow you to use either.one weekend we had to get an hotel room due to her saying that it cost to much on the weekends for a plummer.i have viedos and pictures of the happen.Gru was called by me and I found out at that time that the previous renter called as well.there a water leak on the front of the house.gru said that she have to repair.my light bill is high every month.there are two windows with holes in them.she put tape over them.not repaired.the toliet is leaning do to the broke tiles and floor.i have pictures and videos.there is an hole in the floor in the dinning room and one bedroom.she coverd with carpet.when it is cold the house never heats updue to no insulation.no carbon dixoide box and its a gas stove.no fire extignister.they were alot of things thats i have repaired in order to stay here temporary.I was in a despert situation last year so i had no oter choice at that time.she is a slum landlord and put all the problems of this house on the tenents but its her not repairing or up grading her property.I have repaired alot out of my pocket and was never reinburst or anything deducted from the rent.she should not rent this out anymore until things are updated and repaired!since i have complained she wants me out.which is my pleasure!!!!when i moved in there wasnt even an toliet seat handle etc..i have photos"
+ },
+ {
+  "city": "Gainesville",
+  "native": "Residential Rental Maintenance",
+  "gold": "Property_Housing_Code",
+  "pred": "Property_Housing_Code",
+  "correct": true,
+  "text": "The issue that I am having at my residence is mold.  I first discover the issue when my daughter came to concerning several of her items in her room had spots on them.  When I took a look at her items I notice that her items in her room was full of mold.  I immediately contacted the landlord concerning the issue and the next day she sent out her husband/maintenance out to my residence.  When he came out he brought a humidifier and some mold spray that he told me to use on my items to get the mold out.  Several days later I was getting prepared to go to work and I went into my guestroom and discovered more mold throughout the entire closet and some of my clothing and shoes was damp.  Also, the ceiling in the guestroom is wet and full of spots of mold.  I notified the landlord immediately upon the new discovery, at this time the landlord informed me that I needed to keep my air conditioner and the humidifier running at all times and that should fix the problem.  I also, mention to her that I think the problem is coming from a leak in the roof.  She stated that there have never been any issues with the roof and she didn’t agree with that being the problem.  Then her husband contact me stating that there was a leak in the roof and the issue was fix back when the storm came around October of last year.  Which, I was living in the residence around that time and I don’t recall no one ever coming out to fix a leakage in the roof.  Then he stated he wanted to come out and paint using some type of special paint.  He have tried to come out on two different occasion, but I have refuse to allow him to come out, because if he is not trying fix the root of the problem no need for him to come out.  My family and I are now experiencing health issue do the mold.  Currently we are unable to reside in the residence.  We are being force to have live with family to prevent anymore illness."
+ },
+ {
+  "city": "Gainesville",
+  "native": "Sidewalk Repair",
+  "gold": "Streets_Sidewalks",
+  "pred": "Graffiti_Postings",
+  "correct": false,
+  "text": "graffiti"
+ },
+ {
+  "city": "Gainesville",
+  "native": "General Code Issue",
+  "gold": "Property_Housing_Code",
+  "pred": "Water_Sewer_Drainage",
+  "correct": false,
+  "text": "Water coming up from ground here and running in gutter near biketrail between Bread of Mighty and Haven Hospice Attic"
+ },
+ {
+  "city": "Gainesville",
+  "native": "General Code Issue",
+  "gold": "Property_Housing_Code",
+  "pred": "Homelessness",
+  "correct": false,
+  "text": "A person is living in the RV on the back of the property a"
+ },
+ {
+  "city": "Gainesville",
+  "native": "Grass (Overgrown)",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "owner moved out a while ago; no one moved in. Grass/weeds extremely high."
+ },
+ {
+  "city": "Gainesville",
+  "native": "General Code Issue",
+  "gold": "Property_Housing_Code",
+  "pred": "Parking_Vehicles",
+  "correct": false,
+  "text": "3 disabled cars, all with expired tags in the driveway and yard"
+ },
+ {
+  "city": "Gainesville",
+  "native": "Grass (Overgrown)",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "Yard completely overgrown and abandoned."
+ },
+ {
+  "city": "Gainesville",
+  "native": "Trash/Debris (Public Property)",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Trash piling up at RTS bus stop on corner of N. Main St and NE 16th Ave. This is an ongoing problem that should be addressed more regularly. Thank you."
+ },
+ {
+  "city": "Gainesville",
+  "native": "Streetlight/Lamp",
+  "gold": "Street_Lighting",
+  "pred": "Street_Lighting",
+  "correct": true,
+  "text": "Pole knocked over by trash truck (Waste Pro)\nNathan with Waste Pro\n863-326-8866"
+ },
+ {
+  "city": "Gainesville",
+  "native": "Grass (Overgrown)",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "this is a rental that has overgrown grass in back and side of house and a large tree limb in front that has been there close to a month."
+ },
+ {
+  "city": "Gainesville",
+  "native": "Traffic Enforcement",
+  "gold": "Traffic_Signals_Signs",
+  "pred": "Traffic_Signals_Signs",
+  "correct": true,
+  "text": "I watched a car PASS another car on 5th Ave and blow through the stop sign at 5th and 19th today while walking my toddler. This is NOT a new issue but rather one getting worse. Those stop signs are no longer even relevant because people barely tap the brakes before they blow through it including vehicles, scooters, bicycles, you name it. No one stops and many speed down 5th Ave every day. Wake up Gainesville- your traffic slowing study in the 90s is no longer relevant. Things have changed and 5th Ave is a death trap waiting to happen. Remember THIS is still a residential area with an elementary school and two daycares on this street."
+ },
+ {
+  "city": "Gainesville",
+  "native": "General Code Issue",
+  "gold": "Property_Housing_Code",
+  "pred": "Graffiti_Postings",
+  "correct": false,
+  "text": "The Thornebrook/Arby's sign at the SE corner of NW 43rd ST and NW 25th PL is an illegal \"electronic sign\" that is prohibited in Gainesville by Section 30-9.3 of the Code of Ordinances. The prohibition of \"electronic signs\" has been in place since Ord # 070890 was adopted in April 2008. This sign was installed after that date, so it is not a \"legally nonconforming sign\". Even if it was a \"legally nonconforming sign\", Section 30-9.9D. requires the sign to be brought up to code when: 1) sign renovation cost exceeds 50% of sign replacement cost, OR 2) when principal structure on parcel(s) is demolished or renovated at a cost exceeding 50% of assessed value of sign structure, OR 3) the sign is moved for any reason.  IOW, even if the sign was installed prior to 2008 and is therefore a \"legally nonconforming sign\", the recent renovations to the site and sign because of the Arby's construction mandates that, per code, the sign shall be brought into compliance with Gainesville's sign code."
+ },
+ {
+  "city": "Gainesville",
+  "native": "General Code Issue",
+  "gold": "Property_Housing_Code",
+  "pred": "Property_Housing_Code",
+  "correct": true,
+  "text": "The owner of this house passed away and his wife moved out of town. This property should be vacant, there are no utilities or residential services hooked up, yet there are guys hanging around and in it all day and night selling and doing drugs. It is pulling drug traffic and junkies into our neighborhood. Can we take care of this before it becomes a full blown flop house."
+ },
+ {
+  "city": "Gainesville",
+  "native": "Tree/Limbs (Public Property)",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "In front of the entrance to Hawthorne Reserve on 39th Road, and next to the entrance to Concordia Condominiums, Hawthorne Reserve has piled tree limbs next to the entrance almost into the road.  They have been told they cannot put them there. It has been weeks."
+ },
+ {
+  "city": "Gainesville",
+  "native": "Vehicle (Abandoned/Non-Operational)",
+  "gold": "Parking_Vehicles",
+  "pred": "Parking_Vehicles",
+  "correct": true,
+  "text": "Someone threw a bicycle into the ditch just east of the Catalyst building on Depot Ave. It's a nice looking bike so I don't think it was trash."
+ },
+ {
+  "city": "Gainesville",
+  "native": "Road Repair",
+  "gold": "Streets_Sidewalks",
+  "pred": "Streets_Sidewalks",
+  "correct": true,
+  "text": "Several potholes in road and on the edge of the road.  Also, manholes are elevated and you have top dodge them.  I have seen several close calls due to this issue.  There is also an area in front of the Pepsi building that is very bumpy by a manhole cover."
+ },
+ {
+  "city": "Gainesville",
+  "native": "Park Repair or Clean Up",
+  "gold": "Parks_Recreation",
+  "pred": "Traffic_Signals_Signs",
+  "correct": false,
+  "text": "A car jumped the curb and ran into the sign and knocked it down"
+ },
+ {
+  "city": "Gainesville",
+  "native": "Trash/Debris (Private Property)",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Illegal dumping"
+ },
+ {
+  "city": "Gainesville",
+  "native": "Emergency - Tree or Brush Debris",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "We have a tree that has partly fallen and is leaning on the line.  It is big enough to damage the lines and power poles"
+ },
+ {
+  "city": "Gainesville",
+  "native": "Tree/Limbs (Public Property)",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "An owner in Sterling Place (Lot 5 4722 NW 72nd Lane) reported a live oak from her backyard was struck by lightning, and a large section of the tree has fallen over the wall behind her property. She said she contacted the police who roped off this area marked in green on the map below, along NW 73rd Avenue.\n\nCan someone from Public Works come out to clear this tree/debris? Please let me know, and do not hesitate to ask if you have any questions.\n\nThanks in advance for your help!\n\nNOTE * We did contact County Public Works already as we thought this was their area of jurisdiction, but we were told this belongs to the City."
+ },
+ {
+  "city": "Gainesville",
+  "native": "Trash/Debris (Private Property)",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "You might think this photo is from any year over the past 8.  Trash left roadside recycled bin full and left roadside.  Pickup was Wednesday and it has been at the road edge for two weeks.  Trash is filling the yard and blowing down the street.  The Weed are also overgrown, as you can see behind the garbage.   This is rental and they do not care about the neighborhood.   This downgrades the property and reduces the taxes the city can collect.   We need to work on city beautification.  We need to go back to the days that trash was picked up from behind the house, leaving the street front and edge looking like something you would expect in care about the neighborhood.   Someone driving past this would not purchase a home on this street.   When the home was build too close to 12th st,  the street was not all the way to the end.  Now may be the time to close off the street at the edge of this property dividing the single-family residential from the rezoned 16th street.  urban high density (college fraternity style houseing)"
+ },
+ {
+  "city": "Gainesville",
+  "native": "Noise Complaint",
+  "gold": "Noise",
+  "pred": "Noise",
+  "correct": true,
+  "text": "This noise is coming from either the building of 3880  or located near it through another nearby neighbor \nWhich is located at the back of the complex. It happens every night and every day to the point I cannot get sleep or work done. It is mostly coming from the right side of the building.I have talked to other neighbors located around me and they have also tried to get this under control. \n\nThank you."
+ },
+ {
+  "city": "Gainesville",
+  "native": "Garbage Pick Up & Recycling",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "I have not had yard waste pick up since hurricane IAN.  The last pickup was 10/6!!!!!!!  I have two plastic trash can filled with leaves and they do not weigh over 30 lbs.  I DO NOT HAVE 40 LB LIMBS AS WASTE MANAGEMENT CLAIMS.  Please reopen my case.  Every week one of my services is skipped.  But 4 weeks of no yard waste is insane."
+ },
+ {
+  "city": "Gainesville",
+  "native": "Trash/Debris (Private Property)",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Yard cluttered with debris of all kinds."
+ },
+ {
+  "city": "Gainesville",
+  "native": "Trash/Debris (Public Property)",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Vegetative debris was not picked up this week."
+ },
+ {
+  "city": "Gainesville",
+  "native": "Trash/Debris (Private Property)",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Trash has been overflowing from dumpsters for more than one week, littering property and is attracting wildlife, which may pose health risks."
+ },
+ {
+  "city": "Gainesville",
+  "native": "Street Sign",
+  "gold": "Traffic_Signals_Signs",
+  "pred": "Graffiti_Postings",
+  "correct": false,
+  "text": "Mount Pleasant Church has put up church parking only signs on public parking spaces. It has previously been reported and the church has failed to remove the signs."
+ },
+ {
+  "city": "Gainesville",
+  "native": "Emergency - Flooding",
+  "gold": "Water_Sewer_Drainage",
+  "pred": "Water_Sewer_Drainage",
+  "correct": true,
+  "text": "Irma runoff"
+ },
+ {
+  "city": "Gainesville",
+  "native": "Trash/Debris (Private Property)",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "There has been a pile of household trash in the home owner's front yard since 4/14/16. They are aware of it but instead of picking it up they have covered it with plastic bags (making of more of a mess). Last night araccoon was in it & some of it is blowing into neighbor's yards."
+ },
+ {
+  "city": "Gainesville",
+  "native": "Vehicle (Abandoned/Non-Operational)",
+  "gold": "Parking_Vehicles",
+  "pred": "Parking_Vehicles",
+  "correct": true,
+  "text": "Two abandoned vehicles: white van in right of way, another van in yard. Neither has moved in over 6 months."
+ },
+ {
+  "city": "Honolulu",
+  "native": "Storm Drain Clogged",
+  "gold": "Water_Sewer_Drainage",
+  "pred": "Water_Sewer_Drainage",
+  "correct": true,
+  "text": "There is a gutter coming down the mountain between 2 houses.  It goes into a storm drain, but it has become clogged with pine tree debris.  Located on Puiwa Road about 6 houses down from the dead end."
+ },
+ {
+  "city": "Honolulu",
+  "native": "Trees – Park & Street",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "fallen tree at 1136 Lunaanela St., Kailua, is blocking the sidewalk"
+ },
+ {
+  "city": "Honolulu",
+  "native": "Trees – Park & Street",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "Fallen tree onto utility lines"
+ },
+ {
+  "city": "Honolulu",
+  "native": "Homeless – Beach/Park",
+  "gold": "Homelessness",
+  "pred": "Homelessness",
+  "correct": true,
+  "text": "Kewalo Basin Park is becoming increasingly unusable for the public due to the growing number of homeless encampments. The pavilion area is now heavily occupied and can no longer be safely or comfortably used for its intended recreational purpose.\n\nThe park is also not being cleared at night. Individuals are crossing into the adjacent harbor after dark, and we have experienced thefts from vessels and of property. This is now affecting both public access to the park and the safety and security of harbor tenants and their property.\n\nPlease arrange for regular enforcement, nighttime closures, and outreach to address the growing encampment before conditions deteriorate further."
+ },
+ {
+  "city": "Honolulu",
+  "native": "Feral Chicken Nuisance",
+  "gold": "Animals_Pests",
+  "pred": "Animals_Pests",
+  "correct": true,
+  "text": "Operators stating they getting onto their cars and making a mess. Multiple chicks with hen walking around. For more information please contact:\n\nSean-Bennett Paio | Vice President, Transportation \nOahu Transit Services, Inc. | 811 Middle St., Honolulu, HI 96819 \nPH: 808.768.9448 | E: spaio@thebus.org\nM: 808.478.2879 | W: www.thebus.org"
+ },
+ {
+  "city": "Honolulu",
+  "native": "Street Sign (existing street sign missing/damaged)",
+  "gold": "Traffic_Signals_Signs",
+  "pred": "Traffic_Signals_Signs",
+  "correct": true,
+  "text": "The stop sign at Bay Street and Summer Street is knocked down on the ground. This is near Kuli'ou'ou Beach Park."
+ },
+ {
+  "city": "Honolulu",
+  "native": "Pothole",
+  "gold": "Streets_Sidewalks",
+  "pred": "Streets_Sidewalks",
+  "correct": true,
+  "text": "Multiple pot holes Pahu/ Nawaakoa St/ Pl middle and at very end on left side."
+ },
+ {
+  "city": "Honolulu",
+  "native": "Pothole",
+  "gold": "Streets_Sidewalks",
+  "pred": "Streets_Sidewalks",
+  "correct": true,
+  "text": "Large (4’x4’) pothole on highway near 47-026 Kam Hwy, Kaneohe, 96744. Cars are constantly hitting it causing lots of damage. They can’t go around it or could cause accidents."
+ },
+ {
+  "city": "Honolulu",
+  "native": "Sidewalk Uplift Due to Tree",
+  "gold": "Trees_Vegetation",
+  "pred": "Streets_Sidewalks",
+  "correct": false,
+  "text": "Sidewalk is lifted 4 inches high and may cause injury.  Issue is located on the sidewalk corner from Kapolei Middle school side on corner of Kamaaha Avenue and Kanio Street in Kapolei. I fell once from it but luckily no major injuries.  Need to fix cause school is starting."
+ },
+ {
+  "city": "Honolulu",
+  "native": "Stream/Canal Cleaning",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "Overgrown vegitation in srream above and below middle aina haina bridge. West hind drive"
+ },
+ {
+  "city": "Honolulu",
+  "native": "Trees – Park & Street",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "Coconut tree at my neighbors home that is on City property, is full and drops coconuts on sidewalk and street.  It's dangerous as coconuts can drop on parked or moving cars or pedestrians on sidewalk.  City maintains these two trees and they are in need of trimming."
+ },
+ {
+  "city": "Honolulu",
+  "native": "Bus/Handi-Van",
+  "gold": "Transit",
+  "pred": "Transit",
+  "correct": true,
+  "text": "Can the city please make sure that the transit agencies (skyline/thebus) communicate with not only each other, but also to make sure that the bus operators are also aware of Skyline closures as they occur so in turn they can also communicate to their passengers that maybe commuting via Skyline.\n\nFor example: this past Sunday night(8/16/26) I normally catch TheBus from Ala Moana Center to Lagoon Drive Skyline station, and catch the Skyline to Kapolei.  I was dropped off by bus to Lagoon Drive station and to my surprise, the Skyline was not in service at that time.  So I had to wait for the next bus to go to Kapolei.  \n\nHad the city told the bus operators to inform passengers of the Skyline closures during this time, I wouldn’t have wasted my time getting off at a Skyline station.  I had to wait in the wind and rain (no shelter) for the next bus."
+ },
+ {
+  "city": "Honolulu",
+  "native": "Homeless – Encampments (bridges, streams, roadways, sidewalks)",
+  "gold": "Homelessness",
+  "pred": "Homelessness",
+  "correct": true,
+  "text": "Homeless encampment illegally set up on the side of Manana trail in Pearl city on the left side of the walking trail a little ways past the power lines. Suspicious individuals as well possibly on drugs."
+ },
+ {
+  "city": "Honolulu",
+  "native": "Storm Drain Clogged",
+  "gold": "Water_Sewer_Drainage",
+  "pred": "Water_Sewer_Drainage",
+  "correct": true,
+  "text": "The large storm drain entrance at 3438 Keahi Place filled with debris and rocks during Lala, causing a flood. Please alert the crews that this drain no longer is functional, and requires clearing."
+ },
+ {
+  "city": "Honolulu",
+  "native": "Street Sign (existing street sign missing/damaged)",
+  "gold": "Traffic_Signals_Signs",
+  "pred": "Traffic_Signals_Signs",
+  "correct": true,
+  "text": "Missing one way sign directly across from discovery bay driveway. Causes cars to go the wrong way down the one way drive"
+ },
+ {
+  "city": "Honolulu",
+  "native": "Homeless – Encampments (bridges, streams, roadways, sidewalks)",
+  "gold": "Homelessness",
+  "pred": "Homelessness",
+  "correct": true,
+  "text": "Please enforce the park closure rules at Kewalo Basin park. The homeless encampment there is a constant issue. \nThere is open drug use, moped repair, littering, and urination and defecation in the park. Someone defecated on the seawall and a child accidentally sat in it. \nThe park rules clearly state that the park is closed at 10pm. The homeless have been using the loophole of fishing to remain in the park after hours. Hawaii DLNR regulations allow overnight fishing but fishermen must remain at the shoreline/high tide mark, at Kewalo this would be the sea wall not the pavilion. We ask that the City consistently monitor this not only do a one time sweep. \nMahalo"
+ },
+ {
+  "city": "Honolulu",
+  "native": "Traffic Signal",
+  "gold": "Traffic_Signals_Signs",
+  "pred": "Traffic_Signals_Signs",
+  "correct": true,
+  "text": "traffic lights are out on Kamehameha Highway and Honomanu Street"
+ },
+ {
+  "city": "Honolulu",
+  "native": "Electrical Code",
+  "gold": "Property_Housing_Code",
+  "pred": "Trees_Vegetation",
+  "correct": false,
+  "text": "Tree branch is hanging on power line connected to the house while another large branch broke off with high winds. The power line holding the branch up but it could rip if down"
+ },
+ {
+  "city": "Honolulu",
+  "native": "Homeless – Living in Vehicle",
+  "gold": "Homelessness",
+  "pred": "Homelessness",
+  "correct": true,
+  "text": "Homeless living an abandoned van behind Damien high school near the first house at 1508 Kohou Street. This van was dropped off by towing company last week and it has been more than a week now parked by the canal side of the street. Cops should monitor Kohou Street by Houghtailing side for multiple old abandoned vehicles and trucks."
+ },
+ {
+  "city": "Honolulu",
+  "native": "Building Code (e.g., construction of structures without a permit)",
+  "gold": "Property_Housing_Code",
+  "pred": "Property_Housing_Code",
+  "correct": true,
+  "text": "Demolition, new structure in progress w/o permits"
+ },
+ {
+  "city": "Honolulu",
+  "native": "Trees – Park & Street",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "Fallen trees on both sides of the road. Tree has been partially cut and need to be pick up. 98 Noelani St, Pearl City HI 96782 August 16, 2026. Due to hurricane lala"
+ },
+ {
+  "city": "Honolulu",
+  "native": "Homeless – Encampments (bridges, streams, roadways, sidewalks)",
+  "gold": "Homelessness",
+  "pred": "Homelessness",
+  "correct": true,
+  "text": "Encampment does not allow drivers and pedestrian's enough space. Pedestrian's do not have enough area to safely walk while cars are turning the corner."
+ },
+ {
+  "city": "Honolulu",
+  "native": "Bus Facility Clean Up",
+  "gold": "Transit",
+  "pred": "Streets_Sidewalks",
+  "correct": false,
+  "text": "Is there cleanup and power wash to clean sidewalk located at bus stop #3176, Waialae Ave at 9th Ave?  This is front of Gentle Beast Florit and Miro Restaurant.  It has been years since any cleaning has been done.  Although there is a trash can close by, trash is being discarded under the bus stop bench.  Thank you!"
+ },
+ {
+  "city": "Honolulu",
+  "native": "Pothole",
+  "gold": "Streets_Sidewalks",
+  "pred": "Streets_Sidewalks",
+  "correct": true,
+  "text": "The street at 45-277 Ka Hanahou Circle in Kaneohe has not been repaved in 30 years and there are multiple potholes so large that it is becoming dangerous to walk on the street due to all the loose gravel.  It is also difficult to drive down the street without hitting one or more potholes."
+ },
+ {
+  "city": "Honolulu",
+  "native": "Sink Hole Under Road",
+  "gold": "Water_Sewer_Drainage",
+  "pred": "Streets_Sidewalks",
+  "correct": false,
+  "text": "The road is collapsing again between the Texaco and the McDonald’s on the Kam in Aiea had been repaired about a year or so ago and is completely collapsing again driving over on the right side feels like I’m driving over ditches in Potholes not safe for my own car and suspension please take care of that as soon as possible."
+ },
+ {
+  "city": "Honolulu",
+  "native": "Refuse/Bulky Item",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Our trash was not picked up in Kapolei. Subdivision Kaupe’a. Next to Kapolei Highschool and the open field"
+ },
+ {
+  "city": "Honolulu",
+  "native": "Street Sign (existing street sign missing/damaged)",
+  "gold": "Traffic_Signals_Signs",
+  "pred": "Traffic_Signals_Signs",
+  "correct": true,
+  "text": "Street sign was toppled out from the ground."
+ },
+ {
+  "city": "Honolulu",
+  "native": "Street Sign (existing street sign missing/damaged)",
+  "gold": "Traffic_Signals_Signs",
+  "pred": "Traffic_Signals_Signs",
+  "correct": true,
+  "text": "Speed sign fell down. This is at the corner of Maluawai and Leomele streets in Pearl City, the mauka/east corner"
+ },
+ {
+  "city": "Honolulu",
+  "native": "Trees – Park & Street",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "Fallen tree branches and debris on the road.\n\nThere’s a tree that is starting to fall and tilt over and is overgrown. The branches and leaves from that tree are hanging low and hitting cars that are driving by. If it isn’t removed or taken care of it will completely plow onto the road way. Car can’t pass by without hitting the branches and leaves"
+ },
+ {
+  "city": "Honolulu",
+  "native": "Residential (including zoning violations, and obstructed or damaged sidewalks)",
+  "gold": "Property_Housing_Code",
+  "pred": "Parking_Vehicles",
+  "correct": false,
+  "text": "This is my second report regarding the property owner of 1412 Uila St. They continue to leave their trash bin on the public street every day, including on days when there is no scheduled trash collection. The trash bin is being used to reserve parking space and prevents other members of the public from parking on a public street.\n\nDespite my previous report, the issue has continued. I respectfully request that the City investigate this ongoing violation and take appropriate action to ensure compliance with applicable ordinances governing the use of public streets."
+ },
+ {
+  "city": "Honolulu",
+  "native": "Feral Chicken Nuisance",
+  "gold": "Animals_Pests",
+  "pred": "Animals_Pests",
+  "correct": true,
+  "text": "Many feral chickens, roosters and cats in the area of the UHM agricultural buildings next to Noelani school and behind the Manoa public library."
+ },
+ {
+  "city": "Honolulu",
+  "native": "Stream/Canal Cleaning",
+  "gold": "Trees_Vegetation",
+  "pred": "Trees_Vegetation",
+  "correct": true,
+  "text": "The culvert below 44-694 Kahinani Pl and above 44-140 & 44-136 Nanamoana St. in Kaneohe is overgrown with vines.  \nI worry that in a storm it will overflow and flood homes below the culvert."
+ },
+ {
+  "city": "Honolulu",
+  "native": "Curb/Gutter Damage/Uplift",
+  "gold": "Streets_Sidewalks",
+  "pred": "Streets_Sidewalks",
+  "correct": true,
+  "text": "Pedestrian safety hazard while walking to and from the city and county bus stop 2065. \nThe roadside concrete foundation and curbing are sinking and raising up and down due to the city and county bus that are driving over the concrete to pickup and drop off bus riders at bus stop. It is the C&C bus driver to stop near the concrete curbing for the passenger to exit or get on the bus safely. Presently due to the ground not being level it is a tripping and walking hazard for everyone that are walking past 2432 Aumakua Street. The homeowner attempted to place concrete to temporarily eliminate the tripping hazard until correct concrete repair are completed by the city and county or their contractor. Mahalo"
+ },
+ {
+  "city": "Honolulu",
+  "native": "Roadside Debris/Litter",
+  "gold": "Waste_Sanitation",
+  "pred": "Parking_Vehicles",
+  "correct": false,
+  "text": "A vehicle with expired registration and expired safety check sticker has been parked in a metered parking space since before 8/6/2026 in front of Maunakea Tower,1245 Maunakea Street. There are also multiple parking tickets on the car’s windshield."
+ },
+ {
+  "city": "Honolulu",
+  "native": "Pothole",
+  "gold": "Streets_Sidewalks",
+  "pred": "Streets_Sidewalks",
+  "correct": true,
+  "text": "Wasn't sure what type this would be but there are two (or three?) steel plates on the very left left turn lane on Geiger at the Fort Weaver intersection. The western side of the steel plate nearest to Fort Weaver has no asphalt on it and rises up almost the entire depth of the plate. Clearly a hazard."
+ },
+ {
+  "city": "Honolulu",
+  "native": "Homeless – Encampments (bridges, streams, roadways, sidewalks)",
+  "gold": "Homelessness",
+  "pred": "Homelessness",
+  "correct": true,
+  "text": "Tent set up"
+ },
+ {
+  "city": "Honolulu",
+  "native": "Debris/Litter/Dumping",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Trash have left on sidewalk across Anuenue Coral restoration for months"
+ },
+ {
+  "city": "Honolulu",
+  "native": "Homeless – Encampments (bridges, streams, roadways, sidewalks)",
+  "gold": "Homelessness",
+  "pred": "Homelessness",
+  "correct": true,
+  "text": "Camping. Please enforce no sit no lie law, Seniors in building don't feel safe walking off property. They are at 888 Iwilei Rd, Senior Residence at Iwilei"
+ },
+ {
+  "city": "Honolulu",
+  "native": "Residential (including zoning violations, and obstructed or damaged sidewalks)",
+  "gold": "Property_Housing_Code",
+  "pred": "Waste_Sanitation",
+  "correct": false,
+  "text": "Trash cans stored on city property 24/7"
+ },
+ {
+  "city": "Honolulu",
+  "native": "Refuse/Bulky Item",
+  "gold": "Waste_Sanitation",
+  "pred": "Waste_Sanitation",
+  "correct": true,
+  "text": "Prince Edward Ave (Mauka) before Uluniu Ave ice box, 2 large couches, air conditioner, large shelf and loose trash  on curbside PA"
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "Clean the white and red graffiti and remove stickers from the poles."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Encampment",
+  "gold": "Homelessness",
+  "pred": "Homelessness",
+  "correct": true,
+  "text": "Homeless encampment with raw sewage disgusting!"
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Encampment",
+  "gold": "Homelessness",
+  "pred": "Homelessness",
+  "correct": true,
+  "text": "Homeless encampment on sidewalk, open drug use, lots of stuff, blocking sidewalk"
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "There is black marker graffiti on the green metal pole that needs to be cleaned."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "Clean the white graffiti from the sewer manhole cover."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "White graffiti on the black roll-up garage door, post an NOV and issue a blight citation."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "Several large blue and white graffiti tags are on the green utility box. Remove the graffiti."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Encampment",
+  "gold": "Homelessness",
+  "pred": "Homelessness",
+  "correct": true,
+  "text": "tent blocking sidewalk"
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "Remove the graffiti tags from the sidewalk area in front of the door."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "Remove the pink graffiti tag from the metal pole."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "Remove the graffiti and stenciled tags from this green utility box."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "White spray paint on the black pole, clean the graffiti."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Property_Housing_Code",
+  "correct": false,
+  "text": "Yellow tag on the black mailbox attached to the building wall. Post an NOV and issue a blight citation."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "Graffiti on the building mural wall. Post an NOV and issue a blight citation."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "There is a sticker tag on the metal pole that needs to be removed."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Trees_Vegetation",
+  "correct": false,
+  "text": "Tag and lots of weeds at Middle Point td by Innes Ave"
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "Graffiti on blue color curb. Clean the graffiti."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "Remove the graffiti from the top of the fire hydrant."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "Large graffiti on the brown wall of the commercial building needs to be cleaned. Post an NOV and issue a blight citation for the removal."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "Silver graffiti tag on the dark pole needs to be cleaned."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "Clean the white graffiti tags from the metal utility plate on the sidewalk."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "Graffiti on pole"
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "Clean the graffiti off the concrete base of the bridge railing."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "Graffiti Public"
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "Remove the teal paint and stickers from the utility pole."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "Clean the graffiti on the yellow plywood barrier of this commercial building and post an NOV."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "Clean the graffiti tags off of the utility vault cover in the sidewalk."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "Yellow and green graffiti on the wall under the overpass needs to be removed."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "Remove the white graffiti from the metal utility cover on the sidewalk."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "Remove the graffiti and stickers from the street pole."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Encampment",
+  "gold": "Homelessness",
+  "pred": "Homelessness",
+  "correct": true,
+  "text": "HSOC Encampment"
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "Remove this black spray paint graffiti from the sidewalk."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "Remove the illegal flyer and blue tape from the pole."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "Clean the white spray paint from the concrete base of the planter box."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Encampment",
+  "gold": "Homelessness",
+  "pred": "Homelessness",
+  "correct": true,
+  "text": "HOMELESS ENCAMPMENT LIVING IN AREA"
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "White graffiti tag on the base of this pole, remove it."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Encampment",
+  "gold": "Homelessness",
+  "pred": "Streets_Sidewalks",
+  "correct": false,
+  "text": "Person with stuff blocking sidewalk"
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Encampment",
+  "gold": "Homelessness",
+  "pred": "Homelessness",
+  "correct": true,
+  "text": "Encampment is back and on the muni platform, they are doing drugs and also across the street along the Caltrain fence, trash, multiple people, tents and umbrellas"
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "Clean the graffiti on this commercial building, post an NOV, and issue a blight citation."
+ },
+ {
+  "city": "SanFrancisco",
+  "native": "Graffiti",
+  "gold": "Graffiti_Postings",
+  "pred": "Graffiti_Postings",
+  "correct": true,
+  "text": "Tagging on the metal pole. Remove the graffiti."
+ }
+]

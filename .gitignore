@@ -1,0 +1,18 @@
+# secrets (never commit)
+.env
+.env.*
+*.key
+keys/
+
+# python
+__pycache__/
+*.pyc
+
+# large raw data dumps (regenerate with collect_311.py)
+data/raw/
+
+# RunPod job download dirs + logs
+results_job-*/
+data_pull_50k.log
+
+# keep: data/harmonized.csv, data/*.json, data/harmonization_pivot.csv, results/*.json, results/*.csv

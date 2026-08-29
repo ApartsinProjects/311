@@ -1,0 +1,5 @@
+run_id,timestamp,arm,note,m.mean_macroF1,m.mean_acc,m.per_city.BatonRouge,m.per_city.Bloomington,m.per_city.Richmond,m.per_city.Auburn_WA,m.per_city.Gainesville,m.per_city.Honolulu,m.per_city.SanFrancisco,c.provider,c.model,c.n_per_city,m.overall_acc,m.overall_macroF1,m.n,m.n_errors,c.cap_per_city
+llm_zeroshot_20260829-133629,20260829-133629,llm_zeroshot,"zero-shot, taxonomy-in-prompt",0.3753,0.7771,0.446,0.333,0.211,0.41,0.474,0.62,0.133,openrouter,openai/gpt-4o-mini,100,,,,,
+llm_error_analysis_20260829-133708,20260829-133708,llm_error_analysis,per-example error records with native label,,,,,,,,,,,openai/gpt-4o-mini,,0.7714,0.7107,280,64,40
+llm_zeroshot_20260829-134111,20260829-134111,llm_zeroshot,"zero-shot, taxonomy-in-prompt",0.4883,0.78,0.625,0.508,0.42,0.409,0.51,0.681,0.265,openrouter,openai/gpt-4o-mini,100,,,,,
+llm_error_analysis_20260829-134147,20260829-134147,llm_error_analysis,per-example error records with native label,,,,,,,,,,,openai/gpt-4o-mini,,0.7821,0.716,280,61,40

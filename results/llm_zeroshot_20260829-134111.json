@@ -1,0 +1,25 @@
+{
+  "run_id": "llm_zeroshot_20260829-134111",
+  "arm": "llm_zeroshot",
+  "timestamp": "20260829-134111",
+  "config": {
+    "provider": "openrouter",
+    "model": "openai/gpt-4o-mini",
+    "n_per_city": 100
+  },
+  "metrics": {
+    "mean_macroF1": 0.4883,
+    "mean_acc": 0.78,
+    "per_city": {
+      "BatonRouge": 0.625,
+      "Bloomington": 0.508,
+      "Richmond": 0.42,
+      "Auburn_WA": 0.409,
+      "Gainesville": 0.51,
+      "Honolulu": 0.681,
+      "SanFrancisco": 0.265
+    }
+  },
+  "note": "zero-shot, taxonomy-in-prompt",
+  "per_item": null
+}

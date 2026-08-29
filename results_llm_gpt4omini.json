@@ -1,0 +1,57 @@
+{
+  "model": "openai/gpt-4o-mini",
+  "n_per_city": 100,
+  "per_city": {
+    "BatonRouge": {
+      "n": 100,
+      "macroF1": 0.625,
+      "acc": 0.8,
+      "unparsed": 0,
+      "n_gold_classes": 9
+    },
+    "Bloomington": {
+      "n": 100,
+      "macroF1": 0.508,
+      "acc": 0.82,
+      "unparsed": 0,
+      "n_gold_classes": 7
+    },
+    "Richmond": {
+      "n": 100,
+      "macroF1": 0.42,
+      "acc": 0.68,
+      "unparsed": 0,
+      "n_gold_classes": 6
+    },
+    "Auburn_WA": {
+      "n": 100,
+      "macroF1": 0.409,
+      "acc": 0.71,
+      "unparsed": 1,
+      "n_gold_classes": 9
+    },
+    "Gainesville": {
+      "n": 100,
+      "macroF1": 0.51,
+      "acc": 0.69,
+      "unparsed": 0,
+      "n_gold_classes": 11
+    },
+    "Honolulu": {
+      "n": 100,
+      "macroF1": 0.681,
+      "acc": 0.84,
+      "unparsed": 0,
+      "n_gold_classes": 11
+    },
+    "SanFrancisco": {
+      "n": 100,
+      "macroF1": 0.265,
+      "acc": 0.92,
+      "unparsed": 0,
+      "n_gold_classes": 2
+    }
+  },
+  "mean_macroF1": 0.488,
+  "mean_acc": 0.78
+}
