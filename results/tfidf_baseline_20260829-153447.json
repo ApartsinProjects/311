@@ -1,0 +1,34 @@
+{
+  "run_id": "tfidf_baseline_20260829-153447",
+  "arm": "tfidf_baseline",
+  "timestamp": "20260829-153447",
+  "config": {
+    "cap_per_city": 8000,
+    "drop_other": true
+  },
+  "metrics": {
+    "mean_incity": 0.7383,
+    "mean_loco": 0.3634,
+    "transfer_gap": 0.3749,
+    "per_city_incity": {
+      "BatonRouge": 0.5502,
+      "Bloomington": 0.6607,
+      "Richmond": 0.8064,
+      "Auburn_WA": 0.8051,
+      "Gainesville": 0.7126,
+      "Honolulu": 0.6367,
+      "SanFrancisco": 0.9962
+    },
+    "per_city_loco": {
+      "BatonRouge": 0.4014,
+      "Bloomington": 0.2639,
+      "Richmond": 0.3492,
+      "Auburn_WA": 0.465,
+      "Gainesville": 0.503,
+      "Honolulu": 0.4365,
+      "SanFrancisco": 0.1244
+    }
+  },
+  "note": "TF-IDF(word1-2+char3-5)+LogReg",
+  "per_item": null
+}

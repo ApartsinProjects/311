@@ -31,13 +31,16 @@ DATA = os.path.join(HERE, "data")
 csv.field_size_limit(10**7)
 
 
-def load(cap, drop_other):
+def load(cap, drop_other, informative_only=False):
+    from filter_labels import is_informative
     mp = json.load(open(os.path.join(DATA, "harmonization_map.json"), encoding="utf-8"))
     rows = list(csv.DictReader(open(os.path.join(DATA, "raw", "all_cities.csv"), encoding="utf-8")))
     by_city = defaultdict(list)
     for r in rows:
         city, text, nat = r["city"], (r["text"] or "").strip(), r["native_category"]
         if len(text) < 3:
+            continue
+        if informative_only and not is_informative(text):
             continue
         sup = mp.get(city, {}).get(nat, "General_Admin_Other")
         if drop_other and sup == "General_Admin_Other":
@@ -53,9 +56,9 @@ def load(cap, drop_other):
 
 def make_vectorizers():
     word = TfidfVectorizer(sublinear_tf=True, ngram_range=(1, 2), min_df=3,
-                           max_features=30000, strip_accents="unicode", lowercase=True)
+                           max_features=50000, strip_accents="unicode", lowercase=True)
     char = TfidfVectorizer(sublinear_tf=True, analyzer="char_wb", ngram_range=(3, 5),
-                           min_df=3, max_features=30000, lowercase=True)
+                           min_df=3, max_features=50000, lowercase=True)
     return word, char
 
 
@@ -69,8 +72,8 @@ def fit_transform(train_txt, test_txt):
 def train_eval(train, test):
     tr_txt, tr_y = zip(*train); te_txt, te_y = zip(*test)
     Xtr, Xte = fit_transform(list(tr_txt), list(te_txt))
-    clf = LogisticRegression(max_iter=1500, C=4.0, class_weight="balanced",
-                             solver="saga", tol=1e-3)
+    clf = LogisticRegression(max_iter=2000, C=4.0, class_weight="balanced",
+                             solver="saga", tol=1e-4)
     clf.fit(Xtr, tr_y)
     pred = clf.predict(Xte)
     macro = f1_score(te_y, pred, average="macro", zero_division=0)
@@ -84,9 +87,10 @@ def main():
     ap.add_argument("--cap-per-city", type=int, default=0)
     ap.add_argument("--drop-other", action="store_true", default=True)
     ap.add_argument("--keep-other", dest="drop_other", action="store_false")
+    ap.add_argument("--filter", action="store_true", help="drop uninformative/shorthand text")
     args = ap.parse_args()
 
-    by_city = load(args.cap_per_city, args.drop_other)
+    by_city = load(args.cap_per_city, args.drop_other, informative_only=args.filter)
     cities = sorted(by_city, key=lambda c: -len(by_city[c]))
     print("dataset (rows per city, after harmonize" + (", drop Other" if args.drop_other else "") + "):")
     for c in cities:
@@ -143,8 +147,9 @@ def main():
                          "transfer_gap": round(float(mi - ml), 4),
                          "per_city_incity": {c: round(v, 4) for c, v in incity.items()},
                          "per_city_loco": {c: round(v, 4) for c, v in loco.items()}},
-                        config={"cap_per_city": args.cap_per_city, "drop_other": args.drop_other},
-                        note="TF-IDF(word1-2+char3-5)+LogReg")
+                        config={"cap_per_city": args.cap_per_city, "drop_other": args.drop_other,
+                                "filter": args.filter},
+                        note="TF-IDF(word1-2+char3-5)+LogReg" + (" [filtered]" if args.filter else ""))
         except Exception as e:
             print(f"[results_log] skipped: {e}")
 

@@ -28,14 +28,18 @@ LABELS = list(CONTENT_CLASSES)
 OTHER = "General_Admin_Other"
 
 
-def load_harmonized(cap=0, drop_other=True, seed=0):
-    """Return {city: [(text, super_class), ...]} using data/raw/all_cities.csv + harmonization_map.json."""
+def load_harmonized(cap=0, drop_other=True, seed=0, informative_only=False):
+    """Return {city: [(text, super_class), ...]} using data/raw/all_cities.csv + harmonization_map.json.
+    If informative_only, drop uninformative/shorthand text (text-informativeness filter)."""
+    from filter_labels import is_informative
     mp = json.load(open(os.path.join(DATA, "harmonization_map.json"), encoding="utf-8"))
     by_city = defaultdict(list)
     with open(os.path.join(DATA, "raw", "all_cities.csv"), encoding="utf-8") as f:
         for r in csv.DictReader(f):
             city, text, nat = r["city"], (r["text"] or "").strip(), r["native_category"]
             if len(text) < 3:
+                continue
+            if informative_only and not is_informative(text):
                 continue
             sup = mp.get(city, {}).get(nat, OTHER)
             if drop_other and sup == OTHER:

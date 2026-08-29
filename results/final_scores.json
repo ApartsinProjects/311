@@ -1,0 +1,369 @@
+{
+  "arms": {
+    "distilbert/incity": {
+      "per_city": {
+        "BatonRouge": {
+          "macroF1": 0.7622,
+          "acc": 0.93,
+          "n": 500,
+          "n_classes": 10,
+          "lenient_acc": 0.98
+        },
+        "Bloomington": {
+          "macroF1": 0.609,
+          "acc": 0.9522,
+          "n": 502,
+          "n_classes": 10,
+          "lenient_acc": 0.9861
+        },
+        "Richmond": {
+          "macroF1": 0.7874,
+          "acc": 0.9619,
+          "n": 499,
+          "n_classes": 7,
+          "lenient_acc": 0.976
+        },
+        "Auburn_WA": {
+          "macroF1": 0.8419,
+          "acc": 0.838,
+          "n": 500,
+          "n_classes": 10,
+          "lenient_acc": 0.922
+        },
+        "Gainesville": {
+          "macroF1": 0.738,
+          "acc": 0.8184,
+          "n": 501,
+          "n_classes": 13,
+          "lenient_acc": 0.9381
+        },
+        "Honolulu": {
+          "macroF1": 0.5677,
+          "acc": 0.758,
+          "n": 500,
+          "n_classes": 13,
+          "lenient_acc": 0.896
+        },
+        "SanFrancisco": {
+          "macroF1": 0.9766,
+          "acc": 0.982,
+          "n": 500,
+          "n_classes": 2,
+          "lenient_acc": 0.982
+        }
+      },
+      "pooled_macroF1": 0.8265,
+      "pooled_CI": [
+        0.7984,
+        0.8468
+      ],
+      "pooled_macroF1_noSF": 0.8031,
+      "pooled_CI_noSF": [
+        0.7743,
+        0.8268
+      ],
+      "unweighted_mean": 0.7547,
+      "unweighted_mean_noSF": 0.7177,
+      "pooled_strict_acc": 0.8915,
+      "pooled_lenient_acc": 0.9543
+    },
+    "distilbert/loco": {
+      "per_city": {
+        "BatonRouge": {
+          "macroF1": 0.511,
+          "acc": 0.734,
+          "n": 500,
+          "n_classes": 10,
+          "lenient_acc": 0.814
+        },
+        "Bloomington": {
+          "macroF1": 0.4356,
+          "acc": 0.7928,
+          "n": 502,
+          "n_classes": 10,
+          "lenient_acc": 0.8586
+        },
+        "Richmond": {
+          "macroF1": 0.576,
+          "acc": 0.8998,
+          "n": 499,
+          "n_classes": 7,
+          "lenient_acc": 0.9659
+        },
+        "Auburn_WA": {
+          "macroF1": 0.5002,
+          "acc": 0.732,
+          "n": 500,
+          "n_classes": 10,
+          "lenient_acc": 0.882
+        },
+        "Gainesville": {
+          "macroF1": 0.5166,
+          "acc": 0.7066,
+          "n": 501,
+          "n_classes": 13,
+          "lenient_acc": 0.8762
+        },
+        "Honolulu": {
+          "macroF1": 0.4641,
+          "acc": 0.642,
+          "n": 500,
+          "n_classes": 13,
+          "lenient_acc": 0.858
+        },
+        "SanFrancisco": {
+          "macroF1": 0.1251,
+          "acc": 0.73,
+          "n": 500,
+          "n_classes": 2,
+          "lenient_acc": 0.79
+        }
+      },
+      "pooled_macroF1": 0.5579,
+      "pooled_CI": [
+        0.537,
+        0.5783
+      ],
+      "pooled_macroF1_noSF": 0.5415,
+      "pooled_CI_noSF": [
+        0.5168,
+        0.5628
+      ],
+      "unweighted_mean": 0.4469,
+      "unweighted_mean_noSF": 0.5006,
+      "pooled_strict_acc": 0.7481,
+      "pooled_lenient_acc": 0.8635
+    },
+    "llm_gpt4omini/zeroshot": {
+      "per_city": {
+        "BatonRouge": {
+          "macroF1": 0.5872,
+          "acc": 0.794,
+          "n": 500,
+          "n_classes": 10,
+          "lenient_acc": 0.994
+        },
+        "Bloomington": {
+          "macroF1": 0.636,
+          "acc": 0.8645,
+          "n": 502,
+          "n_classes": 10,
+          "lenient_acc": 0.9681
+        },
+        "Richmond": {
+          "macroF1": 0.4745,
+          "acc": 0.7415,
+          "n": 499,
+          "n_classes": 7,
+          "lenient_acc": 0.9699
+        },
+        "Auburn_WA": {
+          "macroF1": 0.4972,
+          "acc": 0.746,
+          "n": 500,
+          "n_classes": 10,
+          "lenient_acc": 0.982
+        },
+        "Gainesville": {
+          "macroF1": 0.5767,
+          "acc": 0.7485,
+          "n": 501,
+          "n_classes": 13,
+          "lenient_acc": 0.982
+        },
+        "Honolulu": {
+          "macroF1": 0.5766,
+          "acc": 0.746,
+          "n": 500,
+          "n_classes": 13,
+          "lenient_acc": 0.986
+        },
+        "SanFrancisco": {
+          "macroF1": 0.1609,
+          "acc": 0.938,
+          "n": 500,
+          "n_classes": 2,
+          "lenient_acc": 0.988
+        }
+      },
+      "pooled_macroF1": 0.6544,
+      "pooled_CI": [
+        0.6252,
+        0.6787
+      ],
+      "pooled_macroF1_noSF": 0.6217,
+      "pooled_CI_noSF": [
+        0.5916,
+        0.6498
+      ],
+      "unweighted_mean": 0.5013,
+      "unweighted_mean_noSF": 0.558,
+      "pooled_strict_acc": 0.797,
+      "pooled_lenient_acc": 0.9814
+    },
+    "tfidf/incity": {
+      "per_city": {
+        "BatonRouge": {
+          "macroF1": 0.6454,
+          "acc": 0.882,
+          "n": 500,
+          "n_classes": 10,
+          "lenient_acc": 0.932
+        },
+        "Bloomington": {
+          "macroF1": 0.4434,
+          "acc": 0.759,
+          "n": 502,
+          "n_classes": 10,
+          "lenient_acc": 0.8048
+        },
+        "Richmond": {
+          "macroF1": 0.7779,
+          "acc": 0.9299,
+          "n": 499,
+          "n_classes": 7,
+          "lenient_acc": 0.9419
+        },
+        "Auburn_WA": {
+          "macroF1": 0.7981,
+          "acc": 0.812,
+          "n": 500,
+          "n_classes": 10,
+          "lenient_acc": 0.918
+        },
+        "Gainesville": {
+          "macroF1": 0.7284,
+          "acc": 0.7764,
+          "n": 501,
+          "n_classes": 13,
+          "lenient_acc": 0.9261
+        },
+        "Honolulu": {
+          "macroF1": 0.751,
+          "acc": 0.784,
+          "n": 500,
+          "n_classes": 13,
+          "lenient_acc": 0.892
+        },
+        "SanFrancisco": {
+          "macroF1": 0.977,
+          "acc": 0.982,
+          "n": 500,
+          "n_classes": 2,
+          "lenient_acc": 0.982
+        }
+      },
+      "pooled_macroF1": 0.7846,
+      "pooled_CI": [
+        0.758,
+        0.8091
+      ],
+      "pooled_macroF1_noSF": 0.7615,
+      "pooled_CI_noSF": [
+        0.7323,
+        0.7865
+      ],
+      "unweighted_mean": 0.7316,
+      "unweighted_mean_noSF": 0.6907,
+      "pooled_strict_acc": 0.8464,
+      "pooled_lenient_acc": 0.9138
+    },
+    "tfidf/loco": {
+      "per_city": {
+        "BatonRouge": {
+          "macroF1": 0.4051,
+          "acc": 0.698,
+          "n": 500,
+          "n_classes": 10,
+          "lenient_acc": 0.78
+        },
+        "Bloomington": {
+          "macroF1": 0.4491,
+          "acc": 0.6912,
+          "n": 502,
+          "n_classes": 10,
+          "lenient_acc": 0.757
+        },
+        "Richmond": {
+          "macroF1": 0.4766,
+          "acc": 0.7455,
+          "n": 499,
+          "n_classes": 7,
+          "lenient_acc": 0.8918
+        },
+        "Auburn_WA": {
+          "macroF1": 0.434,
+          "acc": 0.58,
+          "n": 500,
+          "n_classes": 10,
+          "lenient_acc": 0.76
+        },
+        "Gainesville": {
+          "macroF1": 0.4494,
+          "acc": 0.6407,
+          "n": 501,
+          "n_classes": 13,
+          "lenient_acc": 0.8084
+        },
+        "Honolulu": {
+          "macroF1": 0.4571,
+          "acc": 0.616,
+          "n": 500,
+          "n_classes": 13,
+          "lenient_acc": 0.836
+        },
+        "SanFrancisco": {
+          "macroF1": 0.1609,
+          "acc": 0.844,
+          "n": 500,
+          "n_classes": 2,
+          "lenient_acc": 0.878
+        }
+      },
+      "pooled_macroF1": 0.5233,
+      "pooled_CI": [
+        0.5038,
+        0.5406
+      ],
+      "pooled_macroF1_noSF": 0.4828,
+      "pooled_CI_noSF": [
+        0.458,
+        0.5022
+      ],
+      "unweighted_mean": 0.4046,
+      "unweighted_mean_noSF": 0.4452,
+      "pooled_strict_acc": 0.6879,
+      "pooled_lenient_acc": 0.8158
+    }
+  },
+  "significance": [
+    {
+      "label": "distilbert/loco vs llm_gpt4omini/zeroshot",
+      "mean_diff": -0.0957,
+      "P(A>B)": 0.0,
+      "CI": [
+        -0.1271,
+        -0.0649
+      ]
+    },
+    {
+      "label": "distilbert/loco vs tfidf/loco",
+      "mean_diff": 0.0345,
+      "P(A>B)": 1.0,
+      "CI": [
+        0.0163,
+        0.0523
+      ]
+    },
+    {
+      "label": "llm_gpt4omini/zeroshot vs tfidf/loco",
+      "mean_diff": 0.1308,
+      "P(A>B)": 1.0,
+      "CI": [
+        0.0975,
+        0.1648
+      ]
+    }
+  ],
+  "gold_noise_rate": 0.1428
+}

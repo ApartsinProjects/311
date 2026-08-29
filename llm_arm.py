@@ -87,11 +87,12 @@ def main():
     ap.add_argument("--model", default="openai/gpt-4o-mini")
     ap.add_argument("--workers", type=int, default=8)
     ap.add_argument("--env-file", default=r"E:\Projects\.env.all")
+    ap.add_argument("--filter", action="store_true", help="drop uninformative/shorthand text")
     ap.add_argument("--out", default="results_llm.json")
     args = ap.parse_args()
 
     client, provider = make_client(args.env_file)
-    by_city = load_harmonized(cap=0, drop_other=True)
+    by_city = load_harmonized(cap=0, drop_other=True, informative_only=args.filter)
     test = sample_test(by_city, args.n_per_city, seed=0)
     print(f"LLM arm: provider={provider}  model={args.model}  n/city={args.n_per_city}\n")
 
@@ -127,8 +128,9 @@ def main():
         save_result("llm_zeroshot",
                     {"mean_macroF1": round(ms, 4), "mean_acc": round(ma, 4),
                      "per_city": {c: r["macroF1"] for c, r in results.items()}},
-                    config={"provider": provider, "model": args.model, "n_per_city": args.n_per_city},
-                    note="zero-shot, taxonomy-in-prompt")
+                    config={"provider": provider, "model": args.model, "n_per_city": args.n_per_city,
+                            "filter": args.filter},
+                    note="zero-shot, taxonomy-in-prompt" + (" [filtered]" if args.filter else ""))
     except Exception as e:
         print(f"[results_log] skipped: {e}")
 

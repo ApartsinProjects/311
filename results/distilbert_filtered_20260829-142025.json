@@ -1,0 +1,150 @@
+{
+  "run_id": "distilbert_filtered_20260829-142025",
+  "arm": "distilbert_filtered",
+  "timestamp": "20260829-142025",
+  "config": {
+    "filter": true
+  },
+  "metrics": {
+    "mean_incity": 0.7832,
+    "mean_loco": 0.4181,
+    "transfer_gap": 0.3651,
+    "detail": {
+      "config": {
+        "data": "harmonized_filtered.csv",
+        "cap_per_city": 12000,
+        "epochs": 3,
+        "bs": 64,
+        "lr": 3e-05,
+        "maxlen": 64
+      },
+      "incity": {
+        "BatonRouge": {
+          "macroF1": 0.7991,
+          "acc": 0.9437
+        },
+        "Bloomington": {
+          "macroF1": 0.6744,
+          "acc": 0.9529
+        },
+        "Richmond": {
+          "macroF1": 0.8607,
+          "acc": 0.9758
+        },
+        "Auburn_WA": {
+          "macroF1": 0.8491,
+          "acc": 0.8621
+        },
+        "Gainesville": {
+          "macroF1": 0.7348,
+          "acc": 0.8159
+        },
+        "Honolulu": {
+          "macroF1": 0.592,
+          "acc": 0.7879
+        },
+        "SanFrancisco": {
+          "macroF1": 0.9726,
+          "acc": 0.9794
+        }
+      },
+      "loco": {
+        "BatonRouge": {
+          "macroF1": 0.4482,
+          "acc": 0.7247
+        },
+        "Bloomington": {
+          "macroF1": 0.3631,
+          "acc": 0.8471
+        },
+        "Richmond": {
+          "macroF1": 0.4419,
+          "acc": 0.8806
+        },
+        "Auburn_WA": {
+          "macroF1": 0.5167,
+          "acc": 0.7368
+        },
+        "Gainesville": {
+          "macroF1": 0.5703,
+          "acc": 0.7496
+        },
+        "Honolulu": {
+          "macroF1": 0.4668,
+          "acc": 0.6235
+        },
+        "SanFrancisco": {
+          "macroF1": 0.1197,
+          "acc": 0.7704
+        }
+      },
+      "summary": {
+        "mean_incity": 0.7832,
+        "mean_loco": 0.4181,
+        "transfer_gap": 0.3651,
+        "incity": {
+          "BatonRouge": {
+            "macroF1": 0.7991,
+            "acc": 0.9437
+          },
+          "Bloomington": {
+            "macroF1": 0.6744,
+            "acc": 0.9529
+          },
+          "Richmond": {
+            "macroF1": 0.8607,
+            "acc": 0.9758
+          },
+          "Auburn_WA": {
+            "macroF1": 0.8491,
+            "acc": 0.8621
+          },
+          "Gainesville": {
+            "macroF1": 0.7348,
+            "acc": 0.8159
+          },
+          "Honolulu": {
+            "macroF1": 0.592,
+            "acc": 0.7879
+          },
+          "SanFrancisco": {
+            "macroF1": 0.9726,
+            "acc": 0.9794
+          }
+        },
+        "loco": {
+          "BatonRouge": {
+            "macroF1": 0.4482,
+            "acc": 0.7247
+          },
+          "Bloomington": {
+            "macroF1": 0.3631,
+            "acc": 0.8471
+          },
+          "Richmond": {
+            "macroF1": 0.4419,
+            "acc": 0.8806
+          },
+          "Auburn_WA": {
+            "macroF1": 0.5167,
+            "acc": 0.7368
+          },
+          "Gainesville": {
+            "macroF1": 0.5703,
+            "acc": 0.7496
+          },
+          "Honolulu": {
+            "macroF1": 0.4668,
+            "acc": 0.6235
+          },
+          "SanFrancisco": {
+            "macroF1": 0.1197,
+            "acc": 0.7704
+          }
+        }
+      }
+    }
+  },
+  "note": "fixed metric, filtered subset",
+  "per_item": null
+}
