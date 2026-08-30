@@ -35,7 +35,9 @@ def train_predict(train, test):
 
 
 def main():
-    sp = load_split()
+    import os
+    sp = load_split(os.environ.get("SPLIT"))       # SPLIT env = alternate split file
+    out_tag = os.environ.get("OUT_TAG", "tfidf")
     cities = list(sp["test"])
     preds = {"incity": {}, "loco": {}}
     for c in cities:
@@ -50,7 +52,7 @@ def main():
                 pool += cap_rows(sp["train"][oc], CAP)
         preds["loco"][c] = train_predict(pool, test)
         print(f"[tfidf] loco    {c} done")
-    save_preds("tfidf", preds)
+    save_preds(out_tag, preds)
 
 
 if __name__ == "__main__":

@@ -111,25 +111,34 @@ ambiguity alongside genuine domain shift, and this paper makes these effects vis
 setting, harmonizes categories across two cities. Sukel et al. <sup><a href="#r3">[3]</a></sup> route
 citizen-reported micro-events to city departments in Amsterdam using text, image, and location. Masdeval and
 Veloso <sup><a href="#r4">[4]</a></sup> estimate urgency from SeeClickFix report text. These studies are
-single-platform or two-city; none provides a public multi-city benchmark with fixed splits, and we
-are aware of no peer-reviewed US-city transformer-on-311 routing benchmark, which is the gap we fill.</p>
+single-platform or two-city; none provides a public multi-city benchmark with fixed splits. Nalchigar and Fox
+build a 311 reference ontology to align service codes across cities <sup><a href="#r18">[18]</a></sup>, the
+closest precedent to our harmonization, but release no public benchmark or evaluation splits, and White and
+Trump caution that 311 reporting is a noisy, biased signal of citizen need <sup><a href="#r24">[24]</a></sup>.
+We are aware of no peer-reviewed US-city transformer-on-311 routing benchmark, which is the gap we fill.</p>
 <h3>2.2 Cross-domain and cross-jurisdiction generalization</h3>
 <p>Our leave-one-city-out protocol is the text instance of leave-one-domain-out domain generalization
 <sup><a href="#r5">[5]</a></sup>, and out-of-distribution generalization is a persistent problem in text
-classification specifically <sup><a href="#r6">[6]</a></sup>. We treat each city as a domain whose taxonomy
-and register shift jointly.</p>
+classification specifically <sup><a href="#r6">[6]</a></sup>; surveys of NLP domain adaptation
+<sup><a href="#r14">[14]</a></sup> and the strong-baseline lessons of DomainBed <sup><a href="#r21">[21]</a></sup>
+inform our setup. We treat each city as a domain whose taxonomy and register shift jointly.</p>
 <h3>2.3 Label noise, artifacts, and benchmark validity</h3>
 <p>Pervasive label errors destabilize benchmark rankings <sup><a href="#r7">[7]</a></sup>, annotation
 protocols leak label-correlated artifacts <sup><a href="#r8">[8]</a></sup>, and single benchmarks often
-measure less than their headline suggests <sup><a href="#r9">[9]</a></sup>. Administrative-code
-harmonization, such as occupation coding <sup><a href="#r10">[10]</a></sup>, is a direct analogue: short text
-mapped to a contested hierarchical code. Our gap analysis applies this lens to cross-jurisdiction transfer.</p>
+measure less than their headline suggests <sup><a href="#r9">[9]</a></sup>. A parallel
+line in perspectivist NLP argues that human label variation is often legitimate rather than error, and that
+evaluation should credit multiple valid labels <sup><a href="#r15">[15]</a>,<a href="#r16">[16]</a>,<a href="#r17">[17]</a>,<a href="#r23">[23]</a></sup>;
+our acceptable-set metric is an instance of this ambiguity-aware evaluation. Administrative-code harmonization,
+such as occupation coding <sup><a href="#r10">[10]</a><a href="#r20">,[20]</a></sup> and medical coding from
+clinical text <sup><a href="#r19">[19]</a></sup>, is a direct analogue: short text mapped to a contested
+hierarchical code. Our gap analysis applies this lens to cross-jurisdiction transfer.</p>
 <h3>2.4 Zero-shot LLMs versus fine-tuned encoders</h3>
 <p>Zero-shot text classification via label descriptions and entailment <sup><a href="#r11">[11]</a></sup> is
 the paradigm our LLM arm uses (the taxonomy and glosses go in the prompt). Fine-tuned small encoders often
 still beat zero-shot generative models within a domain <sup><a href="#r12">[12]</a></sup>; our contribution
 is to compare them under domain shift, where the frozen label space of the fine-tuned model becomes a
-liability.</p>
+liability. Label-semantic pretraining injects label descriptions into the model <sup><a href="#r22">[22]</a></sup>,
+which our sentence-transformer and NLI baselines approximate at inference time.</p>
 <h3>2.5 Civic-tech datasets and 311 equity</h3>
 <p>311 reporting propensity varies with neighborhood demographics <sup><a href="#r13">[13]</a></sup>, and the
 category mix of requests characterizes urban location <sup><a href="#r2">[2]</a></sup>. This structured-data
@@ -205,8 +214,10 @@ head. (ii) DistilBERT fine-tuned for three epochs. (iii) gpt-4o-mini (temperatur
 taxonomy and short glosses, seeing no city-specific training data, which makes it an inherently
 cross-jurisdiction condition. As LLM ablations we also report gpt-4o (a stronger model) and a few-shot variant
 that adds one labeled exemplar per class drawn from the training cities. LLM inference runs through the
-provider batch APIs at half the standard token price. Hyperparameters and the verbatim prompt are released
-with the code.</p>
+provider batch APIs at half the standard token price. As additional baselines we report (iv) a fine-tuned
+RoBERTa-base encoder, and two zero-shot label-semantic methods that use the class descriptions but no training:
+a sentence-transformer that assigns the nearest class-description embedding, and an NLI entailment classifier.
+Hyperparameters and the verbatim prompt are released with the code.</p>
 
 <h2>6. Results</h2>
 <figure>
@@ -250,6 +261,26 @@ cities scores 0.650, statistically indistinguishable from its zero-shot result (
 therefore comes from the target-label semantics that the taxonomy places in the prompt, and grows with model
 capacity, rather than from few-shot demonstrations. As a pipeline check, running gpt-4o-mini through the batch
 API reproduces the synchronous result (0.644 versus 0.654, not significant).</p>
+
+<p>We also widen the model families. A stronger encoder does not help transfer: fine-tuned RoBERTa reaches
+0.840 in-city, above DistilBERT, but only 0.519 across cities, so the gap is not a weakness of the DistilBERT
+baseline. Two zero-shot label-semantic methods that receive the class descriptions but no strong reasoning, a
+sentence-transformer that matches each request to the nearest class-description embedding (0.510) and an NLI
+entailment classifier (0.478), land at or below the classical TF-IDF baseline and far below the LLM. Access to
+label semantics is therefore necessary but not sufficient: the zero-shot LLM's advantage combines the label
+semantics in its prompt with its own capability, and neither a stronger encoder nor a simple label-matching
+model reproduces it.</p>
+
+<h3>Robustness</h3>
+<p>Three checks indicate the gap is genuine domain shift rather than an artifact of the split or the taxonomy.
+<em>Deduplication:</em> 18,265 training rows shared their exact text with a test request in the same city;
+removing them, together with corpus-wide exact duplicates, barely changes the picture (DistilBERT in-city
+0.818, cross-city 0.539), so the roughly one-third drop is not produced by train-test overlap. <em>Taxonomy
+coarsening:</em> merging the confusable neighboring classes into an eight-class ontology recovers four to seven
+macro-F1 points for the trained models (TF-IDF cross-city 0.523 to 0.590, DistilBERT 0.558 to 0.601), which
+quantifies the taxonomy-boundary share of the difficulty, yet the gap to in-city persists. <em>Model family:</em>
+a stronger encoder and simple label-semantic classifiers, above, do not close it either. The gap is not
+specific to one architecture, split, or taxonomy granularity.</p>
 
 <p>Performance varies sharply across held-out cities (Figure 2), from the degenerate San Francisco split
 (two content classes) to the mid-0.6s on more balanced cities, which is why we report San-Francisco-excluded
@@ -380,6 +411,17 @@ methodology are public so that cross-jurisdiction 311 classification can be stud
 <li id="r11">Yin, W., Hay, J., &amp; Roth, D. (2019). Benchmarking Zero-shot Text Classification: Datasets, Evaluation and Entailment Approach. <em>EMNLP-IJCNLP</em> (arXiv:1909.00161).</li>
 <li id="r12">Bucher, M. J. J., &amp; Martini, M. (2024). Fine-Tuned "Small" LLMs (Still) Significantly Outperform Zero-Shot Generative AI Models in Text Classification. arXiv:2406.08660.</li>
 <li id="r13">Kontokosta, C. E., &amp; Hong, B. (2017). Equity in 311 Reporting: Socio-Spatial Differentials in the Propensity to Complain. arXiv:1710.02452.</li>
+<li id="r14">Ramponi, A., &amp; Plank, B. (2020). Neural Unsupervised Domain Adaptation in NLP—A Survey. <em>COLING</em>. aclanthology.org/2020.coling-main.603.</li>
+<li id="r15">Plank, B. (2022). The "Problem" of Human Label Variation: On Ground Truth in Data, Modeling and Evaluation. <em>EMNLP</em>. arXiv:2211.02570.</li>
+<li id="r16">Uma, A., Fornaciari, T., Hovy, D., Paun, S., Plank, B., &amp; Poesio, M. (2021). Learning from Disagreement: A Survey. <em>JAIR</em>, 72, 1385-1470.</li>
+<li id="r17">Leonardelli, E., et al. (2023). SemEval-2023 Task 11: Learning with Disagreements (LeWiDi). <em>SemEval</em>. arXiv:2304.14803.</li>
+<li id="r18">Nalchigar, S., &amp; Fox, M. S. (2017). Achieving Interoperability of Smart City Data: An Analysis of 311 Data. <em>Journal of Smart Cities</em>, 3(1).</li>
+<li id="r19">Mullenbach, J., Wiegreffe, S., Duke, J., Sun, J., &amp; Eisenstein, J. (2018). Explainable Prediction of Medical Codes from Clinical Text. <em>NAACL-HLT</em>. arXiv:1802.05695.</li>
+<li id="r20">Gweon, H., Schonlau, M., Kaczmirek, L., Blohm, M., &amp; Steiner, S. (2017). Three Methods for Occupation Coding Based on Statistical Learning. <em>Journal of Official Statistics</em>, 33(1), 101-122.</li>
+<li id="r21">Gulrajani, I., &amp; Lopez-Paz, D. (2021). In Search of Lost Domain Generalization. <em>ICLR</em>. arXiv:2007.01434.</li>
+<li id="r22">Mueller, A., Krone, J., Romeo, S., Mansour, S., Mansimov, E., Zhang, Y., &amp; Roth, D. (2022). Label Semantic Aware Pre-training for Few-shot Text Classification. <em>ACL</em>. arXiv:2204.07128.</li>
+<li id="r23">Aroyo, L., &amp; Welty, C. (2015). Truth Is a Lie: Crowd Truth and the Seven Myths of Human Annotation. <em>AI Magazine</em>, 36(1), 15-24.</li>
+<li id="r24">White, A., &amp; Trump, K. S. (2018). The Promises and Pitfalls of 311 Data. <em>Urban Affairs Review</em>, 54(4), 794-823.</li>
 </ol>
 
 <div class="foot">Working paper. Every reported number is regenerated from the released predictions and

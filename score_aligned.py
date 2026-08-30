@@ -116,14 +116,17 @@ def main():
         print(f"{k:28s}{v['pooled_macroF1']:9.3f}{ci:>16s}{v['pooled_macroF1_noSF']:8.3f}"
               f"{v['unweighted_mean']:9.3f}{v['unweighted_mean_noSF']:10.3f}")
 
-    # significance between cross-city arms (loco / zeroshot)
+    # significance: compare each cross-city arm against the TF-IDF baseline (linear, fast + sufficient),
+    # plus the key LLM-vs-DistilBERT contrast.
     sig = []
     cross = {k: v for k, v in arms.items() if ("loco" in k or "zeroshot" in k)}
-    keys = list(cross)
-    for i in range(len(keys)):
-        for j in range(i + 1, len(keys)):
-            a, b = keys[i], keys[j]
-            # align on common cities' pooled pairs (all share the same test rows)
+    ref = "tfidf/loco"
+    pairs = [(a, ref) for a in cross if a != ref]
+    for extra in [("llm_gpt4omini/zeroshot", "distilbert/loco"), ("llm_gpt4o/zeroshot", "distilbert/loco")]:
+        if extra[0] in cross and extra[1] in cross:
+            pairs.append(extra)
+    for a, b in pairs:
+        if a in cross and b in cross:
             sig.append(paired_bootstrap(cross[a]["_pooled_pairs"], cross[b]["_pooled_pairs"], f"{a} vs {b}"))
     print("\nPaired-bootstrap significance (cross-city arms):")
     for s in sig:

@@ -15,12 +15,15 @@ assert torch.cuda.is_available(), "CUDA not available. This script requires a GP
 DEV = torch.device("cuda")
 print(f"[train] GPU: {torch.cuda.get_device_name(0)}"); sys.stdout.flush()
 
-MODEL = "distilbert-base-uncased"
+MODEL = os.environ.get("ENC_MODEL", "distilbert-base-uncased")
+TAG = os.environ.get("ENC_TAG", "distilbert")
+MAXLEN = int(os.environ.get("ENC_MAXLEN", "64"))
 LABELS = ["Waste_Sanitation", "Streets_Sidewalks", "Street_Lighting", "Traffic_Signals_Signs",
           "Trees_Vegetation", "Graffiti_Postings", "Parking_Vehicles", "Property_Housing_Code",
           "Water_Sewer_Drainage", "Homelessness", "Animals_Pests", "Noise", "Transit", "Parks_Recreation"]
 L2I = {l: i for i, l in enumerate(LABELS)}
 CAP = 12000
+print(f"[train] model={MODEL} tag={TAG} maxlen={MAXLEN}"); sys.stdout.flush()
 
 
 def load(path):
@@ -37,7 +40,7 @@ def cap(rows, c=CAP, seed=0):
 
 
 class DS(Dataset):
-    def __init__(self, rows, tok, ml=64):
+    def __init__(self, rows, tok, ml=MAXLEN):
         self.rows = rows; self.tok = tok; self.ml = ml
     def __len__(self): return len(self.rows)
     def __getitem__(self, i):
@@ -75,7 +78,7 @@ def train_predict(train, test, tok, epochs, bs, lr, tag):
 
 def main():
     epochs, bs, lr = 3, 64, 3e-5
-    sp = load("eval_split.csv")
+    sp = load(os.environ.get("SPLIT", "eval_split.csv"))
     tok = AutoTokenizer.from_pretrained(MODEL)
     cities = list(sp["test"])
     os.makedirs("results/preds", exist_ok=True)
@@ -87,8 +90,8 @@ def main():
         pool = [d for oc in cities if oc != c for d in cap(sp["train"][oc])]
         out["loco"][c] = train_predict(pool, test, tok, epochs, bs, lr, f"loco:{c}")
         print(f"[train] loco {c} done"); sys.stdout.flush()
-    json.dump(out, open("results/preds/distilbert.json", "w"), ensure_ascii=False)
-    print("[train] === DONE ==="); sys.stdout.flush()
+    json.dump(out, open(f"results/preds/{TAG}.json", "w"), ensure_ascii=False)
+    print(f"[train] wrote results/preds/{TAG}.json"); print("[train] === DONE ==="); sys.stdout.flush()
 
 
 if __name__ == "__main__":

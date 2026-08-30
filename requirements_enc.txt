@@ -1,0 +1,6 @@
+transformers==4.44.2
+sentencepiece
+accelerate
+sentence-transformers
+scikit-learn
+numpy
