@@ -298,10 +298,11 @@ removing them, together with corpus-wide exact duplicates, barely changes the pi
 coarsening:</em> merging the confusable neighboring classes into an eight-class ontology recovers four to seven
 macro-F1 points for the trained models (TF-IDF cross-city 0.523 to 0.590, DistilBERT 0.558 to 0.601), which
 quantifies the taxonomy-boundary share of the difficulty, yet the gap to in-city persists. <em>Temporal split:</em>
-for the four cities that carry timestamps, training on the earliest 80% of requests and testing on the latest
-20% yields in-city macro-F1 within 0.01 of a random split on average (0.753 versus 0.764), so random splitting
-does not materially inflate in-city performance; the remaining three cities lack usable timestamps, a
-limitation of the collection. <em>Model family and input length:</em> a stronger encoder and simple label-semantic classifiers,
+for all seven cities, pulling each city's records ordered by its native creation timestamp, training on the
+earliest 80% of requests and testing on the latest 20% lowers in-city macro-F1 by 0.051 on average (0.740
+versus 0.791 for a random split on the same rows), with the largest single-city drop 0.12 (Honolulu). This
+temporal degradation is real but roughly five times smaller than the cross-jurisdiction gap, so the transfer
+gap is not an artifact of random splitting. <em>Model family and input length:</em> a stronger encoder and simple label-semantic classifiers,
 above, do not close the gap either, and doubling the encoder's input to 128 tokens does not help (cross-city
 0.537 versus 0.558). The gap is not specific to one architecture, split, taxonomy granularity, or sequence
 length.</p>

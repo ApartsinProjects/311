@@ -1,0 +1,17 @@
+{
+  "title": "MC311: A Multi-City Free-Text Benchmark for Cross-Jurisdiction 311 Classification",
+  "upload_type": "dataset",
+  "description": "MC311 is the first public multi-city free-text 311 service-request classification benchmark. It draws about 156,000 citizen-authored complaint narratives from seven US cities (Baton Rouge, Bloomington IN, Richmond VA, Auburn WA, Gainesville FL, Honolulu, San Francisco) and maps 545 native service categories into a shared 14-class civic ontology via an auditable rule set, enabling cross-jurisdiction (leave-one-city-out) evaluation. This deposit contains: (data) the harmonized corpus, the 14-class mapping, the frozen stratified test split and the deduplicated split; (code) the collection, harmonization, evaluation, and analysis scripts; (results) the per-example predictions for every model, the acceptable-set judgments, and the scored results with confidence intervals that regenerate every number in the paper. Raw per-city dumps are not rehosted; they are regenerable from the released collection scripts against each city's open-data portal (see EXTERNAL_DATA.md). Companion to the paper of the same title.",
+  "creators": [
+    {"name": "Apartsin, Alexander", "affiliation": "Holon Institute of Technology (HIT), Holon, Israel"},
+    {"name": "Aperstein, Yehudit", "affiliation": "Afeka Academic College of Engineering, Tel-Aviv, Israel"}
+  ],
+  "license": "cc-by-4.0",
+  "keywords": ["311", "service requests", "text classification", "benchmark", "cross-jurisdiction transfer",
+               "domain generalization", "taxonomy harmonization", "civic technology", "ambiguity-aware evaluation",
+               "natural language processing"],
+  "related_identifiers": [
+    {"identifier": "https://github.com/ApartsinProjects/311", "relation": "isSupplementTo", "scheme": "url"},
+    {"identifier": "https://apartsinprojects.github.io/311/paper.html", "relation": "isDocumentedBy", "scheme": "url"}
+  ]
+}

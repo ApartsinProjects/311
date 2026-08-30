@@ -27,7 +27,7 @@ SRC = {
  "Gainesville": ("data.cityofgainesville.org", "78uv-94ar", "description", "request_type", "created"),
  "Honolulu":    ("data.honolulu.gov", "jdy7-ftwe", "description", "request_type", "date_created"),
 }
-PULL = 20000
+PULL = 8000
 
 
 def pull(city):

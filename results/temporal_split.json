@@ -1,18 +1,33 @@
 {
+  "BatonRouge": {
+    "n": 17408,
+    "temporal": 0.7559,
+    "random": 0.7677
+  },
   "Bloomington": {
-    "n": 39954,
-    "temporal": 0.5327,
-    "random": 0.5352
+    "n": 11082,
+    "temporal": 0.6214,
+    "random": 0.7295
+  },
+  "Richmond": {
+    "n": 17295,
+    "temporal": 0.6697,
+    "random": 0.7487
   },
   "Auburn_WA": {
-    "n": 20122,
-    "temporal": 0.7966,
-    "random": 0.8088
+    "n": 16666,
+    "temporal": 0.8135,
+    "random": 0.8151
   },
   "Gainesville": {
     "n": 11544,
-    "temporal": 0.6948,
-    "random": 0.7359
+    "temporal": 0.6892,
+    "random": 0.7361
+  },
+  "Honolulu": {
+    "n": 2149,
+    "temporal": 0.6407,
+    "random": 0.7638
   },
   "SanFrancisco": {
     "n": 1455,
