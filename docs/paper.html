@@ -271,9 +271,13 @@ measure of semantic classification ability.</p>
 Under a defensibility-adjusted metric that counts a prediction correct when it matches the city label or any
 judge-acceptable label, cross-city accuracy rises for every model (Figure 3): the LLM from 0.797 to 0.981, DistilBERT
 from 0.748 to 0.864, and TF-IDF from 0.688 to 0.816. This rescues about 91% of the zero-shot LLM's strict
-disagreements, and about 46% and 41% of DistilBERT's and TF-IDF's. That the LLM gains most under an LLM judge
-of the same model family is expected, and we treat the judge as an automated approximation pending human
-validation (Section 9). The measured cross-jurisdiction gap therefore conflates three effects that this
+disagreements, and about 46% and 41% of DistilBERT's and TF-IDF's. To test whether this reflects same-family
+self-agreement, we repeated the acceptable-set judgment with an independent judge from a different model
+family (gemini-2.5-flash). The two judges agree on the acceptable set for 75% of requests (mean Jaccard 0.86),
+and the lenient scores barely move: the LLM's cross-city accuracy is 0.964 under the independent judge versus
+0.981 under gpt-4o-mini, and DistilBERT's and TF-IDF's shift by under 0.01. Even the two-judge consensus, where
+both judges reject the city label, finds 9.7% of city labels textually unsupported. The effect is therefore
+not an artifact of same-family judging; human validation of a subset remains the natural next step (Section 9). The measured cross-jurisdiction gap therefore conflates three effects that this
 analysis makes visible without cleanly separating: genuine domain shift between cities, non-comparability of
 the harmonized taxonomy at its boundaries, and text-label mismatch. The confusion structure identifies where the boundary effects concentrate
 (Figure 4).</p>
@@ -314,9 +318,9 @@ small. The harmonization is one defensible mapping among several, and its bounda
 Section 7; a sensitivity analysis under an alternative mapping is future work. Labels are the cities' own
 routing categories and carry the 14.3% noise the judge measures. The defensibility judgment is
 LLM-adjudicated; validating a subset against multiple human annotators, with an agreement statistic, is the
-next step and would ground the acceptable-set metric. The judge and the zero-shot arm share a model family
-(gpt-4o-mini), which could inflate the LLM's lenient scores relative to the trained models, and the human-
-validation subset above also addresses this. The LLM arm is a single model at temperature zero, and
+next step and would ground the acceptable-set metric. We mitigate same-family bias between the judge and the
+zero-shot arm by confirming the defensibility effect with an independent-family judge (Section 7), which
+leaves the lenient scores nearly unchanged; a multi-annotator human study remains the definitive check. The LLM arm is a single model at temperature zero, and
 the public portals may fall within its training data, though it never sees the harmonized labels paired with
 text.</p>
 
