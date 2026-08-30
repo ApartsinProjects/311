@@ -1,0 +1,7 @@
+{
+  "exact_match": 0.7507,
+  "mean_jaccard": 0.8594,
+  "noise_gpt4omini": 0.1428,
+  "noise_gemini": 0.1082,
+  "noise_consensus": 0.0968
+}

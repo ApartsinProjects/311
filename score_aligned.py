@@ -104,7 +104,7 @@ def main():
     arms = {}
     for pf in sorted(glob.glob(os.path.join(PRED_DIR, "*.json"))):
         name = os.path.splitext(os.path.basename(pf))[0]
-        if name == "acceptable_sets":
+        if name.startswith("acceptable_sets"):
             continue
         data = json.load(open(pf, encoding="utf-8"))
         for proto, preds in data.items():

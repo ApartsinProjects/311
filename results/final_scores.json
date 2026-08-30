@@ -134,6 +134,73 @@
       "pooled_strict_acc": 0.7481,
       "pooled_lenient_acc": 0.8635
     },
+    "llm_gpt4o/zeroshot": {
+      "per_city": {
+        "BatonRouge": {
+          "macroF1": 0.5659,
+          "acc": 0.862,
+          "n": 500,
+          "n_classes": 10,
+          "lenient_acc": 0.992
+        },
+        "Bloomington": {
+          "macroF1": 0.681,
+          "acc": 0.9004,
+          "n": 502,
+          "n_classes": 10,
+          "lenient_acc": 0.9721
+        },
+        "Richmond": {
+          "macroF1": 0.5492,
+          "acc": 0.8397,
+          "n": 499,
+          "n_classes": 7,
+          "lenient_acc": 0.982
+        },
+        "Auburn_WA": {
+          "macroF1": 0.5055,
+          "acc": 0.744,
+          "n": 500,
+          "n_classes": 10,
+          "lenient_acc": 0.974
+        },
+        "Gainesville": {
+          "macroF1": 0.6037,
+          "acc": 0.7565,
+          "n": 501,
+          "n_classes": 13,
+          "lenient_acc": 0.9681
+        },
+        "Honolulu": {
+          "macroF1": 0.6021,
+          "acc": 0.752,
+          "n": 500,
+          "n_classes": 13,
+          "lenient_acc": 0.976
+        },
+        "SanFrancisco": {
+          "macroF1": 0.1775,
+          "acc": 0.962,
+          "n": 500,
+          "n_classes": 2,
+          "lenient_acc": 0.992
+        }
+      },
+      "pooled_macroF1": 0.7038,
+      "pooled_CI": [
+        0.6729,
+        0.7281
+      ],
+      "pooled_macroF1_noSF": 0.6685,
+      "pooled_CI_noSF": [
+        0.6362,
+        0.6959
+      ],
+      "unweighted_mean": 0.5264,
+      "unweighted_mean_noSF": 0.5846,
+      "pooled_strict_acc": 0.831,
+      "pooled_lenient_acc": 0.9794
+    },
     "llm_gpt4omini/zeroshot": {
       "per_city": {
         "BatonRouge": {
@@ -188,18 +255,152 @@
       },
       "pooled_macroF1": 0.6544,
       "pooled_CI": [
-        0.6252,
-        0.6787
+        0.6247,
+        0.6797
       ],
       "pooled_macroF1_noSF": 0.6217,
       "pooled_CI_noSF": [
-        0.5916,
-        0.6498
+        0.5918,
+        0.6526
       ],
       "unweighted_mean": 0.5013,
       "unweighted_mean_noSF": 0.558,
       "pooled_strict_acc": 0.797,
       "pooled_lenient_acc": 0.9814
+    },
+    "llm_gpt4omini_batch/zeroshot": {
+      "per_city": {
+        "BatonRouge": {
+          "macroF1": 0.5783,
+          "acc": 0.796,
+          "n": 500,
+          "n_classes": 10,
+          "lenient_acc": 0.992
+        },
+        "Bloomington": {
+          "macroF1": 0.587,
+          "acc": 0.8845,
+          "n": 502,
+          "n_classes": 10,
+          "lenient_acc": 0.9801
+        },
+        "Richmond": {
+          "macroF1": 0.4712,
+          "acc": 0.7595,
+          "n": 499,
+          "n_classes": 7,
+          "lenient_acc": 0.9739
+        },
+        "Auburn_WA": {
+          "macroF1": 0.4851,
+          "acc": 0.726,
+          "n": 500,
+          "n_classes": 10,
+          "lenient_acc": 0.974
+        },
+        "Gainesville": {
+          "macroF1": 0.5528,
+          "acc": 0.7505,
+          "n": 501,
+          "n_classes": 13,
+          "lenient_acc": 0.9721
+        },
+        "Honolulu": {
+          "macroF1": 0.5646,
+          "acc": 0.734,
+          "n": 500,
+          "n_classes": 13,
+          "lenient_acc": 0.99
+        },
+        "SanFrancisco": {
+          "macroF1": 0.1605,
+          "acc": 0.938,
+          "n": 500,
+          "n_classes": 2,
+          "lenient_acc": 0.982
+        }
+      },
+      "pooled_macroF1": 0.6436,
+      "pooled_CI": [
+        0.6135,
+        0.6995
+      ],
+      "pooled_macroF1_noSF": 0.6101,
+      "pooled_CI_noSF": [
+        0.5797,
+        0.6672
+      ],
+      "unweighted_mean": 0.4856,
+      "unweighted_mean_noSF": 0.5398,
+      "pooled_strict_acc": 0.7984,
+      "pooled_lenient_acc": 0.9806
+    },
+    "llm_gpt4omini_fewshot/zeroshot": {
+      "per_city": {
+        "BatonRouge": {
+          "macroF1": 0.5458,
+          "acc": 0.808,
+          "n": 500,
+          "n_classes": 10,
+          "lenient_acc": 0.992
+        },
+        "Bloomington": {
+          "macroF1": 0.5532,
+          "acc": 0.8347,
+          "n": 502,
+          "n_classes": 10,
+          "lenient_acc": 0.9442
+        },
+        "Richmond": {
+          "macroF1": 0.4262,
+          "acc": 0.7776,
+          "n": 499,
+          "n_classes": 7,
+          "lenient_acc": 0.976
+        },
+        "Auburn_WA": {
+          "macroF1": 0.5182,
+          "acc": 0.73,
+          "n": 500,
+          "n_classes": 10,
+          "lenient_acc": 0.974
+        },
+        "Gainesville": {
+          "macroF1": 0.6337,
+          "acc": 0.7465,
+          "n": 501,
+          "n_classes": 13,
+          "lenient_acc": 0.9641
+        },
+        "Honolulu": {
+          "macroF1": 0.5488,
+          "acc": 0.748,
+          "n": 500,
+          "n_classes": 13,
+          "lenient_acc": 0.98
+        },
+        "SanFrancisco": {
+          "macroF1": 0.1761,
+          "acc": 0.944,
+          "n": 500,
+          "n_classes": 2,
+          "lenient_acc": 0.984
+        }
+      },
+      "pooled_macroF1": 0.6496,
+      "pooled_CI": [
+        0.6256,
+        0.7125
+      ],
+      "pooled_macroF1_noSF": 0.6198,
+      "pooled_CI_noSF": [
+        0.5924,
+        0.6824
+      ],
+      "unweighted_mean": 0.486,
+      "unweighted_mean_noSF": 0.5377,
+      "pooled_strict_acc": 0.7984,
+      "pooled_lenient_acc": 0.9734
     },
     "tfidf/incity": {
       "per_city": {
@@ -255,13 +456,13 @@
       },
       "pooled_macroF1": 0.7846,
       "pooled_CI": [
-        0.758,
-        0.8091
+        0.7579,
+        0.8074
       ],
       "pooled_macroF1_noSF": 0.7615,
       "pooled_CI_noSF": [
-        0.7323,
-        0.7865
+        0.7291,
+        0.7853
       ],
       "unweighted_mean": 0.7316,
       "unweighted_mean_noSF": 0.6907,
@@ -322,13 +523,13 @@
       },
       "pooled_macroF1": 0.5233,
       "pooled_CI": [
-        0.5038,
-        0.5406
+        0.503,
+        0.5417
       ],
       "pooled_macroF1_noSF": 0.4828,
       "pooled_CI_noSF": [
-        0.458,
-        0.5022
+        0.4584,
+        0.5033
       ],
       "unweighted_mean": 0.4046,
       "unweighted_mean_noSF": 0.4452,
@@ -338,30 +539,138 @@
   },
   "significance": [
     {
-      "label": "distilbert/loco vs llm_gpt4omini/zeroshot",
-      "mean_diff": -0.0957,
+      "label": "distilbert/loco vs llm_gpt4o/zeroshot",
+      "mean_diff": -0.1453,
       "P(A>B)": 0.0,
       "CI": [
-        -0.1271,
-        -0.0649
+        -0.1792,
+        -0.1146
+      ]
+    },
+    {
+      "label": "distilbert/loco vs llm_gpt4omini/zeroshot",
+      "mean_diff": -0.0966,
+      "P(A>B)": 0.0,
+      "CI": [
+        -0.1283,
+        -0.0668
+      ]
+    },
+    {
+      "label": "distilbert/loco vs llm_gpt4omini_batch/zeroshot",
+      "mean_diff": -0.09,
+      "P(A>B)": 0.0,
+      "CI": [
+        -0.1494,
+        -0.052
+      ]
+    },
+    {
+      "label": "distilbert/loco vs llm_gpt4omini_fewshot/zeroshot",
+      "mean_diff": -0.1073,
+      "P(A>B)": 0.0,
+      "CI": [
+        -0.1566,
+        -0.0666
       ]
     },
     {
       "label": "distilbert/loco vs tfidf/loco",
-      "mean_diff": 0.0345,
+      "mean_diff": 0.0347,
       "P(A>B)": 1.0,
       "CI": [
-        0.0163,
-        0.0523
+        0.0173,
+        0.0518
+      ]
+    },
+    {
+      "label": "llm_gpt4o/zeroshot vs llm_gpt4omini/zeroshot",
+      "mean_diff": 0.0491,
+      "P(A>B)": 1.0,
+      "CI": [
+        0.0313,
+        0.066
+      ]
+    },
+    {
+      "label": "llm_gpt4o/zeroshot vs llm_gpt4omini_batch/zeroshot",
+      "mean_diff": 0.0535,
+      "P(A>B)": 0.997,
+      "CI": [
+        0.0077,
+        0.0808
+      ]
+    },
+    {
+      "label": "llm_gpt4o/zeroshot vs llm_gpt4omini_fewshot/zeroshot",
+      "mean_diff": 0.0366,
+      "P(A>B)": 0.927,
+      "CI": [
+        -0.0065,
+        0.0701
+      ]
+    },
+    {
+      "label": "llm_gpt4o/zeroshot vs tfidf/loco",
+      "mean_diff": 0.1804,
+      "P(A>B)": 1.0,
+      "CI": [
+        0.1472,
+        0.2133
+      ]
+    },
+    {
+      "label": "llm_gpt4omini/zeroshot vs llm_gpt4omini_batch/zeroshot",
+      "mean_diff": 0.0054,
+      "P(A>B)": 0.798,
+      "CI": [
+        -0.0419,
+        0.0271
+      ]
+    },
+    {
+      "label": "llm_gpt4omini/zeroshot vs llm_gpt4omini_fewshot/zeroshot",
+      "mean_diff": -0.0115,
+      "P(A>B)": 0.437,
+      "CI": [
+        -0.0556,
+        0.0212
       ]
     },
     {
       "label": "llm_gpt4omini/zeroshot vs tfidf/loco",
-      "mean_diff": 0.1308,
+      "mean_diff": 0.1304,
       "P(A>B)": 1.0,
       "CI": [
-        0.0975,
-        0.1648
+        0.1,
+        0.1596
+      ]
+    },
+    {
+      "label": "llm_gpt4omini_batch/zeroshot vs llm_gpt4omini_fewshot/zeroshot",
+      "mean_diff": -0.0183,
+      "P(A>B)": 0.214,
+      "CI": [
+        -0.0659,
+        0.0416
+      ]
+    },
+    {
+      "label": "llm_gpt4omini_batch/zeroshot vs tfidf/loco",
+      "mean_diff": 0.1238,
+      "P(A>B)": 1.0,
+      "CI": [
+        0.0896,
+        0.1772
+      ]
+    },
+    {
+      "label": "llm_gpt4omini_fewshot/zeroshot vs tfidf/loco",
+      "mean_diff": 0.1431,
+      "P(A>B)": 1.0,
+      "CI": [
+        0.1003,
+        0.1924
       ]
     }
   ],

@@ -203,7 +203,10 @@ paired bootstrap (1,000 resamples over the shared test rows).</p>
 <p><strong>Models.</strong> (i) TF-IDF over word 1-2-grams and character 3-5-grams with a logistic-regression
 head. (ii) DistilBERT fine-tuned for three epochs. (iii) gpt-4o-mini (temperature 0) prompted zero-shot with the 14-class
 taxonomy and short glosses, seeing no city-specific training data, which makes it an inherently
-cross-jurisdiction condition. Hyperparameters and the verbatim prompt are released with the code.</p>
+cross-jurisdiction condition. As LLM ablations we also report gpt-4o (a stronger model) and a few-shot variant
+that adds one labeled exemplar per class drawn from the training cities. LLM inference runs through the
+provider batch APIs at half the standard token price. Hyperparameters and the verbatim prompt are released
+with the code.</p>
 
 <h2>6. Results</h2>
 <figure>
@@ -217,7 +220,8 @@ cross-jurisdiction condition. Hyperparameters and the verbatim prompt are releas
 <tr><th>Model</th><th class="n">In-city</th><th class="n">Cross-city</th><th class="n">In-city (no SF)</th><th class="n">Cross-city (no SF)</th></tr>
 <tr><td>TF-IDF + logistic regression</td><td class="n">0.785 [.76,.81]</td><td class="n">0.523 [.50,.54]</td><td class="n">0.761</td><td class="n">0.483</td></tr>
 <tr><td>DistilBERT (fine-tuned)</td><td class="n">0.827 [.80,.85]</td><td class="n">0.558 [.54,.58]</td><td class="n">0.803</td><td class="n">0.541</td></tr>
-<tr><td>LLM zero-shot (taxonomy in prompt)</td><td class="n">&mdash;</td><td class="n">0.654 [.63,.68]</td><td class="n">&mdash;</td><td class="n">0.622</td></tr>
+<tr><td>LLM zero-shot, gpt-4o-mini (taxonomy in prompt)</td><td class="n">&mdash;</td><td class="n">0.654 [.63,.68]</td><td class="n">&mdash;</td><td class="n">0.622</td></tr>
+<tr><td>LLM zero-shot, gpt-4o</td><td class="n">&mdash;</td><td class="n">0.704 [.67,.73]</td><td class="n">&mdash;</td><td class="n">0.668</td></tr>
 </table>
 <p class="cap">Table 2. Pooled macro-F1 [95% CI] on the frozen test set. Cross-city refers to LOCO for the
 trained models and to zero-shot for the LLM. Unweighted city means are lower (for example DistilBERT LOCO
@@ -238,6 +242,14 @@ Richmond-to-Auburn (0.350) falls below Auburn's (0.434), so shared platform does
 (single-source versus multi-source training confounds this cell; a full transfer matrix is future work).
 Giving a model the target label space in context helps where a fixed label space does not, without closing the
 gap; Section 7 tests this reading directly.</p>
+
+<p>To ask what drives the LLM's cross-jurisdiction advantage, we vary the model and the prompt. A stronger
+model widens it: gpt-4o reaches 0.704, significantly above gpt-4o-mini (0.654; paired bootstrap P&gt;0.99).
+Adding in-context examples does not: gpt-4o-mini given one labeled exemplar per class drawn from the training
+cities scores 0.650, statistically indistinguishable from its zero-shot result (P=0.44). The advantage
+therefore comes from the target-label semantics that the taxonomy places in the prompt, and grows with model
+capacity, rather than from few-shot demonstrations. As a pipeline check, running gpt-4o-mini through the batch
+API reproduces the synchronous result (0.644 versus 0.654, not significant).</p>
 
 <p>Performance varies sharply across held-out cities (Figure 2), from the degenerate San Francisco split
 (two content classes) to the mid-0.6s on more balanced cities, which is why we report San-Francisco-excluded
