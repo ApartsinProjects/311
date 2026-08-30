@@ -224,7 +224,8 @@ intervals from 1,000 bootstrap resamples of the test examples. Pooled macro-F1 c
 rows and computes macro-F1 once over the union of classes; the unweighted mean averages per-city macro-F1,
 weighting each city equally. Because per-city class sets differ, we report the pooled metric as primary and
 the unweighted mean as secondary, each also with San Francisco excluded (Section 9). Model differences use a
-paired bootstrap (1,000 resamples over the shared test rows).</p>
+paired bootstrap (1,000 resamples over the shared test rows). Trained-model scores are stable across three
+random seeds (DistilBERT in-city 0.824 &plusmn; 0.003, cross-city 0.553 &plusmn; 0.004).</p>
 <p><strong>Models.</strong> (i) TF-IDF over word 1-2-grams and character 3-5-grams with a logistic-regression
 head. (ii) DistilBERT fine-tuned for three epochs. (iii) gpt-4o-mini (temperature 0) prompted zero-shot with the 14-class
 taxonomy and short glosses, seeing no city-specific training data, which makes it an inherently
@@ -273,10 +274,12 @@ gap; Section 7 tests this reading directly.</p>
 <p>To ask what drives the LLM's cross-jurisdiction advantage, we vary the model and the prompt. A stronger
 model widens it: gpt-4o reaches 0.704, significantly above gpt-4o-mini (0.654; paired bootstrap P&gt;0.99).
 Adding in-context examples does not: gpt-4o-mini given one labeled exemplar per class drawn from the training
-cities scores 0.650, statistically indistinguishable from its zero-shot result (P=0.44). The advantage
-therefore comes from the target-label semantics that the taxonomy places in the prompt, and grows with model
-capacity, rather than from few-shot demonstrations. As a pipeline check, running gpt-4o-mini through the batch
-API reproduces the synchronous result (0.644 versus 0.654, not significant).</p>
+cities scores 0.650, statistically indistinguishable from its zero-shot result (P=0.44). Stripping the glosses
+to label names alone does not hurt and slightly helps (0.700, near gpt-4o), so the signal is carried by the
+class names themselves rather than the descriptions. The advantage therefore comes from the target-label
+semantics that the taxonomy places in the prompt, largely captured by the class names, rather than from richer
+descriptions, few-shot demonstrations, or model scale alone. As a pipeline check, running gpt-4o-mini through
+the batch API reproduces the synchronous result (0.644 versus 0.654, not significant).</p>
 
 <p>We also widen the model families. A stronger encoder does not help transfer: fine-tuned RoBERTa reaches
 0.840 in-city, above DistilBERT, but only 0.519 across cities, so the gap is not a weakness of the DistilBERT
@@ -298,9 +301,10 @@ quantifies the taxonomy-boundary share of the difficulty, yet the gap to in-city
 for the four cities that carry timestamps, training on the earliest 80% of requests and testing on the latest
 20% yields in-city macro-F1 within 0.01 of a random split on average (0.753 versus 0.764), so random splitting
 does not materially inflate in-city performance; the remaining three cities lack usable timestamps, a
-limitation of the collection. <em>Model family:</em> a stronger encoder and simple label-semantic classifiers,
-above, do not close the gap either. The gap is not specific to one architecture, split, or taxonomy
-granularity.</p>
+limitation of the collection. <em>Model family and input length:</em> a stronger encoder and simple label-semantic classifiers,
+above, do not close the gap either, and doubling the encoder's input to 128 tokens does not help (cross-city
+0.537 versus 0.558). The gap is not specific to one architecture, split, taxonomy granularity, or sequence
+length.</p>
 
 <p>Performance varies sharply across held-out cities (Figure 4), from the degenerate San Francisco split
 (two content classes) to the mid-0.6s on more balanced cities, which is why we report San-Francisco-excluded
