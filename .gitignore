@@ -16,3 +16,4 @@ results_job-*/
 data_pull_50k.log
 
 # keep: data/harmonized.csv, data/*.json, data/harmonization_pivot.csv, results/*.json, results/*.csv
+*.log

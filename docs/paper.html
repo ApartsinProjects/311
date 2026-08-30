@@ -293,9 +293,13 @@ removing them, together with corpus-wide exact duplicates, barely changes the pi
 0.818, cross-city 0.539), so the roughly one-third drop is not produced by train-test overlap. <em>Taxonomy
 coarsening:</em> merging the confusable neighboring classes into an eight-class ontology recovers four to seven
 macro-F1 points for the trained models (TF-IDF cross-city 0.523 to 0.590, DistilBERT 0.558 to 0.601), which
-quantifies the taxonomy-boundary share of the difficulty, yet the gap to in-city persists. <em>Model family:</em>
-a stronger encoder and simple label-semantic classifiers, above, do not close it either. The gap is not
-specific to one architecture, split, or taxonomy granularity.</p>
+quantifies the taxonomy-boundary share of the difficulty, yet the gap to in-city persists. <em>Temporal split:</em>
+for the four cities that carry timestamps, training on the earliest 80% of requests and testing on the latest
+20% yields in-city macro-F1 within 0.01 of a random split on average (0.753 versus 0.764), so random splitting
+does not materially inflate in-city performance; the remaining three cities lack usable timestamps, a
+limitation of the collection. <em>Model family:</em> a stronger encoder and simple label-semantic classifiers,
+above, do not close the gap either. The gap is not specific to one architecture, split, or taxonomy
+granularity.</p>
 
 <p>Performance varies sharply across held-out cities (Figure 2), from the degenerate San Francisco split
 (two content classes) to the mid-0.6s on more balanced cities, which is why we report San-Francisco-excluded

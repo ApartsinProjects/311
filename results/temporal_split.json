@@ -1,0 +1,22 @@
+{
+  "Bloomington": {
+    "n": 39954,
+    "temporal": 0.5327,
+    "random": 0.5352
+  },
+  "Auburn_WA": {
+    "n": 20122,
+    "temporal": 0.7966,
+    "random": 0.8088
+  },
+  "Gainesville": {
+    "n": 11544,
+    "temporal": 0.6948,
+    "random": 0.7359
+  },
+  "SanFrancisco": {
+    "n": 1455,
+    "temporal": 0.9883,
+    "random": 0.9768
+  }
+}

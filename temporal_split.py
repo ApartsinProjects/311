@@ -45,6 +45,9 @@ def vec():
 
 
 def fit_score(train, test):
+    if len(train) > 8000:                          # cap for tractable saga on this host
+        idx = np.random.RandomState(0).permutation(len(train))[:8000]
+        train = [train[i] for i in idx]
     tw = [t for t, _ in train]; ty = [y for _, y in train]; ew = [t for t, _ in test]; ey = [y for _, y in test]
     w, c = vec(); Xtr = hstack([w.fit_transform(tw), c.fit_transform(tw)]).tocsr(); Xte = hstack([w.transform(ew), c.transform(ew)]).tocsr()
     clf = LogisticRegression(max_iter=1000, C=4.0, class_weight="balanced", solver="saga", tol=1e-3); clf.fit(Xtr, ty)
