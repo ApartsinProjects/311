@@ -9,28 +9,34 @@ from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
 csv_split = os.path.join("data", "eval_split.csv")
 plt.rcParams.update({"figure.facecolor": "white", "savefig.facecolor": "white", "font.size": 10})
 
-# ---------- Figure A: corpus construction flow ----------
+# ---------- Figure A: corpus construction flow (roomy blocks, text fully inside, gap-only arrows) ----------
 STAGES = [
-    ("~12 municipal\nportals probed", "#e8eef5"),
-    ("7 cities with\nconfirmed free text", "#dce7f2"),
-    ("harmonize\n545 -> 14 classes", "#cfe0ef"),
-    ("drop admin /\n'General Request'", "#c2d9ec"),
-    ("informativeness\nfilter (-8%)", "#b5d2e9"),
-    ("PII scrub\n(phones, emails)", "#a8cbe6"),
-    ("MC311: 156k rows\nfrozen split (3,502 test)", "#8fbfe0"),
+    ("Municipal portals", "~12 probed", "#eaf0f6"),
+    ("Free-text cities", "7 confirmed", "#dde8f2"),
+    ("Harmonize", "545 → 14 classes", "#d0e0ef"),
+    ("Drop admin", "categories", "#c3d9ec"),
+    ("Informativeness", "filter (−8%)", "#b6d2e9"),
+    ("PII scrub", "phones, emails", "#a9cbe6"),
+    ("MC311 benchmark", "156k · 3,502 test", "#93c1e1"),
 ]
-fig, ax = plt.subplots(figsize=(9.2, 2.4)); ax.axis("off")
-n = len(STAGES); x0, w, gap = 0.2, 1.6, 0.42; y = 0.5
-for i, (label, col) in enumerate(STAGES):
-    x = x0 + i * (w + gap)
-    ax.add_patch(FancyBboxPatch((x, y - 0.42), w, 0.84, boxstyle="round,pad=0.02,rounding_size=0.08",
-                                fc=col, ec="#365b80", lw=1.1))
-    ax.text(x + w / 2, y, label, ha="center", va="center", fontsize=8.3)
-    if i < n - 1:
-        ax.add_patch(FancyArrowPatch((x + w, y), (x + w + gap, y), arrowstyle="-|>",
-                                     mutation_scale=12, color="#365b80", lw=1.2))
-ax.set_xlim(0, x0 + n * (w + gap)); ax.set_ylim(0, 1)
-plt.tight_layout(); plt.savefig("docs/fig_corpus_flow.png", dpi=150, bbox_inches="tight"); plt.close()
+BW, BH, GAP, MARGIN = 2.15, 1.15, 0.7, 0.35
+n = len(STAGES)
+total_w = MARGIN * 2 + n * BW + (n - 1) * GAP
+fig, ax = plt.subplots(figsize=(total_w * 0.9, 2.1)); ax.axis("off")
+ymid = 0.6
+for i, (title, sub, col) in enumerate(STAGES):
+    x = MARGIN + i * (BW + GAP)
+    ax.add_patch(FancyBboxPatch((x, ymid - BH / 2), BW, BH,
+                                boxstyle="round,pad=0.015,rounding_size=0.10",
+                                fc=col, ec="#2f5677", lw=1.2))
+    cx = x + BW / 2
+    ax.text(cx, ymid + 0.17, title, ha="center", va="center", fontsize=9.5, weight="bold", color="#1c3a56")
+    ax.text(cx, ymid - 0.20, sub, ha="center", va="center", fontsize=8.8, color="#2f5677")
+    if i < n - 1:                                   # arrow strictly inside the gap
+        ax.add_patch(FancyArrowPatch((x + BW + 0.07, ymid), (x + BW + GAP - 0.07, ymid),
+                                     arrowstyle="-|>", mutation_scale=13, color="#2f5677", lw=1.4))
+ax.set_xlim(0, total_w); ax.set_ylim(0, 1.2)
+plt.savefig("docs/fig_corpus_flow.png", dpi=150, bbox_inches="tight", pad_inches=0.12); plt.close()
 print("wrote docs/fig_corpus_flow.png")
 
 # ---------- Figure B: taxonomy-boundary graph ----------
