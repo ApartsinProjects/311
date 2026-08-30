@@ -292,6 +292,19 @@ aggregates alongside the full ones.</p>
   city, and San Francisco (two content classes only) is degenerate; we handle it explicitly in Section 9.</figcaption>
 </figure>
 
+<figure>
+  <img src="fig_transfer_matrix.png" alt="City-to-city transfer matrix">
+  <figcaption><strong>Figure 5.</strong> Full 7&times;7 city-to-city TF-IDF transfer (train on the row city,
+  test on the column city). Single-source cross-city transfer averages 0.247 macro-F1, far below the
+  multi-source leave-one-city-out result, and the SeeClickFix pair transfers asymmetrically.</figcaption>
+</figure>
+
+<p>The full city-to-city matrix (Figure 5) makes the multi-source benefit concrete: training on a single
+other city and testing on a target averages 0.247 macro-F1, less than half the leave-one-city-out result
+(0.523 for TF-IDF), so pooling several source cities is worth far more than any single source. The structure
+is not explained by shared platform alone; the two SeeClickFix cities transfer asymmetrically (Auburn to
+Richmond 0.58, Richmond to Auburn 0.34), consistent with the inconclusive same-platform probe above.</p>
+
 <h2>7. What the gap measures</h2>
 <p>A large drop is a strong claim, so we ask how much of the gap is genuine model failure. An independent LLM
 judge (gpt-4o-mini) reads each test request and returns the set of categories that are reasonable for the
