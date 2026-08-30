@@ -6,10 +6,24 @@ Requires a FUNDED OpenAI key (OPENAI_API_KEY). Uses the openai SDK.
   from openai_batch import run_chat_batch
   preds = run_chat_batch("gpt-4o-mini", [(cid, body), ...])   # body = chat completion body dict
 """
-import io, json, time
+import io, json, time, os
 from openai import OpenAI
 
-client = OpenAI()  # reads OPENAI_API_KEY
+
+def _load_key():
+    """Prefer the project .env key (funded) over the stale environment OPENAI_API_KEY."""
+    here = os.path.dirname(os.path.abspath(__file__))
+    for p in (os.path.join(here, ".env"), ".env"):
+        try:
+            for line in open(p, encoding="utf-8"):
+                if line.startswith("OPENAI_API_KEY="):
+                    return line.split("=", 1)[1].strip().strip('"').strip("'")
+        except Exception:
+            pass
+    return os.environ.get("OPENAI_API_KEY")
+
+
+client = OpenAI(api_key=_load_key())
 
 
 def run_chat_batch(model, items, interval=20, verbose=True):
