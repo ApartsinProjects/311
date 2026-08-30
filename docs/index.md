@@ -1,4 +1,4 @@
-# Multi-City 311 Free-Text Benchmark
+# MC311: Multi-City 311 Free-Text Benchmark
 
 A public benchmark and **cross-jurisdiction transfer study** for free-text municipal 311
 service-request classification. Citizen complaint narratives from **7 US cities** are mapped into a

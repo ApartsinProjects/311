@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>A Multi-City Free-Text Benchmark for 311 Service-Request Classification and Cross-Jurisdiction Transfer</title>
+<title>MC311: A Multi-City Free-Text Benchmark for Cross-Jurisdiction 311 Classification</title>
 <style>
   /* SynSmith house style (TMLR/JMLR/NeurIPS camera-ready), light only. */
   :root { --ink:#111418; --soft:#2c3138; --muted:#5a626c; --navy:#14385c; --rule:#d1d4d8; --code:#f4f5f7; }
@@ -45,7 +45,7 @@
 </head>
 <body>
 
-<h1>A Multi-City Free-Text Benchmark for 311 Service-Request Classification and Cross-Jurisdiction Transfer</h1>
+<h1>MC311: A Multi-City Free-Text Benchmark for Cross-Jurisdiction Service-Request Classification</h1>
 <div class="authors">Alexander Apartsin<sup>1</sup>, Yehudit Aperstein<sup>2</sup></div>
 <div class="affil"><sup>1</sup>School of Computer Science, Faculty of Sciences, Holon Institute of Technology (HIT), Holon, Israel &nbsp;·&nbsp; <sup>2</sup>Intelligent Systems, Afeka Academic College of Engineering, Tel-Aviv, Israel</div>
 <div class="affil">Working paper, August 2026 · <a href="paper.docx">Download DOCX</a> · Code, data, and results: <a href="https://github.com/ApartsinProjects/311">github.com/ApartsinProjects/311</a></div>
@@ -54,21 +54,23 @@
 <h2>Abstract</h2>
 Municipal 311 systems record millions of citizen service requests as free text, yet public research uses
 single-city datasets with private splits and incomparable metrics, and no canonical multi-city free-text
-311 benchmark exists. We build the first public multi-city free-text 311 corpus, drawing about 156,000
-citizen narratives from seven US cities, and map each city's native service taxonomy (545 native categories,
-527 distinct labels) into a shared 14-class civic ontology so that models can be evaluated across
-jurisdictions. Every model, in-city or cross-city, is scored on the same frozen test set of 3,502 requests,
+311 benchmark exists. We build MC311, to our knowledge the first public 311 free-text benchmark spanning more
+than two US cities, drawing about 156,000 citizen narratives from seven cities, and map each city's native
+service taxonomy (545 native categories, 527 distinct labels) into a shared 14-class civic ontology so that
+models can be evaluated across jurisdictions. Every model, in-city or cross-city, is scored on the same frozen test set of 3,502 requests,
 so all results are directly comparable. Crossing a city boundary costs roughly a third of pooled macro-F1: a
 fine-tuned DistilBERT drops from 0.827 in-city to 0.558 across cities (95% CI [0.54, 0.58]), and a TF-IDF
 classifier from 0.785 to 0.523. A large language model prompted zero-shot with the taxonomy reaches 0.654
-across cities, significantly above both trained models (paired bootstrap; 95% CIs on the differences exclude
-zero), while still below in-domain performance. We then ask what the gap measures. An independent LLM judge,
-blind to model and to the city label, finds that 14.3% of city labels are not supported by the text, and that
-a third of requests admit more than one valid label. Under a defensibility-adjusted metric that credits any
-judge-acceptable label, cross-city strict accuracy rises sharply (for the LLM, from 0.797 to 0.981; accuracy,
-not macro-F1), which shows that most cross-jurisdiction "errors" are defensible alternatives rather than model
-failures. The benchmark's central contribution is to separate what a naive multi-city evaluation conflates:
-genuine domain shift, taxonomy non-comparability, and label noise.
+across cities, significantly above both trained models in the pooled metric (paired bootstrap; 95% CIs on the
+differences exclude zero), though its lead is heterogeneous across cities, and it remains below in-domain
+performance. We then ask what the gap measures. An LLM judge (gpt-4o-mini), blind to model and to the city
+label, finds that 14.3% of city labels are not entailed by the text, and that a third of requests admit more
+than one valid label. Under a defensibility-adjusted metric that credits any judge-acceptable label, cross-city
+strict accuracy rises for every model (for the LLM, from 0.797 to 0.981; accuracy, not macro-F1), which
+indicates that many cross-jurisdiction "errors" are defensible alternatives rather than model failures. MC311's
+central contribution is to make visible what a strict single-label evaluation hides: requests that admit
+multiple defensible labels, and city labels not inferable from the free text; human validation of these
+judgments is the natural next step.
 </div>
 
 <h2>1. Introduction</h2>
@@ -87,18 +89,20 @@ taxonomy and reporting style.</p>
 well does a 311 text classifier generalize <em>across</em> jurisdictions, and when it does not, what is the
 drop actually measuring? Our contributions are:</p>
 <ol>
-<li>The first public multi-city free-text 311 corpus (seven cities, ~156k citizen narratives), together with
-a verified survey of which municipal portals expose free text at all.</li>
+<li>MC311, a public multi-city free-text 311 corpus (seven cities, ~156k citizen narratives) that, to our
+knowledge, is the first to span more than two US municipalities, together with a verified survey of which
+portals expose free text at all.</li>
 <li>A shared 14-class harmonization of 545 native categories, released as an auditable rule set.</li>
 <li>An aligned evaluation protocol: one frozen per-city test set on which every model is scored, with pooled
 macro-F1, bootstrap confidence intervals, and paired significance tests.</li>
 <li>A three-arm study (TF-IDF, fine-tuned DistilBERT, zero-shot LLM) showing a large, significant
 cross-jurisdiction gap and a clear ordering of methods on transfer.</li>
-<li>A decomposition of that gap using a blind LLM judge: a measured city-label-noise rate and a
-defensibility-adjusted metric that reveal most cross-city errors to be defensible alternatives.</li>
+<li>A diagnostic analysis of that gap using a blind LLM judge: a measured rate of textually-unsupported city
+labels and a defensibility-adjusted metric showing that many cross-city disagreements are defensible
+alternatives.</li>
 </ol>
-<p>The reframing is the point. A multi-city 311 benchmark measures taxonomy non-comparability and label noise
-alongside genuine domain shift, and this paper separates the components on the same population.</p>
+<p>The reframing is the point. A multi-city 311 benchmark measures taxonomy non-comparability and label
+ambiguity alongside genuine domain shift, and this paper makes these effects visible on the same population.</p>
 
 <h2>2. Related work</h2>
 <h3>2.1 311 and civic service-request text classification</h3>
@@ -119,8 +123,7 @@ and register shift jointly.</p>
 protocols leak label-correlated artifacts <sup><a href="#r8">[8]</a></sup>, and single benchmarks often
 measure less than their headline suggests <sup><a href="#r9">[9]</a></sup>. Administrative-code
 harmonization, such as occupation coding <sup><a href="#r10">[10]</a></sup>, is a direct analogue: short text
-mapped to a contested hierarchical code. Our gap decomposition applies this lens to cross-jurisdiction
-transfer.</p>
+mapped to a contested hierarchical code. Our gap analysis applies this lens to cross-jurisdiction transfer.</p>
 <h3>2.4 Zero-shot LLMs versus fine-tuned encoders</h3>
 <p>Zero-shot text classification via label descriptions and entailment <sup><a href="#r11">[11]</a></sup> is
 the paradigm our LLM arm uses (the taxonomy and glosses go in the prompt). Fine-tuned small encoders often
@@ -163,8 +166,13 @@ confounded with jurisdiction and that we return to in Section 9.</p>
 <code>no sticker</code>) and stub entries (<code>Test1</code>). We apply an informativeness filter that
 removes rows shorter than three content tokens or matching a shorthand blacklist. The filter removes 8.1% of
 rows, concentrated in the tersest city (Bloomington, 18%) and negligible in the letter-style city (Honolulu,
-1%); manual inspection confirms it drops noise, not signal. The canonical benchmark uses the filtered subset.
-Requests also contain street addresses and occasional phone numbers, which we address in Section 10.</p>
+1%); manual inspection confirms it drops noise, not signal, and an earlier per-city run found its effect on scores
+to be small (about +0.01 macro-F1). The canonical benchmark uses the filtered subset, fixed before the
+evaluation split was drawn. Median request length ranges from 9 tokens
+(Bloomington) to 24 (Honolulu), and only in the two most verbose cities do more than a tenth of requests
+exceed the 64-token cap used by the encoder (Honolulu 14%, Gainesville 11%; under 2% elsewhere), which both
+evidences the register shift and bounds any truncation effect. Requests also contain street addresses and
+occasional phone numbers, which we address in Section 10.</p>
 
 <h2>4. Taxonomy harmonization</h2>
 <p>The seven cities use 545 native categories (527 distinct labels), from Richmond's nine broad groups to
@@ -213,7 +221,8 @@ cross-jurisdiction condition. Hyperparameters and the verbatim prompt are releas
 </table>
 <p class="cap">Table 2. Pooled macro-F1 [95% CI] on the frozen test set. Cross-city refers to LOCO for the
 trained models and to zero-shot for the LLM. Unweighted city means are lower (for example DistilBERT LOCO
-0.447), because pooling weights the common classes; both aggregations are released.</p>
+0.447): a city with few classes contributes to few of the pooled per-class F1 terms, whereas the unweighted
+mean weights every city equally. Both aggregations are released.</p>
 
 <p>Two results are stable across models. Crossing city boundaries costs roughly a third of macro-F1, from 0.827
 to 0.558 for DistilBERT and from 0.785 to 0.523 for TF-IDF (Figure 1), and in-city exceeds cross-city for
@@ -221,8 +230,14 @@ every held-out city for DistilBERT and for six of the seven for TF-IDF (Blooming
 in-city versus 0.449 cross-city, within the bootstrap noise). The cross-city ordering, LLM zero-shot (0.654)
 above DistilBERT (0.558) above TF-IDF (0.523), is significant: paired bootstrap over the shared test examples
 gives a mean difference of +0.096 for LLM over DistilBERT and +0.131 for LLM over TF-IDF, both with 95%
-intervals excluding zero. Giving a model the target label space in context helps where a fixed label space
-does not, without closing the gap; Section 7 tests this reading directly.</p>
+intervals excluding zero. This significance is at the request level; the ordering is heterogeneous across the
+seven cities (the LLM leads DistilBERT in five of seven, trailing in Richmond and Auburn), and with only seven
+jurisdictions we do not claim the ranking generalizes to all municipalities. A preliminary same-platform probe
+is inconclusive: Auburn-to-Richmond transfer (0.615) exceeds Richmond's leave-one-city-out score (0.477) while
+Richmond-to-Auburn (0.350) falls below Auburn's (0.434), so shared platform does not uniformly explain the gap
+(single-source versus multi-source training confounds this cell; a full transfer matrix is future work).
+Giving a model the target label space in context helps where a fixed label space does not, without closing the
+gap; Section 7 tests this reading directly.</p>
 
 <p>Performance varies sharply across held-out cities (Figure 2), from the degenerate San Francisco split
 (two content classes) to the mid-0.6s on more balanced cities, which is why we report San-Francisco-excluded
@@ -240,23 +255,27 @@ judge (gpt-4o-mini) reads each test request and returns the set of categories th
 text, blind to the model prediction and to the city's own label. The judge assigns a single label to 67% of
 requests and two or more to the rest (mean 1.37), which quantifies genuine ambiguity in the taxonomy.</p>
 <p>The judge also disagrees with the city's own label on 14.3% of requests (from 5.6% in San Francisco to 20%
-in Richmond). That is a measured label-noise rate on the same population the gap is computed on, and it caps
-how well any text model can match the city labels.</p>
+in Richmond). This is a measured rate of city labels not entailed by the text, on the same population the gap
+is computed on. It does not cap predictive accuracy, since a model can still exploit a city's administrative
+conventions, location cues, or lexical shortcuts; rather, it shows that matching the city label is not a pure
+measure of semantic classification ability.</p>
 
 <figure>
   <img src="fig_defensibility.png" alt="Strict vs lenient accuracy by model">
   <figcaption><strong>Figure 3.</strong> Strict accuracy (prediction equals the city label) versus
-  defensibility-adjusted accuracy (prediction is judge-acceptable). Most cross-city "errors" are defensible
-  alternatives.</figcaption>
+  defensibility-adjusted accuracy (prediction is judge-acceptable). A large share of cross-city "errors" are
+  judged defensible, nearly all for the LLM under the same-family judge.</figcaption>
 </figure>
 
 <p>The acceptable-set judgment is defined per example, so this analysis uses accuracy rather than macro-F1.
 Under a defensibility-adjusted metric that counts a prediction correct when it matches the city label or any
-judge-acceptable label, cross-city accuracy rises sharply (Figure 3): the LLM from 0.797 to 0.981, DistilBERT
-from 0.748 to 0.864, and TF-IDF from 0.688 to 0.816. Nearly all of the zero-shot LLM's cross-city
-disagreements are defensible readings of the text, not mistakes. The measured cross-jurisdiction gap therefore
-conflates three effects: genuine domain shift between cities, non-comparability of the harmonized taxonomy at
-its boundaries, and label noise. The confusion structure identifies where the boundary effects concentrate
+judge-acceptable label, cross-city accuracy rises for every model (Figure 3): the LLM from 0.797 to 0.981, DistilBERT
+from 0.748 to 0.864, and TF-IDF from 0.688 to 0.816. This rescues about 91% of the zero-shot LLM's strict
+disagreements, and about 46% and 41% of DistilBERT's and TF-IDF's. That the LLM gains most under an LLM judge
+of the same model family is expected, and we treat the judge as an automated approximation pending human
+validation (Section 9). The measured cross-jurisdiction gap therefore conflates three effects that this
+analysis makes visible without cleanly separating: genuine domain shift between cities, non-comparability of
+the harmonized taxonomy at its boundaries, and text-label mismatch. The confusion structure identifies where the boundary effects concentrate
 (Figure 4).</p>
 
 <figure>
@@ -273,10 +292,12 @@ are defensible. Resolving these boundaries by intent is a controllable lever on 
 taxonomy revision.</p>
 
 <h2>8. Discussion</h2>
-<p>For civic-technology deployment, the result is a caution and an option. A city that adopts a model trained
-on other cities should expect to lose roughly a third of the in-domain macro-F1, driven substantially by
-taxonomy mismatch rather than by the model. A zero-shot LLM with the target city's taxonomy in the prompt is
-a stronger starting point than a transferred fine-tuned model, and needs no target labels.</p>
+<p>For civic-technology deployment, the result is a caution and an option. Across the seven jurisdictions
+studied here, supervised transfer to an unseen city cost roughly a third of the in-domain macro-F1, driven
+substantially by taxonomy mismatch rather than by the model; we do not claim a universal figure from seven
+cities. GPT-4o-mini achieved the highest pooled cross-jurisdiction score, though its advantage was
+heterogeneous across cities, so a zero-shot LLM with the target city's taxonomy in the prompt is a reasonable
+starting point when a city lacks its own labels rather than a guaranteed winner.</p>
 <p>For benchmark builders, the broader lesson is that harmonizing labels across sources imports noise and
 non-comparability that a single accuracy number hides; a defensibility-adjusted metric grounded in an
 explicit acceptable-set judgment is a reusable correction for any administrative-text benchmark assembled
@@ -302,9 +323,11 @@ text.</p>
 <h2>10. Ethics and data</h2>
 <p>311 requests are public records, but their free text contains personal data: street addresses,
 occasional phone numbers, and sometimes names, and the Homelessness category concerns a vulnerable
-population. The released corpus removes phone numbers and applies address scrubbing, the reporting cities'
-open-data licenses are listed per source, and we distribute derived, harmonized text for research use rather
-than a re-identifiable master record. We discourage using this benchmark for individual-level surveillance or
+population. The released corpus removes phone numbers (2,861 spans) and email addresses (726); street
+addresses are retained, because they are intrinsic to a service request and are already public in the source
+portals. Names are not systematically removed, which we flag as a residual-PII risk to be addressed before
+wide redistribution. The reporting cities' open-data licenses are listed per source, and we distribute
+derived, harmonized text for research use rather than a re-identifiable master record. We discourage using this benchmark for individual-level surveillance or
 enforcement targeting.</p>
 
 <h2>11. Reproducibility</h2>
@@ -314,8 +337,8 @@ arm, the acceptable-set judgments, and the scored results with confidence interv
 <code>collect_311.py</code>, <code>harmonize.py</code>, the informativeness filter <code>filter_labels.py</code>,
 <code>make_split.py</code>, the three evaluation arms, the acceptable-set judge
 <code>defensibility_judge.py</code>, and <code>score_aligned.py</code>. Together these regenerate every number
-in this paper, including the confidence intervals, the defensibility-adjusted scores, and the label-noise
-rates, from the released artifacts.</p>
+in this paper, including the confidence intervals, the defensibility-adjusted scores, and the text-label
+mismatch rates, from the released artifacts.</p>
 
 <h2>12. Conclusion</h2>
 <p>We built the first public multi-city free-text 311 benchmark and used it to measure cross-jurisdiction
