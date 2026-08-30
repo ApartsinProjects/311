@@ -145,6 +145,12 @@ category mix of requests characterizes urban location <sup><a href="#r2">[2]</a>
 tradition motivates treating city labels as noisy and non-neutral, which our judge quantifies directly.</p>
 
 <h2>3. Corpus construction</h2>
+<figure>
+  <img src="fig_corpus_flow.png" alt="Corpus construction pipeline">
+  <figcaption><strong>Figure 6.</strong> Corpus construction: from probed municipal portals to the frozen
+  MC311 benchmark, through free-text confirmation, harmonization, administrative-category removal, an
+  informativeness filter, and PII scrubbing.</figcaption>
+</figure>
 <h3>3.1 The free-text availability problem</h3>
 <p>The first design constraint is that genuine citizen narrative is scarce across cities. We verified by
 direct probing that the largest portals (New York, Chicago, Los Angeles, Dallas, Washington) expose only
@@ -193,7 +199,16 @@ Francisco's per-department "General Request" tags, form a fifteenth bucket that 
 classification task. The mapping is an ordered, first-match rule set applied to the native category string,
 which keeps it transparent and auditable; it covers 80 to 95 percent of records per city as content classes.
 The mapping file is released, and its boundaries are exactly where the analysis of Section 7 locates
-disagreement.</p>
+disagreement. Figure 7 shows these boundaries empirically: the heaviest cross-city confusion concentrates on a
+few neighboring pairs, with Waste and Sanitation acting as a hub (its overlap with Parking, Homelessness,
+Trees, and Property reflects debris, encampment cleanups, yard waste, and property nuisance all bordering it).</p>
+
+<figure>
+  <img src="fig_taxonomy_boundary.png" alt="Taxonomy boundary confusion graph">
+  <figcaption><strong>Figure 7.</strong> The 14 classes with the top cross-city confusion pairs as edges
+  (edge width proportional to DistilBERT misclassification count). Confusion concentrates on semantically
+  adjacent boundaries rather than spreading uniformly.</figcaption>
+</figure>
 
 <h2>5. Experimental setup</h2>
 <p><strong>Task.</strong> Given the citizen free text, predict one of the 14 harmonized content classes.</p>
