@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MC311 Datasheet</title>
+<style>
+  html,body{background:#fff!important;color:#111418;}
+  body{max-width:760px;margin:0 auto;padding:2.5rem 1.25rem 5rem;
+       font:11pt/1.55 "Charter","Iowan Old Style",Georgia,"Times New Roman",serif;text-align:justify;hyphens:auto;}
+  h1{font-size:18pt;text-align:center;margin:0 0 .3rem;}
+  .sub{text-align:center;color:#5a626c;font-size:9.5pt;margin-bottom:1.6rem;}
+  h2{font-size:12.5pt;font-weight:700;margin:1.7rem 0 .4rem;border-bottom:1px solid #d1d4d8;padding-bottom:.15rem;}
+  p{margin:.5rem 0;}
+  b.q{color:#14385c;}
+  a{color:#14385c;} code{background:#f4f5f7;padding:.05em .3em;border-radius:3px;font-size:.86em;}
+  .foot{font-size:9pt;color:#5a626c;margin-top:2rem;}
+</style>
+</head>
+<body>
+<h1>Datasheet for MC311</h1>
+<div class="sub">A Multi-City Free-Text 311 Benchmark · companion to the <a href="paper.html">paper</a> · <a href="https://github.com/ApartsinProjects/311">code &amp; data</a></div>
+
+<h2>Motivation</h2>
+<p><b class="q">Why was the dataset created?</b> To enable cross-jurisdiction evaluation of free-text 311
+service-request classification. No public benchmark combined citizen-authored 311 free text from more than two
+US cities with a shared label space and fixed splits; MC311 fills that gap and supports the study of domain
+shift, taxonomy non-comparability, and ambiguity-aware evaluation.</p>
+<p><b class="q">Who created it and funded it?</b> The paper's authors, using public municipal open data; no
+external funding is associated with the dataset assembly.</p>
+
+<h2>Composition</h2>
+<p><b class="q">What do the instances represent?</b> Each instance is one citizen 311 service request: a
+free-text description, the city's native service category, and the harmonized 14-class label. About 156,000
+content instances span seven cities (Baton Rouge, Bloomington IN, Richmond VA, Auburn WA, Gainesville FL,
+Honolulu, San Francisco).</p>
+<p><b class="q">How many instances and what is the split?</b> ~156k content rows after harmonization,
+administrative-category removal, and an informativeness filter. A frozen, seeded, stratified test set holds up
+to 500 requests per city (3,502 total); the remainder is training. A deduplicated split and, for the four
+cities with timestamps, a temporal split are also released.</p>
+<p><b class="q">Is any information missing?</b> Yes. Three cities lack usable request timestamps in the
+collected fields; San Francisco free text is available only via its Open311 API (its bulk export is
+placeholder-filled). These limitations are documented in the paper.</p>
+<p><b class="q">Are there labels?</b> The label is the harmonized civic class derived from the city's native
+category by an auditable rule mapping (545 native categories to 14 classes). Labels are the cities' own
+routing categories and carry measured noise (about 14% not text-entailed per an LLM judge).</p>
+<p><b class="q">Does it contain sensitive or confidential data?</b> The text is public record but contains
+personal data: street addresses (retained as intrinsic to a request), and, before scrubbing, phone numbers and
+emails (removed). The Homelessness class concerns a vulnerable population.</p>
+
+<h2>Collection</h2>
+<p><b class="q">How was the data acquired?</b> Programmatically, from each city's Socrata open-data portal or
+Open311 API, after a verification pass identifying which portals expose citizen free text. Retrieval scripts
+(<code>collect_311.py</code>) and the exact dataset identifiers are released.</p>
+<p><b class="q">Over what timeframe?</b> The requests span each city's available open-data history; collection
+was performed in August 2026. Exact per-city date ranges are recoverable from the released rows where
+timestamps exist.</p>
+<p><b class="q">Were people involved?</b> No human annotation was used to build the labels; they derive from the
+cities' own categories via the released rule mapping. Human validation of the mapping and of label ambiguity is
+identified as future work.</p>
+
+<h2>Preprocessing / cleaning / labeling</h2>
+<p><b class="q">What preprocessing was done?</b> Native categories were mapped to 14 classes; administrative and
+routing-only categories were excluded; an informativeness filter removed call-center shorthand and stubs
+(~8% of rows); phone numbers and email addresses were scrubbed. The raw per-city dumps are regenerable from the
+released collection scripts.</p>
+<p><b class="q">Is the raw data available?</b> The harmonized content data, the mapping file, the frozen and
+robustness splits, and the collection scripts are released; the very large raw per-city dumps are regenerable
+rather than shipped.</p>
+
+<h2>Uses</h2>
+<p><b class="q">What is the dataset for?</b> Cross-jurisdiction and in-city text classification, ambiguity-aware
+evaluation, taxonomy-harmonization studies, and domain-generalization research on administrative text.</p>
+<p><b class="q">What should it not be used for?</b> Individual-level surveillance, enforcement targeting, or any
+re-identification of reporters. Because labels reflect each city's operational conventions and reporting is a
+biased signal of need, the dataset should not be read as a neutral measure of citizen demand.</p>
+
+<h2>Distribution &amp; maintenance</h2>
+<p><b class="q">How is it distributed and licensed?</b> Via the public repository
+<a href="https://github.com/ApartsinProjects/311">github.com/ApartsinProjects/311</a>. Code is MIT; the data
+derives from municipal open-data portals under their respective public/open licenses (for example San
+Francisco's Open311 under PDDL), listed per source.</p>
+<p><b class="q">Who maintains it and how are updates handled?</b> The authors. Corrections and versioned updates
+are tracked in the repository; every reported number regenerates from the released predictions and scripts.</p>
+
+<div class="foot">Datasheet structured after Gebru et al., "Datasheets for Datasets" (2021).</div>
+</body>
+</html>

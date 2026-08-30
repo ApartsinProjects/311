@@ -147,12 +147,13 @@ tradition motivates treating city labels as noisy and non-neutral, which our jud
 <h2>3. Corpus construction</h2>
 <figure>
   <img src="fig_corpus_flow.png" alt="Corpus construction pipeline">
-  <figcaption><strong>Figure 6.</strong> Corpus construction: from probed municipal portals to the frozen
+  <figcaption><strong>Figure 1.</strong> Corpus construction: from probed municipal portals to the frozen
   MC311 benchmark, through free-text confirmation, harmonization, administrative-category removal, an
   informativeness filter, and PII scrubbing.</figcaption>
 </figure>
 <h3>3.1 The free-text availability problem</h3>
-<p>The first design constraint is that genuine citizen narrative is scarce across cities. We verified by
+<p>We assemble MC311 in the stages of Figure 1. The first design constraint is that genuine citizen narrative
+is scarce across cities. We verified by
 direct probing that the largest portals (New York, Chicago, Los Angeles, Dallas, Washington) expose only
 structured category fields; columns that look textual, such as <code>descriptor</code> or
 <code>resolution_description</code>, are templated dropdown values, not narratives. Free text lives instead in
@@ -199,13 +200,13 @@ Francisco's per-department "General Request" tags, form a fifteenth bucket that 
 classification task. The mapping is an ordered, first-match rule set applied to the native category string,
 which keeps it transparent and auditable; it covers 80 to 95 percent of records per city as content classes.
 The mapping file is released, and its boundaries are exactly where the analysis of Section 7 locates
-disagreement. Figure 7 shows these boundaries empirically: the heaviest cross-city confusion concentrates on a
+disagreement. Figure 2 shows these boundaries empirically: the heaviest cross-city confusion concentrates on a
 few neighboring pairs, with Waste and Sanitation acting as a hub (its overlap with Parking, Homelessness,
 Trees, and Property reflects debris, encampment cleanups, yard waste, and property nuisance all bordering it).</p>
 
 <figure>
   <img src="fig_taxonomy_boundary.png" alt="Taxonomy boundary confusion graph">
-  <figcaption><strong>Figure 7.</strong> The 14 classes with the top cross-city confusion pairs as edges
+  <figcaption><strong>Figure 2.</strong> The 14 classes with the top cross-city confusion pairs as edges
   (edge width proportional to DistilBERT misclassification count). Confusion concentrates on semantically
   adjacent boundaries rather than spreading uniformly.</figcaption>
 </figure>
@@ -237,7 +238,7 @@ Hyperparameters and the verbatim prompt are released with the code.</p>
 <h2>6. Results</h2>
 <figure>
   <img src="fig_transfer.png" alt="In-city vs cross-city macro-F1 by model">
-  <figcaption><strong>Figure 1.</strong> Pooled macro-F1 with 95% bootstrap CIs. Both trained models lose
+  <figcaption><strong>Figure 3.</strong> Pooled macro-F1 with 95% bootstrap CIs. Both trained models lose
   roughly a third of their macro-F1 when moving to an unseen city. The zero-shot LLM, which trains on no city,
   transfers best across cities.</figcaption>
 </figure>
@@ -255,7 +256,7 @@ trained models and to zero-shot for the LLM. Unweighted city means are lower (fo
 mean weights every city equally. Both aggregations are released.</p>
 
 <p>Two results are stable across models. Crossing city boundaries costs roughly a third of macro-F1, from 0.827
-to 0.558 for DistilBERT and from 0.785 to 0.523 for TF-IDF (Figure 1), and in-city exceeds cross-city for
+to 0.558 for DistilBERT and from 0.785 to 0.523 for TF-IDF (Figure 3), and in-city exceeds cross-city for
 every held-out city for DistilBERT and for six of the seven for TF-IDF (Bloomington is a near-tie, 0.443
 in-city versus 0.449 cross-city, within the bootstrap noise). The cross-city ordering, LLM zero-shot (0.654)
 above DistilBERT (0.558) above TF-IDF (0.523), is significant: paired bootstrap over the shared test examples
@@ -301,13 +302,13 @@ limitation of the collection. <em>Model family:</em> a stronger encoder and simp
 above, do not close the gap either. The gap is not specific to one architecture, split, or taxonomy
 granularity.</p>
 
-<p>Performance varies sharply across held-out cities (Figure 2), from the degenerate San Francisco split
+<p>Performance varies sharply across held-out cities (Figure 4), from the degenerate San Francisco split
 (two content classes) to the mid-0.6s on more balanced cities, which is why we report San-Francisco-excluded
 aggregates alongside the full ones.</p>
 
 <figure>
   <img src="fig_percity.png" alt="Per-city cross-city macro-F1 by model">
-  <figcaption><strong>Figure 2.</strong> Per-held-out-city cross-city macro-F1. Performance varies widely by
+  <figcaption><strong>Figure 4.</strong> Per-held-out-city cross-city macro-F1. Performance varies widely by
   city, and San Francisco (two content classes only) is degenerate; we handle it explicitly in Section 9.</figcaption>
 </figure>
 
@@ -324,6 +325,12 @@ other city and testing on a target averages 0.247 macro-F1, less than half the l
 is not explained by shared platform alone; the two SeeClickFix cities transfer asymmetrically (Auburn to
 Richmond 0.58, Richmond to Auburn 0.34), consistent with the inconclusive same-platform probe above.</p>
 
+<p>Across the 42 city pairs, transfer difficulty is predicted by distributional distance rather than channel.
+Single-source transfer correlates strongly and negatively with vocabulary divergence between the two cities
+(Spearman &rho; = &minus;0.83) and with class-distribution divergence (&rho; = &minus;0.70, both p &lt; 0.001),
+and not significantly with text-length difference or shared platform. Cross-jurisdiction degradation therefore
+tracks lexical and label-distribution shift between cities, which a shared taxonomy alone cannot remove.</p>
+
 <h2>7. What the gap measures</h2>
 <p>A large drop is a strong claim, so we ask how much of the gap is genuine model failure. An independent LLM
 judge (gpt-4o-mini) reads each test request and returns the set of categories that are reasonable for the
@@ -337,14 +344,14 @@ measure of semantic classification ability.</p>
 
 <figure>
   <img src="fig_defensibility.png" alt="Strict vs lenient accuracy by model">
-  <figcaption><strong>Figure 3.</strong> Strict accuracy (prediction equals the city label) versus
+  <figcaption><strong>Figure 6.</strong> Strict accuracy (prediction equals the city label) versus
   defensibility-adjusted accuracy (prediction is judge-acceptable). A large share of cross-city "errors" are
   judged defensible, nearly all for the LLM under the same-family judge.</figcaption>
 </figure>
 
 <p>The acceptable-set judgment is defined per example, so this analysis uses accuracy rather than macro-F1.
 Under a defensibility-adjusted metric that counts a prediction correct when it matches the city label or any
-judge-acceptable label, cross-city accuracy rises for every model (Figure 3): the LLM from 0.797 to 0.981, DistilBERT
+judge-acceptable label, cross-city accuracy rises for every model (Figure 6): the LLM from 0.797 to 0.981, DistilBERT
 from 0.748 to 0.864, and TF-IDF from 0.688 to 0.816. This rescues about 91% of the zero-shot LLM's strict
 disagreements, and about 46% and 41% of DistilBERT's and TF-IDF's. To test whether this reflects same-family
 self-agreement, we repeated the acceptable-set judgment with an independent judge from a different model
@@ -355,11 +362,11 @@ both judges reject the city label, finds 9.7% of city labels textually unsupport
 not an artifact of same-family judging; human validation of a subset remains the natural next step (Section 9). The measured cross-jurisdiction gap therefore conflates three effects that this
 analysis makes visible without cleanly separating: genuine domain shift between cities, non-comparability of
 the harmonized taxonomy at its boundaries, and text-label mismatch. The confusion structure identifies where the boundary effects concentrate
-(Figure 4).</p>
+(Figure 7).</p>
 
 <figure>
   <img src="fig_confusion.png" alt="Cross-city confusion matrix for DistilBERT">
-  <figcaption><strong>Figure 4.</strong> Row-normalized cross-city confusion for DistilBERT. The heaviest
+  <figcaption><strong>Figure 7.</strong> Row-normalized cross-city confusion for DistilBERT. The heaviest
   off-diagonal mass sits on defensible neighbors: Waste and Sanitation versus Trees and Vegetation (green and
   woody waste), and Streets versus Water and Drainage (sinkholes and road-surface flooding).</figcaption>
 </figure>
@@ -417,7 +424,8 @@ arm, the acceptable-set judgments, and the scored results with confidence interv
 <code>make_split.py</code>, the three evaluation arms, the acceptable-set judge
 <code>defensibility_judge.py</code>, and <code>score_aligned.py</code>. Together these regenerate every number
 in this paper, including the confidence intervals, the defensibility-adjusted scores, and the text-label
-mismatch rates, from the released artifacts.</p>
+mismatch rates, from the released artifacts. A <a href="datasheet.html">datasheet for the dataset</a> (Gebru
+et al.) accompanies the release.</p>
 
 <h2>12. Conclusion</h2>
 <p>We built the first public multi-city free-text 311 benchmark and used it to measure cross-jurisdiction

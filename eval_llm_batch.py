@@ -62,7 +62,10 @@ def load_test():
 
 
 def cls_prompt(text):
-    cats = "\n".join(f"- {k}: {v}" for k, v in GLOSS.items())
+    if os.environ.get("NAMES_ONLY"):                       # ablation: label names, no glosses
+        cats = "\n".join(f"- {k}" for k in GLOSS)
+    else:
+        cats = "\n".join(f"- {k}: {v}" for k, v in GLOSS.items())
     return (f"Categories (choose exactly one; reply with the category name verbatim):\n{cats}\n\n"
             f"Service request:\n\"\"\"{text[:700]}\"\"\"\n\nCategory:")
 

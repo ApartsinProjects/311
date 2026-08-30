@@ -18,6 +18,8 @@ print(f"[train] GPU: {torch.cuda.get_device_name(0)}"); sys.stdout.flush()
 MODEL = os.environ.get("ENC_MODEL", "distilbert-base-uncased")
 TAG = os.environ.get("ENC_TAG", "distilbert")
 MAXLEN = int(os.environ.get("ENC_MAXLEN", "64"))
+SEED = int(os.environ.get("ENC_SEED", "0"))
+torch.manual_seed(SEED); np.random.seed(SEED)
 LABELS = ["Waste_Sanitation", "Streets_Sidewalks", "Street_Lighting", "Traffic_Signals_Signs",
           "Trees_Vegetation", "Graffiti_Postings", "Parking_Vehicles", "Property_Housing_Code",
           "Water_Sewer_Drainage", "Homelessness", "Animals_Pests", "Noise", "Transit", "Parks_Recreation"]
@@ -35,7 +37,7 @@ def load(path):
     return d
 
 
-def cap(rows, c=CAP, seed=0):
+def cap(rows, c=CAP, seed=SEED):
     return rows if len(rows) <= c else [rows[i] for i in np.random.RandomState(seed).permutation(len(rows))[:c]]
 
 
