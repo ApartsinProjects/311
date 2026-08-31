@@ -63,6 +63,7 @@ def pick_exemplars(train):
 def main():
     model = sys.argv[1] if len(sys.argv) > 1 else "gpt-4o-mini"
     tag = sys.argv[2] if len(sys.argv) > 2 else "fewshot"
+    mode = sys.argv[3] if len(sys.argv) > 3 else "run"   # submit | collect | run
     tr, te = load_split()
     ex = pick_exemplars(tr)
     cats = "\n".join(f"- {k}: {GLOSS[k]}" for k in LABELS)
@@ -78,28 +79,51 @@ def main():
     for city, rows in te.items():
         for i, (t, _) in enumerate(rows):
             items.append((f"{city}|{i}", t))
-    print(f"[fewshot] model={model} tag={tag} items={len(items)} exemplars={len(ex)}")
+    print(f"[fewshot] model={model} tag={tag} mode={mode} items={len(items)} exemplars={len(ex)}")
 
     provider = "openrouter" if "/" in model else "openai"
     if provider == "openai":
-        from openai_batch import run_chat_batch as run
-        bodies = [(cid, build_body(t)) for cid, t in items]
-        res = run(model, bodies, interval=20)
+        import openai_batch as B
+        submit = lambda: B.submit_chat_batch(model, [(cid, build_body(t)) for cid, t in items], tag=tag)
     else:
-        from or_batch import run_chat_batch as run
-        res = run(model, items, build_body, interval=20)
+        import or_batch as B
+        submit = lambda: B.submit_chat_batch(model, items, build_body, tag=tag)
 
-    def parse(o):
-        low = (o or "").lower()
-        for l in LABELS:
-            if l.lower() in low: return l
-        return "UNPARSED"
-    out = {"zeroshot": {}}
-    for city, rows in te.items():
-        out["zeroshot"][city] = [parse(res.get(f"{city}|{i}", "")) for i in range(len(rows))]
-    os.makedirs(PRED, exist_ok=True)
-    json.dump(out, open(os.path.join(PRED, f"llm_{tag}.json"), "w"), ensure_ascii=False)
-    print(f"[fewshot] wrote results/preds/llm_{tag}.json")
+    def finish(res):  # res: {cid: text} -> parse + save preds
+        def parse(o):
+            low = (o or "").lower()
+            for l in LABELS:
+                if l.lower() in low: return l
+            return "UNPARSED"
+        out = {"zeroshot": {}}
+        for city, rows in te.items():
+            out["zeroshot"][city] = [parse(res.get(f"{city}|{i}", "")) for i in range(len(rows))]
+        os.makedirs(PRED, exist_ok=True)
+        json.dump(out, open(os.path.join(PRED, f"llm_{tag}.json"), "w"), ensure_ascii=False)
+        print(f"[fewshot] wrote results/preds/llm_{tag}.json")
+
+    if mode == "submit":
+        submit()
+        print(f"[fewshot] submitted; collect later with: python eval_fewshot_batch.py {model} {tag} collect")
+    elif mode == "collect":
+        res = B.collect_chat_batch(tag=tag)
+        if res is None:
+            print("[fewshot] batch not ready yet; rerun collect later")
+        else:
+            finish(res)
+    else:  # run: submit + bounded poll (state saved, so a reap is recoverable via collect)
+        submit()
+        import time as _t
+        res = None; t0 = _t.time()
+        while _t.time() - t0 < 1800:
+            res = B.collect_chat_batch(tag=tag)
+            if res is not None:
+                break
+            _t.sleep(20)
+        if res is None:
+            print(f"[fewshot] still running; resume with: python eval_fewshot_batch.py {model} {tag} collect")
+        else:
+            finish(res)
 
 
 if __name__ == "__main__":

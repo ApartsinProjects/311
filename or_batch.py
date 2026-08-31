@@ -87,23 +87,68 @@ def poll(bid, key, interval=15, max_wait=86400, verbose=True):
         time.sleep(interval)
 
 
-def run_chat_batch(model, items, build_body, env_file=r"E:\Projects\.env.all", interval=15):
-    """items: list of (custom_id, payload_for_build_body). build_body(payload)->chat body dict.
-    Returns {custom_id: assistant_text}. One batch call, 50% discount."""
-    reqs = [{"custom_id": str(cid), "body": build_body(p)} for cid, p in items]
-    bid, key = submit(model, reqs, env_file)
-    print(f"  submitted batch {bid} ({len(reqs)} requests, model={model})")
-    results = poll(bid, key, interval=interval)
+def _state_path(tag):
+    return os.path.join(os.path.dirname(os.path.abspath(__file__)), f".batch_state_{tag}.json")
+
+
+def _parse_results(results):
     out = {}
     for r in results:
-        cid = r.get("custom_id")
-        resp = r.get("response")
+        cid = r.get("custom_id"); resp = r.get("response")
         if resp is None:
-            out[cid] = f"ERR:{str(r.get('error'))[:60]}"
-            continue
+            out[cid] = f"ERR:{str(r.get('error'))[:60]}"; continue
         body = resp.get("body", resp)
         try:
             out[cid] = body["choices"][0]["message"]["content"]
         except Exception:
             out[cid] = f"ERR:parse:{str(body)[:60]}"
     return out
+
+
+def submit_chat_batch(model, items, build_body, tag="default", env_file=r"E:\Projects\.env.all",
+                      endpoint="/v1/chat/completions", verbose=True):
+    """Create the batch, persist its id, return fast (survives a reaped poller)."""
+    reqs = [{"custom_id": str(cid), "body": build_body(p)} for cid, p in items]
+    bid, _ = submit(model, reqs, env_file, endpoint)
+    json.dump({"provider": "openrouter", "model": model, "batch_id": bid, "env_file": env_file, "n": len(reqs)},
+              open(_state_path(tag), "w"))
+    if verbose:
+        print(f"  submitted batch {bid} ({len(reqs)} requests, model={model}) -> {_state_path(tag)}")
+    return bid
+
+
+def collect_chat_batch(tag="default", verbose=True):
+    """One retrieve. {cid: text} when completed, None while running, raises if failed."""
+    st = json.load(open(_state_path(tag)))
+    key = _key(st.get("env_file", r"E:\Projects\.env.all"))
+    out = _req(f"{BASE}/{st['batch_id']}", key)
+    status = out.get("status") or out.get("batch", {}).get("status")
+    if verbose:
+        print(f"  [batch {st['batch_id'][:16]}] status={status} counts={out.get('request_counts') or out.get('counts')}")
+    if status in ("failed", "expired", "cancelled"):
+        raise RuntimeError(f"batch {status}: {str(out)[:300]}")
+    if status == "completed":
+        return _parse_results(out.get("results") or out.get("output") or [])
+    return None
+
+
+def run_chat_batch(model, items, build_body, env_file=r"E:\Projects\.env.all", interval=15,
+                   tag="default", max_wait=1800):
+    """Submit then bounded-poll. Returns {cid: text} on completion, or None on timeout (state saved,
+    resume with collect_chat_batch(tag=...))."""
+    submit_chat_batch(model, items, build_body, tag=tag, env_file=env_file, verbose=True)
+    t0 = time.time()
+    while time.time() - t0 < max_wait:
+        res = collect_chat_batch(tag=tag)
+        if res is not None:
+            return res
+        time.sleep(interval)
+    print(f"  batch still running after {max_wait}s; state saved. Resume: python or_batch.py collect {tag}")
+    return None
+
+
+if __name__ == "__main__":
+    import sys
+    if len(sys.argv) >= 3 and sys.argv[1] == "collect":
+        r = collect_chat_batch(tag=sys.argv[2])
+        print("not ready" if r is None else f"collected {len(r)} results")

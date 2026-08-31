@@ -20,3 +20,5 @@ data_pull_50k.log
 _precorr_backup/
 fewshot_v2.log
 temporal.log
+.batch_state_*.json
+fewshot_v2_state.json

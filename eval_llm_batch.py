@@ -15,16 +15,16 @@ import csv, os, sys, json
 from collections import defaultdict
 
 
-def _run_batch(model, items, build_body, interval=20):
+def _run_batch(model, items, build_body, interval=20, tag="llm"):
     """Route to OpenAI native batch (bare model id, e.g. 'gpt-4o-mini') or OpenRouter batch
     (namespaced id, e.g. 'google/gemini-2.5-flash'). Both give the 50% batch discount."""
     provider = os.environ.get("PROVIDER") or ("openrouter" if "/" in model else "openai")
     if provider == "openai":
         from openai_batch import run_chat_batch as run_oai
         bodies = [(cid, build_body(text)) for cid, text in items]
-        return run_oai(model, bodies, interval=interval)
+        return run_oai(model, bodies, interval=interval, tag=tag)
     from or_batch import run_chat_batch as run_or
-    return run_or(model, items, build_body, interval=interval)
+    return run_or(model, items, build_body, interval=interval, tag=tag)
 
 csv.field_size_limit(10**7)
 DATA = "data"; PRED = os.path.join("results", "preds")
@@ -111,7 +111,12 @@ def main():
                              {"role": "user", "content": pfn(text)}],
                 "temperature": 0, "max_tokens": 15 if mode == "classify" else 40}
     print(f"[batch-{mode}] model={model} tag={tag} items={len(items)}")
-    res = _run_batch(model, items, build_body, interval=20)
+    res = _run_batch(model, items, build_body, interval=20, tag=tag)
+    if res is None:  # bounded poll timed out; batch id is saved in .batch_state_<tag>.json
+        provider = os.environ.get("PROVIDER") or ("openrouter" if "/" in model else "openai")
+        mod = "or_batch" if provider == "openrouter" else "openai_batch"
+        print(f"[batch-{mode}] batch still running; resume with: python {mod}.py collect {tag}")
+        return
 
     os.makedirs(PRED, exist_ok=True)
     if mode == "classify":
