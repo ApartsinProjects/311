@@ -25,3 +25,6 @@ fewshot_v2_state.json
 results/pilot_e1_pool.json
 results/pilot_e1_judge.json
 pilot_e1_result.txt
+results/e1_pool.json
+results/e1_folds/
+e1_export.log
