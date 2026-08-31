@@ -252,7 +252,7 @@ Hyperparameters and the verbatim prompt are released with the code.</p>
 <tr><td>TF-IDF + logistic regression</td><td class="n">0.784 [.76,.81]</td><td class="n">0.523 [.50,.54]</td><td class="n">0.761</td><td class="n">0.483</td></tr>
 <tr><td>DistilBERT (fine-tuned)</td><td class="n">0.826 [.80,.85]</td><td class="n">0.557 [.54,.58]</td><td class="n">0.802</td><td class="n">0.541</td></tr>
 <tr><td>LLM zero-shot, gpt-4o-mini (taxonomy in prompt)</td><td class="n">&ndash;</td><td class="n">0.655 [.63,.68]</td><td class="n">&ndash;</td><td class="n">0.622</td></tr>
-<tr><td>LLM zero-shot, gpt-4o</td><td class="n">&ndash;</td><td class="n">0.704 [.67,.73]</td><td class="n">&ndash;</td><td class="n">0.669</td></tr>
+<tr><td>LLM zero-shot, gpt-4o</td><td class="n">&ndash;</td><td class="n">0.704 [.68,.73]</td><td class="n">&ndash;</td><td class="n">0.669</td></tr>
 </table>
 <p class="cap">Table 2. Pooled macro-F1 [95% CI] on the frozen test set. Cross-city refers to LOCO for the
 trained models and to zero-shot for the LLM. Unweighted city means are lower (for example DistilBERT LOCO
@@ -264,7 +264,7 @@ to 0.557 for DistilBERT and from 0.784 to 0.523 for TF-IDF (Figure 3), and in-ci
 every held-out city for DistilBERT and for six of the seven for TF-IDF (Bloomington is a near-tie, 0.443
 in-city versus 0.449 cross-city, within the bootstrap noise). The cross-city ordering, LLM zero-shot (0.655)
 above DistilBERT (0.557) above TF-IDF (0.523), is significant: paired bootstrap over the shared test examples
-gives a mean difference of +0.096 for LLM over DistilBERT and +0.131 for LLM over TF-IDF, both with 95%
+gives a mean difference of +0.098 for LLM over DistilBERT and +0.130 for LLM over TF-IDF, both with 95%
 intervals excluding zero. This significance is at the request level; the ordering is heterogeneous across the
 seven cities (the LLM leads DistilBERT in five of seven, trailing in Richmond and Auburn), and with only seven
 jurisdictions we do not claim the ranking generalizes to all municipalities. A preliminary same-platform probe

@@ -23,14 +23,43 @@ def macro(gold, pred):
     return f1_score(gold, pred, average="macro", zero_division=0)
 
 
+def _encode(pairs):
+    """(gold,pred) tuples -> integer label codes over their own union, and L."""
+    g = np.array([a for a, _ in pairs]); p = np.array([b for _, b in pairs])
+    _, codes = np.unique(np.concatenate([g, p]), return_inverse=True)
+    n = len(g)
+    return codes[:n].astype(np.int64), codes[n:].astype(np.int64), int(codes.max()) + 1
+
+
+def _macro_from_cms(cms, L):
+    """cms: (M, L*L) flat confusion counts -> (M,) macro-F1 over labels present in each resample.
+    Matches sklearn f1_score(average='macro', zero_division=0, labels=None): a label with
+    2tp+fp+fn>0 is exactly one present in the resampled gold-or-pred union."""
+    c = cms.reshape(-1, L, L)
+    tp = np.diagonal(c, axis1=1, axis2=2).astype(np.float64)
+    fp = c.sum(1) - tp; fn = c.sum(2) - tp
+    d = 2 * tp + fp + fn
+    f1 = np.where(d > 0, 2 * tp / np.where(d > 0, d, 1.0), 0.0)
+    present = d > 0
+    return (f1 * present).sum(1) / present.sum(1)
+
+
+def _boot_cms(cell, L, idx):
+    """cell: (n,) per-example confusion code gi*L+pi. idx: (B,n) resample indices."""
+    B_ = idx.shape[0]
+    flat = cell[idx] + (np.arange(B_, dtype=np.int64)[:, None] * (L * L))
+    return np.bincount(flat.ravel(), minlength=B_ * L * L).reshape(B_, L * L)
+
+
 def pooled_ci(pairs):
-    """pairs: list of (gold,pred). Bootstrap 95% CI of pooled macro-F1."""
-    g = np.array([a for a, _ in pairs]); p = np.array([b for _, b in pairs]); n = len(g)
-    point = macro(list(g), list(p))
-    boots = []
-    for _ in range(B):
-        idx = RNG.randint(0, n, n)
-        boots.append(macro(list(g[idx]), list(p[idx])))
+    """pairs: list of (gold,pred). Vectorized bootstrap 95% CI of pooled macro-F1.
+    RNG.randint(0,n,size=(B,n)) yields the identical MT19937 stream as B sequential
+    randint(0,n,n) draws, so this matches the previous scorer to 4dp."""
+    gi, pi, L = _encode(pairs); n = len(gi)
+    cell = gi * L + pi
+    point = float(_macro_from_cms(np.bincount(cell, minlength=L * L)[None, :], L)[0])
+    idx = RNG.randint(0, n, size=(B, n))
+    boots = _macro_from_cms(_boot_cms(cell, L, idx), L)
     lo, hi = np.percentile(boots, [2.5, 97.5])
     return point, lo, hi
 
@@ -74,14 +103,12 @@ def eval_arm(name, protocol_preds, gold, accept=None):
 
 
 def paired_bootstrap(pairsA, pairsB, label):
-    """Both aligned over same pooled examples. P(A>B) via bootstrap of macro-F1 difference."""
-    gA = np.array([a for a, _ in pairsA]); pA = np.array([b for _, b in pairsA])
-    gB = np.array([a for a, _ in pairsB]); pB = np.array([b for _, b in pairsB])
-    n = len(gA); diffs = []
-    for _ in range(B):
-        idx = RNG.randint(0, n, n)
-        diffs.append(macro(list(gA[idx]), list(pA[idx])) - macro(list(gB[idx]), list(pB[idx])))
-    diffs = np.array(diffs)
+    """Both aligned over same pooled examples. P(A>B) via bootstrap of macro-F1 difference.
+    One shared resample per draw (as before); vectorized via confusion-count bincounts."""
+    giA, piA, LA = _encode(pairsA); giB, piB, LB = _encode(pairsB)
+    n = len(giA); cellA = giA * LA + piA; cellB = giB * LB + piB
+    idx = RNG.randint(0, n, size=(B, n))
+    diffs = _macro_from_cms(_boot_cms(cellA, LA, idx), LA) - _macro_from_cms(_boot_cms(cellB, LB, idx), LB)
     return {"label": label, "mean_diff": round(float(diffs.mean()), 4),
             "P(A>B)": round(float((diffs > 0).mean()), 3),
             "CI": [round(float(np.percentile(diffs, 2.5)), 4), round(float(np.percentile(diffs, 97.5)), 4)]}
