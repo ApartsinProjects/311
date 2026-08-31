@@ -3,8 +3,8 @@
     "distilbert/incity": {
       "per_city": {
         "BatonRouge": {
-          "macroF1": 0.7622,
-          "acc": 0.93,
+          "macroF1": 0.7583,
+          "acc": 0.926,
           "n": 500,
           "n_classes": 10,
           "lenient_acc": 0.98
@@ -52,26 +52,26 @@
           "lenient_acc": 0.982
         }
       },
-      "pooled_macroF1": 0.8265,
+      "pooled_macroF1": 0.8258,
       "pooled_CI": [
         0.7984,
         0.8468
       ],
-      "pooled_macroF1_noSF": 0.8031,
+      "pooled_macroF1_noSF": 0.8023,
       "pooled_CI_noSF": [
         0.7743,
         0.8268
       ],
-      "unweighted_mean": 0.7547,
-      "unweighted_mean_noSF": 0.7177,
-      "pooled_strict_acc": 0.8915,
-      "pooled_lenient_acc": 0.9543
+      "unweighted_mean": 0.7541,
+      "unweighted_mean_noSF": 0.717,
+      "pooled_strict_acc": 0.8909,
+      "pooled_lenient_acc": 0.9535
     },
     "distilbert/loco": {
       "per_city": {
         "BatonRouge": {
-          "macroF1": 0.511,
-          "acc": 0.734,
+          "macroF1": 0.5078,
+          "acc": 0.73,
           "n": 500,
           "n_classes": 10,
           "lenient_acc": 0.814
@@ -119,26 +119,26 @@
           "lenient_acc": 0.79
         }
       },
-      "pooled_macroF1": 0.5579,
+      "pooled_macroF1": 0.5573,
       "pooled_CI": [
         0.537,
         0.5783
       ],
-      "pooled_macroF1_noSF": 0.5415,
+      "pooled_macroF1_noSF": 0.5409,
       "pooled_CI_noSF": [
         0.5168,
         0.5628
       ],
-      "unweighted_mean": 0.4469,
-      "unweighted_mean_noSF": 0.5006,
-      "pooled_strict_acc": 0.7481,
-      "pooled_lenient_acc": 0.8635
+      "unweighted_mean": 0.4465,
+      "unweighted_mean_noSF": 0.5,
+      "pooled_strict_acc": 0.7476,
+      "pooled_lenient_acc": 0.8629
     },
     "distilbert_dedup/incity": {
       "per_city": {
         "BatonRouge": {
-          "macroF1": 0.7874,
-          "acc": 0.942,
+          "macroF1": 0.7829,
+          "acc": 0.934,
           "n": 500,
           "n_classes": 10,
           "lenient_acc": 0.974
@@ -186,25 +186,25 @@
           "lenient_acc": 0.978
         }
       },
-      "pooled_macroF1": 0.8177,
+      "pooled_macroF1": 0.8168,
       "pooled_CI": [
         0.7858,
         0.8401
       ],
-      "pooled_macroF1_noSF": 0.7967,
+      "pooled_macroF1_noSF": 0.7958,
       "pooled_CI_noSF": [
         0.767,
         0.8231
       ],
-      "unweighted_mean": 0.7623,
-      "unweighted_mean_noSF": 0.7274,
-      "pooled_strict_acc": 0.8915,
-      "pooled_lenient_acc": 0.9503
+      "unweighted_mean": 0.7616,
+      "unweighted_mean_noSF": 0.7266,
+      "pooled_strict_acc": 0.8903,
+      "pooled_lenient_acc": 0.9492
     },
     "distilbert_dedup/loco": {
       "per_city": {
         "BatonRouge": {
-          "macroF1": 0.566,
+          "macroF1": 0.5654,
           "acc": 0.71,
           "n": 500,
           "n_classes": 10,
@@ -253,26 +253,26 @@
           "lenient_acc": 0.792
         }
       },
-      "pooled_macroF1": 0.539,
+      "pooled_macroF1": 0.5389,
       "pooled_CI": [
         0.5188,
         0.5575
       ],
-      "pooled_macroF1_noSF": 0.5159,
+      "pooled_macroF1_noSF": 0.5158,
       "pooled_CI_noSF": [
         0.4932,
         0.5362
       ],
-      "unweighted_mean": 0.453,
-      "unweighted_mean_noSF": 0.5044,
+      "unweighted_mean": 0.4529,
+      "unweighted_mean_noSF": 0.5043,
       "pooled_strict_acc": 0.7421,
-      "pooled_lenient_acc": 0.8598
+      "pooled_lenient_acc": 0.8592
     },
     "llm_gpt4o/zeroshot": {
       "per_city": {
         "BatonRouge": {
-          "macroF1": 0.5659,
-          "acc": 0.862,
+          "macroF1": 0.5682,
+          "acc": 0.868,
           "n": 500,
           "n_classes": 10,
           "lenient_acc": 0.992
@@ -320,26 +320,26 @@
           "lenient_acc": 0.992
         }
       },
-      "pooled_macroF1": 0.7038,
+      "pooled_macroF1": 0.7042,
       "pooled_CI": [
         0.6756,
         0.7274
       ],
-      "pooled_macroF1_noSF": 0.6685,
+      "pooled_macroF1_noSF": 0.669,
       "pooled_CI_noSF": [
         0.6352,
         0.6955
       ],
-      "unweighted_mean": 0.5264,
-      "unweighted_mean_noSF": 0.5846,
-      "pooled_strict_acc": 0.831,
+      "unweighted_mean": 0.5267,
+      "unweighted_mean_noSF": 0.5849,
+      "pooled_strict_acc": 0.8318,
       "pooled_lenient_acc": 0.9794
     },
     "llm_gpt4omini/zeroshot": {
       "per_city": {
         "BatonRouge": {
-          "macroF1": 0.5872,
-          "acc": 0.794,
+          "macroF1": 0.5898,
+          "acc": 0.8,
           "n": 500,
           "n_classes": 10,
           "lenient_acc": 0.994
@@ -387,26 +387,26 @@
           "lenient_acc": 0.988
         }
       },
-      "pooled_macroF1": 0.6544,
+      "pooled_macroF1": 0.6548,
       "pooled_CI": [
         0.6269,
         0.6797
       ],
-      "pooled_macroF1_noSF": 0.6217,
+      "pooled_macroF1_noSF": 0.6221,
       "pooled_CI_noSF": [
         0.5907,
         0.6518
       ],
-      "unweighted_mean": 0.5013,
-      "unweighted_mean_noSF": 0.558,
-      "pooled_strict_acc": 0.797,
+      "unweighted_mean": 0.5017,
+      "unweighted_mean_noSF": 0.5585,
+      "pooled_strict_acc": 0.7978,
       "pooled_lenient_acc": 0.9814
     },
     "llm_gpt4omini_batch/zeroshot": {
       "per_city": {
         "BatonRouge": {
-          "macroF1": 0.5783,
-          "acc": 0.796,
+          "macroF1": 0.5809,
+          "acc": 0.802,
           "n": 500,
           "n_classes": 10,
           "lenient_acc": 0.992
@@ -454,93 +454,93 @@
           "lenient_acc": 0.982
         }
       },
-      "pooled_macroF1": 0.6436,
+      "pooled_macroF1": 0.644,
       "pooled_CI": [
         0.6153,
         0.7022
       ],
-      "pooled_macroF1_noSF": 0.6101,
+      "pooled_macroF1_noSF": 0.6105,
       "pooled_CI_noSF": [
         0.5779,
         0.6598
       ],
-      "unweighted_mean": 0.4856,
-      "unweighted_mean_noSF": 0.5398,
-      "pooled_strict_acc": 0.7984,
+      "unweighted_mean": 0.486,
+      "unweighted_mean_noSF": 0.5403,
+      "pooled_strict_acc": 0.7993,
       "pooled_lenient_acc": 0.9806
     },
     "llm_gpt4omini_fewshot/zeroshot": {
       "per_city": {
         "BatonRouge": {
-          "macroF1": 0.5458,
-          "acc": 0.808,
+          "macroF1": 0.5913,
+          "acc": 0.876,
           "n": 500,
           "n_classes": 10,
           "lenient_acc": 0.992
         },
         "Bloomington": {
-          "macroF1": 0.5532,
-          "acc": 0.8347,
+          "macroF1": 0.6407,
+          "acc": 0.8625,
           "n": 502,
           "n_classes": 10,
           "lenient_acc": 0.9442
         },
         "Richmond": {
-          "macroF1": 0.4262,
-          "acc": 0.7776,
+          "macroF1": 0.5239,
+          "acc": 0.8677,
           "n": 499,
           "n_classes": 7,
           "lenient_acc": 0.976
         },
         "Auburn_WA": {
-          "macroF1": 0.5182,
-          "acc": 0.73,
+          "macroF1": 0.5306,
+          "acc": 0.75,
           "n": 500,
           "n_classes": 10,
           "lenient_acc": 0.974
         },
         "Gainesville": {
-          "macroF1": 0.6337,
-          "acc": 0.7465,
+          "macroF1": 0.6392,
+          "acc": 0.7485,
           "n": 501,
           "n_classes": 13,
           "lenient_acc": 0.9641
         },
         "Honolulu": {
-          "macroF1": 0.5488,
+          "macroF1": 0.5584,
           "acc": 0.748,
           "n": 500,
           "n_classes": 13,
           "lenient_acc": 0.98
         },
         "SanFrancisco": {
-          "macroF1": 0.1761,
-          "acc": 0.944,
+          "macroF1": 0.1773,
+          "acc": 0.954,
           "n": 500,
           "n_classes": 2,
           "lenient_acc": 0.984
         }
       },
-      "pooled_macroF1": 0.6496,
+      "pooled_macroF1": 0.6731,
       "pooled_CI": [
         0.6243,
         0.7134
       ],
-      "pooled_macroF1_noSF": 0.6198,
+      "pooled_macroF1_noSF": 0.6415,
       "pooled_CI_noSF": [
         0.5925,
         0.6822
       ],
-      "unweighted_mean": 0.486,
-      "unweighted_mean_noSF": 0.5377,
-      "pooled_strict_acc": 0.7984,
-      "pooled_lenient_acc": 0.9734
+      "unweighted_mean": 0.5231,
+      "unweighted_mean_noSF": 0.5807,
+      "pooled_strict_acc": 0.8295,
+      "pooled_lenient_acc": 0.9794
     },
     "nli/zeroshot": {
       "per_city": {
         "BatonRouge": {
           "macroF1": 0.2638,
-          "acc": 0.468,
+          "acc": 0.47,
           "n": 500,
           "n_classes": 10,
           "lenient_acc": 0.582
@@ -588,7 +588,7 @@
           "lenient_acc": 0.928
         }
       },
-      "pooled_macroF1": 0.4784,
+      "pooled_macroF1": 0.4785,
       "pooled_CI": [
         0.4531,
         0.5018
@@ -600,14 +600,14 @@
       ],
       "unweighted_mean": 0.3169,
       "unweighted_mean_noSF": 0.3445,
-      "pooled_strict_acc": 0.5617,
-      "pooled_lenient_acc": 0.6973
+      "pooled_strict_acc": 0.562,
+      "pooled_lenient_acc": 0.6976
     },
     "roberta/incity": {
       "per_city": {
         "BatonRouge": {
-          "macroF1": 0.7446,
-          "acc": 0.916,
+          "macroF1": 0.7434,
+          "acc": 0.914,
           "n": 500,
           "n_classes": 10,
           "lenient_acc": 0.964
@@ -655,25 +655,25 @@
           "lenient_acc": 0.988
         }
       },
-      "pooled_macroF1": 0.8396,
+      "pooled_macroF1": 0.8393,
       "pooled_CI": [
         0.8146,
         0.8611
       ],
-      "pooled_macroF1_noSF": 0.8201,
+      "pooled_macroF1_noSF": 0.8198,
       "pooled_CI_noSF": [
         0.7922,
         0.8423
       ],
-      "unweighted_mean": 0.7702,
-      "unweighted_mean_noSF": 0.7346,
-      "pooled_strict_acc": 0.8981,
-      "pooled_lenient_acc": 0.9623
+      "unweighted_mean": 0.7701,
+      "unweighted_mean_noSF": 0.7344,
+      "pooled_strict_acc": 0.8978,
+      "pooled_lenient_acc": 0.9615
     },
     "roberta/loco": {
       "per_city": {
         "BatonRouge": {
-          "macroF1": 0.4984,
+          "macroF1": 0.4997,
           "acc": 0.672,
           "n": 500,
           "n_classes": 10,
@@ -722,26 +722,26 @@
           "lenient_acc": 0.708
         }
       },
-      "pooled_macroF1": 0.519,
+      "pooled_macroF1": 0.5193,
       "pooled_CI": [
         0.4994,
         0.5373
       ],
-      "pooled_macroF1_noSF": 0.5158,
+      "pooled_macroF1_noSF": 0.5161,
       "pooled_CI_noSF": [
         0.4914,
         0.5376
       ],
-      "unweighted_mean": 0.4517,
-      "unweighted_mean_noSF": 0.5113,
+      "unweighted_mean": 0.4519,
+      "unweighted_mean_noSF": 0.5115,
       "pooled_strict_acc": 0.7162,
-      "pooled_lenient_acc": 0.835
+      "pooled_lenient_acc": 0.8344
     },
     "sbert/zeroshot": {
       "per_city": {
         "BatonRouge": {
           "macroF1": 0.3632,
-          "acc": 0.594,
+          "acc": 0.598,
           "n": 500,
           "n_classes": 10,
           "lenient_acc": 0.738
@@ -801,14 +801,14 @@
       ],
       "unweighted_mean": 0.3406,
       "unweighted_mean_noSF": 0.3794,
-      "pooled_strict_acc": 0.5934,
+      "pooled_strict_acc": 0.5939,
       "pooled_lenient_acc": 0.7713
     },
     "tfidf/incity": {
       "per_city": {
         "BatonRouge": {
-          "macroF1": 0.6454,
-          "acc": 0.882,
+          "macroF1": 0.6441,
+          "acc": 0.878,
           "n": 500,
           "n_classes": 10,
           "lenient_acc": 0.932
@@ -856,26 +856,26 @@
           "lenient_acc": 0.982
         }
       },
-      "pooled_macroF1": 0.7846,
+      "pooled_macroF1": 0.7843,
       "pooled_CI": [
         0.7565,
         0.8059
       ],
-      "pooled_macroF1_noSF": 0.7615,
+      "pooled_macroF1_noSF": 0.7612,
       "pooled_CI_noSF": [
         0.7325,
         0.7859
       ],
-      "unweighted_mean": 0.7316,
-      "unweighted_mean_noSF": 0.6907,
-      "pooled_strict_acc": 0.8464,
-      "pooled_lenient_acc": 0.9138
+      "unweighted_mean": 0.7314,
+      "unweighted_mean_noSF": 0.6905,
+      "pooled_strict_acc": 0.8458,
+      "pooled_lenient_acc": 0.9129
     },
     "tfidf/loco": {
       "per_city": {
         "BatonRouge": {
-          "macroF1": 0.4051,
-          "acc": 0.698,
+          "macroF1": 0.4053,
+          "acc": 0.702,
           "n": 500,
           "n_classes": 10,
           "lenient_acc": 0.78
@@ -935,7 +935,7 @@
       ],
       "unweighted_mean": 0.4046,
       "unweighted_mean_noSF": 0.4452,
-      "pooled_strict_acc": 0.6879,
+      "pooled_strict_acc": 0.6885,
       "pooled_lenient_acc": 0.8158
     }
   },
@@ -1040,5 +1040,5 @@
       ]
     }
   ],
-  "gold_noise_rate": 0.1428
+  "gold_noise_rate": 0.1422
 }

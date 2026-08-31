@@ -58,8 +58,8 @@ exists. We build MC311, to our knowledge the first public 311 free-text benchmar
 cities: about 156,000 citizen narratives from seven cities, with each city's native taxonomy (545 native
 categories) mapped into a shared 14-class civic ontology through an auditable rule set. Every model is scored on
 one frozen test set of 3,502 requests. Crossing a
-city boundary costs roughly a third of pooled macro-F1: fine-tuned DistilBERT drops from 0.827 in-city to 0.558
-across cities (95% CI [0.54, 0.58]), while a language model prompted zero-shot with the taxonomy reaches 0.654,
+city boundary costs roughly a third of pooled macro-F1: fine-tuned DistilBERT drops from 0.826 in-city to 0.557
+across cities (95% CI [0.54, 0.58]), while a language model prompted zero-shot with the taxonomy reaches 0.655,
 significantly above both trained models. We then ask what this gap measures. Much of it is defensible: an LLM
 judge blind to the model and to the city label finds that 14.2% of city labels are not entailed by the text and
 that a third of requests admit more than one valid label. Crediting any judge-acceptable label raises cross-city
@@ -219,9 +219,12 @@ all three arms, are one comparison rather than three. Training pools are capped 
 per city.</p>
 <p><strong>Protocols.</strong> <em>In-city</em> trains on the held-out city's remaining data. <em>Leave-one-city-out
 (LOCO)</em> trains on all other cities. Both are evaluated on the same frozen test rows.</p>
-<p><strong>Metric.</strong> Macro-F1 over the classes present in the pooled test set, with 95% confidence
-intervals from 1,000 bootstrap resamples of the test examples. Pooled macro-F1 concatenates all cities' test
-rows and computes macro-F1 once over the union of classes; the unweighted mean averages per-city macro-F1,
+<p><strong>Metric.</strong> Macro-F1 over the union of the gold and predicted labels in the pooled test set,
+with 95% confidence intervals from 1,000 bootstrap resamples of the test examples. Averaging over the union
+rather than the gold classes alone charges a model for predicting a label no request carries, which slightly
+lowers the LLM's score (a handful of unparsed predictions add a zero-F1 class); we keep the union convention as
+the conservative choice. Pooled macro-F1 concatenates all cities' test
+rows and computes macro-F1 once over that union; the unweighted mean averages per-city macro-F1,
 weighting each city equally. Because per-city class sets differ, we report the pooled metric as primary and
 the unweighted mean as secondary, each also with San Francisco excluded (Section 9). Model differences use a
 paired bootstrap (1,000 resamples over the shared test rows). Trained-model scores are stable across three
@@ -246,44 +249,45 @@ Hyperparameters and the verbatim prompt are released with the code.</p>
 
 <table>
 <tr><th>Model</th><th class="n">In-city</th><th class="n">Cross-city</th><th class="n">In-city (no SF)</th><th class="n">Cross-city (no SF)</th></tr>
-<tr><td>TF-IDF + logistic regression</td><td class="n">0.785 [.76,.81]</td><td class="n">0.523 [.50,.54]</td><td class="n">0.761</td><td class="n">0.483</td></tr>
-<tr><td>DistilBERT (fine-tuned)</td><td class="n">0.827 [.80,.85]</td><td class="n">0.558 [.54,.58]</td><td class="n">0.803</td><td class="n">0.541</td></tr>
-<tr><td>LLM zero-shot, gpt-4o-mini (taxonomy in prompt)</td><td class="n">&ndash;</td><td class="n">0.654 [.63,.68]</td><td class="n">&ndash;</td><td class="n">0.622</td></tr>
-<tr><td>LLM zero-shot, gpt-4o</td><td class="n">&ndash;</td><td class="n">0.704 [.67,.73]</td><td class="n">&ndash;</td><td class="n">0.668</td></tr>
+<tr><td>TF-IDF + logistic regression</td><td class="n">0.784 [.76,.81]</td><td class="n">0.523 [.50,.54]</td><td class="n">0.761</td><td class="n">0.483</td></tr>
+<tr><td>DistilBERT (fine-tuned)</td><td class="n">0.826 [.80,.85]</td><td class="n">0.557 [.54,.58]</td><td class="n">0.802</td><td class="n">0.541</td></tr>
+<tr><td>LLM zero-shot, gpt-4o-mini (taxonomy in prompt)</td><td class="n">&ndash;</td><td class="n">0.655 [.63,.68]</td><td class="n">&ndash;</td><td class="n">0.622</td></tr>
+<tr><td>LLM zero-shot, gpt-4o</td><td class="n">&ndash;</td><td class="n">0.704 [.67,.73]</td><td class="n">&ndash;</td><td class="n">0.669</td></tr>
 </table>
 <p class="cap">Table 2. Pooled macro-F1 [95% CI] on the frozen test set. Cross-city refers to LOCO for the
 trained models and to zero-shot for the LLM. Unweighted city means are lower (for example DistilBERT LOCO
 0.447): a city with few classes contributes to few of the pooled per-class F1 terms, whereas the unweighted
 mean weights every city equally. Both aggregations are released.</p>
 
-<p>Two results are stable across models. Crossing city boundaries costs roughly a third of macro-F1, from 0.827
-to 0.558 for DistilBERT and from 0.785 to 0.523 for TF-IDF (Figure 3), and in-city exceeds cross-city for
+<p>Two results are stable across models. Crossing city boundaries costs roughly a third of macro-F1, from 0.826
+to 0.557 for DistilBERT and from 0.784 to 0.523 for TF-IDF (Figure 3), and in-city exceeds cross-city for
 every held-out city for DistilBERT and for six of the seven for TF-IDF (Bloomington is a near-tie, 0.443
-in-city versus 0.449 cross-city, within the bootstrap noise). The cross-city ordering, LLM zero-shot (0.654)
-above DistilBERT (0.558) above TF-IDF (0.523), is significant: paired bootstrap over the shared test examples
+in-city versus 0.449 cross-city, within the bootstrap noise). The cross-city ordering, LLM zero-shot (0.655)
+above DistilBERT (0.557) above TF-IDF (0.523), is significant: paired bootstrap over the shared test examples
 gives a mean difference of +0.096 for LLM over DistilBERT and +0.131 for LLM over TF-IDF, both with 95%
 intervals excluding zero. This significance is at the request level; the ordering is heterogeneous across the
 seven cities (the LLM leads DistilBERT in five of seven, trailing in Richmond and Auburn), and with only seven
 jurisdictions we do not claim the ranking generalizes to all municipalities. A preliminary same-platform probe
-is inconclusive: Auburn-to-Richmond transfer (0.615) exceeds Richmond's leave-one-city-out score (0.477) while
-Richmond-to-Auburn (0.350) falls below Auburn's (0.434), so shared platform does not uniformly explain the gap
+is inconclusive: Auburn-to-Richmond single-source transfer (0.585, Figure 5) exceeds Richmond's leave-one-city-out score (0.477) while
+Richmond-to-Auburn (0.338) falls below Auburn's (0.434), so shared platform does not uniformly explain the gap
 (single-source versus multi-source training confounds this cell; the full 7&times;7 single-source matrix is
 Figure 5, analyzed in Section 7).
 Giving a model the target label space in context helps where a fixed label space does not, without closing the
 gap; Section 7 tests this reading directly.</p>
 
 <p>To ask what drives the LLM's cross-jurisdiction advantage, we vary the model and the prompt. A stronger
-model widens it: gpt-4o reaches 0.704, significantly above gpt-4o-mini (0.654; paired bootstrap P&gt;0.99).
-Adding in-context examples does not: gpt-4o-mini given one labeled exemplar per class drawn from the training
-cities scores 0.650, statistically indistinguishable from its zero-shot result (P=0.44). Stripping the glosses
-to label names alone does not hurt and slightly helps (0.700, near gpt-4o), so the signal is carried by the
-class names themselves rather than the descriptions. The advantage therefore comes from the target-label
-semantics that the taxonomy places in the prompt, largely captured by the class names, rather than from richer
-descriptions, few-shot demonstrations, or model scale alone. As a pipeline check, running gpt-4o-mini through
-the batch API reproduces the synchronous result (0.644 versus 0.654, not significant).</p>
+model widens it: gpt-4o reaches 0.704, significantly above gpt-4o-mini (0.655; paired bootstrap P&gt;0.99).
+Clean in-context demonstrations add a modest further gain: one representative labeled exemplar per class drawn
+from the training cities raises the cross-city score to 0.673 (bootstrap mean +0.025 over zero-shot, 95% CI
+[+0.001, +0.075]). The larger prompt lever is the label space itself: stripping the glosses to class names alone
+lifts the score to 0.700, near gpt-4o, so most of the signal is carried by the class names rather than their
+descriptions or the demonstrations. The advantage therefore comes chiefly from the target-label
+semantics that the taxonomy places in the prompt, largely captured by the class names, with smaller additive
+contributions from clean demonstrations and from model scale (gpt-4o). As a pipeline check, running gpt-4o-mini
+through the batch API reproduces the synchronous result (0.644 versus 0.655, not significant).</p>
 
 <p>We also widen the model families. A stronger encoder does not help transfer: fine-tuned RoBERTa reaches
-0.840 in-city, above DistilBERT, but only 0.519 across cities, so the gap is not a weakness of the DistilBERT
+0.839 in-city, above DistilBERT, but only 0.519 across cities, so the gap is not a weakness of the DistilBERT
 baseline. Two zero-shot label-semantic methods that receive the class descriptions but no strong reasoning, a
 sentence-transformer that matches each request to the nearest class-description embedding (0.510) and an NLI
 entailment classifier (0.478), land at or below the classical TF-IDF baseline and far below the LLM. Access to
@@ -306,7 +310,7 @@ therefore a tail-class phenomenon, not a uniform margin.</p>
 removing them, together with corpus-wide exact duplicates, barely changes the picture (DistilBERT in-city
 0.818, cross-city 0.539), so the roughly one-third drop is not produced by train-test overlap. <em>Taxonomy
 coarsening:</em> merging the confusable neighboring classes into an eight-class ontology recovers four to seven
-macro-F1 points for the trained models (TF-IDF cross-city 0.523 to 0.590, DistilBERT 0.558 to 0.601), which
+macro-F1 points for the trained models (TF-IDF cross-city 0.523 to 0.590, DistilBERT 0.557 to 0.601), which
 quantifies the taxonomy-boundary share of the difficulty, yet the gap to in-city persists. <em>Temporal split:</em>
 for all seven cities, pulling each city's records ordered by its native creation timestamp, training on the
 earliest 80% of requests and testing on the latest 20% lowers in-city macro-F1 by 0.051 on average (0.740
@@ -314,7 +318,7 @@ versus 0.791 for a random split on the same rows), with the largest single-city 
 temporal degradation is real but roughly five times smaller than the cross-jurisdiction gap, so the transfer
 gap is not an artifact of random splitting. <em>Model family and input length:</em> a stronger encoder and simple label-semantic classifiers,
 above, do not close the gap either, and doubling the encoder's input to 128 tokens does not help (cross-city
-0.537 versus 0.558). The gap is not specific to one architecture, split, taxonomy granularity, or sequence
+0.537 versus 0.557). The gap is not specific to one architecture, split, taxonomy granularity, or sequence
 length.</p>
 
 <p>Performance varies sharply across held-out cities (Figure 4), from the degenerate San Francisco split
@@ -343,9 +347,9 @@ Richmond 0.58, Richmond to Auburn 0.34), consistent with the inconclusive same-p
 <p>Transfer difficulty is partly predictable from how far apart two cities' corpora are. Across the 30 city
 pairs that exclude the degenerate San Francisco cell (whose single-source transfer is uniformly near zero),
 single-source transfer correlates negatively with vocabulary divergence between the two cities
-(Spearman &rho; = &minus;0.53, p = 0.003); the class-distribution and text-length distances and the shared-platform
+(Spearman &rho; = &minus;0.54, p = 0.002); the class-distribution and text-length distances and the shared-platform
 indicator are not significant, and with a single same-platform pair the platform test is underpowered. Including
-San Francisco inflates the vocabulary correlation to &rho; = &minus;0.82, so we report the San Francisco-excluded
+San Francisco inflates the vocabulary correlation to &rho; = &minus;0.83, so we report the San Francisco-excluded
 value. Cross-jurisdiction degradation therefore tracks lexical shift between cities, which a shared taxonomy
 alone cannot remove.</p>
 

@@ -49,19 +49,25 @@ def main():
             if i == j:
                 continue
             rows.append({
+                "a": a, "b": b,
                 "transfer": mat[i, j],
                 "label_js": js(st[a]["labels"], st[b]["labels"]),
                 "vocab_js": js(st[a]["vocab"], st[b]["vocab"]),
                 "len_diff": abs(st[a]["meanlen"] - st[b]["meanlen"]),
                 "same_platform": 1.0 if {a, b} <= SEECLICKFIX else 0.0,
             })
-    y = np.array([r["transfer"] for r in rows])
-    print(f"n_pairs={len(rows)}  (exploratory: 7 cities)")
-    print(f"{'feature':16s}{'Spearman rho':>14s}{'p':>10s}")
-    for f in ["label_js", "vocab_js", "len_diff", "same_platform"]:
-        x = np.array([r[f] for r in rows])
-        rho, p = spearmanr(x, y)
-        print(f"{f:16s}{rho:14.3f}{p:10.3f}")
+    def report(rs, tag):
+        y = np.array([r["transfer"] for r in rs])
+        print(f"\n[{tag}] n_pairs={len(rs)}")
+        print(f"{'feature':16s}{'Spearman rho':>14s}{'p':>10s}")
+        for f in ["label_js", "vocab_js", "len_diff", "same_platform"]:
+            rho, p = spearmanr([r[f] for r in rs], y)
+            print(f"{f:16s}{rho:14.3f}{p:10.3f}")
+
+    report(rows, "all 7 cities")
+    # San Francisco's single-source transfer is uniformly near zero (few classes); it inflates the
+    # correlations, so the paper reports the SF-excluded values as primary.
+    report([r for r in rows if "SanFrancisco" not in (r["a"], r["b"])], "excluding San Francisco")
     print("\n(negative rho for a divergence feature => more divergence, lower transfer)")
 
 
