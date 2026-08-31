@@ -4,9 +4,9 @@ REPO = os.path.dirname(os.path.abspath(__file__))
 BUILD = os.path.join(os.path.dirname(REPO), "zenodo_build")
 os.makedirs(BUILD, exist_ok=True)
 
-DATA = ["data/harmonized.csv", "data/harmonized_filtered.csv", "data/eval_split.csv",
-        "data/eval_split_dedup.csv", "data/harmonization_map.json", "data/native_categories.json",
-        "data/harmonization_pivot.csv"]
+DATA = ["data/mc311_harmonized.csv", "data/harmonized.csv", "data/harmonized_filtered.csv",
+        "data/eval_split.csv", "data/eval_split_dedup.csv", "data/harmonization_map.json",
+        "data/native_categories.json", "data/harmonization_pivot.csv"]
 CODE = sorted(glob.glob(os.path.join(REPO, "*.py"))) + \
        [os.path.join(REPO, f) for f in ["requirements.txt", "requirements_enc.txt", "requirements_llm.txt",
                                         "README.md", "EXTERNAL_DATA.md"]]

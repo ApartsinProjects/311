@@ -91,9 +91,12 @@ the protocol that reads it are joint contributions:</p>
 from different model families certify the set of labels each text supports, with discriminant floors that show
 the metric is not vacuously generous and a corpus-audit loop that turns the same judgments into bug-finding.
 The protocol is corpus-agnostic; 311 is the case study.</li>
-<li>MC311, to our knowledge the first public multi-city free-text 311 benchmark (seven US cities, ~156k
-citizen narratives) with an auditable 14-class harmonization of 545 native categories and one frozen aligned
-test set, together with a verified survey of which portals expose free text at all.</li>
+<li>MC311, to our knowledge the first public multi-city free-text 311 resource: about 156,000 citizen
+narratives from seven US cities, released as a single harmonized cross-city database in a shared 14-class label
+space (each of 545 native categories mapped to a common class by an auditable rule set, with the native label
+retained per row), plus one frozen aligned test split and a verified survey of which portals expose free text.
+The harmonized common-label-space corpus is a reusable resource independent of the transfer and protocol
+results below.</li>
 <li>Evidence that the protocol changes conclusions: on MC311, 14.2% of recorded labels are not entailed by the
 text, 91% of the strongest model's cross-city errors are judge-defensible, and a significant strict-accuracy gap
 between the two strongest models vanishes under the defensibility-adjusted metric.</li>
