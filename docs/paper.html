@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MC311: A Multi-City Free-Text Benchmark for Cross-Jurisdiction 311 Classification</title>
+<title>MC311: Administrative Labels Are Not Ground Truth for Cross-Jurisdiction 311 Classification</title>
 <style>
   /* SynSmith house style (TMLR/JMLR/NeurIPS camera-ready), light only. */
   :root { --ink:#111418; --soft:#2c3138; --muted:#5a626c; --navy:#14385c; --rule:#d1d4d8; --code:#f4f5f7; }
@@ -45,7 +45,7 @@
 </head>
 <body>
 
-<h1>MC311: A Multi-City Free-Text Benchmark for Cross-Jurisdiction 311 Classification</h1>
+<h1>MC311: Administrative Labels Are Not Ground Truth for Cross-Jurisdiction 311 Classification</h1>
 <div class="authors">Alexander Apartsin<sup>1</sup>, Yehudit Aperstein<sup>2</sup></div>
 <div class="affil"><sup>1</sup>School of Computer Science, Faculty of Sciences, Holon Institute of Technology (HIT), Holon, Israel &nbsp;·&nbsp; <sup>2</sup>Intelligent Systems, Afeka Academic College of Engineering, Tel-Aviv, Israel</div>
 <div class="affil">Working paper, August 2026 · <a href="paper.docx">Download DOCX</a> · Code, data, and results: <a href="https://github.com/ApartsinProjects/311">github.com/ApartsinProjects/311</a></div>
@@ -62,8 +62,8 @@ one frozen 3,502-row test set under a shared 14-class ontology. The protocol cha
 reports. Crossing a city boundary appears to cost a third of pooled macro-F1 (DistilBERT 0.826 in-city to 0.557
 across cities), but 14.2% of recorded labels are not entailed by the text and a third of requests admit more
 than one valid label; crediting any judge-acceptable label rescues 91% of the strongest model's cross-city
-errors (strict 0.797 to lenient 0.981), and the model ranking flips, gpt-4o leading on strict accuracy and
-gpt-4o-mini on the defensibility-adjusted metric. The residual ambiguity is structured: the class pairs
+errors (strict 0.797 to lenient 0.981), and a significant gap between the two strongest models is erased: gpt-4o
+beats gpt-4o-mini on strict accuracy but ties it once defensible labels are credited. The residual ambiguity is structured: the class pairs
 annotators treat as interchangeable are the pairs models confuse (Spearman 0.75), and an ambiguity-derived
 taxonomy removes more residual ambiguity than any equal-size random merge. Run as an audit, the same protocol
 located five real mapping errors in the corpus. MC311 and the protocol are released so that other
@@ -95,8 +95,8 @@ The protocol is corpus-agnostic; 311 is the case study.</li>
 citizen narratives) with an auditable 14-class harmonization of 545 native categories and one frozen aligned
 test set, together with a verified survey of which portals expose free text at all.</li>
 <li>Evidence that the protocol changes conclusions: on MC311, 14.2% of recorded labels are not entailed by the
-text, 91% of the strongest model's cross-city errors are judge-defensible, and the model ranking flips between
-the strict and the defensibility-adjusted metric.</li>
+text, 91% of the strongest model's cross-city errors are judge-defensible, and a significant strict-accuracy gap
+between the two strongest models vanishes under the defensibility-adjusted metric.</li>
 <li>Evidence that the residual disagreement is structured, not noise: annotator-ambiguity coincides with
 model-confusion (Spearman 0.75), and an ambiguity-derived taxonomy removes residual ambiguity more efficiently
 than any equal-size random merge, yielding a data-driven ontology revision.</li>
@@ -385,10 +385,11 @@ Under a defensibility-adjusted metric that counts a prediction correct when it m
 judge-acceptable label, cross-city accuracy rises for every model (Figure 6): the LLM from 0.797 to 0.981, DistilBERT
 from 0.748 to 0.864, and TF-IDF from 0.688 to 0.816. This rescues about 91% of the zero-shot LLM's strict
 disagreements, and about 46% and 41% of DistilBERT's and TF-IDF's. The correction is consequential, not
-cosmetic: the top of the leaderboard reorders. gpt-4o has the highest strict accuracy (0.832 versus 0.798 for
-gpt-4o-mini), but gpt-4o-mini has the highest defensibility-adjusted accuracy (0.981 versus 0.979), so which
-model a practitioner picks depends on whether the benchmark's labels are read as ground truth or as one
-defensible answer among several. To test whether this reflects same-family
+cosmetic: it erases a significant difference between the two strongest models. gpt-4o beats gpt-4o-mini on
+strict accuracy by a clear margin (0.832 versus 0.798, paired bootstrap P&gt;0.99), but under the
+defensibility-adjusted metric the two are statistically indistinguishable (0.981 versus 0.979, 95% CI on the
+difference [&minus;0.003, +0.007]). Whether the benchmark separates them at all depends on whether its labels
+are read as ground truth or as one defensible answer among several. To test whether this reflects same-family
 self-agreement, we repeated the acceptable-set judgment with an independent judge from a different model
 family (gemini-2.5-flash). The two judges agree on the acceptable set for 75% of requests (mean Jaccard 0.86),
 and the lenient scores barely move: the LLM's cross-city accuracy is 0.964 under the independent judge versus
@@ -424,7 +425,8 @@ are defensible.</p>
 
 <p>The disagreement between annotators and the confusion between models are the same object. Correlating the
 two-judge co-acceptability graph over the 14 classes (how often a pair of labels is jointly acceptable for one
-request) with the cross-city confusion matrix gives Spearman &rho; = 0.75 (p &lt; 10<sup>&minus;17</sup>): the
+request) with the cross-city confusion matrix gives Spearman &rho; = 0.75 (p &lt; 10<sup>&minus;17</sup>; &rho; = 0.63
+after partialling out the product of the two classes' frequencies, so this is not a frequency artifact): the
 pairs a judge accepts interchangeably, Trees and Waste, Streets and Trees, Homelessness and Waste, are the pairs
 the trained model mixes up. The cross-jurisdiction gap is concentrated where the taxonomy is ambiguous, not
 spread evenly across the label space.</p>
@@ -493,7 +495,7 @@ well an institution's recorded category matches that text. We introduced a defen
 cross-family LLM judges with discriminant floors and a corpus-audit loop, that separates the two, and we
 instantiated it on MC311, the first public multi-city free-text 311 benchmark. On MC311 the protocol shows that
 most of the apparent cross-jurisdiction gap is defensible-label disagreement rather than model failure, that the
-model ranking flips between the strict and the defensibility-adjusted metric, that annotator ambiguity and model
+a significant gap between the two strongest models vanishes under the defensibility-adjusted metric, that annotator ambiguity and model
 confusion fall on the same class boundaries (Spearman 0.75), and that an ambiguity-derived taxonomy removes that
 ambiguity more efficiently than any equal-size random merge. Run as an audit, it located five real mapping
 errors in the corpus. The benchmark, its harmonization, and the protocol are released so that any
