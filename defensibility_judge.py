@@ -65,26 +65,56 @@ def judge_one(client, text, model):
     return ["ERR"]
 
 
+def _body(text):
+    return {"messages": [{"role": "system", "content": SYS}, {"role": "user", "content": prompt(text)}],
+            "temperature": 0, "max_tokens": 40}
+
+
 def main():
-    model = sys.argv[1] if len(sys.argv) > 1 else "openai/gpt-4o-mini"
-    workers = int(sys.argv[2]) if len(sys.argv) > 2 else 8
-    client, prov = make_client(r"E:\Projects\.env.all")
+    """Batch-first acceptable-set judge (50% off; survives reaping via submit/collect state).
+      python defensibility_judge.py <model> <tag> [submit|collect|run]
+    Writes results/preds/acceptable_sets_<tag>.json (or acceptable_sets.json when tag=='default')."""
+    model = sys.argv[1] if len(sys.argv) > 1 else "gpt-4o-mini"
+    tag = sys.argv[2] if len(sys.argv) > 2 else "default"
+    mode = sys.argv[3] if len(sys.argv) > 3 else "run"
     sp = load_split()
-    out = {}
-    for c, rows in sp["test"].items():
-        texts = [t for t, _ in rows]; sets = [None] * len(texts)
-        with ThreadPoolExecutor(max_workers=workers) as ex:
-            futs = {ex.submit(judge_one, client, texts[i], model): i for i in range(len(texts))}
-            for f in as_completed(futs):
-                sets[futs[f]] = f.result()
-        out[c] = sets
-        # quick city-label-noise readout
-        gold = [y for _, y in rows]
-        noise = sum(1 for g, s in zip(gold, sets) if g not in s) / len(gold)
-        print(f"[judge] {c}: city-label NOT in acceptable set = {noise:.1%}")
-    os.makedirs(PRED_DIR, exist_ok=True)
-    json.dump(out, open(os.path.join(PRED_DIR, "acceptable_sets.json"), "w"), ensure_ascii=False)
-    print(f"[judge] wrote {PRED_DIR}/acceptable_sets.json  (model={model})")
+    items = [(f"{c}|{i}", t) for c, rows in sp["test"].items() for i, (t, _) in enumerate(rows)]
+    out_name = "acceptable_sets.json" if tag == "default" else f"acceptable_sets_{tag}.json"
+
+    provider = "openrouter" if "/" in model else "openai"
+    if provider == "openai":
+        import openai_batch as B
+        submit = lambda: B.submit_chat_batch(model, [(cid, _body(t)) for cid, t in items], tag=f"judge_{tag}")
+    else:
+        import or_batch as B
+        submit = lambda: B.submit_chat_batch(model, items, lambda t: _body(t), tag=f"judge_{tag}")
+
+    def finish(res):
+        out = {}
+        for c, rows in sp["test"].items():
+            out[c] = [parse_set(res.get(f"{c}|{i}", "")) for i in range(len(rows))]
+            gold = [y for _, y in rows]
+            noise = sum(1 for g, s in zip(gold, out[c]) if g not in s) / len(gold)
+            print(f"[judge] {c}: city-label NOT in acceptable set = {noise:.1%}")
+        os.makedirs(PRED_DIR, exist_ok=True)
+        json.dump(out, open(os.path.join(PRED_DIR, out_name), "w"), ensure_ascii=False)
+        print(f"[judge] wrote {PRED_DIR}/{out_name}  (model={model})")
+
+    if mode == "submit":
+        submit(); print(f"[judge] submitted; collect with: python defensibility_judge.py {model} {tag} collect")
+    elif mode == "collect":
+        res = B.collect_chat_batch(tag=f"judge_{tag}")
+        print("[judge] batch not ready yet; rerun collect later") if res is None else finish(res)
+    else:  # run: submit + bounded poll (state saved, so a reap is recoverable via collect)
+        submit()
+        import time as _t
+        res = None; t0 = _t.time()
+        while _t.time() - t0 < 1800:
+            res = B.collect_chat_batch(tag=f"judge_{tag}")
+            if res is not None:
+                break
+            _t.sleep(20)
+        print(f"[judge] still running; resume: python defensibility_judge.py {model} {tag} collect") if res is None else finish(res)
 
 
 if __name__ == "__main__":
