@@ -45,7 +45,7 @@
 </head>
 <body>
 
-<h1>MC311: A Multi-City Free-Text Benchmark for Cross-Jurisdiction Service-Request Classification</h1>
+<h1>MC311: A Multi-City Free-Text Benchmark for Cross-Jurisdiction 311 Classification</h1>
 <div class="authors">Alexander Apartsin<sup>1</sup>, Yehudit Aperstein<sup>2</sup></div>
 <div class="affil"><sup>1</sup>School of Computer Science, Faculty of Sciences, Holon Institute of Technology (HIT), Holon, Israel &nbsp;·&nbsp; <sup>2</sup>Intelligent Systems, Afeka Academic College of Engineering, Tel-Aviv, Israel</div>
 <div class="affil">Working paper, August 2026 · <a href="paper.docx">Download DOCX</a> · Code, data, and results: <a href="https://github.com/ApartsinProjects/311">github.com/ApartsinProjects/311</a></div>
@@ -53,24 +53,22 @@
 <div class="abstract">
 <h2>Abstract</h2>
 Municipal 311 systems record millions of citizen service requests as free text, yet public research uses
-single-city datasets with private splits and incomparable metrics, and no canonical multi-city free-text
-311 benchmark exists. We build MC311, to our knowledge the first public 311 free-text benchmark spanning more
-than two US cities, drawing about 156,000 citizen narratives from seven cities, and map each city's native
-service taxonomy (545 native categories, 527 distinct labels) into a shared 14-class civic ontology so that
-models can be evaluated across jurisdictions. Every model, in-city or cross-city, is scored on the same frozen test set of 3,502 requests,
-so all results are directly comparable. Crossing a city boundary costs roughly a third of pooled macro-F1: a
-fine-tuned DistilBERT drops from 0.827 in-city to 0.558 across cities (95% CI [0.54, 0.58]), and a TF-IDF
-classifier from 0.785 to 0.523. A large language model prompted zero-shot with the taxonomy reaches 0.654
-across cities, significantly above both trained models in the pooled metric (paired bootstrap; 95% CIs on the
-differences exclude zero), though its lead is heterogeneous across cities, and it remains below in-domain
-performance. We then ask what the gap measures. An LLM judge (gpt-4o-mini), blind to model and to the city
-label, finds that 14.3% of city labels are not entailed by the text, and that a third of requests admit more
-than one valid label. Under a defensibility-adjusted metric that credits any judge-acceptable label, cross-city
-strict accuracy rises for every model (for the LLM, from 0.797 to 0.981; accuracy, not macro-F1), which
-indicates that many cross-jurisdiction "errors" are defensible alternatives rather than model failures. MC311's
-central contribution is to make visible what a strict single-label evaluation hides: requests that admit
-multiple defensible labels, and city labels not inferable from the free text; human validation of these
-judgments is the natural next step.
+single-city datasets with private splits and incomparable metrics, and no multi-city free-text 311 benchmark
+exists. We build MC311, to our knowledge the first public 311 free-text benchmark spanning more than two US
+cities: about 156,000 citizen narratives from seven cities, with each city's native taxonomy (545 native
+categories) mapped into a shared 14-class civic ontology through an auditable rule set. Every model is scored on
+one frozen test set of 3,502 requests, so in-city and cross-city results are directly comparable. Crossing a
+city boundary costs roughly a third of pooled macro-F1: fine-tuned DistilBERT drops from 0.827 in-city to 0.558
+across cities (95% CI [0.54, 0.58]), while a language model prompted zero-shot with the taxonomy reaches 0.654,
+significantly above both trained models. Two findings characterize this gap. First, it is predictable: across
+the 42 city pairs, single-source transfer correlates negatively with vocabulary divergence
+(Spearman &rho; = &minus;0.83) and class-distribution divergence (&rho; = &minus;0.70, both p &lt; 0.001),
+not with reporting platform, so the gap reflects distributional shift rather than a channel artifact. Second,
+much of it is defensible: an LLM judge blind to the model and to the city label finds that 14.3% of city labels
+are not entailed by the text and a third of requests admit more than one valid label; crediting any
+judge-acceptable label raises cross-city strict accuracy for every model (for the LLM, from 0.797 to 0.981).
+MC311 makes visible what strict single-label evaluation hides: requests admitting multiple defensible labels,
+and city labels not inferable from the text. Human validation of these judgments is the natural next step.
 </div>
 
 <h2>1. Introduction</h2>
@@ -96,7 +94,8 @@ portals expose free text at all.</li>
 <li>An aligned evaluation protocol: one frozen per-city test set on which every model is scored, with pooled
 macro-F1, bootstrap confidence intervals, and paired significance tests.</li>
 <li>A three-arm study (TF-IDF, fine-tuned DistilBERT, zero-shot LLM) showing a large, significant
-cross-jurisdiction gap and a clear ordering of methods on transfer.</li>
+cross-jurisdiction gap and a clear ordering of methods on transfer, with the per-pair gap predicted by
+inter-city vocabulary and class-distribution divergence rather than by reporting platform.</li>
 <li>A diagnostic analysis of that gap using a blind LLM judge: a measured rate of textually-unsupported city
 labels and a defensibility-adjusted metric showing that many cross-city disagreements are defensible
 alternatives.</li>
@@ -248,8 +247,8 @@ Hyperparameters and the verbatim prompt are released with the code.</p>
 <tr><th>Model</th><th class="n">In-city</th><th class="n">Cross-city</th><th class="n">In-city (no SF)</th><th class="n">Cross-city (no SF)</th></tr>
 <tr><td>TF-IDF + logistic regression</td><td class="n">0.785 [.76,.81]</td><td class="n">0.523 [.50,.54]</td><td class="n">0.761</td><td class="n">0.483</td></tr>
 <tr><td>DistilBERT (fine-tuned)</td><td class="n">0.827 [.80,.85]</td><td class="n">0.558 [.54,.58]</td><td class="n">0.803</td><td class="n">0.541</td></tr>
-<tr><td>LLM zero-shot, gpt-4o-mini (taxonomy in prompt)</td><td class="n">&mdash;</td><td class="n">0.654 [.63,.68]</td><td class="n">&mdash;</td><td class="n">0.622</td></tr>
-<tr><td>LLM zero-shot, gpt-4o</td><td class="n">&mdash;</td><td class="n">0.704 [.67,.73]</td><td class="n">&mdash;</td><td class="n">0.668</td></tr>
+<tr><td>LLM zero-shot, gpt-4o-mini (taxonomy in prompt)</td><td class="n">&ndash;</td><td class="n">0.654 [.63,.68]</td><td class="n">&ndash;</td><td class="n">0.622</td></tr>
+<tr><td>LLM zero-shot, gpt-4o</td><td class="n">&ndash;</td><td class="n">0.704 [.67,.73]</td><td class="n">&ndash;</td><td class="n">0.668</td></tr>
 </table>
 <p class="cap">Table 2. Pooled macro-F1 [95% CI] on the frozen test set. Cross-city refers to LOCO for the
 trained models and to zero-shot for the LLM. Unweighted city means are lower (for example DistilBERT LOCO
@@ -267,7 +266,8 @@ seven cities (the LLM leads DistilBERT in five of seven, trailing in Richmond an
 jurisdictions we do not claim the ranking generalizes to all municipalities. A preliminary same-platform probe
 is inconclusive: Auburn-to-Richmond transfer (0.615) exceeds Richmond's leave-one-city-out score (0.477) while
 Richmond-to-Auburn (0.350) falls below Auburn's (0.434), so shared platform does not uniformly explain the gap
-(single-source versus multi-source training confounds this cell; a full transfer matrix is future work).
+(single-source versus multi-source training confounds this cell; the full 7&times;7 single-source matrix is
+Figure 5, analyzed in Section 7).
 Giving a model the target label space in context helps where a fixed label space does not, without closing the
 gap; Section 7 tests this reading directly.</p>
 
@@ -456,7 +456,7 @@ methodology are public so that cross-jurisdiction 311 classification can be stud
 <li id="r11">Yin, W., Hay, J., &amp; Roth, D. (2019). Benchmarking Zero-shot Text Classification: Datasets, Evaluation and Entailment Approach. <em>EMNLP-IJCNLP</em> (arXiv:1909.00161).</li>
 <li id="r12">Bucher, M. J. J., &amp; Martini, M. (2024). Fine-Tuned "Small" LLMs (Still) Significantly Outperform Zero-Shot Generative AI Models in Text Classification. arXiv:2406.08660.</li>
 <li id="r13">Kontokosta, C. E., &amp; Hong, B. (2017). Equity in 311 Reporting: Socio-Spatial Differentials in the Propensity to Complain. arXiv:1710.02452.</li>
-<li id="r14">Ramponi, A., &amp; Plank, B. (2020). Neural Unsupervised Domain Adaptation in NLP—A Survey. <em>COLING</em>. aclanthology.org/2020.coling-main.603.</li>
+<li id="r14">Ramponi, A., &amp; Plank, B. (2020). Neural Unsupervised Domain Adaptation in NLP: A Survey. <em>COLING</em>. aclanthology.org/2020.coling-main.603.</li>
 <li id="r15">Plank, B. (2022). The "Problem" of Human Label Variation: On Ground Truth in Data, Modeling and Evaluation. <em>EMNLP</em>. arXiv:2211.02570.</li>
 <li id="r16">Uma, A., Fornaciari, T., Hovy, D., Paun, S., Plank, B., &amp; Poesio, M. (2021). Learning from Disagreement: A Survey. <em>JAIR</em>, 72, 1385-1470.</li>
 <li id="r17">Leonardelli, E., et al. (2023). SemEval-2023 Task 11: Learning with Disagreements (LeWiDi). <em>SemEval</em>. arXiv:2304.14803.</li>
