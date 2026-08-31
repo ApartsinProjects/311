@@ -19,6 +19,8 @@ DATA = os.path.join(HERE, "data")
 
 # 15-class shared taxonomy. Order = match priority (first match wins).
 RULES = [
+ # High-priority overrides for native categories a later rule would mis-capture.
+ ("Waste_Sanitation",     r"garbage truck"),        # else Water_Sewer's \bleak catches "GARBAGE TRUCK LEAKS"
  ("Homelessness",         r"homeless|encampment|\btent\b"),
  ("Graffiti_Postings",    r"graffiti|illegal post|illegal sign|illegal placard|posting"),
  ("Noise",                r"noise"),
@@ -27,16 +29,16 @@ RULES = [
  ("Trees_Vegetation",     r"\btree|limb|brush|vegetation|overgrow|overgrowth|excessive growth|tall grass|\bmow|\bgrass|\bweed|leaf|stream|canal clean|botanical|garden|median sprinkler|land clearing"),
  ("Street_Lighting",      r"street ?light|streetlight|\blamp\b|nuisance light"),
  ("Traffic_Signals_Signs",r"traffic signal|traffic light|signal issue|signal study|pavement marking|restrip|road striping|traffic sign|street sign|street name sign|name sign|sign repair|dumping sign|speeding|sight distance|blind street|line of sight|school zone|crosswalk|traffic calming|traffic safety|traffic issue|traffic related|traffic suggestion|traffic enforcement|guardrail|safety study"),
- ("Water_Sewer_Drainage", r"sewer|\bdrain|flood|catch basin|manhole|storm ?water|storm drain|stormdrain|water quality|water utility|water pipe|pipe repair|standing water|water ponding|pump station|liberty pump|culvert|ditch|erosion|cave-in|sink ?hole|hydrant|waste ?water|\bwater\b|low pressure|waste of water|chemical spill|\bleak"),
+ ("Water_Sewer_Drainage", r"sewer|\bdrain|flood|catch basin|manhole|storm ?water|storm drain|stormdrain|water quality|water utility|water pipe|pipe repair|standing water|water ponding|pump station|liberty pump|culvert|ditch|erosion|cave-in|sink ?hole|hydrant|waste ?water|\bwater\b|low pressure|waste of water|chemical spill|\bleak|\bbackup\b|overflow"),
  ("Parking_Vehicles",     r"abandoned.*(vehicle|car)|junk.*vehicle|inoperable|nuisance vehicle|\bparking\b|parking meter|parking enforcement|color curb|\brpp\b|shopping cart|autonomous vehicle|vehicle \(abandoned|vehicle gas tank"),
  ("Property_Housing_Code",r"building code|zoning|code violation|code issue|condemn|unsafe building|vacant|abandoned building|dangerous building|rental|housing|sfha|residential building|damage.?d? .*property|damaged property|damage property|personal property|missing windows|windows or doors|substandard|construction site|new construction|building permit|electrical code|mechanical code|blocked exit|smoke detector|\bfence|swimming pool|\bblight|overcrowd|short.?term rental|business license|sidewalk cafe|sign without a permit|signage w/?o|temporary sign|illegal sign in the public|fence line|servitude|land ?fill|central business district waste|inspection"),
  ("Parks_Recreation",     r"\bpark(s|\b)|playground|beach|\btrail|recreation|rec and park|rec buildings|rpd|community garden|volunteer program"),
- ("Waste_Sanitation",     r"garbage|trash|recycl|litter|debris|dumping|refuse|bulky|bulk pick|yard waste|woody waste|handpile|solid waste|\bcart\b|street sweep|street clean|sidewalk clean|receptacle|backup|overflow|dead animal|white goods|\btire|no dumping|special debris|street grading"),
- ("Streets_Sidewalks",    r"pothole|road repair|road buckle|road failure|street defect|street/road|street repair|\bcurb|driveway|sidewalk|\bshoulder|blocked street|blocked side|barricade|bike path|\broad\b|concrete road|gravel drive|street curb|sidewalk cafe|accessibility|ada access|defaced sidewalk|snow removal|\bsnow\b"),
+ ("Waste_Sanitation",     r"garbage|trash|recycl|litter|debris|dumping|refuse|bulky|bulk pick|yard waste|woody waste|handpile|solid waste|\bcart\b|street sweep|street clean|sidewalk clean|receptacle|dead animal|white goods|\btire|no dumping|special debris"),
+ ("Streets_Sidewalks",    r"pothole|road repair|road buckle|road failure|street defect|street/road|street repair|\bcurb|driveway|sidewalk|\bshoulder|blocked street|blocked side|barricade|bike path|\broad\b|concrete road|gravel drive|street curb|sidewalk cafe|accessibility|ada access|defaced sidewalk|snow removal|\bsnow\b|grading"),
 ]
 RULES = [(name, re.compile(pat, re.IGNORECASE)) for name, pat in RULES]
 FALLBACK = "General_Admin_Other"
-TAXONOMY = [n for n, _ in RULES] + [FALLBACK]
+TAXONOMY = list(dict.fromkeys([n for n, _ in RULES])) + [FALLBACK]  # dedupe (override rule repeats a class)
 
 
 def classify(native):

@@ -40,14 +40,23 @@ def load_split():
     return tr, te
 
 
+import re as _re
+_JUNK = _re.compile(r"test only|should go to|reply-?referred|referred to|wanted public info|"
+                    r"reporting cell phone|see picture|see attach|per (lt|sgt|capt)", _re.I)
+
+
 def pick_exemplars(train):
-    """one clear exemplar per class from the training pool (any training city)."""
+    """One clean, representative exemplar per class: filter test stubs / referrals / mislabeled
+    junk, then take the median-length remaining request (deterministic, prototypical, not the
+    first all-caps call-center row)."""
     ex = OrderedDict()
-    pool = [(t, y) for rows in train.values() for (t, y) in rows]
     for lab in LABELS:
-        for t, y in pool:
-            if y == lab and 20 <= len(t) <= 120:
-                ex[lab] = t.strip().replace("\n", " "); break
+        cands = [t for rows in train.values() for (t, y) in rows
+                 if y == lab and 25 <= len(t) <= 110 and not _JUNK.search(t)]
+        if not cands:
+            cands = [t for rows in train.values() for (t, y) in rows if y == lab]
+        cands.sort(key=len)
+        ex[lab] = cands[len(cands) // 2].strip().replace("\n", " ")
     return ex
 
 

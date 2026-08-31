@@ -57,18 +57,18 @@ single-city datasets with private splits and incomparable metrics, and no multi-
 exists. We build MC311, to our knowledge the first public 311 free-text benchmark spanning more than two US
 cities: about 156,000 citizen narratives from seven cities, with each city's native taxonomy (545 native
 categories) mapped into a shared 14-class civic ontology through an auditable rule set. Every model is scored on
-one frozen test set of 3,502 requests, so in-city and cross-city results are directly comparable. Crossing a
+one frozen test set of 3,502 requests. Crossing a
 city boundary costs roughly a third of pooled macro-F1: fine-tuned DistilBERT drops from 0.827 in-city to 0.558
 across cities (95% CI [0.54, 0.58]), while a language model prompted zero-shot with the taxonomy reaches 0.654,
-significantly above both trained models. Two findings characterize this gap. First, it is predictable: across
-the 42 city pairs, single-source transfer correlates negatively with vocabulary divergence
-(Spearman &rho; = &minus;0.83) and class-distribution divergence (&rho; = &minus;0.70, both p &lt; 0.001),
-not with reporting platform, so the gap reflects distributional shift rather than a channel artifact. Second,
-much of it is defensible: an LLM judge blind to the model and to the city label finds that 14.3% of city labels
-are not entailed by the text and a third of requests admit more than one valid label; crediting any
-judge-acceptable label raises cross-city strict accuracy for every model (for the LLM, from 0.797 to 0.981).
-MC311 makes visible what strict single-label evaluation hides: requests admitting multiple defensible labels,
-and city labels not inferable from the text. Human validation of these judgments is the natural next step.
+significantly above both trained models. We then ask what this gap measures. Much of it is defensible: an LLM
+judge blind to the model and to the city label finds that 14.2% of city labels are not entailed by the text and
+that a third of requests admit more than one valid label. Crediting any judge-acceptable label raises cross-city
+strict accuracy for every model (for the LLM, from 0.797 to 0.981), against a floor where a random label is
+judge-accepted only 9.8% of the time, and an independent judge from a different model family reproduces it
+(0.964). The residual trained-model shortfall is concentrated in rare, city-idiosyncratic classes where a
+fixed label space collapses to zero cross-city F1 while label semantics in the prompt do not. MC311 makes
+visible what strict single-label evaluation hides: requests admitting multiple defensible labels, and city
+labels not inferable from the text. Human validation of these judgments is the natural next step.
 </div>
 
 <h2>1. Introduction</h2>
@@ -94,11 +94,12 @@ portals expose free text at all.</li>
 <li>An aligned evaluation protocol: one frozen per-city test set on which every model is scored, with pooled
 macro-F1, bootstrap confidence intervals, and paired significance tests.</li>
 <li>A three-arm study (TF-IDF, fine-tuned DistilBERT, zero-shot LLM) showing a large, significant
-cross-jurisdiction gap and a clear ordering of methods on transfer, with the per-pair gap predicted by
-inter-city vocabulary and class-distribution divergence rather than by reporting platform.</li>
-<li>A diagnostic analysis of that gap using a blind LLM judge: a measured rate of textually-unsupported city
-labels and a defensibility-adjusted metric showing that many cross-city disagreements are defensible
-alternatives.</li>
+cross-jurisdiction gap and a clear ordering of methods on transfer, with the trained-model shortfall
+concentrated in rare, city-idiosyncratic classes and the per-pair gap correlating with inter-city vocabulary
+divergence.</li>
+<li>A defensibility-adjusted evaluation using two independent blind LLM judges: a measured rate of
+textually-unsupported city labels, discriminant floors that show the metric is not vacuously generous, and an
+audit that caught real taxonomy-mapping errors in the corpus itself.</li>
 </ol>
 <p>The reframing is the point. A multi-city 311 benchmark measures taxonomy non-comparability and label
 ambiguity alongside genuine domain shift, and this paper makes these effects visible on the same population.</p>
@@ -290,6 +291,15 @@ label semantics is therefore necessary but not sufficient: the zero-shot LLM's a
 semantics in its prompt with its own capability, and neither a stronger encoder nor a simple label-matching
 model reproduces it.</p>
 
+<p>Decomposing the cross-city macro-F1 by class shows where the advantage lives. On the head classes the LLM
+and the trained model are close: Waste and Sanitation (1,305 test requests) 0.853 for the LLM versus 0.825 for
+DistilBERT across cities, Graffiti 0.927 versus 0.914, Street Lighting 0.881 versus 0.868. The separation is
+concentrated in rare, city-idiosyncratic classes on which the leave-one-city-out DistilBERT collapses to zero:
+Noise (12) 0.000 to 0.759, Transit (21) 0.000 to 0.500, Homelessness (176) 0.380 to 0.830, Parking (224) 0.636
+to 0.773. A model trained on the other cities cannot represent a class that is thin or absent in its source
+pool, whereas the class name in the prompt lets the LLM recognize it directly. The cross-jurisdiction ranking is
+therefore a tail-class phenomenon, not a uniform margin.</p>
+
 <h3>Robustness</h3>
 <p>Three checks indicate the gap is genuine domain shift rather than an artifact of the split or the taxonomy.
 <em>Deduplication:</em> 18,265 training rows shared their exact text with a test request in the same city;
@@ -330,18 +340,24 @@ other city and testing on a target averages 0.247 macro-F1, less than half the l
 is not explained by shared platform alone; the two SeeClickFix cities transfer asymmetrically (Auburn to
 Richmond 0.58, Richmond to Auburn 0.34), consistent with the inconclusive same-platform probe above.</p>
 
-<p>Across the 42 city pairs, transfer difficulty is predicted by distributional distance rather than channel.
-Single-source transfer correlates strongly and negatively with vocabulary divergence between the two cities
-(Spearman &rho; = &minus;0.83) and with class-distribution divergence (&rho; = &minus;0.70, both p &lt; 0.001),
-and not significantly with text-length difference or shared platform. Cross-jurisdiction degradation therefore
-tracks lexical and label-distribution shift between cities, which a shared taxonomy alone cannot remove.</p>
+<p>Transfer difficulty is partly predictable from how far apart two cities' corpora are. Across the 30 city
+pairs that exclude the degenerate San Francisco cell (whose single-source transfer is uniformly near zero),
+single-source transfer correlates negatively with vocabulary divergence between the two cities
+(Spearman &rho; = &minus;0.53, p = 0.003); the class-distribution and text-length distances and the shared-platform
+indicator are not significant, and with a single same-platform pair the platform test is underpowered. Including
+San Francisco inflates the vocabulary correlation to &rho; = &minus;0.82, so we report the San Francisco-excluded
+value. Cross-jurisdiction degradation therefore tracks lexical shift between cities, which a shared taxonomy
+alone cannot remove.</p>
 
 <h2>7. What the gap measures</h2>
 <p>A large drop is a strong claim, so we ask how much of the gap is genuine model failure. An independent LLM
 judge (gpt-4o-mini) reads each test request and returns the set of categories that are reasonable for the
 text, blind to the model prediction and to the city's own label. The judge assigns a single label to 67% of
-requests and two or more to the rest (mean 1.37), which quantifies genuine ambiguity in the taxonomy.</p>
-<p>The judge also disagrees with the city's own label on 14.3% of requests (from 5.6% in San Francisco to 20%
+requests and two or more to the rest (mean 1.37), which quantifies genuine ambiguity in the taxonomy. Because
+the mean acceptable set spans only 1.37 of the 14 classes, a randomly chosen label is judge-accepted just 9.8%
+of the time and a constant majority-class predictor reaches 0.414 defensibility-adjusted accuracy; the lenient
+scores below are read against these floors, so the metric is discriminating rather than vacuously generous.</p>
+<p>The judge also disagrees with the city's own label on 14.2% of requests (from 5.6% in San Francisco to 20%
 in Richmond). This is a measured rate of city labels not entailed by the text, on the same population the gap
 is computed on. It does not cap predictive accuracy, since a model can still exploit a city's administrative
 conventions, location cues, or lexical shortcuts; rather, it shows that matching the city label is not a pure
@@ -363,11 +379,22 @@ self-agreement, we repeated the acceptable-set judgment with an independent judg
 family (gemini-2.5-flash). The two judges agree on the acceptable set for 75% of requests (mean Jaccard 0.86),
 and the lenient scores barely move: the LLM's cross-city accuracy is 0.964 under the independent judge versus
 0.981 under gpt-4o-mini, and DistilBERT's and TF-IDF's shift by under 0.01. Even the two-judge consensus, where
-both judges reject the city label, finds 9.7% of city labels textually unsupported. The effect is therefore
-not an artifact of same-family judging; human validation of a subset remains the natural next step (Section 9). The measured cross-jurisdiction gap therefore conflates three effects that this
-analysis makes visible without cleanly separating: genuine domain shift between cities, non-comparability of
-the harmonized taxonomy at its boundaries, and text-label mismatch. The confusion structure identifies where the boundary effects concentrate
-(Figure 7).</p>
+both judges reject the city label, finds 9.6% of city labels textually unsupported. The effect is therefore
+not an artifact of same-family judging; human validation of a subset remains the natural next step (Section 9).</p>
+<p>The separation between the LLM and the trained models lives precisely where a single answer exists. On the
+requests the judge marks unambiguous (a single acceptable label, 2,329 of 3,502), the LLM's cross-city accuracy
+is 0.850 against 0.776 for DistilBERT; on the multi-label requests the two converge (0.695 and 0.691), because
+there is no single target to separate on. A router that auto-routes judge-unambiguous requests and escalates the
+multi-label ones is a direct use of this structure.</p>
+<p>The two-judge consensus also functions as a corpus audit. Tracing the requests both judges reject back to
+their native categories exposed five harmonization-rule errors, where a keyword fired the wrong first-match:
+garbage-collection reports routed to drainage through a "leak" token, sewer backups routed to waste through a
+"backup" token, and street grading routed to waste. Correcting the rules relabels 619 corpus rows (7 of the
+3,502 test rows); every pooled macro-F1 moves by at most 0.001, so the results below stand on the corrected
+corpus, which is the one released. The measured cross-jurisdiction gap therefore conflates three effects this
+analysis makes visible without cleanly separating: genuine domain shift between cities, non-comparability of the
+harmonized taxonomy at its boundaries, and text-label mismatch. The confusion structure identifies where the
+boundary effects concentrate (Figure 7).</p>
 
 <figure>
   <img src="fig_confusion.png" alt="Cross-city confusion matrix for DistilBERT">
@@ -403,7 +430,7 @@ categories are removed, so its per-city numbers are degenerate and it inflates u
 report San-Francisco-excluded variants throughout, and Honolulu (500 test requests, thirteen classes) is also
 small. The harmonization is one defensible mapping among several, and its boundaries drive the confusions of
 Section 7; a sensitivity analysis under an alternative mapping is future work. Labels are the cities' own
-routing categories and carry the 14.3% noise the judge measures. The defensibility judgment is
+routing categories and carry the 14.2% noise the judge measures. The defensibility judgment is
 LLM-adjudicated; validating a subset against multiple human annotators, with an agreement statistic, is the
 next step and would ground the acceptable-set metric. We mitigate same-family bias between the judge and the
 zero-shot arm by confirming the defensibility effect with an independent-family judge (Section 7), which
