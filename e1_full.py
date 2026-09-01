@@ -37,11 +37,31 @@ def submit():
           f"collect+export with: python e1_full.py export")
 
 
-def export():
+def _download_any(bid):
+    """Download whatever output exists, even for a cancelled/expired batch (partial results)."""
     import openai_batch as B
-    res = B.collect_chat_batch(tag=TAG)
+    b = B.client.batches.retrieve(bid)
+    if not getattr(b, "output_file_id", None):
+        return None, b.status
+    text = B.client.files.content(b.output_file_id).text
+    res = {}
+    for line in text.splitlines():
+        if not line.strip():
+            continue
+        rec = json.loads(line); cid = rec.get("custom_id")
+        try:
+            res[cid] = rec["response"]["body"]["choices"][0]["message"]["content"]
+        except Exception:
+            res[cid] = ""
+    return res, b.status
+
+
+def export(res=None):
     if res is None:
-        print("judge batch not ready yet; rerun: python e1_full.py export"); return
+        import openai_batch as B
+        res = B.collect_chat_batch(tag=TAG)
+        if res is None:
+            print("judge batch not ready yet; rerun: python e1_full.py export"); return
     pool = [tuple(x) for x in json.load(open(POOL_F, encoding="utf-8"))]
     jsets = [set(parse_set(res.get(f"r{i}", ""))) - {"UNPARSED"} for i in range(len(pool))]
     rng = np.random.RandomState(0)

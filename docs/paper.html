@@ -64,10 +64,11 @@ across cities), but 14.2% of recorded labels are not entailed by the text and a 
 than one valid label; crediting any judge-acceptable label rescues 91% of the strongest model's cross-city
 errors (strict 0.797 to lenient 0.981), and a significant gap between the two strongest models is erased: gpt-4o
 beats gpt-4o-mini on strict accuracy but ties it once defensible labels are credited. The residual ambiguity is structured: the class pairs
-annotators treat as interchangeable are the pairs models confuse (Spearman 0.75), and an ambiguity-derived
-taxonomy removes more residual ambiguity than any equal-size random merge. Run as an audit, the same protocol
-located five real mapping errors in the corpus. MC311 and the protocol are released so that other
-administrative-label benchmarks can measure the distance between their labels and their text.
+annotators treat as interchangeable are the pairs models confuse (Spearman 0.75). Used as a training
+signal, the protocol improves pooled cross-jurisdiction transfer: relabeling judge-rejected rows lifts macro-F1
+by 0.055 over raw labels and 0.041 over a random-relabel control (95% CIs exclude zero). Run as an audit, it
+located five real mapping errors in the corpus. MC311 and the protocol are released so other
+administrative-label benchmarks can measure the label-text gap.
 </div>
 
 <h2>1. Introduction</h2>
@@ -98,8 +99,10 @@ retained per row), plus one frozen aligned test split and a verified survey of w
 The harmonized common-label-space corpus is a reusable resource independent of the transfer and protocol
 results below.</li>
 <li>Evidence that the protocol changes conclusions: on MC311, 14.2% of recorded labels are not entailed by the
-text, 91% of the strongest model's cross-city errors are judge-defensible, and a significant strict-accuracy gap
-between the two strongest models vanishes under the defensibility-adjusted metric.</li>
+text, 91% of the strongest model's cross-city errors are judge-defensible, a significant strict-accuracy gap
+between the two strongest models vanishes under the defensibility-adjusted metric, and repairing training labels
+with the judge improves pooled cross-jurisdiction transfer (+0.055 over raw labels, +0.041 over a random-relabel
+control).</li>
 <li>Evidence that the residual disagreement is structured, not noise: annotator-ambiguity coincides with
 model-confusion (Spearman 0.75), and an ambiguity-derived taxonomy removes residual ambiguity more efficiently
 than any equal-size random merge, yielding a data-driven ontology revision.</li>
@@ -442,6 +445,19 @@ eight classes 12% against 26%, lower than every one of 200 random merges with ma
 granularity. The output is a concrete ontology revision a 311 consortium could adopt, derived from measured
 ambiguity rather than intuition.</p>
 
+<h3>Repairing labels for training</h3>
+<p>The judge is also a training signal, which turns the diagnosis into an intervention. For each
+leave-one-city-out fold we relabel the training requests whose recorded label the judge rejects (12.3% to 13.3%
+per fold) to a judge-acceptable label, and fine-tune DistilBERT on the repaired pool. Pooled cross-city
+macro-F1 rises from 0.559 on the raw labels to 0.615 (paired bootstrap +0.055, 95% CI [0.029, 0.080]). The gain
+is the judge's signal rather than relabeling in itself: relabeling the same rows to a random class instead
+reaches only 0.573, so the repaired-over-random margin is +0.041 (95% CI [0.018, 0.063]), and the judge
+condition beats the random control on six of the seven folds. The improvement is a pooled, common-class effect
+and varies by held-out city, with four of the seven cities improving; it is a pooled gain, not a uniform one.
+Repairing administrative labels with the protocol therefore produces models that transfer measurably better,
+and the random-relabel control shows the improvement tracks what the judges certify, not the act of changing
+labels.</p>
+
 <h2>8. Discussion</h2>
 <p>For civic-technology deployment, the result is a caution and an option. Across the seven jurisdictions
 studied here, supervised transfer to an unseen city cost roughly a third of the in-domain macro-F1, driven
@@ -499,9 +515,9 @@ cross-family LLM judges with discriminant floors and a corpus-audit loop, that s
 instantiated it on MC311, the first public multi-city free-text 311 benchmark. On MC311 the protocol shows that
 most of the apparent cross-jurisdiction gap is defensible-label disagreement rather than model failure, that the
 a significant gap between the two strongest models vanishes under the defensibility-adjusted metric, that annotator ambiguity and model
-confusion fall on the same class boundaries (Spearman 0.75), and that an ambiguity-derived taxonomy removes that
-ambiguity more efficiently than any equal-size random merge. Run as an audit, it located five real mapping
-errors in the corpus. The benchmark, its harmonization, and the protocol are released so that any
+confusion fall on the same class boundaries (Spearman 0.75), and that relabeling judge-rejected training rows
+improves pooled cross-jurisdiction transfer over both the raw labels and a random-relabel control. Run as an
+audit, it located five real mapping errors in the corpus. The benchmark, its harmonization, and the protocol are released so that any
 administrative-label benchmark can measure the distance between its labels and its text.</p>
 
 <hr>
