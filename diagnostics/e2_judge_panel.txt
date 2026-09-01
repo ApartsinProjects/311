@@ -1,0 +1,22 @@
+judges present: 5/6
+
+judge                         noise%  meanset rand_acc  margin   err%
+gpt-4o-mini (OpenAI)            14.2    1.371    0.098   0.760    1.4
+gemini-2.5-flash (Google)       10.7    1.363    0.097   0.796    1.1
+mistral-small (Mistral)         12.4    1.608    0.115   0.761    1.9
+deepseek-chat (DeepSeek)        13.2    1.259    0.090   0.778    0.3
+command-r (Cohere)              10.8    1.990    0.142   0.750    0.0
+
+pairwise cross-vendor agreement (exact-set match | mean Jaccard):
+  gpt-4o-mini      vs gemini-2.5-flash  exact=0.75  Jaccard=0.86
+  gpt-4o-mini      vs mistral-small     exact=0.66  Jaccard=0.81
+  gpt-4o-mini      vs deepseek-chat     exact=0.77  Jaccard=0.87
+  gpt-4o-mini      vs command-r         exact=0.45  Jaccard=0.70
+  gemini-2.5-flash vs mistral-small     exact=0.66  Jaccard=0.81
+  gemini-2.5-flash vs deepseek-chat     exact=0.79  Jaccard=0.88
+  gemini-2.5-flash vs command-r         exact=0.46  Jaccard=0.70
+  mistral-small    vs deepseek-chat     exact=0.61  Jaccard=0.79
+  mistral-small    vs command-r         exact=0.49  Jaccard=0.72
+  deepseek-chat    vs command-r         exact=0.42  Jaccard=0.68
+
+majority-of-5 consensus: gold rejected by majority on 11.9% of rows

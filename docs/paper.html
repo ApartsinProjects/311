@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MC311: Administrative Labels Are Not Ground Truth for Cross-Jurisdiction 311 Classification</title>
+<title>Administrative Gold Is Not Semantic Ground Truth</title>
 <style>
   /* SynSmith house style (TMLR/JMLR/NeurIPS camera-ready), light only. */
   :root { --ink:#111418; --soft:#2c3138; --muted:#5a626c; --navy:#14385c; --rule:#d1d4d8; --code:#f4f5f7; }
@@ -45,30 +45,30 @@
 </head>
 <body>
 
-<h1>MC311: Administrative Labels Are Not Ground Truth for Cross-Jurisdiction 311 Classification</h1>
+<h1>Administrative Gold Is Not Semantic Ground Truth: Policy-Dependent Labels and Set-Valued Learning in Cross-Jurisdiction Text Classification</h1>
 <div class="authors">Alexander Apartsin<sup>1</sup>, Yehudit Aperstein<sup>2</sup></div>
 <div class="affil"><sup>1</sup>School of Computer Science, Faculty of Sciences, Holon Institute of Technology (HIT), Holon, Israel &nbsp;·&nbsp; <sup>2</sup>Intelligent Systems, Afeka Academic College of Engineering, Tel-Aviv, Israel</div>
 <div class="affil">Working paper, August 2026 · <a href="paper.docx">Download DOCX</a> · Code, data, and results: <a href="https://github.com/ApartsinProjects/311">github.com/ApartsinProjects/311</a></div>
 
 <div class="abstract">
 <h2>Abstract</h2>
-Benchmarks assembled from operational labels, such as 311 service codes, clinical codes, or moderation queues,
-treat those labels as ground truth, yet the category a bureaucracy recorded need not match what the citizen
-wrote. We introduce a defensibility protocol that measures this gap: two language-model judges from different
-families, each blind to the model and to the recorded label, certify the set of labels a text supports, with
-discriminant floors that show the metric is not vacuously generous. We instantiate it on MC311, the first
-public multi-city free-text 311 benchmark, drawing about 156,000 citizen narratives from seven US cities into
-one frozen 3,502-row test set under a shared 14-class ontology. The protocol changes what the benchmark
-reports. Crossing a city boundary appears to cost a third of pooled macro-F1 (DistilBERT 0.826 in-city to 0.557
-across cities), but 14.2% of recorded labels are not entailed by the text and a third of requests admit more
-than one valid label; crediting any judge-acceptable label rescues 91% of the strongest model's cross-city
-errors (strict 0.797 to lenient 0.981), and a significant gap between the two strongest models is erased: gpt-4o
-beats gpt-4o-mini on strict accuracy but ties it once defensible labels are credited. The residual ambiguity is structured: the class pairs
-annotators treat as interchangeable are the pairs models confuse (Spearman 0.75). Used as a training
-signal, the protocol improves pooled cross-jurisdiction transfer: relabeling judge-rejected rows lifts macro-F1
-by 0.055 over raw labels and 0.041 over a random-relabel control (95% CIs exclude zero). Run as an audit, it
-located five real mapping errors in the corpus. MC311 and the protocol are released so other
-administrative-label benchmarks can measure the label-text gap.
+Text-classification benchmarks assembled from operational labels, such as 311 service codes, clinical codes, or
+moderation queues, treat those labels as semantic ground truth. But the category an institution records is a
+<em>policy</em> decision, not a property of the text: different institutions assign different labels to the same
+content, so measured cross-domain shift conflates genuine semantic shift with policy shift. We separate the two.
+An ensemble of blind LLM judges from independent vendors, each reading only the text and certified non-vacuous
+by discriminant floors (a random label is accepted under 10% of the time), estimates the set of labels a text
+semantically supports. We instantiate this on MC311, the first public multi-city free-text 311 benchmark (seven
+US cities, ~156,000 narratives, one frozen 3,502-row test set). On MC311, 14.2% of recorded labels are not
+entailed by the text and a third of requests admit several valid labels; crediting any text-defensible label
+erases most of the apparent cross-jurisdiction gap (0.797 to 0.981 for the strongest model) and reverses which
+of the top two models looks best. The disagreement is policy-dependent, not noise: for the same yard-waste
+content, most cities record a Waste service code while Honolulu records Trees, and annotator ambiguity coincides
+with model confusion (Spearman 0.75). Finally, training on the judges' acceptable sets rather than the single
+administrative label improves cross-jurisdiction transfer on every one of the seven cities under the
+defensibility metric (pooled 0.864 to 0.926), where naive relabeling to the text-content label instead hurts
+cities whose service policy is stable. Administrative gold measures what an institution did, not what the text
+means; MC311, the judge ensemble, and the set-valued training recipe are released.
 </div>
 
 <h2>1. Introduction</h2>
@@ -83,11 +83,20 @@ problem is frequently unavailable. Second, the work that does use 311 text train
 city with a private split <sup><a href="#r1">[1]</a></sup>, so results are not
 comparable across studies and say nothing about whether a model transfers to a new city with a different
 taxonomy and reporting style.</p>
-<p>This paper builds the missing benchmark and uses it to ask a question single-city work cannot: when a
-classifier appears to fail on a new city, is the model wrong, or is the city's recorded label wrong? Answering
-it requires an evaluation that does not assume the administrative label is ground truth, so the benchmark and
-the protocol that reads it are joint contributions:</p>
+<p>This paper reframes the question single-city work cannot ask. When a classifier appears to fail on a new
+city, is the model wrong, or has the city simply made a different administrative decision about the same text?
+An institution's recorded label is a policy choice, not a property of the text. Writing a request, a resident
+describes a semantic state (what the request is about), but the city records an administrative label that also
+depends on its own routing policy: two cities can read the same yard-waste request and, both defensibly, file it
+under different codes. Standard evaluation treats the administrative label as ground truth for the semantic
+state, so it charges a model for a policy difference as though it were a semantic error, and cross-jurisdiction
+transfer loss conflates genuine domain shift with policy shift. We separate the two with an ensemble of blind
+LLM judges that estimates the set of labels the text semantically supports, and show the separation changes both
+how models are evaluated and how they should be trained. Our contributions are:</p>
 <ol>
+<li>A <em>formalization</em> that distinguishes the text-defensible semantic label set from the policy-dependent
+administrative label a source records, and shows the two are measurably different (same content, different city
+code) rather than one being noise.</li>
 <li>A <em>defensibility protocol</em> for benchmarks built from administrative labels: an ensemble of blind LLM
 judges from independent vendors certifies the set of labels each text supports, with discriminant floors that
 show the metric is not vacuously generous, a humans-free criterion for selecting reliable judges (validated
@@ -99,23 +108,24 @@ space (each of 545 native categories mapped to a common class by an auditable ru
 retained per row), plus one frozen aligned test split and a verified survey of which portals expose free text.
 The harmonized common-label-space corpus is a reusable resource independent of the transfer and protocol
 results below.</li>
-<li>Evidence that the protocol changes conclusions: on MC311, 14.2% of recorded labels are not entailed by the
-text, 91% of the strongest model's cross-city errors are judge-defensible, a significant strict-accuracy gap
-between the two strongest models vanishes under the defensibility-adjusted metric, and repairing training labels
-with the judge improves pooled cross-jurisdiction transfer (+0.055 over raw labels, +0.041 over a random-relabel
-control).</li>
-<li>Evidence that the residual disagreement is structured, not noise: annotator-ambiguity coincides with
-model-confusion (Spearman 0.75), and an ambiguity-derived taxonomy removes residual ambiguity more efficiently
-than any equal-size random merge, yielding a data-driven ontology revision.</li>
-<li>A transfer study (TF-IDF, fine-tuned DistilBERT, zero-shot LLM) with a large, significant cross-jurisdiction
-gap, the trained-model shortfall concentrated in rare, city-idiosyncratic classes, and the per-pair gap
-correlating with inter-city vocabulary divergence.</li>
+<li>Evidence that the mismatch is policy-dependent and consequential: 14.2% of recorded labels are not entailed
+by the text; the disagreement varies by city policy rather than being noise (for identical yard-waste content,
+most cities record a Waste service code while Honolulu records Trees); crediting any text-defensible label
+erases most of the apparent cross-jurisdiction gap and reverses which of the two strongest models looks best;
+and annotator ambiguity coincides with model confusion (Spearman 0.75).</li>
+<li>A <em>set-valued learning</em> result: training on the judges' acceptable sets rather than the single
+administrative label improves cross-jurisdiction transfer on all seven cities under the defensibility metric
+(pooled 0.864 to 0.926), whereas naive hard-relabeling to the text-content label hurts the cities whose service
+policy is stable, evidence that the semantic target and the policy target must be modeled separately.</li>
+<li>MC311 as substrate: a transfer study (TF-IDF, fine-tuned DistilBERT, zero-shot LLM) with a large,
+significant cross-jurisdiction gap concentrated in rare, city-idiosyncratic classes; and an ambiguity-derived
+taxonomy revision that removes residual ambiguity more efficiently than any equal-size random merge.</li>
 </ol>
-<p>The protocol is the point. Any benchmark built by harvesting the labels an institution already recorded
-inherits those labels as if they were semantic ground truth; a multi-city 311 corpus, where seven bureaucracies
-labeled the same kinds of request differently, makes the mismatch measurable. We show the mismatch is large,
-structured, and consequential enough to change which model a leaderboard prefers, and we release the instrument
-that measures it.</p>
+<p>The construct distinction is the point. Any benchmark built by harvesting the labels an institution already
+recorded inherits a policy decision as if it were semantic ground truth; a multi-city 311 corpus, where seven
+bureaucracies labeled the same kinds of request differently, makes the mismatch measurable. We show it is large,
+policy-structured, and consequential enough to change which model a leaderboard prefers and how a model should
+be trained, and we release the instrument that measures it.</p>
 
 <h2>2. Related work</h2>
 <h3>2.1 311 and civic service-request text classification</h3>
@@ -457,24 +467,40 @@ eight classes 12% against 26%, lower than every one of 200 random merges with ma
 granularity. The output is a concrete ontology revision a 311 consortium could adopt, derived from measured
 ambiguity rather than intuition.</p>
 
-<h3>Repairing labels for training</h3>
-<p>The judge is also a training signal, which turns the diagnosis into an intervention. For each
-leave-one-city-out fold we relabel the training requests whose recorded label the judge rejects (12.3% to 13.3%
-per fold) to a judge-acceptable label, and fine-tune DistilBERT on the repaired pool. Pooled cross-city
-macro-F1 rises from 0.559 on the raw labels to 0.615 (paired bootstrap +0.055, 95% CI [0.029, 0.080]). The gain
-is the judge's signal rather than relabeling in itself: relabeling the same rows to a random class instead
-reaches only 0.573, so the repaired-over-random margin is +0.041 (95% CI [0.018, 0.063]), and the judge
-condition beats the random control on six of the seven folds. The improvement is a pooled, common-class effect
-and varies by held-out city, with four of the seven cities improving; it is a pooled gain, not a uniform one.
-Repairing administrative labels with the protocol therefore produces models that transfer measurably better,
-and the random-relabel control shows the improvement tracks what the judges certify, not the act of changing
-labels.</p>
+<p>The disagreement between text and recorded label is policy-dependent, not random noise. Restricting to the
+requests both judges accept as either Waste or Trees (yard-waste and tree-limb pickup, the corpus's largest
+defensible boundary), each city is internally consistent yet the cities diverge: Baton Rouge records 95% of
+them under the Waste service code and Richmond 90%, while Honolulu records 44% as Trees against 11% Waste. The
+same semantic content receives a different administrative label by jurisdiction, so a cross-jurisdiction "error"
+on these requests reflects a policy difference rather than a failure to read the text.</p>
+
+<h3>Set-valued training separates the semantic and policy targets</h3>
+<p>The separation matters for training, not only evaluation. For each leave-one-city-out fold we act on the
+training requests whose recorded label the judge rejects (12.3% to 13.3% per fold) and fine-tune DistilBERT, and
+two strategies expose the distinction. <em>Hard-relabeling</em> each rejected row to the judge's text-content
+label raises pooled cross-city macro-F1 from 0.559 to 0.615 (paired bootstrap +0.055, 95% CI [0.029, 0.080]) and
+beats a random-relabel control (+0.041, [0.018, 0.063]); but the gain is not uniform, and it hurts exactly the
+cities whose administrative policy is stable. Baton Rouge, which records nearly all yard-waste pickup under the
+Waste service code, loses 0.06 strict macro-F1, because hard-relabeling teaches the text-content label (Trees)
+that the judge prefers and Baton Rouge's policy does not use. Forcing a single label makes the model choose
+between the semantic target and the policy target.</p>
+<p><em>Set-valued</em> training resolves the tension. Training on the multi-hot union of the recorded label and
+the judge's acceptable set (soft targets, one binary-cross-entropy head) lets the model carry both the semantic
+content and the policy code. Under the defensibility metric, which credits any text-supported label, this
+improves cross-jurisdiction transfer on <em>every</em> one of the seven held-out cities, pooled accuracy rising
+from 0.864 with the raw labels to 0.926, including the cities hard-relabeling hurt (Baton Rouge 0.838 to 0.868,
+San Francisco 0.778 to 0.922). Under strict single-label scoring the set-valued model appears worse on the
+stable-policy cities, because it sometimes returns the semantically-defensible label rather than that city's
+specific code, which is the construct mismatch the strict metric should stop penalizing. Aligning both the
+training target and the metric to the text-defensible set, rather than to a single administrative code, is what
+makes the improvement uniform.</p>
 
 <h2>8. Discussion</h2>
-<p>For civic-technology deployment, the result is a caution and an option. Across the seven jurisdictions
-studied here, supervised transfer to an unseen city cost roughly a third of the in-domain macro-F1, driven
-substantially by taxonomy mismatch rather than by the model; we do not claim a universal figure from seven
-cities. GPT-4o-mini achieved the highest pooled cross-jurisdiction score, though its advantage was
+<p>The central lesson is that a benchmark's gold label answers "what did this jurisdiction decide?", not "what
+does this text mean?", and conflating the two mismeasures models. For civic-technology deployment this is a
+caution and an option. Across the seven jurisdictions studied here, supervised transfer to an unseen city cost
+roughly a third of the in-domain macro-F1, but much of that cost is policy and taxonomy mismatch rather than the
+model failing to read the text; we do not claim a universal figure from seven cities. GPT-4o-mini achieved the highest pooled cross-jurisdiction score, though its advantage was
 heterogeneous across cities, so a zero-shot LLM with the target city's taxonomy in the prompt is a reasonable
 starting point when a city lacks its own labels rather than a guaranteed winner.</p>
 <p>For benchmark builders, the broader lesson is that harmonizing labels across sources imports noise and
@@ -521,16 +547,19 @@ mismatch rates, from the released artifacts. A <a href="datasheet.html">datashee
 et al.) accompanies the release.</p>
 
 <h2>12. Conclusion</h2>
-<p>Benchmarks built from administrative labels measure two things at once: how well a model reads text, and how
-well an institution's recorded category matches that text. We introduced a defensibility protocol, two blind
-cross-family LLM judges with discriminant floors and a corpus-audit loop, that separates the two, and we
-instantiated it on MC311, the first public multi-city free-text 311 benchmark. On MC311 the protocol shows that
-most of the apparent cross-jurisdiction gap is defensible-label disagreement rather than model failure, that the
-a significant gap between the two strongest models vanishes under the defensibility-adjusted metric, that annotator ambiguity and model
-confusion fall on the same class boundaries (Spearman 0.75), and that relabeling judge-rejected training rows
-improves pooled cross-jurisdiction transfer over both the raw labels and a random-relabel control. Run as an
-audit, it located five real mapping errors in the corpus. The benchmark, its harmonization, and the protocol are released so that any
-administrative-label benchmark can measure the distance between its labels and its text.</p>
+<p>An administrative label records what an institution decided, not what a text means, and the two are
+different measurements. We formalized this distinction and introduced a defensibility protocol, an ensemble of
+blind cross-vendor LLM judges certified non-vacuous by discriminant floors, that estimates the set of labels a
+text semantically supports. Instantiated on MC311, the first public multi-city free-text 311 benchmark, it shows
+that most of the apparent cross-jurisdiction gap is policy-dependent label disagreement rather than model
+failure: 14.2% of recorded labels are not text-entailed, the disagreement varies by city policy (Waste versus
+Trees for the same yard-waste content), a significant gap between the two strongest models vanishes under the
+defensibility metric, and annotator ambiguity coincides with model confusion (Spearman 0.75). Separating the
+targets also changes training: set-valued supervision on the judges' acceptable sets improves cross-jurisdiction
+transfer on all seven cities under the defensibility metric, where hard-relabeling to the text-content label
+hurts cities whose policy is stable. Treating administrative gold as semantic ground truth thus produces both
+spurious domain-shift measurements and harmful label repair; the benchmark, the judge ensemble, and the
+set-valued recipe are released so that other administrative-label corpora can separate the two.</p>
 
 <hr>
 <h3>References</h3>

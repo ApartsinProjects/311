@@ -76,7 +76,9 @@ def export(res=None):
         raw = [pool[i][2] for i in idxs]
         judge = [sorted(jsets[i])[0] if i in rejset else pool[i][2] for i in idxs]
         rand = [LABELS[rng.randint(len(LABELS))] if i in rejset else pool[i][2] for i in idxs]
-        data[held] = {"texts": texts, "labels": {"raw": raw, "judge_relabel": judge, "random_relabel": rand}}
+        accept = [sorted(jsets[i]) for i in idxs]  # judge acceptable set per training row (for soft targets)
+        data[held] = {"texts": texts, "labels": {"raw": raw, "judge_relabel": judge, "random_relabel": rand},
+                      "accept_sets": accept}
         summary[held] = {"train_rows": len(idxs), "judge_rejected": len(rej),
                          "reject_frac": round(len(rej) / len(idxs), 4)}
         print(f"{held:12s} train={len(idxs)} rejected={len(rej)} ({len(rej)/len(idxs):.1%})")

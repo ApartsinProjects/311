@@ -1,0 +1,30 @@
+{
+  "BatonRouge": {
+    "raw_lenient": 0.838,
+    "soft_lenient": 0.868
+  },
+  "Bloomington": {
+    "raw_lenient": 0.8466,
+    "soft_lenient": 0.8745
+  },
+  "Richmond": {
+    "raw_lenient": 0.9659,
+    "soft_lenient": 0.9739
+  },
+  "Auburn_WA": {
+    "raw_lenient": 0.876,
+    "soft_lenient": 0.942
+  },
+  "Gainesville": {
+    "raw_lenient": 0.8842,
+    "soft_lenient": 0.9421
+  },
+  "Honolulu": {
+    "raw_lenient": 0.858,
+    "soft_lenient": 0.96
+  },
+  "SanFrancisco": {
+    "raw_lenient": 0.778,
+    "soft_lenient": 0.922
+  }
+}
