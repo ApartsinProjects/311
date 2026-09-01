@@ -101,7 +101,9 @@ code) rather than one being noise.</li>
 judges from independent vendors certifies the set of labels each text supports, with discriminant floors that
 show the metric is not vacuously generous, a humans-free criterion for selecting reliable judges (validated
 across five vendors), and a corpus-audit loop that turns the same judgments into bug-finding. The protocol is
-corpus-agnostic; 311 is the case study.</li>
+corpus-agnostic: it recovers the same structure on a second administrative domain (CFPB consumer complaints,
+0.89 cross-vendor agreement, 7.8% label noise, 28% multi-membership) but not on subjective-disagreement data
+(ChaosNLI), which bounds its scope to policy/multi-membership labels.</li>
 <li>MC311, to our knowledge the first public multi-city free-text 311 resource: about 156,000 citizen
 narratives from seven US cities, released as a single harmonized cross-city database in a shared 14-class label
 space (each of 545 native categories mapped to a common class by an auditable rule set, with the native label
@@ -382,8 +384,11 @@ judge (gpt-4o-mini) reads each test request and returns the set of categories th
 text, blind to the model prediction and to the city's own label. The judge assigns a single label to 67% of
 requests and two or more to the rest (mean 1.37), which quantifies genuine ambiguity in the taxonomy. Because
 the mean acceptable set spans only 1.37 of the 14 classes, a randomly chosen label is judge-accepted just 9.8%
-of the time and a constant majority-class predictor reaches 0.414 defensibility-adjusted accuracy; the lenient
-scores below are read against these floors, so the metric is discriminating rather than vacuously generous.</p>
+of the time and a constant majority-class predictor reaches 0.414 defensibility-adjusted accuracy. The judge is
+also graded rather than binary: the recorded label is accepted 85.8% of the time, but the nearest taxonomy
+sibling of the gold class (the label most co-accepted with it) is accepted only 13.4%, above the random floor
+yet far below the gold, so the judge discriminates precisely at the boundary rather than waving through
+plausible neighbors. The lenient scores below are read against these floors.</p>
 <p>The judge also disagrees with the city's own label on 14.2% of requests (from 5.6% in San Francisco to 20%
 in Richmond). This is a measured rate of city labels not entailed by the text, on the same population the gap
 is computed on. It does not cap predictive accuracy, since a model can still exploit a city's administrative
@@ -424,6 +429,22 @@ core (OpenAI, Google, DeepSeek; pairwise exact-set agreement 0.75 to 0.79) from 
 on the available batch endpoint and is excluded on operational grounds. The majority-of-five consensus finds
 11.9% of recorded labels textually unsupported. Label noise is therefore a property of the corpus, not of one
 judge or one model family.</p>
+
+<h3>Generality and scope</h3>
+<p>The protocol is not specific to 311. Run unchanged except for the class list and one rubric sentence on the
+CFPB Consumer Complaint Database (500 consumer-finance narratives, each labeled by the recording company with
+one of nine product categories), both judges again pass the discriminant floors (recorded-label acceptance
+0.92, random-label 0.14, margin 0.77), agree at 0.89 exact-set (Jaccard 0.94), and recover the same structure:
+7.8% of recorded product labels are not entailed by the text and 28% of complaints span more than one product.
+The judge ensemble behaves the same way on a second administrative-label corpus from an unrelated domain, which
+is the evidence that the method is not a 311 artifact.</p>
+<p>The construct is bounded. The method targets <em>administrative multi-membership</em>, where a text
+genuinely belongs to several categories under different institutional policies, not subjective annotator
+disagreement. On ChaosNLI, whose examples carry 100 human labels each and are selected for genuine human
+disagreement, the same judge's acceptable-set size does not track human label entropy (Spearman &minus;0.14 on
+200 examples): the judge commits to the modal reading rather than reproducing the human distribution.
+Administrative multi-membership and subjective label variation are different phenomena; CASE measures the
+former, and human-disagreement modeling is out of its scope.</p>
 <p>The separation between the LLM and the trained models lives precisely where a single answer exists. On the
 requests the judge marks unambiguous (a single acceptable label, 2,329 of 3,502), the LLM's cross-city accuracy
 is 0.850 against 0.776 for DistilBERT; on the multi-label requests the two converge (0.695 and 0.691), because

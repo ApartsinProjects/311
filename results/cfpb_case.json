@@ -1,0 +1,6 @@
+{
+  "n": 500,
+  "consensus_noise": 0.078,
+  "agreement_exact": 0.888,
+  "multi_label_frac": 0.278
+}
