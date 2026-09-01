@@ -88,10 +88,11 @@ classifier appears to fail on a new city, is the model wrong, or is the city's r
 it requires an evaluation that does not assume the administrative label is ground truth, so the benchmark and
 the protocol that reads it are joint contributions:</p>
 <ol>
-<li>A <em>defensibility protocol</em> for benchmarks built from administrative labels: two blind LLM judges
-from different model families certify the set of labels each text supports, with discriminant floors that show
-the metric is not vacuously generous and a corpus-audit loop that turns the same judgments into bug-finding.
-The protocol is corpus-agnostic; 311 is the case study.</li>
+<li>A <em>defensibility protocol</em> for benchmarks built from administrative labels: an ensemble of blind LLM
+judges from independent vendors certifies the set of labels each text supports, with discriminant floors that
+show the metric is not vacuously generous, a humans-free criterion for selecting reliable judges (validated
+across five vendors), and a corpus-audit loop that turns the same judgments into bug-finding. The protocol is
+corpus-agnostic; 311 is the case study.</li>
 <li>MC311, to our knowledge the first public multi-city free-text 311 resource: about 156,000 citizen
 narratives from seven US cities, released as a single harmonized cross-city database in a shared 14-class label
 space (each of 545 native categories mapped to a common class by an auditable rule set, with the native label
@@ -402,6 +403,17 @@ and the lenient scores barely move: the LLM's cross-city accuracy is 0.964 under
 0.981 under gpt-4o-mini, and DistilBERT's and TF-IDF's shift by under 0.01. Even the two-judge consensus, where
 both judges reject the city label, finds 9.6% of city labels textually unsupported. The effect is therefore
 not an artifact of same-family judging; human validation of a subset remains the natural next step (Section 9).</p>
+<p>To rule out any single-vendor artifact and to give a reproducible way to choose judges, we ran the same
+acceptable-set task with five independent judges from five vendors (OpenAI gpt-4o-mini, Google gemini-2.5-flash,
+Mistral mistral-small, DeepSeek deepseek-chat, Cohere command-r). All five pass the discriminant floors, a
+random label accepted 9 to 14% of the time against recorded-label acceptance of 86 to 89% (discriminant margins
+0.75 to 0.80), and their textually-unsupported-label rates fall in a narrow 10.7 to 14.2% band. A humans-free
+selection criterion that ranks judges by discriminant margin and mean cross-vendor agreement separates a tight
+core (OpenAI, Google, DeepSeek; pairwise exact-set agreement 0.75 to 0.79) from a more permissive outlier
+(Cohere, mean acceptable set 1.99, agreement 0.42 to 0.49); a sixth candidate could not be run reliably at scale
+on the available batch endpoint and is excluded on operational grounds. The majority-of-five consensus finds
+11.9% of recorded labels textually unsupported. Label noise is therefore a property of the corpus, not of one
+judge or one model family.</p>
 <p>The separation between the LLM and the trained models lives precisely where a single answer exists. On the
 requests the judge marks unambiguous (a single acceptable label, 2,329 of 3,502), the LLM's cross-city accuracy
 is 0.850 against 0.776 for DistilBERT; on the multi-label requests the two converge (0.695 and 0.691), because

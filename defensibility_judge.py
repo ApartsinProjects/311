@@ -67,7 +67,7 @@ def judge_one(client, text, model):
 
 def _body(text):
     return {"messages": [{"role": "system", "content": SYS}, {"role": "user", "content": prompt(text)}],
-            "temperature": 0, "max_tokens": 40}
+            "temperature": 0, "max_tokens": 160}
 
 
 def main():
