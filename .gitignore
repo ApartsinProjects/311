@@ -38,3 +38,5 @@ results/pc_pool.json
 results/cfpb_rb_pool.json
 data/cfpb_company.json
 results/rb_pool.json
+data/mimic_dx.json
+results/mimic_pool.json
