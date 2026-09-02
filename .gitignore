@@ -30,3 +30,7 @@ results/e1_folds/
 e1_export.log
 data/cfpb_sample.json
 data/chaosnli_mnli_sample.json
+results/pilot_sp_emb.json
+results/pilot_nbr_emb.json
+results/pilot_sp_pool.json
+results/pilot_nbr_pool.json

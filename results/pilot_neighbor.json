@@ -1,0 +1,86 @@
+{
+  "bins": [
+    {
+      "bin": [
+        0.5,
+        0.6
+      ],
+      "within": [
+        340,
+        532
+      ],
+      "cross": [
+        1000,
+        1459
+      ],
+      "within_agree": 0.6391,
+      "cross_agree": 0.6854
+    },
+    {
+      "bin": [
+        0.6,
+        0.7
+      ],
+      "within": [
+        744,
+        919
+      ],
+      "cross": [
+        997,
+        1201
+      ],
+      "within_agree": 0.8096,
+      "cross_agree": 0.8301
+    },
+    {
+      "bin": [
+        0.7,
+        0.8
+      ],
+      "within": [
+        570,
+        627
+      ],
+      "cross": [
+        196,
+        218
+      ],
+      "within_agree": 0.9091,
+      "cross_agree": 0.8991
+    },
+    {
+      "bin": [
+        0.8,
+        0.9
+      ],
+      "within": [
+        449,
+        469
+      ],
+      "cross": [
+        14,
+        14
+      ],
+      "within_agree": 0.9574,
+      "cross_agree": 1.0
+    },
+    {
+      "bin": [
+        0.9,
+        1.01
+      ],
+      "within": [
+        938,
+        954
+      ],
+      "cross": [
+        2,
+        2
+      ],
+      "within_agree": 0.9832,
+      "cross_agree": 1.0
+    }
+  ],
+  "n_examples_cos>0.85_crosscity_diff": 0,
+  "examples": []
+}

@@ -1,0 +1,166 @@
+{
+  "exp_A_policy_residual": {
+    "n": 1200,
+    "n_dropped_rareclass": 2,
+    "group_key": [
+      "object",
+      "state",
+      "location"
+    ],
+    "cities": [
+      "BatonRouge",
+      "Bloomington",
+      "Gainesville"
+    ],
+    "cv_macroF1_S": 0.5506,
+    "cv_macroF1_S+A": 0.5935,
+    "cv_acc_S": 0.7396,
+    "cv_acc_S+A": 0.8038,
+    "insample_acc_S": 0.7667,
+    "insample_acc_S+A": 0.8533,
+    "I(Y;A|S)_obs_bits": 0.1417,
+    "I_perm_null_bits": 0.0621,
+    "I_perm_null_sd": 0.0073,
+    "I_zscore": 10.93,
+    "n_informative_groups": 24,
+    "examples": [
+      {
+        "profile": "waste|other|other",
+        "n": 222,
+        "by_city": {
+          "BatonRouge": "Waste_Sanitation 106/106",
+          "Bloomington": "Waste_Sanitation 107/107",
+          "Gainesville": "Waste_Sanitation 9/9"
+        }
+      },
+      {
+        "profile": "other|other|other",
+        "n": 129,
+        "by_city": {
+          "BatonRouge": "Waste_Sanitation 23/25",
+          "Bloomington": "Waste_Sanitation 80/86",
+          "Gainesville": "Property_Housing_Code 10/18"
+        }
+      },
+      {
+        "profile": "waste|other|private_property",
+        "n": 88,
+        "by_city": {
+          "BatonRouge": "Waste_Sanitation 11/13",
+          "Bloomington": "Waste_Sanitation 62/64",
+          "Gainesville": "Waste_Sanitation 11/11"
+        }
+      },
+      {
+        "profile": "waste|other|public_property",
+        "n": 72,
+        "by_city": {
+          "BatonRouge": "Waste_Sanitation 27/27",
+          "Bloomington": "Waste_Sanitation 26/27",
+          "Gainesville": "Waste_Sanitation 17/18"
+        }
+      },
+      {
+        "profile": "road_sidewalk|other|road",
+        "n": 31,
+        "by_city": {
+          "BatonRouge": "Streets_Sidewalks 6/8",
+          "Gainesville": "Streets_Sidewalks 21/23"
+        }
+      },
+      {
+        "profile": "other|other|private_property",
+        "n": 22,
+        "by_city": {
+          "BatonRouge": "Water_Sewer_Drainage 4/10",
+          "Bloomington": "Water_Sewer_Drainage 2/3",
+          "Gainesville": "Property_Housing_Code 4/9"
+        }
+      },
+      {
+        "profile": "waste|other|road",
+        "n": 21,
+        "by_city": {
+          "BatonRouge": "Waste_Sanitation 7/7",
+          "Bloomington": "Waste_Sanitation 2/2",
+          "Gainesville": "Waste_Sanitation 12/12"
+        }
+      },
+      {
+        "profile": "vehicle|other|private_property",
+        "n": 21,
+        "by_city": {
+          "Bloomington": "Parking_Vehicles 3/4",
+          "Gainesville": "Parking_Vehicles 13/17"
+        }
+      }
+    ],
+    "robustness_object_not_other": {
+      "I_obs_bits": 0.0696,
+      "I_perm_null_bits": 0.0361,
+      "I_perm_null_sd": 0.006,
+      "I_zscore": 5.62,
+      "n_informative_groups": 19,
+      "note": "excess MI ~halves when extraction-failure rows removed but stays significant"
+    },
+    "state_other_frac": 0.674
+  },
+  "exp_C_sample_efficiency": {
+    "held_out": "Gainesville",
+    "n_test": 501,
+    "majority_floor": 0.2096,
+    "n_classes_adapt": 13,
+    "curve": {
+      "2": {
+        "semantic": [
+          0.3243,
+          0.0398
+        ],
+        "embedding": [
+          0.4213,
+          0.0271
+        ],
+        "delta": -0.0971
+      },
+      "5": {
+        "semantic": [
+          0.4296,
+          0.0214
+        ],
+        "embedding": [
+          0.5456,
+          0.0185
+        ],
+        "delta": -0.1159
+      },
+      "10": {
+        "semantic": [
+          0.4732,
+          0.0213
+        ],
+        "embedding": [
+          0.6052,
+          0.0232
+        ],
+        "delta": -0.132
+      },
+      "25": {
+        "semantic": [
+          0.4916,
+          0.0135
+        ],
+        "embedding": [
+          0.651,
+          0.0213
+        ],
+        "delta": -0.1594
+      }
+    }
+  },
+  "verdict": {
+    "condition1_policy_residual": "WEAK-PASS: real but small (z=5.6 clean), ~half of raw signal was extraction-failure artifact; clean-semantics groups largely unanimous across the 3 cities",
+    "condition2_simple_mapping": "UNPROVEN: S->Y LR 0.74acc/0.55macroF1, no rich-classifier ceiling compared here",
+    "condition3_sample_efficiency": "FAIL: frozen embedding beats semantic bottleneck at every budget (delta -0.10 to -0.16 macroF1), gap widens with data -> Kill 3 fires",
+    "overall": "Kill 3 triggered. Do NOT pivot to the sample-efficiency framing. Policy-residual positive supports the EXISTING paper thesis (admin gold != semantic truth)."
+  }
+}
