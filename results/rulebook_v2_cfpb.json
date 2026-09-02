@@ -1,0 +1,36 @@
+{
+  "domain": "cfpb",
+  "held_out_n": 100,
+  "n_validated_rules": 0,
+  "arms": {
+    "no_rules": {
+      "acc_all": 0.78,
+      "acc_hard": 0.0,
+      "recovered": 0,
+      "broke": 0,
+      "n_hard": 22
+    },
+    "source_rules": {
+      "acc_all": 0.78,
+      "acc_hard": 0.0,
+      "recovered": 0,
+      "broke": 0,
+      "n_hard": 22
+    },
+    "placebo": {
+      "acc_all": 0.78,
+      "acc_hard": 0.0,
+      "recovered": 0,
+      "broke": 0,
+      "n_hard": 22
+    },
+    "updated": {
+      "acc_all": 0.78,
+      "acc_hard": 0.0,
+      "recovered": 0,
+      "broke": 0,
+      "n_hard": 22
+    }
+  },
+  "rules": []
+}

@@ -1,0 +1,99 @@
+{
+  "domain": "311",
+  "n_rules": 3,
+  "results": {
+    "within": {
+      "no_rules": {
+        "acc_all": 0.8213,
+        "acc_hard": 0.0,
+        "recovered": 0,
+        "broke": 0,
+        "n_hard": 134
+      },
+      "rules": {
+        "acc_all": 0.8413,
+        "acc_hard": 0.2463,
+        "recovered": 33,
+        "broke": 18,
+        "n_hard": 134
+      },
+      "placebo": {
+        "acc_all": 0.808,
+        "acc_hard": 0.0597,
+        "recovered": 8,
+        "broke": 18,
+        "n_hard": 134
+      }
+    },
+    "cross": {
+      "no_rules": {
+        "acc_all": 0.7625,
+        "acc_hard": 0.0,
+        "recovered": 0,
+        "broke": 0,
+        "n_hard": 119
+      },
+      "rules": {
+        "acc_all": 0.7166,
+        "acc_hard": 0.0336,
+        "recovered": 4,
+        "broke": 27,
+        "n_hard": 119
+      },
+      "placebo": {
+        "acc_all": 0.7146,
+        "acc_hard": 0.0252,
+        "recovered": 3,
+        "broke": 27,
+        "n_hard": 119
+      }
+    }
+  },
+  "rules": [
+    {
+      "from": "Trees_Vegetation",
+      "to": "Waste_Sanitation",
+      "kw": [
+        "pick up",
+        "limbs",
+        "branches",
+        "debris",
+        "trash",
+        "brush",
+        "fell"
+      ],
+      "val_fire": 33,
+      "val_gain": 0.182
+    },
+    {
+      "from": "Water_Sewer_Drainage",
+      "to": "Streets_Sidewalks",
+      "kw": [
+        "manhole",
+        "sinkhole",
+        "hazard",
+        "flooded",
+        "cover",
+        "patch",
+        "sidewalk"
+      ],
+      "val_fire": 4,
+      "val_gain": 0.25
+    },
+    {
+      "from": "Property_Housing_Code",
+      "to": "Waste_Sanitation",
+      "kw": [
+        "trash",
+        "junk",
+        "health hazard",
+        "size limit",
+        "broken",
+        "vacant property",
+        "construction material"
+      ],
+      "val_fire": 4,
+      "val_gain": 1.0
+    }
+  ]
+}

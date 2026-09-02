@@ -1,0 +1,348 @@
+{
+  "per_city": [
+    {
+      "city": "BatonRouge",
+      "n_rules": 2,
+      "no_rules": {
+        "acc_all": 0.844,
+        "acc_hard": 0.0,
+        "recovered": 0,
+        "broke": 0,
+        "n_hard": 78
+      },
+      "rules": {
+        "acc_all": 0.864,
+        "acc_hard": 0.3205,
+        "recovered": 25,
+        "broke": 15,
+        "n_hard": 78,
+        "delta_ci95": [
+          -0.004,
+          0.046
+        ]
+      },
+      "placebo": {
+        "acc_all": 0.8154999999999999
+      },
+      "kept_rules": [
+        {
+          "from": "Trees_Vegetation",
+          "to": "Waste_Sanitation",
+          "kw": [
+            "missed",
+            "pick up",
+            "limbs",
+            "debris",
+            "tree",
+            "piled",
+            "removed"
+          ],
+          "val_fire": 32,
+          "val_gain": 0.5
+        },
+        {
+          "from": "Trees_Vegetation",
+          "to": "Streets_Sidewalks",
+          "kw": [
+            "blocking",
+            "in the roadway",
+            "in road",
+            "barricade",
+            "down on",
+            "fallen",
+            "branch"
+          ],
+          "val_fire": 4,
+          "val_gain": 0.75
+        }
+      ]
+    },
+    {
+      "city": "Bloomington",
+      "n_rules": 1,
+      "no_rules": {
+        "acc_all": 0.876,
+        "acc_hard": 0.0,
+        "recovered": 0,
+        "broke": 0,
+        "n_hard": 62
+      },
+      "rules": {
+        "acc_all": 0.888,
+        "acc_hard": 0.1129,
+        "recovered": 7,
+        "broke": 1,
+        "n_hard": 62,
+        "delta_ci95": [
+          0.002,
+          0.022
+        ]
+      },
+      "placebo": {
+        "acc_all": 0.874
+      },
+      "kept_rules": [
+        {
+          "from": "Property_Housing_Code",
+          "to": "Waste_Sanitation",
+          "kw": [
+            "trash",
+            "weight limit",
+            "can exceeds",
+            "junk",
+            "mess",
+            "health hazard",
+            "unkept"
+          ],
+          "val_fire": 4,
+          "val_gain": 1.0
+        }
+      ]
+    },
+    {
+      "city": "Richmond",
+      "n_rules": 2,
+      "no_rules": {
+        "acc_all": 0.8016,
+        "acc_hard": 0.0,
+        "recovered": 0,
+        "broke": 0,
+        "n_hard": 99
+      },
+      "rules": {
+        "acc_all": 0.9158,
+        "acc_hard": 0.6465,
+        "recovered": 64,
+        "broke": 7,
+        "n_hard": 99,
+        "delta_ci95": [
+          0.0842,
+          0.1483
+        ]
+      },
+      "placebo": {
+        "acc_all": 0.7875999999999999
+      },
+      "kept_rules": [
+        {
+          "from": "Trees_Vegetation",
+          "to": "Waste_Sanitation",
+          "kw": [
+            "pickup",
+            "debris",
+            "brush",
+            "limbs",
+            "branches",
+            "trash",
+            "curb"
+          ],
+          "val_fire": 56,
+          "val_gain": 0.929
+        },
+        {
+          "from": "Property_Housing_Code",
+          "to": "Trees_Vegetation",
+          "kw": [
+            "overgrown",
+            "grass",
+            "weeds",
+            "vacant",
+            "abandoned",
+            "yard",
+            "property"
+          ],
+          "val_fire": 5,
+          "val_gain": 0.4
+        }
+      ]
+    },
+    {
+      "city": "Auburn_WA",
+      "n_rules": 3,
+      "no_rules": {
+        "acc_all": 0.73,
+        "acc_hard": 0.0,
+        "recovered": 0,
+        "broke": 0,
+        "n_hard": 135
+      },
+      "rules": {
+        "acc_all": 0.754,
+        "acc_hard": 0.1333,
+        "recovered": 18,
+        "broke": 6,
+        "n_hard": 135,
+        "delta_ci95": [
+          0.004,
+          0.044
+        ]
+      },
+      "placebo": {
+        "acc_all": 0.7189
+      },
+      "kept_rules": [
+        {
+          "from": "Homelessness",
+          "to": "Parking_Vehicles",
+          "kw": [
+            "parked",
+            "vehicles",
+            "living",
+            "trash",
+            "camping",
+            "abandoned",
+            "dumping"
+          ],
+          "val_fire": 5,
+          "val_gain": 0.8
+        },
+        {
+          "from": "Homelessness",
+          "to": "Waste_Sanitation",
+          "kw": [
+            "trash",
+            "garbage",
+            "debris",
+            "camp",
+            "encampment",
+            "tarp",
+            "shopping cart"
+          ],
+          "val_fire": 12,
+          "val_gain": 0.583
+        },
+        {
+          "from": "Waste_Sanitation",
+          "to": "Parking_Vehicles",
+          "kw": [
+            "shopping cart",
+            "abandoned cart",
+            "carts",
+            "loose cart",
+            "pickup cart",
+            "cart left",
+            "cart found"
+          ],
+          "val_fire": 5,
+          "val_gain": 0.2
+        }
+      ]
+    },
+    {
+      "city": "Gainesville",
+      "n_rules": 0,
+      "no_rules": {
+        "acc_all": 0.754,
+        "acc_hard": 0.0,
+        "recovered": 0,
+        "broke": 0,
+        "n_hard": 123
+      },
+      "rules": {
+        "acc_all": 0.754,
+        "acc_hard": 0.0,
+        "recovered": 0,
+        "broke": 0,
+        "n_hard": 123,
+        "delta_ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "placebo": {
+        "acc_all": 0.754
+      },
+      "kept_rules": []
+    },
+    {
+      "city": "Honolulu",
+      "n_rules": 2,
+      "no_rules": {
+        "acc_all": 0.75,
+        "acc_hard": 0.0,
+        "recovered": 0,
+        "broke": 0,
+        "n_hard": 125
+      },
+      "rules": {
+        "acc_all": 0.76,
+        "acc_hard": 0.04,
+        "recovered": 5,
+        "broke": 0,
+        "n_hard": 125,
+        "delta_ci95": [
+          0.002,
+          0.02
+        ]
+      },
+      "placebo": {
+        "acc_all": 0.7508
+      },
+      "kept_rules": [
+        {
+          "from": "Parking_Vehicles",
+          "to": "Property_Housing_Code",
+          "kw": [
+            "property",
+            "trash",
+            "sidewalk",
+            "public street",
+            "zoning issue",
+            "blocked",
+            "abandoned"
+          ],
+          "val_fire": 7,
+          "val_gain": 0.429
+        },
+        {
+          "from": "Parking_Vehicles",
+          "to": "Waste_Sanitation",
+          "kw": [
+            "abandoned",
+            "dumped",
+            "hazard",
+            "removal",
+            "sitting",
+            "danger",
+            "report"
+          ],
+          "val_fire": 4,
+          "val_gain": 0.5
+        }
+      ]
+    },
+    {
+      "city": "SanFrancisco",
+      "n_rules": 0,
+      "no_rules": {
+        "acc_all": 0.942,
+        "acc_hard": 0.0,
+        "recovered": 0,
+        "broke": 0,
+        "n_hard": 29
+      },
+      "rules": {
+        "acc_all": 0.942,
+        "acc_hard": 0.0,
+        "recovered": 0,
+        "broke": 0,
+        "n_hard": 29,
+        "delta_ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "placebo": {
+        "acc_all": 0.942
+      },
+      "kept_rules": []
+    }
+  ],
+  "mean": {
+    "no_rules": 0.8139428571428571,
+    "rules": 0.8396857142857143,
+    "placebo": 0.8061142857142858
+  },
+  "delta_rules_vs_norules": 0.02574285714285718,
+  "delta_rules_vs_placebo": 0.033571428571428474
+}

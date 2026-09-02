@@ -1,0 +1,33 @@
+{
+  "held_out": "CAPITAL",
+  "n_test": 100,
+  "n_hard": 22,
+  "arms": {
+    "no_rules": {
+      "acc_all": 0.78,
+      "acc_hard": 0.0,
+      "recovered": 0,
+      "broke": 0
+    },
+    "source_rules": {
+      "acc_all": 0.54,
+      "acc_hard": 0.0455,
+      "recovered": 1,
+      "broke": 25
+    },
+    "source_corrupt": {
+      "acc_all": 0.55,
+      "acc_hard": 0.1818,
+      "recovered": 4,
+      "broke": 27
+    },
+    "updated_rules": {
+      "acc_all": 0.56,
+      "acc_hard": 0.1364,
+      "recovered": 3,
+      "broke": 25
+    }
+  },
+  "n_src_disagree": 178,
+  "n_upd_disagree": 12
+}

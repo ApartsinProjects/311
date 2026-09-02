@@ -1,0 +1,9 @@
+{
+  "city": "Gainesville",
+  "n_instructions": 0,
+  "instructions": [],
+  "test_no_rules": 0.736,
+  "test_rules": 0.742,
+  "delta": 0.006000000000000005,
+  "val_final": 0.79375
+}

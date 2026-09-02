@@ -1,0 +1,37 @@
+{
+  "held_out": "Gainesville",
+  "n_test": 501,
+  "n_hard": 119,
+  "arms": {
+    "no_rules": {
+      "acc_all": 0.7625,
+      "acc_hard": 0.0,
+      "acc_easy": 1.0,
+      "recovered": 0,
+      "broke": 0
+    },
+    "source_rules": {
+      "acc_all": 0.5988,
+      "acc_hard": 0.1176,
+      "acc_easy": 0.7487,
+      "recovered": 14,
+      "broke": 96
+    },
+    "source_corrupt": {
+      "acc_all": 0.5808,
+      "acc_hard": 0.1008,
+      "acc_easy": 0.7304,
+      "recovered": 12,
+      "broke": 103
+    },
+    "updated_rules": {
+      "acc_all": 0.6168,
+      "acc_hard": 0.1597,
+      "acc_easy": 0.7592,
+      "recovered": 19,
+      "broke": 92
+    }
+  },
+  "n_src_disagree": 515,
+  "n_upd_disagree": 30
+}

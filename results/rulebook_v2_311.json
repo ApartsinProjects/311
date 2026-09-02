@@ -1,0 +1,49 @@
+{
+  "domain": "311",
+  "held_out_n": 501,
+  "n_validated_rules": 1,
+  "arms": {
+    "no_rules": {
+      "acc_all": 0.7625,
+      "acc_hard": 0.0,
+      "recovered": 0,
+      "broke": 0,
+      "n_hard": 119
+    },
+    "source_rules": {
+      "acc_all": 0.7625,
+      "acc_hard": 0.0084,
+      "recovered": 1,
+      "broke": 1,
+      "n_hard": 119
+    },
+    "placebo": {
+      "acc_all": 0.7625,
+      "acc_hard": 0.0084,
+      "recovered": 1,
+      "broke": 1,
+      "n_hard": 119
+    },
+    "updated": {
+      "acc_all": 0.7365,
+      "acc_hard": 0.0084,
+      "recovered": 1,
+      "broke": 14,
+      "n_hard": 119
+    }
+  },
+  "rules": [
+    {
+      "from": "Property_Housing_Code",
+      "to": "Waste_Sanitation",
+      "kw": [
+        "limit",
+        "size",
+        "exceeds"
+      ],
+      "support_mine": 15,
+      "val_fire": 6,
+      "val_gain": 1.0
+    }
+  ]
+}
