@@ -40,3 +40,10 @@ data/cfpb_company.json
 results/rb_pool.json
 data/mimic_dx.json
 results/mimic_pool.json
+results/br_emb.json
+results/hupd_emb.json
+results/br_split.json
+results/hupd_split.json
+data/br_native.json
+data/hupd_title.json
+results/mimic_rulebook.json

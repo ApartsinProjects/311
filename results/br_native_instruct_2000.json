@@ -1,0 +1,17 @@
+{
+  "budget": 2000,
+  "n_rules": 8,
+  "zero_shot": 0.523,
+  "rulebook": 0.6595,
+  "rules": [
+    "If the request mentions \"fell into the truck,\" route to 'MISSING GARBAGE CART'. Textual cue: \"fell into the truck\". Target category: 'MISSING GARBAGE CART'.",
+    "If the request mentions \"tree debris\" or \"woody waste,\" route to 'MISSED WOODY WASTE SERVICE'. Textual cue: \"tree debris\". Target category: 'MISSED WOODY WASTE SERVICE'.",
+    "If the request mentions a physical defect (e.g., cracked, detached handle), route to 'DAMAGED GARBAGE CART'. Textual cue: \"damaged\". Target category: 'DAMAGED GARBAGE CART'.",
+    "If the request mentions \"tall grass\" or \"vacant lot,\" route to 'TALL GRASS'. Textual cue: \"tall grass\". Target category: 'TALL GRASS'.",
+    "If the request mentions \"hand pile\" or \"small limbs,\" route to 'MISSED HANDPILE SERVICE'.",
+    "If the request mentions \"pile of limbs\" or \"limbs,\" route to 'MISSED WOODY WASTE SERVICE'. Textual cue: \"pile of limbs\". Target category: 'MISSED WOODY WASTE SERVICE'.",
+    "If the request mentions a missed pickup or duration exceeding one week, route to 'MISSED WOODY WASTE SERVICE'. (Textual cue: \"MISSED\", target category: 'MISSED WOODY WASTE SERVICE')",
+    "If the request mentions \"private property,\" choose 'JUNK, TRASH, OR DEBRIS ON PRIVATE PROPERTY' over 'ILLEGAL DUMPING OF TRASH/SOLID WASTE'."
+  ],
+  "labels": 80
+}
