@@ -1,0 +1,32 @@
+{
+  "n_rules": 26,
+  "test_acc": 0.67,
+  "rules": [
+    "If the request mentions limbs, wood debris, or yard waste, it's MISSED HANDPILE SERVICE not MISSED WOODY WASTE SERVICE.",
+    "If the request mentions specific items like \"mattress,\" \"chairs,\" or \"household items,\" it's MISSED HANDPILE SERVICE not MISSED GARBAGE SERVICE DAY (GENERAL PICK-UP).",
+    "If the request mentions overgrown, unkempt, or tall grass at a specific location, it's TALL GRASS not REQUEST FOR MOWING.",
+    "If the request mentions specific items like furniture, debris, or a whole street, it's MISSED WOODY WASTE SERVICE not MISSED GARBAGE SERVICE DAY (GENERAL PICK-UP).",
+    "If the request involves woody waste or tree debris at a residential location, it's MISSED WOODY WASTE SERVICE not REQUEST DEBRIS REMOVAL - PUBLIC PROPERTY.",
+    "If the request explicitly mentions placing a barricade over a sinkhole, it's REQUEST A BARRICADE not CAVE-IN/SINK HOLE (DRAINAGE RELATED).",
+    "If the request mentions tree limbs, stumps, or yard waste, it's MISSED WOODY WASTE SERVICE not MISSED HANDPILE SERVICE.",
+    "If the request mentions damage to an existing cart, it's DAMAGED GARBAGE CART not NEW RESIDENT REQUEST FOR GARBAGE CART.",
+    "If the issue involves water accumulation or drainage problems directly adjacent to a roadway, it's ROADSIDE DRAINAGE ISSUE not NON-ROADSIDE DRAINAGE ISSUE.",
+    "If the request mentions water accumulation, sewage, or specific locations related to sewer systems, it's CAVE-IN/SINK HOLE (SEWER OR DRAINAGE RELATED) not CAVE-IN/SINK HOLE (DRAINAGE RELATED).",
+    "If the request involves fixing or changing bulbs in existing street lights, it's STREET LIGHT OUTAGE OR DAMAGE not REQUEST A STREET LIGHT.",
+    "If the request mentions \"sink hole\" or \"holes\" without drainage context, it's PIPE REPAIRS NEEDED not CAVE-IN/SINK HOLE (DRAINAGE RELATED).",
+    "If the request mentions specific holes or damage needing repair without referencing a sinkhole or cave-in, it's PIPE REPAIRS NEEDED not CAVE-IN/SINK HOLE (SEWER OR DRAINAGE RELATED).",
+    "If the request mentions a sinkhole, cavity, or inspection of ground-level issues, it's CAVE-IN/SINK HOLE (SEWER OR DRAINAGE RELATED) not PIPE REPAIRS NEEDED.",
+    "If the request involves a tree obstructing the roadway and requires a barrier, it's REQUEST A BARRICADE not TREE IN ROAD.",
+    "If the request mentions broken, missing, or unsecured windows or doors, it's PROPERTY MISSING WINDOWS OR DOORS not PROPERTY NEEDS TO BE CONDEMNED OR TORN DOWN.",
+    "If the request mentions \"recycling\" or \"cart,\" it's MISSED RECYCLING SERVICE not MISSED GARBAGE SERVICE DAY (GENERAL PICK-UP).",
+    "If the request mentions \"mowing,\" \"cut,\" or \"yard,\" it's REQUEST FOR MOWING not TALL GRASS.",
+    "If the drainage issue is described as affecting private property or non-road areas, it's NON-ROADSIDE DRAINAGE ISSUE not ROADSIDE DRAINAGE ISSUE.",
+    "If the request specifies debris on public property or right-of-way, it's REQUEST DEBRIS REMOVAL - PUBLIC PROPERTY not ILLEGAL DUMPING OF TRASH/SOLID WASTE.",
+    "If the request mentions \"RECYCLING\" or \"BLUE CART,\" it's DAMAGED RECYCLING CART not DAMAGED GARBAGE CART.",
+    "If the request mentions a specific day with \"missed\" or \"no pickup,\" it's SAME DAY SERVICE STATUS not MISSED GARBAGE SERVICE DAY (GENERAL PICK-UP).",
+    "If the request mentions \"garbage can\" or \"96 gal cart,\" it's MISSING GARBAGE CART not STOLEN RECYCLING CART.",
+    "If the request mentions a missed service day or cart, it's MISSED GARBAGE SERVICE DAY (GENERAL PICK-UP) not SAME DAY SERVICE STATUS.",
+    "If the cart is described as broken, crushed, or missing parts, it's DAMAGED GARBAGE CART not MISSING GARBAGE CART.",
+    "If the request mentions a missed service or pickup, it's MISSED WOODY WASTE SERVICE not SAME DAY SERVICE STATUS."
+  ]
+}

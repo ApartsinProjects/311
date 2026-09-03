@@ -1,0 +1,293 @@
+{
+  "D": {
+    "Blocked Street": {
+      "pos": [
+        "Requests about physical obstructions in the street or right-of-way, including dumpsters, trailers, shrubbery, weeds, or grass encroaching into the right-of-way,"
+      ],
+      "neg": [
+        "General overgrown vegetation not specifically blocking the street (see Excessive Growth); line of sight issues (see Line"
+      ]
+    },
+    "Excessive Growth": {
+      "pos": [
+        "Overgrown grass, weeds, or vegetation on private property or vacant lots, including junk and trash scattered in yards."
+      ],
+      "neg": [
+        "Vegetation specifically blocking the street or right-of-way (see Blocked Street); vegetation causing line of sight issue"
+      ]
+    },
+    "Line of Sight": {
+      "pos": [
+        "Vegetation or objects (e.g., trees, bushes, brush) that block visibility for drivers or pedestrians at intersections or driveways."
+      ],
+      "neg": [
+        "General overgrowth (see Excessive Growth); blockages of the street/right-of-way (see Blocked Street); traffic signal/sig"
+      ]
+    },
+    "Parking on Unimproved Surface": {
+      "pos": [
+        {
+          "t": "Vehicles parked on grass, yards, or other non-paved surfaces, including business vehicles and multiple cars, IF there is NO mention of trash, tags, weight, or debris.",
+          "ev": [
+            "Larry Barker requested that this address be turned over the HAND for noncompliance of 40lb weight restriction.  Question",
+            "no tags.  multiple offender.",
+            "Five inoperable vehicles parked on the side yard and in back (on the lawn). Some of the vehicles have trash, etc.  Compl"
+          ],
+          "n": 5
+        },
+        {
+          "t": "If the request is solely about the act of parking on an unimproved surface, file as Parking on Unimproved Surface.",
+          "ev": [
+            "Larry Barker requested that this address be turned over the HAND for noncompliance of 40lb weight restriction.  Question",
+            "no tags.  multiple offender.",
+            "Five inoperable vehicles parked on the side yard and in back (on the lawn). Some of the vehicles have trash, etc.  Compl"
+          ],
+          "n": 5
+        }
+      ],
+      "neg": [
+        {
+          "t": "If the request mentions trash, debris, tags, stickers, weight limits, or trash-related violations (even if vehicles are present), do not file as Parking on Unimproved Surface.",
+          "ev": [
+            "Larry Barker requested that this address be turned over the HAND for noncompliance of 40lb weight restriction.  Question",
+            "no tags.  multiple offender.",
+            "Five inoperable vehicles parked on the side yard and in back (on the lawn). Some of the vehicles have trash, etc.  Compl"
+          ],
+          "n": 5
+        }
+      ]
+    },
+    "Parks & Playgrounds": {
+      "pos": [
+        "Comments, complaints, or offers related to parks, playgrounds, or recreational programming."
+      ],
+      "neg": [
+        "General trash or maintenance issues in parks (see Trash or Yard Waste)."
+      ]
+    },
+    "Recycling": {
+      "pos": [
+        {
+          "t": "File as Recycling only if the issue is improper sorting or contamination of recyclable items, with no mention of yard waste.",
+          "ev": [
+            "PLEASE TIE AND BUNDLE CARDBOARD.",
+            "recycling and non recycling mixed ++items not included in program",
+            "Garbage mixed with yardwaste."
+          ],
+          "n": 3
+        }
+      ],
+      "neg": [
+        {
+          "t": "Do not file as Recycling if yard waste is mentioned, even if mixed with recyclables or garbage.",
+          "ev": [
+            "PLEASE TIE AND BUNDLE CARDBOARD.",
+            "recycling and non recycling mixed ++items not included in program",
+            "Garbage mixed with yardwaste."
+          ],
+          "n": 3
+        },
+        {
+          "t": "Do not file as Recycling if the request concerns bundling or tying cardboard unless it specifies recycling collection.",
+          "ev": [
+            "PLEASE TIE AND BUNDLE CARDBOARD.",
+            "recycling and non recycling mixed ++items not included in program",
+            "Garbage mixed with yardwaste."
+          ],
+          "n": 3
+        }
+      ]
+    },
+    "Sewer Problems (Sanitary Sewers)": {
+      "pos": [
+        "Odors, backups, leaks, or health problems related to sanitary sewers, including private sewer pumps."
+      ],
+      "neg": [
+        "Storm drain or storm sewer issues (see Sidewalk Snow Removal); water quality or utility issues (see Water Quality or Wat"
+      ]
+    },
+    "Sidewalk & Curb Complaints": {
+      "pos": [
+        "Physical problems with sidewalks or curbs, such as being lower than street level."
+      ],
+      "neg": [
+        "Snow/ice on sidewalks (see Street Snow Removal); missed trash pick-up (see Trash)."
+      ]
+    },
+    "Sidewalk Snow Removal": {
+      "pos": [
+        "Clogged storm drains, storm sewer backups, and leaves clogging storm drains, as well as snow/ice removal from sidewalks. (Note: This category includes storm dra"
+      ],
+      "neg": [
+        "Sanitary sewer issues (see Sewer Problems); snow/ice on streets (see Street Snow Removal)."
+      ]
+    },
+    "Street Snow Removal": {
+      "pos": [
+        "Snow and ice not removed from sidewalks or public walkways, including around public buildings. (Note: This category is used for sidewalk snow removal, not stree"
+      ],
+      "neg": [
+        "Clogged storm drains (see Sidewalk Snow Removal); snow/ice on streets (not sidewalks)."
+      ]
+    },
+    "Temporary Signage w/o permit": {
+      "pos": [
+        "Temporary or illegal signs, including those in right-of-way, parking lots, or drive-throughs, and signs without permits."
+      ],
+      "neg": [
+        "Permanent signage issues."
+      ]
+    },
+    "Traffic Related Complaints": {
+      "pos": [
+        "Complaints about traffic behavior (e.g., running red lights), street lights, one-way streets, and line of sight problems due to bushes (when framed as a traffic"
+      ],
+      "neg": [
+        "Vegetation causing line of sight issues not framed as traffic (see Line of Sight); blocked streets (see Blocked Street)."
+      ]
+    },
+    "Trash": {
+      "pos": [
+        {
+          "t": "Missed trash pick-up, improper trash containers, trash sticker issues, and general trash collection problems.",
+          "ev": [
+            "Larry Barker requested that this address be turned over the HAND for noncompliance of 40lb weight restriction.  Question",
+            "no tags.  multiple offender.",
+            "Five inoperable vehicles parked on the side yard and in back (on the lawn). Some of the vehicles have trash, etc.  Compl"
+          ],
+          "n": 5
+        },
+        {
+          "t": "If the request mentions can/bag size, volume, or sticker issues and does NOT specify yard waste, file as Trash.",
+          "ev": [
+            "Larry Barker requested that this address be turned over the HAND for noncompliance of 40lb weight restriction.  Question",
+            "no tags.  multiple offender.",
+            "Five inoperable vehicles parked on the side yard and in back (on the lawn). Some of the vehicles have trash, etc.  Compl"
+          ],
+          "n": 5
+        },
+        {
+          "t": "If wording is generic (e.g., 'can exceeds size limit', 'Bags must have sticker attached') and no mention of yard waste, choose Trash.",
+          "ev": [
+            "Larry Barker requested that this address be turned over the HAND for noncompliance of 40lb weight restriction.  Question",
+            "no tags.  multiple offender.",
+            "Five inoperable vehicles parked on the side yard and in back (on the lawn). Some of the vehicles have trash, etc.  Compl"
+          ],
+          "n": 5
+        },
+        {
+          "t": "If the request mentions weight limits, tags, stickers, or trash/debris (including car tires) regardless of vehicle presence, file as Trash.",
+          "ev": [
+            "Larry Barker requested that this address be turned over the HAND for noncompliance of 40lb weight restriction.  Question",
+            "no tags.  multiple offender.",
+            "Five inoperable vehicles parked on the side yard and in back (on the lawn). Some of the vehicles have trash, etc.  Compl"
+          ],
+          "n": 5
+        },
+        {
+          "t": "If vehicles are mentioned only as context for trash/debris, weight, or tag violations, file as Trash.",
+          "ev": [
+            "Larry Barker requested that this address be turned over the HAND for noncompliance of 40lb weight restriction.  Question",
+            "no tags.  multiple offender.",
+            "Five inoperable vehicles parked on the side yard and in back (on the lawn). Some of the vehicles have trash, etc.  Compl"
+          ],
+          "n": 5
+        }
+      ],
+      "neg": [
+        {
+          "t": "If the issue specifically mentions yard waste or yard waste weight limits, do not file as Trash.",
+          "ev": [
+            "Larry Barker requested that this address be turned over the HAND for noncompliance of 40lb weight restriction.  Question",
+            "no tags.  multiple offender.",
+            "Five inoperable vehicles parked on the side yard and in back (on the lawn). Some of the vehicles have trash, etc.  Compl"
+          ],
+          "n": 5
+        },
+        {
+          "t": "If the request is solely about vehicles parked on non-paved surfaces with no mention of trash, tags, weight, or debris, do not file as Trash.",
+          "ev": [
+            "Larry Barker requested that this address be turned over the HAND for noncompliance of 40lb weight restriction.  Question",
+            "no tags.  multiple offender.",
+            "Five inoperable vehicles parked on the side yard and in back (on the lawn). Some of the vehicles have trash, etc.  Compl"
+          ],
+          "n": 5
+        }
+      ]
+    },
+    "Unsafe Buildings": {
+      "pos": [
+        "Vacant, unsecured, or structurally unsafe buildings, including broken windows, dangerous scaffolding, and unsafe outbuildings."
+      ],
+      "neg": [
+        "General property maintenance or overgrowth (see Excessive Growth)."
+      ]
+    },
+    "Water Quality": {
+      "pos": [
+        "Issues with water taste, smell, color, pressure, or rattling pipes."
+      ],
+      "neg": [
+        "Water utility infrastructure problems (see Water Utility Problems); billing issues (see Water Utility Billing Problems)."
+      ]
+    },
+    "Water Utility Billing Problems": {
+      "pos": [
+        "Problems with water utility bills, including incorrect bills, disconnect notices, and billing for wrong addresses."
+      ],
+      "neg": [
+        "Water quality or utility infrastructure issues (see Water Quality or Water Utility Problems)."
+      ]
+    },
+    "Water Utility Problems": {
+      "pos": [
+        "Physical problems with water utility infrastructure, such as main breaks, broken valves, meter issues, and standing water."
+      ],
+      "neg": [
+        "Water quality complaints (see Water Quality); billing issues (see Water Utility Billing Problems)."
+      ]
+    },
+    "Yard Waste": {
+      "pos": [
+        {
+          "t": "If yard waste is mentioned, including mixing with garbage or recyclables, file as Yard Waste.",
+          "ev": [
+            "PLEASE TIE AND BUNDLE CARDBOARD.",
+            "recycling and non recycling mixed ++items not included in program",
+            "Garbage mixed with yardwaste."
+          ],
+          "n": 3
+        },
+        {
+          "t": "If the request concerns bundling or tying cardboard, file as Yard Waste unless it specifies recycling collection.",
+          "ev": [
+            "PLEASE TIE AND BUNDLE CARDBOARD.",
+            "recycling and non recycling mixed ++items not included in program",
+            "Garbage mixed with yardwaste."
+          ],
+          "n": 3
+        }
+      ],
+      "neg": [
+        {
+          "t": "Do not file as Yard Waste if yard waste is not mentioned.",
+          "ev": [
+            "PLEASE TIE AND BUNDLE CARDBOARD.",
+            "recycling and non recycling mixed ++items not included in program",
+            "Garbage mixed with yardwaste."
+          ],
+          "n": 3
+        },
+        {
+          "t": "Do not file as Yard Waste if the issue is only improper sorting or contamination of recyclables, with no mention of yard waste.",
+          "ev": [
+            "PLEASE TIE AND BUNDLE CARDBOARD.",
+            "recycling and non recycling mixed ++items not included in program",
+            "Garbage mixed with yardwaste."
+          ],
+          "n": 3
+        }
+      ]
+    }
+  }
+}

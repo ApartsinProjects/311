@@ -1,0 +1,284 @@
+{
+  "D": {
+    "Blocked Street": {
+      "pos": [
+        "Service requests about dumpsters or large objects physically blocking the street, including anonymous reports about blockages."
+      ],
+      "neg": [
+        "General trash, yard waste, or vehicles parked on lawns (see Trash, Yard Waste, Parking on Unimproved Surface)."
+      ]
+    },
+    "Excessive Growth": {
+      "pos": [
+        {
+          "t": "If the main complaint is overgrown grass, weeds, or vegetation on private property or lots, classify as Excessive Growth, even if trash or cars are also present.",
+          "ev": [
+            "Burks Dr and Walnut Street Pike. Weeds are very tall and can't see to pull out safely",
+            "Police Dpt. called with a complaint of high grass at the intersection at Cascades Ave. & Gorley Pike. Stated that it is ",
+            "South Lincoln St, South of Dodds, has overgrown bushes that are blocking the right of way, making it necessary to walk o"
+          ],
+          "n": 5
+        },
+        {
+          "t": "If overgrown vegetation is reported at an intersection or right of way but the complaint focuses on property maintenance or general overgrowth, classify as Excessive Growth.",
+          "ev": [
+            "Burks Dr and Walnut Street Pike. Weeds are very tall and can't see to pull out safely",
+            "Police Dpt. called with a complaint of high grass at the intersection at Cascades Ave. & Gorley Pike. Stated that it is ",
+            "South Lincoln St, South of Dodds, has overgrown bushes that are blocking the right of way, making it necessary to walk o"
+          ],
+          "n": 5
+        }
+      ],
+      "neg": [
+        {
+          "t": "If the main complaint is trash, garbage, debris, or specific discarded items outdoors, do not classify as Excessive Growth (see Trash).",
+          "ev": [
+            "Burks Dr and Walnut Street Pike. Weeds are very tall and can't see to pull out safely",
+            "Police Dpt. called with a complaint of high grass at the intersection at Cascades Ave. & Gorley Pike. Stated that it is ",
+            "South Lincoln St, South of Dodds, has overgrown bushes that are blocking the right of way, making it necessary to walk o"
+          ],
+          "n": 5
+        },
+        {
+          "t": "If the complaint specifically states that vegetation or objects are blocking visibility for traffic or pedestrians at intersections or along roadways, do not classify as Excessive ",
+          "ev": [
+            "Burks Dr and Walnut Street Pike. Weeds are very tall and can't see to pull out safely",
+            "Police Dpt. called with a complaint of high grass at the intersection at Cascades Ave. & Gorley Pike. Stated that it is ",
+            "South Lincoln St, South of Dodds, has overgrown bushes that are blocking the right of way, making it necessary to walk o"
+          ],
+          "n": 5
+        }
+      ]
+    },
+    "Line of Sight": {
+      "pos": [
+        {
+          "t": "Classify as Line of Sight only if the complaint specifically states that vegetation, fences, or objects are blocking visibility for traffic or pedestrians at intersections or along",
+          "ev": [
+            "Burks Dr and Walnut Street Pike. Weeds are very tall and can't see to pull out safely",
+            "Police Dpt. called with a complaint of high grass at the intersection at Cascades Ave. & Gorley Pike. Stated that it is ",
+            "South Lincoln St, South of Dodds, has overgrown bushes that are blocking the right of way, making it necessary to walk o"
+          ],
+          "n": 5
+        }
+      ],
+      "neg": [
+        {
+          "t": "Do not classify as Line of Sight if the complaint is about general overgrown vegetation or property maintenance without explicit mention of visibility being blocked.",
+          "ev": [
+            "Burks Dr and Walnut Street Pike. Weeds are very tall and can't see to pull out safely",
+            "Police Dpt. called with a complaint of high grass at the intersection at Cascades Ave. & Gorley Pike. Stated that it is ",
+            "South Lincoln St, South of Dodds, has overgrown bushes that are blocking the right of way, making it necessary to walk o"
+          ],
+          "n": 5
+        },
+        {
+          "t": "Do not classify as Line of Sight if the issue is a traffic light outage (see Traffic Related).",
+          "ev": [
+            "Burks Dr and Walnut Street Pike. Weeds are very tall and can't see to pull out safely",
+            "Police Dpt. called with a complaint of high grass at the intersection at Cascades Ave. & Gorley Pike. Stated that it is ",
+            "South Lincoln St, South of Dodds, has overgrown bushes that are blocking the right of way, making it necessary to walk o"
+          ],
+          "n": 5
+        }
+      ]
+    },
+    "Parking on Unimproved Surface": {
+      "pos": [
+        "Vehicles parked on lawns, yards, or other non-paved surfaces, including repeated or habitual parking in these areas."
+      ],
+      "neg": [
+        "Cars parked on lawns when the main issue is overgrown grass (see Excessive Growth)."
+      ]
+    },
+    "Parks & Playgrounds": {
+      "pos": [
+        "Comments or complaints specifically about parks, playgrounds, or recreational events."
+      ],
+      "neg": [
+        "Trash or maintenance issues in parks (see Trash or Yard Waste)."
+      ]
+    },
+    "Recycling": {
+      "pos": [
+        "Issues with sorting, improper containers, or mixing recyclables and non-recyclables, including yard waste in plastic bags if the complaint is about improper rec"
+      ],
+      "neg": [
+        "Missed recycling pick-up (see Trash), or yard waste issues not related to recycling (see Yard Waste)."
+      ]
+    },
+    "Sewer Problems (Sanitary Sewers)": {
+      "pos": [
+        "Sewer odors, backups, slow drains, or raw sewage issues inside buildings or from sanitary sewer lines."
+      ],
+      "neg": [
+        "Storm drain or street flooding issues (see Sidewalk Snow Removal)."
+      ]
+    },
+    "Sidewalk & Curb Complaints": {
+      "pos": [
+        "Complaints about missed trash pick-up specifically faxed to sanitation, not about physical sidewalk or curb damage."
+      ],
+      "neg": [
+        "Sidewalk snow or ice (see Street Snow Removal), or storm drain issues (see Sidewalk Snow Removal)."
+      ]
+    },
+    "Sidewalk Snow Removal": {
+      "pos": [
+        "Storm drain clogs, standing water, storm rain pipe problems, and flooding at intersections, even if not directly about snow."
+      ],
+      "neg": [
+        "Sidewalks not shoveled or covered in snow/ice (see Street Snow Removal)."
+      ]
+    },
+    "Street Snow Removal": {
+      "pos": [
+        "Sidewalks not shoveled, snow and ice on walkways, or complaints about snow/ice removal from sidewalks."
+      ],
+      "neg": [
+        "Storm drain or flooding issues (see Sidewalk Snow Removal)."
+      ]
+    },
+    "Temporary Signage w/o permit": {
+      "pos": [
+        "Banners, sandwich boards, or temporary signs placed without permits, including \"now hiring\" or \"for lease\" signs."
+      ],
+      "neg": [
+        "Permanent signage issues."
+      ]
+    },
+    "Traffic Related Complaints": {
+      "pos": [
+        "Street light outages, motorists running red lights, or line of sight problems due to bushes when the focus is on traffic safety."
+      ],
+      "neg": [
+        "Line of sight issues where the main concern is visibility at intersections (see Line of Sight)."
+      ]
+    },
+    "Trash": {
+      "pos": [
+        {
+          "t": "If the main complaint is trash, garbage, debris, or specific discarded items (bags, cans, boxes, appliances) present outdoors, classify as Trash.",
+          "ev": [
+            "TRASH BUILDUP ALONGSIDE HOUSE",
+            "There is an old dorm refrigerator sitting in the side yard.  There is an old car seat sitting on the front porch.  Pleas",
+            "trash, beer cans, etc. in yard"
+          ],
+          "n": 14
+        },
+        {
+          "t": "Missed pick-ups, oversized cans, non-collection notices, and general trash issues, including missed yard waste or recycling pick-up if the complaint is about the pick-up action.",
+          "ev": [
+            "TRASH BUILDUP ALONGSIDE HOUSE",
+            "There is an old dorm refrigerator sitting in the side yard.  There is an old car seat sitting on the front porch.  Pleas",
+            "trash, beer cans, etc. in yard"
+          ],
+          "n": 14
+        },
+        {
+          "t": "If wording is generic (e.g., 'can exceeds size limit', 'bags must have sticker attached') and does not mention yard waste, choose Trash (base rate).",
+          "ev": [
+            "TRASH BUILDUP ALONGSIDE HOUSE",
+            "There is an old dorm refrigerator sitting in the side yard.  There is an old car seat sitting on the front porch.  Pleas",
+            "trash, beer cans, etc. in yard"
+          ],
+          "n": 14
+        }
+      ],
+      "neg": [
+        {
+          "t": "If the main complaint is overgrown grass, weeds, or vegetation, do not classify as Trash (see Excessive Growth).",
+          "ev": [
+            "TRASH BUILDUP ALONGSIDE HOUSE",
+            "There is an old dorm refrigerator sitting in the side yard.  There is an old car seat sitting on the front porch.  Pleas",
+            "trash, beer cans, etc. in yard"
+          ],
+          "n": 14
+        },
+        {
+          "t": "If the request specifically mentions yard waste, brush, or yardwaste, do not classify as Trash (see Yard Waste).",
+          "ev": [
+            "TRASH BUILDUP ALONGSIDE HOUSE",
+            "There is an old dorm refrigerator sitting in the side yard.  There is an old car seat sitting on the front porch.  Pleas",
+            "trash, beer cans, etc. in yard"
+          ],
+          "n": 14
+        }
+      ]
+    },
+    "Unsafe Buildings": {
+      "pos": [
+        "Reports of unsecured, abandoned, dangerous, or fire-damaged buildings, including outbuildings needing to be sealed."
+      ],
+      "neg": [
+        "Overgrown lots or trash on property (see Excessive Growth or Trash)."
+      ]
+    },
+    "Water Quality": {
+      "pos": [
+        "Water leaks, low pressure, water heater issues, or water shut-offs related to water quality or supply."
+      ],
+      "neg": [
+        "Water utility billing or meter problems (see Water Utility Billing Problems or Water Utility Problems)."
+      ]
+    },
+    "Water Utility Billing Problems": {
+      "pos": [
+        "Requests for billing credits, complaints about incorrect bills, or disputes over water utility charges."
+      ],
+      "neg": [
+        "Water leaks, meter issues, or service requests (see Water Utility Problems)."
+      ]
+    },
+    "Water Utility Problems": {
+      "pos": [
+        "Water meter lid issues, possible leaks, broken valve boxes, or requests for water shut-off/turn-on not related to billing."
+      ],
+      "neg": [
+        "Water quality complaints (see Water Quality), or billing disputes (see Water Utility Billing Problems)."
+      ]
+    },
+    "Yard Waste": {
+      "pos": [
+        {
+          "t": "Request must explicitly mention yard waste, brush, or yardwaste, or use container/sticker language directly tied to yard waste.",
+          "ev": [
+            "can exceeds size limit",
+            "can exceeds size limit",
+            "10/17/07 \ncan exceeds size limit"
+          ],
+          "n": 157
+        },
+        {
+          "t": "Bundling or sticker requirements only apply if yard waste is named or clearly implied (e.g., 'yardwaste must have sticker attached', 'brush must be tied').",
+          "ev": [
+            "can exceeds size limit",
+            "can exceeds size limit",
+            "10/17/07 \ncan exceeds size limit"
+          ],
+          "n": 157
+        }
+      ],
+      "neg": [
+        {
+          "t": "If the request does NOT mention yard waste, brush, or yardwaste, do not classify as Yard Waste, even if it mentions can/bag size or stickers.",
+          "ev": [
+            "can exceeds size limit",
+            "can exceeds size limit",
+            "10/17/07 \ncan exceeds size limit"
+          ],
+          "n": 157
+        },
+        {
+          "t": "Missed yard waste pick-up (see Trash), or improper sorting of yard waste with recyclables (see Recycling).",
+          "ev": [
+            "can exceeds size limit",
+            "can exceeds size limit",
+            "10/17/07 \ncan exceeds size limit"
+          ],
+          "n": 157
+        }
+      ]
+    }
+  }
+}

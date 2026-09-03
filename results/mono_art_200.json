@@ -1,0 +1,274 @@
+{
+  "D": {
+    "Blocked Street": {
+      "pos": [
+        "Street obstructions caused by large objects (e.g., dumpsters) placed in the roadway."
+      ],
+      "neg": [
+        "Overgrown vegetation blocking streets (see Excessive Growth), vehicles parked improperly (see Parking on Unimproved Surf"
+      ]
+    },
+    "Excessive Growth": {
+      "pos": [
+        {
+          "t": "Accumulation of trash, debris, or bags left outside on private property as a sign of neglect or property maintenance issue.",
+          "ev": [
+            "trash at southeast corner of house.",
+            "Trash left out and bags broken .  House on the corner of Dixie and Rogers"
+          ],
+          "n": 2
+        },
+        {
+          "t": "Overgrown grass, weeds, unmaintained yards/lots, and overflowing dumpsters at properties. Includes complaints about vegetation overgrowth even if it affects visibility.",
+          "ev": [
+            "trash at southeast corner of house.",
+            "Trash left out and bags broken .  House on the corner of Dixie and Rogers"
+          ],
+          "n": 2
+        }
+      ],
+      "neg": [
+        {
+          "t": "Do not include trash issues related to missed pick-up, container size/weight violations, or scheduled collection failures.",
+          "ev": [
+            "trash at southeast corner of house.",
+            "Trash left out and bags broken .  House on the corner of Dixie and Rogers"
+          ],
+          "n": 2
+        },
+        {
+          "t": "Overgrown vegetation specifically cited as blocking line of sight at intersections (see Line of Sight).",
+          "ev": [
+            "trash at southeast corner of house.",
+            "Trash left out and bags broken .  House on the corner of Dixie and Rogers"
+          ],
+          "n": 2
+        }
+      ]
+    },
+    "Line of Sight": {
+      "pos": [
+        "Overgrown vegetation specifically cited as blocking visibility at intersections or corners."
+      ],
+      "neg": [
+        "General overgrown grass/weeds or vegetation not explicitly tied to visibility issues (see Excessive Growth)."
+      ]
+    },
+    "Parking on Unimproved Surface": {
+      "pos": [
+        "Vehicles parked on grass, gravel, or other non-paved surfaces, including cases where driveways are re-graveled or expanded."
+      ],
+      "neg": [
+        "Vehicles blocking streets (see Blocked Street)."
+      ]
+    },
+    "Parks & Playgrounds": {
+      "pos": [
+        "Feedback or complaints specifically about parks programming, events, or facilities."
+      ],
+      "neg": [
+        "Overgrown grass or maintenance issues at parks (see Excessive Growth)."
+      ]
+    },
+    "Recycling": {
+      "pos": [
+        {
+          "t": "Requests mentioning sorting, mixing, or improper inclusion of items in recycling are filed as Recycling.",
+          "ev": [
+            "missed recycling pickup",
+            "missed recycle pick-up, no notice, please pick-up",
+            "Recycling was not picked up"
+          ],
+          "n": 4
+        }
+      ],
+      "neg": [
+        {
+          "t": "Generic missed pick-up requests for recycling (no mention of sorting, mixing, or contamination) are not Recycling.",
+          "ev": [
+            "missed recycling pickup",
+            "missed recycle pick-up, no notice, please pick-up",
+            "Recycling was not picked up"
+          ],
+          "n": 4
+        },
+        {
+          "t": "Missed trash pick-up (see Trash), yard waste issues (see Yard Waste).",
+          "ev": [
+            "missed recycling pickup",
+            "missed recycle pick-up, no notice, please pick-up",
+            "Recycling was not picked up"
+          ],
+          "n": 4
+        }
+      ]
+    },
+    "Sewer Problems (Sanitary Sewers)": {
+      "pos": [
+        "Odors, leaks, or other issues related to sanitary sewer systems, including private sewer pumps."
+      ],
+      "neg": [
+        "Water leaks not clearly tied to sewers (see Water Utility Problems)."
+      ]
+    },
+    "Sidewalk & Curb Complaints": {
+      "pos": [
+        "Missed trash pick-up when specifically referenced as a sidewalk/curb issue."
+      ],
+      "neg": [
+        "Missed recycling pick-up (see Recycling), sidewalk snow removal (see Sidewalk Snow Removal)."
+      ]
+    },
+    "Sidewalk Snow Removal": {
+      "pos": [
+        "Flooding, standing water, or drainage issues affecting sidewalks, including inlets flooded with sand."
+      ],
+      "neg": [
+        "Snow or ice not mentioned, or snow removal from streets (see Street Snow Removal)."
+      ]
+    },
+    "Street Snow Removal": {
+      "pos": [
+        "Complaints about uncleared sidewalks, even when the wording refers to sidewalks rather than streets."
+      ],
+      "neg": [
+        "Flooding or drainage issues on sidewalks (see Sidewalk Snow Removal)."
+      ]
+    },
+    "Temporary Signage w/o permit": {
+      "pos": [
+        "Temporary signs or banners placed without permits, including those in right-of-ways or on business properties."
+      ],
+      "neg": [
+        "Permanent signage issues."
+      ]
+    },
+    "Traffic Related Complaints": {
+      "pos": [
+        "Complaints about driver behavior, such as running red lights."
+      ],
+      "neg": [
+        "Physical obstructions or signage issues (see Blocked Street, Temporary Signage w/o permit)."
+      ]
+    },
+    "Trash": {
+      "pos": [
+        {
+          "t": "Missed pick-up requests for trash or recycling (no mention of sorting, mixing, or contamination).",
+          "ev": [
+            "trash at southeast corner of house.",
+            "Trash left out and bags broken .  House on the corner of Dixie and Rogers"
+          ],
+          "n": 2
+        },
+        {
+          "t": "Trash issues involving container size/weight violations or lack of required tags.",
+          "ev": [
+            "trash at southeast corner of house.",
+            "Trash left out and bags broken .  House on the corner of Dixie and Rogers"
+          ],
+          "n": 2
+        },
+        {
+          "t": "General trash service issues related to scheduled collection, not property neglect.",
+          "ev": [
+            "trash at southeast corner of house.",
+            "Trash left out and bags broken .  House on the corner of Dixie and Rogers"
+          ],
+          "n": 2
+        }
+      ],
+      "neg": [
+        {
+          "t": "Do not include trash, debris, or bags left outside as a sign of property neglect or maintenance issue (see Excessive Growth).",
+          "ev": [
+            "trash at southeast corner of house.",
+            "Trash left out and bags broken .  House on the corner of Dixie and Rogers"
+          ],
+          "n": 2
+        },
+        {
+          "t": "If the request mentions sorting, mixing, or improper inclusion of items in recycling, do not file as Trash.",
+          "ev": [
+            "trash at southeast corner of house.",
+            "Trash left out and bags broken .  House on the corner of Dixie and Rogers"
+          ],
+          "n": 2
+        },
+        {
+          "t": "If the request explicitly mentions 'yard waste' or 'yardwaste', do not file as Trash.",
+          "ev": [
+            "trash at southeast corner of house.",
+            "Trash left out and bags broken .  House on the corner of Dixie and Rogers"
+          ],
+          "n": 2
+        }
+      ]
+    },
+    "Unsafe Buildings": {
+      "pos": [
+        "Reports of abandoned, vacant, or dangerous buildings, including structural concerns."
+      ],
+      "neg": [
+        "Overgrown lots or yards (see Excessive Growth)."
+      ]
+    },
+    "Water Quality": {
+      "pos": [
+        "Issues with water quality, such as trouble with water heaters or leaks at meters."
+      ],
+      "neg": [
+        "Water utility billing or service problems (see Water Utility Billing Problems, Water Utility Problems)."
+      ]
+    },
+    "Water Utility Billing Problems": {
+      "pos": [
+        "Requests or complaints about water billing, credits, or account adjustments."
+      ],
+      "neg": [
+        "Water leaks or service interruptions (see Water Utility Problems)."
+      ]
+    },
+    "Water Utility Problems": {
+      "pos": [
+        "Water leaks, service interruptions, or requests for water shut-off, including water bubbling up from the street."
+      ],
+      "neg": [
+        "Water quality issues (see Water Quality), billing issues (see Water Utility Billing Problems)."
+      ]
+    },
+    "Yard Waste": {
+      "pos": [
+        {
+          "t": "Only file as Yard Waste if the request explicitly mentions 'yard waste' or 'yardwaste' (including sticker/tag/can/weight issues for yard waste).",
+          "ev": [
+            "no tags, exceeds 35 gal, 40lbs",
+            "9/18/1998 Please pick up Mr Anderson's trash on his regular trash day (Friday)  His orange stickers will have pieces of ",
+            "Bags must have sticker attached."
+          ],
+          "n": 15
+        }
+      ],
+      "neg": [
+        {
+          "t": "Do not file as Yard Waste if 'yard waste' or 'yardwaste' is not explicitly mentioned.",
+          "ev": [
+            "no tags, exceeds 35 gal, 40lbs",
+            "9/18/1998 Please pick up Mr Anderson's trash on his regular trash day (Friday)  His orange stickers will have pieces of ",
+            "Bags must have sticker attached."
+          ],
+          "n": 15
+        },
+        {
+          "t": "General trash or recycling issues without explicit 'yard waste' reference are not Yard Waste.",
+          "ev": [
+            "no tags, exceeds 35 gal, 40lbs",
+            "9/18/1998 Please pick up Mr Anderson's trash on his regular trash day (Friday)  His orange stickers will have pieces of ",
+            "Bags must have sticker attached."
+          ],
+          "n": 15
+        }
+      ]
+    }
+  }
+}

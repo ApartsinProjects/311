@@ -1,0 +1,10 @@
+{
+  "stageA_group_acc": 0.851,
+  "hier_pred": 0.6755,
+  "hier_oracle": 0.7425,
+  "strat_pred": {
+    "nov": 0.458,
+    "mid": 0.638,
+    "dup": 0.824
+  }
+}

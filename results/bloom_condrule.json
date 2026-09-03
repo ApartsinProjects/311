@@ -1,0 +1,19 @@
+{
+  "acc": 0.741,
+  "ci": [
+    0.714,
+    0.769
+  ],
+  "n_rules": 9,
+  "rules": [
+    "'Trash' vs 'Yard Waste': if request mentions weight or size limits, choose 'Trash'; if request specifies yard waste stickers or bundles, choose 'Yard Waste'; if generic, choose Trash.",
+    "'Recycling' vs 'Trash': if items are mixed with non-recyclables or not properly sorted, choose 'Recycling'; if weight or size limits are exceeded, or if no stickers are attached, choose 'Trash'; if generic, choose Trash.",
+    "'Excessive Growth' vs 'Trash': if the request involves overgrown vegetation or unmaintained landscaping, choose 'Excessive Growth'; if the request pertains to improper trash disposal or collection issues, choose 'Trash'; if generic, choose Trash.",
+    "'Sidewalk Snow Removal' vs 'Street Snow Removal': if request mentions clearing or shoveling sidewalks, choose 'Street Snow Removal'; if request pertains to drainage or storm issues, choose 'Sidewalk Snow Removal'; if generic, choose 'Sidewalk Snow Removal'.",
+    "'Water Quality' vs 'Water Utility Problems': if the request mentions taste, odor, or color of water, choose 'Water Quality'; if the request involves leaks, pressure issues, or infrastructure concerns, choose 'Water Utility Problems'; if generic, choose Water Utility Problems.",
+    "'Excessive Growth' vs 'Line of Sight': if the request mentions overgrown vegetation affecting sidewalks or trash issues, choose 'Excessive Growth'; if the request specifies visibility obstruction affecting traffic, choose 'Line of Sight'; if generic, choose 'Excessive Growth'.",
+    "'Trash' vs 'Unsafe Buildings': if the request mentions items related to waste collection or improper disposal, choose 'Trash'; if the request describes structural hazards or unsafe conditions, choose 'Unsafe Buildings'; if generic, choose Trash.",
+    "'Sewer Problems (Sanitary Sewers)' vs 'Sidewalk Snow Removal': if request mentions sewer odor, backup, or related issues, choose 'Sewer Problems (Sanitary Sewers)'; if request pertains to snow removal or sidewalk conditions, choose 'Sidewalk Snow Removal'; if generic, choose Sewer Problems (Sanitary Sewers).",
+    "'Traffic Related Complaints' vs 'Trash': if the request involves parking, visibility, or road conditions, choose 'Traffic Related Complaints'; if the request pertains to waste collection or trash guidelines, choose 'Trash'; if generic, choose Trash."
+  ]
+}

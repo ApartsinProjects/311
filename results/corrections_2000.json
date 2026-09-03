@@ -1,0 +1,12 @@
+{
+  "budget": 2000,
+  "n_rules": 3,
+  "rules": [
+    "If request mentions \"sidewalk\" but location is a public street or multiple properties, classify as 'Street Snow Removal'.",
+    "If request mentions \"storm drain,\" \"inlet,\" \"culvert,\" or \"ditch\" and flooding or clogging, classify as 'Sidewalk Snow Removal' unless \"sewer odor\" or \"sewage\" is present.",
+    "If request mentions vehicles AND \"trash,\" \"tires,\" or \"inoperable,\" classify as 'Trash' instead of 'Parking on Unimproved Surface'."
+  ],
+  "zero_shot": 0.822,
+  "corrections": 0.8326666666666667,
+  "delta": 0.010666666666666713
+}

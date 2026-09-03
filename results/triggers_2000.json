@@ -1,0 +1,73 @@
+{
+  "budget": 2000,
+  "base": "mined-rulebook",
+  "base_acc": 0.8466666666666667,
+  "final": 0.862,
+  "zero_shot": 0.822,
+  "rules": [
+    {
+      "q": "Does the request mention that all other trash was picked up except for the yard waste?",
+      "from": "Yard Waste",
+      "to": "Trash"
+    },
+    {
+      "q": "Does the request mention that recycling was not picked up or missed, rather than describing improper sorting of recyclable items?",
+      "from": "Recycling",
+      "to": "Trash"
+    },
+    {
+      "q": "Does the request mention snow or ice on a sidewalk rather than a storm drain or inlet?",
+      "from": "Sidewalk Snow Removal",
+      "to": "Street Snow Removal"
+    },
+    {
+      "q": "Does the request describe vegetation or plant overgrowth as the primary cause of the obstruction?",
+      "from": "Blocked Street",
+      "to": "Excessive Growth"
+    },
+    {
+      "q": "Does the request mention a pile of yard debris that has remained uncollected for an extended period or is located on the property, not curbside?",
+      "from": "Yard Waste",
+      "to": "Excessive Growth"
+    },
+    {
+      "q": "Does the request mention overgrown vegetation or yard conditions as a primary concern?",
+      "from": "Unsafe Buildings",
+      "to": "Excessive Growth"
+    },
+    {
+      "q": "Does the request describe trash, brush, or an overflowing dumpster as the primary issue rather than an object simply blocking the street or alley?",
+      "from": "Blocked Street",
+      "to": "Trash"
+    },
+    {
+      "q": "Does the request mention cardboard that must be flattened, bundled, or tied?",
+      "from": "Yard Waste",
+      "to": "Recycling"
+    }
+  ],
+  "vs_base": {
+    "delta": 0.015333333333333332,
+    "ci": [
+      0.007333333333333333,
+      0.023333333333333334
+    ],
+    "a_only_right": 31,
+    "b_only_right": 8,
+    "p_mcnemar": 0.0002940768754342571,
+    "significant": true
+  },
+  "vs_zs": {
+    "delta": 0.04,
+    "ci": [
+      0.026,
+      0.05466666666666667
+    ],
+    "a_only_right": 97,
+    "b_only_right": 37,
+    "p_mcnemar": 2.1932825010029367e-07,
+    "significant": true
+  },
+  "fixed": 31,
+  "broke": 8
+}

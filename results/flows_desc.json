@@ -1,0 +1,170 @@
+{
+  "Blocked Street": {
+    "pos": [
+      "Requests about physical obstructions (bushes, trees, gates, overgrowth) blocking sidewalks or right-of-way, including vegetation and gates."
+    ],
+    "neg": [
+      "Anything about line of sight (even if vegetation is mentioned), which is filed under Line of Sight.",
+      "Obstruction or blockage of sidewalk or walkway by vegetation that is specifically described as coming from private property or yards, not as a general right-of-way issue."
+    ]
+  },
+  "Excessive Growth": {
+    "pos": [
+      "Reports of high grass, overgrown vegetation, or downed trees on private property or yards, and sometimes trash or debris in yards.",
+      "Trash, junk, or debris physically present on private property or yard, especially if described as an accumulation or ongoing problem, not related to pickup, stickers, or container enforcement.",
+      "Overgrowth, brush, weeds, or vegetation described as originating from private property or yards, even if it extends onto or over sidewalks or walkways; focus on source/location rather than obstruction effect.",
+      "Overgrown yard or vegetation on private property, regardless of mentions of abandonment or animals; focus on yard condition, not building safety.",
+      "Vegetation or overgrowth located specifically on private property or a yard, even if it blocks visibility at an intersection or driveway; focus is on the source/location (private property) rather than the effect (visibility)."
+    ],
+    "neg": [
+      "Overgrowth blocking sidewalks or right-of-way (filed under Blocked Street), or line of sight issues (filed under Line of",
+      "Any mention of trash, junk, or debris as a visible accumulation, even if in a yard or with high grass, is filed as Trash, not Excessive Growth."
+    ]
+  },
+  "Line of Sight": {
+    "pos": [
+      "Any complaint where the main issue is visibility at intersections or driveways due to vegetation, regardless of whether the vegetation is blocking the sidewalk "
+    ],
+    "neg": [
+      "Physical blockage of sidewalks/right-of-way (filed under Blocked Street), or general excessive growth not affecting visi",
+      "Requests mention visibility or line of sight issues, but the overgrowth is described as being on private property or a yard, not in the public right-of-way or city-maintained area."
+    ]
+  },
+  "Parking on Unimproved Surface": {
+    "pos": [
+      "Vehicles parked on grass, dirt, or lawns, including construction vehicles."
+    ],
+    "neg": [
+      "Any other parking or traffic complaints not about surface type."
+    ]
+  },
+  "Parks & Playgrounds": {
+    "pos": [
+      "Offers or issues specifically about park/playground materials or maintenance."
+    ],
+    "neg": [
+      "Overgrowth or trash in parks (those are filed under Excessive Growth or Trash)."
+    ]
+  },
+  "Recycling": {
+    "pos": [
+      "Issues with sorting, mixing, or improper disposal of recyclables, including when trash is mixed in.",
+      "Requests about improper sorting, mixing, or disposal of recyclables, or items not accepted in recycling program, even if labeled as trash or courtesy pickup."
+    ],
+    "neg": [
+      "General trash complaints (filed under Trash).",
+      "Requests about recycling not being picked up, bins left out, or container size/limit violations—even if the word 'recycling' is used—are filed as Trash unless the complaint is about improper sorting or mixing of recyclables."
+    ]
+  },
+  "Sewer Problems (Sanitary Sewers)": {
+    "pos": [
+      "Sewer odors, backups, repairs, or related requests about sanitary sewer lines.",
+      "Requests referencing sewer repairs, sanitary sewer lines, manholes, or issues with indoor drains (toilets, washers) after sewer work, regardless of mention of water or infrastructure."
+    ],
+    "neg": [
+      "Stormwater or drainage issues (filed under Sidewalk Snow Removal)."
+    ]
+  },
+  "Sidewalk & Curb Complaints": {
+    "pos": [
+      "(No requests filed here.)"
+    ],
+    "neg": [
+      "Any sidewalk obstruction, snow, or repair issues (those are filed under Blocked Street, Street Snow Removal, or Sidewalk"
+    ]
+  },
+  "Sidewalk Snow Removal": {
+    "pos": [
+      "Requests about stormwater, drainage, culverts, or storm sewer backups, and sometimes requests for grass cutting near storm ditches."
+    ],
+    "neg": [
+      "Sidewalk snow/ice removal (filed under Street Snow Removal)."
+    ]
+  },
+  "Street Snow Removal": {
+    "pos": [
+      "Requests about snow or ice not being cleared from sidewalks, even though the name suggests streets."
+    ],
+    "neg": [
+      "Stormwater or drainage issues (filed under Sidewalk Snow Removal)."
+    ]
+  },
+  "Temporary Signage w/o permit": {
+    "pos": [
+      "Any complaint about temporary, sandwich board, banner, or yard card signs without permits."
+    ],
+    "neg": [
+      "Permanent sign issues."
+    ]
+  },
+  "Traffic Related Complaints": {
+    "pos": [
+      "General traffic complaints, including parking overlap, storm drain cleaning, and overgrown shrubs blocking vision at intersections (even though this overlaps wi"
+    ],
+    "neg": [
+      "Most line of sight or vegetation visibility issues (filed under Line of Sight)."
+    ]
+  },
+  "Trash": {
+    "pos": [
+      "Any complaint about trash pickup, stickers, courtesy pickups, or construction debris, including some recycling complaints if the main issue is trash.",
+      "Complaints about stickers, weight, or container size/limits for trash bags or cans, even if yard waste is not mentioned",
+      "Missed pickup, container issues, or overflow complaints about recycling are filed as Trash if the main action needed is collection or container enforcement, not sorting.",
+      "Trash or debris physically present on property, regardless of location (yard, driveway, backyard, alongside house), even if high grass or overgrowth is also mentioned."
+    ],
+    "neg": [
+      "Yard waste (filed under Yard Waste), or recycling sorting issues (filed under Recycling).",
+      "Complaints about visible trash bags, piles, or debris on property (yard, behind house, driveway, etc.) without mention of trash collection issues; filed as Excessive Growth even if wording focuses on trash.",
+      "Requests about missed pickup, stickers, or container size/weight that do not explicitly mention yard waste, Christmas trees, or yard waste bundles are filed as Trash, even if bags or stickers are referenced",
+      "When the main issue is about recycling program rules, accepted items, or improper disposal of recyclables, not collection or container enforcement."
+    ]
+  },
+  "Unsafe Buildings": {
+    "pos": [
+      "Reports of unsafe, abandoned, or collapsing structures, including sheds and vacant buildings."
+    ],
+    "neg": [
+      "Overgrown yards or trash (filed under Excessive Growth or Trash).",
+      "Mentions of abandoned or unfinished property with overgrown yard, but no explicit report of structural danger or collapse."
+    ]
+  },
+  "Water Quality": {
+    "pos": [
+      "Issues with water taste, pressure, leaks, or emergency shut-offs.",
+      "Customer requests emergency shut off or reports leak in meter pit; triggers utility action affecting water service, not infrastructure repair."
+    ],
+    "neg": [
+      "Water utility billing or main breaks (filed under Water Utility Billing Problems or Water Utility Problems).",
+      "Mentions of water quality issues (taste, color, pressure) that prompt a utility action or emergency response, not just a quality test"
+    ]
+  },
+  "Water Utility Billing Problems": {
+    "pos": [
+      "Any complaint about water bills, account errors, or billing disputes."
+    ],
+    "neg": [
+      "Water quality or main break issues (filed under Water Quality or Water Utility Problems)."
+    ]
+  },
+  "Water Utility Problems": {
+    "pos": [
+      "Water main breaks, line checks, or general water utility infrastructure issues.",
+      "Requests involving operational actions on water infrastructure (e.g., emergency shut off, pressure restoration, utility intervention), regardless of mention of taste or appearance"
+    ],
+    "neg": [
+      "Water quality (filed under Water Quality) or billing (filed under Water Utility Billing Problems).",
+      "Mentions of water utility infrastructure or problems that actually involve sewer system components, repairs, or maintenance actions (e.g., manholes, indoor drain issues) rather than water mains or supply lines.",
+      "Requests for emergency shut off or meter pit leaks, even if infrastructure terms used, are filed as Water Quality, not Water Utility Problems."
+    ]
+  },
+  "Yard Waste": {
+    "pos": [
+      "Complaints about yard waste pickup, stickers, or weight limits, including Christmas trees and bundles.",
+      "Courtesy pickup, missed pickup, sticker, or container size/weight issue when the underlying service is yard waste collection, even if 'trash' or 'garbage' is mentioned; also, any reference to yard waste mixed with trash, or yard waste-specific rules (e.g., can't take wire with yard waste)"
+    ],
+    "neg": [
+      "General trash (filed under Trash) or recycling (filed under Recycling).",
+      "If the request does not explicitly mention yard waste, Christmas trees, or yard waste bundles, it is filed as Trash, even if bags or stickers are referenced"
+    ]
+  }
+}

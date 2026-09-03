@@ -1,0 +1,205 @@
+{
+  "test_acc": 0.829,
+  "val": 0.87,
+  "descriptions": {
+    "Blocked Street": {
+      "pos": [
+        "Blocked Street refers to any obstruction, such as overgrown vegetation or debris, that impedes pedestrian or vehicular access on public pathways or ro",
+        "bush growing into the sidewalk blocking access"
+      ],
+      "neg": []
+    },
+    "Excessive Growth": {
+      "pos": [
+        "Excessive Growth refers to uncontrolled vegetation, including overgrown grass, shrubs, and trees, that obstructs public pathways or creates unsightly "
+      ],
+      "neg": [
+        "overgrowth blocking right of way and line of sight"
+      ]
+    },
+    "Line of Sight": {
+      "pos": [
+        "Line of Sight refers to visibility obstructions at intersections or roadways caused by vegetation, structures, or other barriers that hinder safe navi"
+      ],
+      "neg": []
+    },
+    "Parking on Unimproved Surface": {
+      "pos": [
+        "Parking on unimproved surface refers to vehicles parked on grass, dirt, or other non-paved areas, including lawns and unpaved driveways."
+      ],
+      "neg": []
+    },
+    "Parks & Playgrounds": {
+      "pos": [
+        "Parks & Playgrounds category encompasses requests related to the maintenance, improvement, and accessibility of public recreational spaces and facilit"
+      ],
+      "neg": []
+    },
+    "Recycling": {
+      "pos": [
+        "Recycling refers to the improper sorting of recyclable and non-recyclable items, leading to contamination that prevents effective recycling and collec"
+      ],
+      "neg": []
+    },
+    "Sewer Problems (Sanitary Sewers)": {
+      "pos": [
+        "Sewer Problems (Sanitary Sewers) encompass issues related to odors, backups, and damages in sanitary sewer systems affecting residential and commercia"
+      ],
+      "neg": []
+    },
+    "Sidewalk & Curb Complaints": {
+      "pos": [
+        "Sidewalk & Curb Complaints refer to reports regarding damaged, obstructed, or improperly maintained sidewalks and curbs that affect pedestrian safety "
+      ],
+      "neg": []
+    },
+    "Sidewalk Snow Removal": {
+      "pos": [
+        "Sidewalk Snow Removal refers to requests related to the maintenance and clearing of snow from sidewalks and adjacent areas to ensure safe pedestrian a"
+      ],
+      "neg": []
+    },
+    "Street Snow Removal": {
+      "pos": [
+        "Street Snow Removal refers to requests for the clearing of snow and ice from sidewalks and walkways to ensure safe pedestrian access."
+      ],
+      "neg": []
+    },
+    "Temporary Signage w/o permit": {
+      "pos": [
+        "Temporary signage without a permit refers to any non-permitted signs, banners, or displays placed in public or private spaces that violate local regul"
+      ],
+      "neg": []
+    },
+    "Traffic Related Complaints": {
+      "pos": [
+        "Traffic Related Complaints encompass issues regarding parking, visibility, road conditions, and infrastructure that affect vehicular and pedestrian mo"
+      ],
+      "neg": [
+        "issues regarding parking, visibility, road conditions, and infrastructure that affect vehicular and pedestrian movement"
+      ]
+    },
+    "Trash": {
+      "pos": [
+        "The Trash category encompasses requests related to improper disposal, weight and size violations, and issues with scheduled pickups or required sticke",
+        "requests related to improper disposal and unkept properties",
+        "requests related to improper disposal and unkept properties"
+      ],
+      "neg": []
+    },
+    "Unsafe Buildings": {
+      "pos": [
+        "Unsafe Buildings refer to structures that pose a risk to public safety due to deterioration, abandonment, or hazardous conditions, such as structural "
+      ],
+      "neg": [
+        "these belong to Trash, not Unsafe Buildings"
+      ]
+    },
+    "Water Quality": {
+      "pos": [
+        "Water Quality refers to reports concerning the taste, color, pressure, or contamination of water, including leaks and requests for testing or maintena"
+      ],
+      "neg": []
+    },
+    "Water Utility Billing Problems": {
+      "pos": [
+        "Water Utility Billing Problems refer to customer inquiries or complaints regarding inaccuracies, discrepancies, or unexpected charges on their water u"
+      ],
+      "neg": []
+    },
+    "Water Utility Problems": {
+      "pos": [
+        "Water Utility Problems refer to issues related to water supply, quality, pressure, or infrastructure, including leaks, main breaks, and service reques"
+      ],
+      "neg": []
+    },
+    "Yard Waste": {
+      "pos": [
+        "Yard Waste refers to organic materials such as leaves, grass clippings, and branches that require proper disposal methods, including the use of design"
+      ],
+      "neg": []
+    }
+  },
+  "residual_confusions": [
+    [
+      "Trash->Recycling",
+      27
+    ],
+    [
+      "Excessive Growth->Trash",
+      23
+    ],
+    [
+      "Yard Waste->Trash",
+      23
+    ],
+    [
+      "Trash->Yard Waste",
+      15
+    ],
+    [
+      "Recycling->Trash",
+      11
+    ],
+    [
+      "Sidewalk Snow Removal->Sewer Problems (Sanitary Sewers)",
+      9
+    ],
+    [
+      "Water Quality->Water Utility Problems",
+      8
+    ],
+    [
+      "Sidewalk Snow Removal->Water Utility Problems",
+      7
+    ],
+    [
+      "Street Snow Removal->Sidewalk Snow Removal",
+      5
+    ],
+    [
+      "Water Utility Problems->Water Quality",
+      4
+    ],
+    [
+      "Excessive Growth->Yard Waste",
+      4
+    ],
+    [
+      "Trash->Sidewalk & Curb Complaints",
+      3
+    ],
+    [
+      "Excessive Growth->Blocked Street",
+      3
+    ],
+    [
+      "Excessive Growth->Line of Sight",
+      3
+    ],
+    [
+      "Trash->Excessive Growth",
+      2
+    ],
+    [
+      "Sewer Problems (Sanitary Sewers)->Trash",
+      2
+    ],
+    [
+      "Trash->Unsafe Buildings",
+      2
+    ],
+    [
+      "Excessive Growth->Sidewalk & Curb Complaints",
+      1
+    ],
+    [
+      "Sewer Problems (Sanitary Sewers)->Water Utility Problems",
+      1
+    ],
+    [
+      "Sidewalk Snow Removal->Parks & Playgrounds",
+      1
+    ]
+  ]
+}

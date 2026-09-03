@@ -1,0 +1,450 @@
+{
+  "D": {
+    "Blocked Street": {
+      "pos": [
+        "Street obstructions such as dumpsters placed on the street or blocking access."
+      ],
+      "neg": [
+        "Overgrown vegetation or vehicles blocking visibility (see Line of Sight), or cars parked on lawns (see Parking on Unimpr"
+      ]
+    },
+    "Excessive Growth": {
+      "pos": [
+        "Overgrown grass, weeds, or bushes on private property or right of way, including at intersections, alleys, or sidewalks, regardless of visibility or safety impact.",
+        "Accumulation of trash, junk, or debris on private property, in yards, alleys, or near structures, regardless of container or bag status."
+      ],
+      "neg": [
+        "If the primary concern is a maintained object (e.g., trimmed bush, tree, or fence) specifically blocking a traffic sign or intersection sightline, see Line of Sight.",
+        "Issues involving trash collection logistics (missed pick-up, can size, stickers, non-collection notices) are not Excessive Growth."
+      ]
+    },
+    "Line of Sight": {
+      "pos": [
+        "Maintained objects (e.g., trimmed bushes, trees, or fences) specifically blocking visibility of traffic signs or sightlines at intersections, where the primary concern is traffic s",
+        "Vegetation or objects blocking a stop sign or traffic signal, even if otherwise maintained."
+      ],
+      "neg": [
+        "General overgrowth or property maintenance issues (e.g., tall grass, weeds, or unmaintained bushes), even if causing visibility problems, are Excessive Growth.",
+        "Vehicles blocking the street are not Line of Sight (see Blocked Street)."
+      ]
+    },
+    "Parking on Unimproved Surface": {
+      "pos": [
+        "Vehicles parked on lawns, yards, or other non-paved surfaces."
+      ],
+      "neg": [
+        "Vehicles blocking the street (see Blocked Street), or general trash/yard waste on lawns (see Trash or Yard Waste)."
+      ]
+    },
+    "Parks & Playgrounds": {
+      "pos": [
+        "Comments, complaints, or compliments specifically about parks, playgrounds, or related events."
+      ],
+      "neg": [
+        "Issues with overgrowth or trash in parks (see Excessive Growth or Trash)."
+      ]
+    },
+    "Recycling": {
+      "pos": [
+        "If the request mentions improper sorting, mixing, or inclusion of non-recyclables with recyclables, classify as Recycling.",
+        "If there is an explicit or contextual reference to recycling (e.g., 'recycling', 'recyclable items'), and the issue is not solely about container size/weight, classify as Recycling"
+      ],
+      "neg": [
+        "Do NOT classify as Recycling if there is no explicit or contextual reference to recycling.",
+        "Do NOT classify as Recycling if the only issue is container size/weight (e.g., 'container exceeds 35 gal') without mention of recycling, sorting, or mixing.",
+        "Missed pick-up, can size, sticker, or container issues without any mention of recycling, sorting, or mixing are not Recycling (see Yard Waste or Trash)."
+      ]
+    },
+    "Sewer Problems (Sanitary Sewers)": {
+      "pos": [
+        "Sewer odors, backups, slow drains, or raw sewage issues related to sanitary sewers."
+      ],
+      "neg": [
+        "Stormwater or street flooding (see Sidewalk Snow Removal), or water leaks (see Water Utility Problems)."
+      ]
+    },
+    "Sidewalk & Curb Complaints": {
+      "pos": [
+        "Complaints about sidewalk or curb conditions, but NOT about snow, ice, or flooding."
+      ],
+      "neg": [
+        "Sidewalk snow/ice removal or flooding (see Street Snow Removal or Sidewalk Snow Removal)."
+      ]
+    },
+    "Sidewalk Snow Removal": {
+      "pos": [
+        "Storm drain clogs, standing water, stormwater issues, and flooding related to sidewalks or yards."
+      ],
+      "neg": [
+        "Sidewalks covered with snow/ice (see Street Snow Removal), or sewer backups (see Sewer Problems)."
+      ]
+    },
+    "Street Snow Removal": {
+      "pos": [
+        "Sidewalks not shoveled, snow and ice on walkways, and complaints about snow/ice removal from sidewalks."
+      ],
+      "neg": [
+        "Stormwater or flooding issues (see Sidewalk Snow Removal)."
+      ]
+    },
+    "Temporary Signage w/o permit": {
+      "pos": [
+        "Temporary signs, banners, or sandwich boards placed without permits."
+      ],
+      "neg": [
+        "Permanent signage issues or unrelated code violations."
+      ]
+    },
+    "Traffic Related Complaints": {
+      "pos": [
+        "Street light outages, traffic signal issues, motorists running red lights, and line of sight problems due to bushes (when specifically mentioned as a traffic sa"
+      ],
+      "neg": [
+        "General overgrowth (see Excessive Growth), or non-traffic-related obstructions (see Blocked Street)."
+      ]
+    },
+    "Trash": {
+      "pos": [
+        "Missed pick-up, can size, sticker, or container issues for trash, when there is no explicit or contextual indication of recycling or yard waste.",
+        "If only generic wording about missed pick-up or container issues, and no recycling or yard waste context, choose Trash (base rate)."
+      ],
+      "neg": [
+        "Do not classify as Trash if there is explicit or contextual indication of recycling (e.g., 'recycling', 'private hauler', 'courtesy pick up' in a recycling context, or sorting/mixi",
+        "Do not classify as Trash if there is explicit or contextual indication of yard waste (e.g., yard waste season, route, 'no winter collection', or yard waste materials)."
+      ]
+    },
+    "Unsafe Buildings": {
+      "pos": [
+        "Reports of abandoned, vacant, dangerous, or fire-damaged buildings, or unsecured outbuildings."
+      ],
+      "neg": [
+        "Overgrown lots (see Excessive Growth), or trash accumulation (see Trash)."
+      ]
+    },
+    "Water Quality": {
+      "pos": [
+        "If the request mentions water leaks, low water pressure, water shut-off/turn-on, or pipe noise AND attributes the issue to water quality, supply, or unknown cause.",
+        "If the request is after hours and does not specify a meter, valve, or equipment issue."
+      ],
+      "neg": [
+        "If the request specifies a meter, valve box, or other infrastructure/equipment issue (see Water Utility Problems).",
+        "If the request is for routine or delinquent shut-off/turn-on, or repeated service calls (see Water Utility Problems)."
+      ]
+    },
+    "Water Utility Billing Problems": {
+      "pos": [
+        "Requests for billing credits, complaints about water bills, or disputes over charges."
+      ],
+      "neg": [
+        "Water leaks or service issues (see Water Utility Problems)."
+      ]
+    },
+    "Water Utility Problems": {
+      "pos": [
+        "If the request specifies a water meter, meter pit, meter lid, valve box, or other physical infrastructure/equipment issue.",
+        "If the request is for routine or delinquent shut-off/turn-on, or repeated service calls, regardless of water quality.",
+        "If the request mentions a leak but specifies location at meter, meter pit, or valve box."
+      ],
+      "neg": [
+        "If the request attributes the issue to water quality, supply, or unknown cause (see Water Quality).",
+        "If the request is after hours and does not specify infrastructure/equipment (see Water Quality)."
+      ]
+    },
+    "Yard Waste": {
+      "pos": [
+        "Missed pick-up or collection issue for yard waste, or if context (e.g., seasonal timing, known yard waste route, 'no winter collection') implies yard waste even if not explicit.",
+        "Mentions of yard waste-specific materials (e.g., brush, leaves, branches), or references to yard waste stickers, improper bundling, or yard waste container size/weight limits.",
+        "If 'Courtesy Pick up' or similar note is present during yard waste season or on a yard waste route, classify as Yard Waste.",
+        "If the only issue is container size/weight (e.g., 'container exceeds 35 gal') and there is no explicit or contextual reference to recycling, classify by material or seasonal contex"
+      ],
+      "neg": [
+        "Do not classify as Yard Waste if there is any explicit or contextual reference to recycling, sorting, or mixing.",
+        "Do not classify as Yard Waste if the issue is about trash or electronics."
+      ]
+    }
+  },
+  "groups": {
+    "Road & Traffic Issues": [
+      "Blocked Street",
+      "Traffic Related Complaints",
+      "Temporary Signage w/o permit",
+      "Parking on Unimproved Surface",
+      "Street Snow Removal"
+    ],
+    "Sidewalk & Accessibility": [
+      "Sidewalk & Curb Complaints",
+      "Sidewalk Snow Removal",
+      "Line of Sight"
+    ],
+    "Water & Sewer Services": [
+      "Water Quality",
+      "Water Utility Billing Problems",
+      "Water Utility Problems",
+      "Sewer Problems (Sanitary Sewers)"
+    ],
+    "Waste & Recycling": [
+      "Trash",
+      "Recycling",
+      "Yard Waste"
+    ],
+    "Parks & Property Maintenance": [
+      "Parks & Playgrounds",
+      "Excessive Growth",
+      "Unsafe Buildings"
+    ]
+  },
+  "code": [
+    [
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0
+    ],
+    [
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1
+    ],
+    [
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ]
+  ]
+}

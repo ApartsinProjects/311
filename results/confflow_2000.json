@@ -1,0 +1,52 @@
+{
+  "budget": 2000,
+  "groups": [
+    [
+      "Blocked Street",
+      "Excessive Growth",
+      "Trash",
+      "Yard Waste",
+      "Recycling",
+      "Line of Sight"
+    ],
+    [
+      "Parking on Unimproved Surface",
+      "Traffic Related Complaints"
+    ],
+    [
+      "Parks & Playgrounds"
+    ],
+    [
+      "Sewer Problems (Sanitary Sewers)",
+      "Sidewalk Snow Removal",
+      "Street Snow Removal",
+      "Water Utility Problems",
+      "Water Quality",
+      "Water Utility Billing Problems"
+    ],
+    [
+      "Sidewalk & Curb Complaints"
+    ],
+    [
+      "Temporary Signage w/o permit"
+    ],
+    [
+      "Unsafe Buildings"
+    ]
+  ],
+  "zero_shot": 0.822,
+  "base": 0.8466666666666667,
+  "flow": 0.8293333333333334,
+  "router_recall": 0.9573333333333334,
+  "vs_base": {
+    "delta": -0.017333333333333333,
+    "ci": [
+      -0.030666666666666665,
+      -0.004666666666666667
+    ],
+    "a_only_right": 37,
+    "b_only_right": 63,
+    "p_mcnemar": 0.012032975725363479,
+    "significant": true
+  }
+}

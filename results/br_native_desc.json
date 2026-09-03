@@ -1,0 +1,571 @@
+{
+  "train_acc": 0.668,
+  "test_acc": 0.644,
+  "descriptions": {
+    "BUILDING CODE VIOLATIONS": {
+      "pos": [
+        "Requests in this category involve reported violations of building codes, including construction without permits, unauthorized renovations, a"
+      ],
+      "neg": []
+    },
+    "CART LEFT AT CURBSIDE": {
+      "pos": [
+        "Requests in this category report garbage carts left unattended at the curbside for extended periods, indicating improper placement after col"
+      ],
+      "neg": []
+    },
+    "CATCH BASIN CLEANING NEEDED": {
+      "pos": [
+        "Requests in this category involve the need for cleaning or maintenance of catch basins or drains due to clogging or debris, impacting draina"
+      ],
+      "neg": [
+        "These requests involve blocked roadside drainage systems, not catch basin cleaning.",
+        "These requests involve drainage problems not related to catch basins."
+      ]
+    },
+    "CATCH BASIN REPAIRS NEEDED": {
+      "pos": [
+        "Requests in this category involve the need for repairs or maintenance of catch basins, storm drains, or related infrastructure due to damage",
+        "repairs or maintenance of catch basins or storm drains"
+      ],
+      "neg": []
+    },
+    "CAVE-IN/SINK HOLE (DRAINAGE RELATED)": {
+      "pos": [
+        "Requests in this category involve reports of sinkholes or cave-ins related to drainage issues, typically requiring inspection or repair."
+      ],
+      "neg": [
+        "These belong to REQUEST A BARRICADE, not CAVE-IN/SINK HOLE (DRAINAGE RELATED)",
+        "These belong to PIPE REPAIRS NEEDED, not CAVE-IN/SINK HOLE (DRAINAGE RELATED)",
+        "These belong to CAVE-IN/SINK HOLE (SEWER OR DRAINAGE RELATED), not CAVE-IN/SINK HOLE (DRAINAGE RELATED)"
+      ]
+    },
+    "CAVE-IN/SINK HOLE (SEWER OR DRAINAGE RELATED)": {
+      "pos": [
+        "Requests in this category involve reports of sinkholes or cave-ins related to sewer or drainage systems, indicating potential structural iss",
+        "reports of sinkholes or cave-ins affecting the driveway",
+        "Reports of sinkholes or cave-ins related to sewer systems",
+        "Reports of issues related to sewer lines indicating potential structural problems"
+      ],
+      "neg": [
+        "Reports of sinkholes or cave-ins affecting the driveway",
+        "These requests involve hazardous sinkholes that require barricades, not sewer-related issues."
+      ]
+    },
+    "CONCRETE ROAD REPAIRS NEEDED": {
+      "pos": [
+        "Requests in this category involve significant surface damage to concrete roads that affects vehicle safety and requires repair."
+      ],
+      "neg": []
+    },
+    "CONSTRUCTION TRASH/DEBRIS IN PUBLIC RIGHT-OF-WAY": {
+      "pos": [
+        "Requests in this category involve reports of construction-related trash or debris obstructing public pathways or rights-of-way."
+      ],
+      "neg": []
+    },
+    "DAMAGE TO PERSONAL PROPERTY": {
+      "pos": [
+        "Requests in this category involve reported damage to personal property caused by city services or vehicles."
+      ],
+      "neg": []
+    },
+    "DAMAGED DRIVEWAY": {
+      "pos": [
+        "Requests in this category pertain to reported issues with residential driveways, including cracks, flooding, and structural damage requiring"
+      ],
+      "neg": [
+        "damage caused by sewer or drainage issues leading to cave-ins"
+      ]
+    },
+    "DAMAGED GARBAGE CART": {
+      "pos": [
+        "Requests in this category pertain to damaged or broken garbage carts, including issues with cracks, holes, missing parts, or structural fail",
+        "Requests about broken or damaged garbage cart lids and hinges",
+        "Requests for replacement due to damage to existing garbage carts",
+        "Requests for replacement due to damage to existing garbage carts"
+      ],
+      "neg": [
+        "These belong to DAMAGED RECYCLING CART, not DAMAGED GARBAGE CART"
+      ]
+    },
+    "DAMAGED RECYCLING CART": {
+      "pos": [
+        "Requests in this category pertain to damaged recycling carts, including issues with lids, wheels, hinges, or structural integrity requiring ",
+        "Requests about holes or splits in recycling carts"
+      ],
+      "neg": [
+        "These belong to DAMAGED GARBAGE CART, not DAMAGED RECYCLING CART"
+      ]
+    },
+    "DAMAGED STREET NAME SIGN": {
+      "pos": [
+        "Requests in this category report damaged, missing, or improperly positioned street name signs."
+      ],
+      "neg": []
+    },
+    "DAMAGED TRAFFIC SIGN": {
+      "pos": [
+        "Requests in this category involve reports of traffic signs that are damaged, missing, or improperly positioned, affecting their visibility o"
+      ],
+      "neg": []
+    },
+    "DIRTY OR UNFENCED SWIMMING POOL": {
+      "pos": [
+        "Requests in this category involve reports of swimming pools that are either dirty, improperly fenced, or pose safety hazards due to lack of "
+      ],
+      "neg": []
+    },
+    "GARBAGE TRUCK LEAKS/SPILLS/ISSUES": {
+      "pos": [
+        "Requests in this category involve issues related to garbage truck operations, including spills, leaks, and improper handling of trash carts."
+      ],
+      "neg": []
+    },
+    "ILLEGAL DUMPING OF TRASH/SOLID WASTE": {
+      "pos": [
+        "Requests in this category involve the improper disposal of trash or solid waste in public areas, including debris from trees or other materi"
+      ],
+      "neg": [
+        "these belong to REQUEST DEBRIS REMOVAL - PUBLIC PROPERTY, not ILLEGAL DUMPING OF TRASH/SOLID WASTE"
+      ]
+    },
+    "INSIDE COMMERCIAL BACKUP": {
+      "pos": [
+        "Requests in this category pertain to backup issues related to commercial properties, including plumbing and drainage problems affecting busi"
+      ],
+      "neg": []
+    },
+    "INSIDE RESIDENTIAL BACKUP": {
+      "pos": [
+        "Requests in this category involve sewage or wastewater backup issues occurring inside residential buildings."
+      ],
+      "neg": []
+    },
+    "JUNK, INOPERABLE, OR ABANDONED VEHICLE": {
+      "pos": [
+        "Requests in this category involve the reporting of vehicles that are inoperable, abandoned, or causing obstructions, particularly on public "
+      ],
+      "neg": []
+    },
+    "JUNK, TRASH, OR DEBRIS ON PRIVATE PROPERTY": {
+      "pos": [
+        "Requests in this category involve reports of junk, trash, or debris located on private property that require removal or cleanup.",
+        "Reports of junk, trash, or debris located on private property"
+      ],
+      "neg": []
+    },
+    "LARGE DEAD ANIMAL FOR PICK-UP": {
+      "pos": [
+        "Requests in this category involve the reporting of large dead animals, such as dogs, cats, or possums, that require removal from public spac"
+      ],
+      "neg": []
+    },
+    "LIBERTY PUMP ISSUE": {
+      "pos": [
+        "Requests related to malfunctions or alerts from residential liberty pumps, indicating potential issues with wastewater management systems."
+      ],
+      "neg": []
+    },
+    "LITTER FOR PICK-UP ON PUBLIC PROPERTY": {
+      "pos": [
+        "Requests in this category involve reports of litter, debris, or dead animals located on public property, including roadways and highways, re"
+      ],
+      "neg": []
+    },
+    "MAJOR SIGNAL ISSUE": {
+      "pos": [
+        "Requests in this category involve malfunctioning traffic signals, including those that are stuck, flashing, or completely out, affecting tra",
+        "Malfunctioning traffic signals affecting traffic flow"
+      ],
+      "neg": [
+        "These belong to MINOR SIGNAL ISSUE, not MAJOR SIGNAL ISSUE"
+      ]
+    },
+    "MANHOLE ISSUE": {
+      "pos": [
+        "Requests in this category involve issues related to manholes, including missing lids, structural damage, or safety concerns due to surroundi"
+      ],
+      "neg": [
+        "issues related to manholes do not include catch basin repairs"
+      ]
+    },
+    "MINOR SIGNAL ISSUE": {
+      "pos": [
+        "Requests in this category pertain to minor malfunctions or inefficiencies of traffic signals that affect traffic flow but do not pose immedi",
+        "Minor malfunctions affecting traffic light cycling"
+      ],
+      "neg": []
+    },
+    "MISSED DEAD ANIMAL PICK-UP": {
+      "pos": [
+        "Requests for the removal of deceased animals from public or private property."
+      ],
+      "neg": []
+    },
+    "MISSED GARBAGE PICKUP FOR DISABLED CUSTOMER": {
+      "pos": [
+        "Requests in this category pertain to missed garbage pickups specifically for customers with disabilities, indicating a failure to collect de"
+      ],
+      "neg": []
+    },
+    "MISSED GARBAGE SERVICE DAY (GENERAL PICK-UP)": {
+      "pos": [
+        "Requests in this category report instances where scheduled garbage collection was not performed on the designated service day."
+      ],
+      "neg": [
+        "These requests involve missed pickups of limbs or bulk items, not regular garbage collection.",
+        "these belong to MISSED WOODY WASTE SERVICE, not MISSED GARBAGE SERVICE DAY (GENERAL PICK-UP)",
+        "These belong to MISSED RECYCLING SERVICE, not MISSED GARBAGE SERVICE DAY (GENERAL PICK-UP)"
+      ]
+    },
+    "MISSED HANDPILE SERVICE": {
+      "pos": [
+        "Requests in this category pertain to instances where scheduled handpile or bulk item pickups were not completed as expected.",
+        "Requests for missed handpile or bulk item pickups",
+        "Requests for missed handpile pickups",
+        "Requests for missed handpile pickups"
+      ],
+      "neg": [
+        "requests for missed collection of woody waste, including tree debris and limbs"
+      ]
+    },
+    "MISSED RECYCLING SERVICE": {
+      "pos": [
+        "Requests in this category report instances where scheduled recycling pickups were not completed for individual residences or entire streets.",
+        "Requests for missed recycling pickups"
+      ],
+      "neg": []
+    },
+    "MISSED WHITE GOODS SERVICE/TIRES": {
+      "pos": [
+        "Requests in this category involve the missed collection of large appliances or tires during scheduled service days."
+      ],
+      "neg": []
+    },
+    "MISSED WOODY WASTE SERVICE": {
+      "pos": [
+        "Requests in this category pertain to missed collection of woody waste, including tree debris and limbs, that have not been picked up on sche",
+        "missed collection of tree debris and limbs",
+        "missed collection of tree debris and limbs",
+        "missed collection of tree debris and limbs",
+        "missed collection of tree debris and limbs"
+      ],
+      "neg": [
+        "These belong to MISSED HANDPILE SERVICE, not MISSED WOODY WASTE SERVICE"
+      ]
+    },
+    "MISSING GARBAGE CART": {
+      "pos": [
+        "Requests in this category involve reports of garbage carts that have fallen into collection trucks during pickup or are missing after schedu"
+      ],
+      "neg": []
+    },
+    "NEW RESIDENT RECYCLING CART REQUEST": {
+      "pos": [
+        "Requests in this category pertain to new residents seeking the provision of recycling carts for their households."
+      ],
+      "neg": []
+    },
+    "NEW RESIDENT REQUEST FOR GARBAGE CART": {
+      "pos": [
+        "Requests in this category pertain to new residents seeking garbage carts for waste collection at their new addresses."
+      ],
+      "neg": [
+        "These requests are about damaged carts, not new requests for carts."
+      ]
+    },
+    "NON-ROADSIDE DRAINAGE ISSUE": {
+      "pos": [
+        "Requests in this category involve issues related to drainage systems that cause standing water, flooding, or require maintenance, excluding ",
+        "Issues with drainage ditches causing standing water"
+      ],
+      "neg": [
+        "Requests involving maintenance of roadside ditches and culverts"
+      ]
+    },
+    "NON-ROADSIDE EROSION ISSUE": {
+      "pos": [
+        "Requests in this category involve erosion or flooding issues not directly related to roadways, including sinkholes and drainage problems aff"
+      ],
+      "neg": []
+    },
+    "NON-ROADSIDE VEGETATION IN A DITCH": {
+      "pos": [
+        "Requests in this category pertain to the maintenance, removal, or management of vegetation in ditches that may affect drainage or pose hazar"
+      ],
+      "neg": []
+    },
+    "OUTSIDE OVERFLOW": {
+      "pos": [
+        "Requests in this category involve reports of water overflow incidents occurring outside, including sewage and other liquid spills that requi"
+      ],
+      "neg": []
+    },
+    "PICK UP UNWANTED RECYCLING CART": {
+      "pos": [
+        "Requests for the collection of unwanted recycling carts that residents no longer need or that have been mistakenly delivered to their homes."
+      ],
+      "neg": []
+    },
+    "PIPE REPAIRS NEEDED": {
+      "pos": [
+        "Requests in this category involve reported issues related to sinkholes, holes, or cracks in sewer lines, drainage systems, or culverts that ",
+        "Requests involving holes or cracks in sewer lines or drainage systems",
+        "Requests involving holes or cracks in sewer lines or drainage systems"
+      ],
+      "neg": [
+        "Requests involving inspections or televising of sewer lines due to potential cave-ins or blockages"
+      ]
+    },
+    "POTHOLE": {
+      "pos": [
+        "Requests in this category involve reports of potholes or significant road surface damage requiring repair."
+      ],
+      "neg": [
+        "These belong to ROAD BUCKLE/BLOWOUT/FAULT, not POTHOLE"
+      ]
+    },
+    "PROPERTY MISSING WINDOWS OR DOORS": {
+      "pos": [
+        "Requests in this category report properties that are missing windows or doors, leading to security concerns or potential illegal activities."
+      ],
+      "neg": []
+    },
+    "PROPERTY NEEDS TO BE CONDEMNED OR TORN DOWN": {
+      "pos": [
+        "Requests in this category involve properties deemed unsafe or uninhabitable, requiring condemnation or demolition due to abandonment, struct"
+      ],
+      "neg": []
+    },
+    "REPAIR A BROKEN STREET CURB": {
+      "pos": [
+        "Requests for the repair of damaged or broken street curbs in public roadways."
+      ],
+      "neg": []
+    },
+    "REQUEST A BARRICADE": {
+      "pos": [
+        "Requests in this category involve the need for barricades due to hazardous conditions such as fallen trees, sinkholes, or potholes that pose",
+        "Requests for barricades due to hazardous conditions",
+        "Requests for barricades due to hazardous conditions",
+        "Requests for barricades due to hazardous conditions",
+        "Requests for barricades due to hazardous sinkholes"
+      ],
+      "neg": []
+    },
+    "REQUEST A NO DUMPING SIGN": {
+      "pos": [
+        "Requests for the installation of \"No Dumping\" signs in specific locations to deter illegal dumping of waste and debris."
+      ],
+      "neg": []
+    },
+    "REQUEST A STREET LIGHT": {
+      "pos": [
+        "Requests in this category involve citizens asking for the installation of street lights due to safety concerns related to darkness or visibi"
+      ],
+      "neg": []
+    },
+    "REQUEST A TRAFFIC SIGNAL STUDY": {
+      "pos": [
+        "Requests in this category involve concerns about traffic conditions that warrant a formal study for potential traffic signal installation or"
+      ],
+      "neg": []
+    },
+    "REQUEST ADDITIONAL GARBAGE CART": {
+      "pos": [
+        "This category includes requests for additional garbage carts, whether due to theft, damage, or a need for more capacity, and may involve ack"
+      ],
+      "neg": [
+        "These belong to DAMAGED GARBAGE CART, not REQUEST ADDITIONAL GARBAGE CART"
+      ]
+    },
+    "REQUEST BARRICADE PICK-UP": {
+      "pos": [
+        "This category includes requests for the removal of barricades after road work or other projects have been completed."
+      ],
+      "neg": []
+    },
+    "REQUEST DEBRIS REMOVAL - PUBLIC PROPERTY": {
+      "pos": [
+        "Requests in this category involve the removal of debris, trash, or tree limbs from public property, including rights-of-way and medians, tha",
+        "removal of debris from public property"
+      ],
+      "neg": [
+        "these belong to MISSED WOODY WASTE SERVICE, not REQUEST DEBRIS REMOVAL - PUBLIC PROPERTY",
+        "These belong to JUNK, TRASH, OR DEBRIS ON PRIVATE PROPERTY, not REQUEST DEBRIS REMOVAL - PUBLIC PROPERTY",
+        "These belong to MISSED HANDPILE SERVICE, not REQUEST DEBRIS REMOVAL - PUBLIC PROPERTY"
+      ]
+    },
+    "REQUEST DEBRIS REMOVAL - UNOCCUPIED PROPERTY": {
+      "pos": [
+        "Requests in this category involve the removal of debris and trash from unoccupied properties or adjacent areas that are not maintained."
+      ],
+      "neg": []
+    },
+    "REQUEST FOR MOWING": {
+      "pos": [
+        "Requests for mowing involve reports of overgrown grass or vegetation on public property, including rights-of-way, ditches, and vacant lots, "
+      ],
+      "neg": [
+        "Requests for mowing on public property or rights-of-way"
+      ]
+    },
+    "REQUEST FOR STREET GRADING": {
+      "pos": [
+        "Requests for street grading involve reports of uneven road surfaces, including potholes, ruts, or damage requiring leveling or repair to imp"
+      ],
+      "neg": []
+    },
+    "REQUEST PICK-UP OF UNWANTED GARBAGE CART": {
+      "pos": [
+        "Requests in this category involve the pick-up of unwanted or damaged garbage carts from residential properties."
+      ],
+      "neg": []
+    },
+    "REQUEST REMOVAL OF DEBRIS IN A DITCH/WATERWAY": {
+      "pos": [
+        "Requests in this category involve the removal of debris or obstructions from ditches or waterways that impede drainage or cause flooding."
+      ],
+      "neg": []
+    },
+    "REQUEST REMOVAL/TRIMMING OF TREE": {
+      "pos": [
+        "Requests in this category involve the removal or trimming of trees that pose hazards to public safety, property, or infrastructure."
+      ],
+      "neg": [
+        "requests for removal of tree limbs that have not been picked up"
+      ]
+    },
+    "REQUEST STREET NAME SIGN": {
+      "pos": [
+        "Requests for the installation, correction, or replacement of street name signs within the city."
+      ],
+      "neg": []
+    },
+    "REQUEST STREET SWEEPING": {
+      "pos": [
+        "Requests in this category involve the need for street cleaning services to remove debris, such as gravel, glass, or metal, from roadways."
+      ],
+      "neg": []
+    },
+    "REQUEST TO EXCHANGE GARBAGE CART (NON-DAMAGED)": {
+      "pos": [
+        "Requests in this category involve residents seeking to exchange their non-damaged garbage carts due to issues affecting usability, such as l"
+      ],
+      "neg": []
+    },
+    "REQUEST TRAFFIC CALMING STUDY": {
+      "pos": [
+        "Requests in this category involve citizens asking for studies to assess the need for traffic calming measures, such as speed bumps, due to c"
+      ],
+      "neg": []
+    },
+    "REQUEST TRAFFIC SIGN": {
+      "pos": [
+        "Requests in this category involve the need for installation, replacement, or temporary placement of traffic signs to ensure safe navigation "
+      ],
+      "neg": []
+    },
+    "ROAD BUCKLE/BLOWOUT/FAULT": {
+      "pos": [
+        "Requests in this category involve reports of road surface failures, including buckling, blowouts, and significant potholes that pose safety ",
+        "Reports of significant road surface failures like buckling or blowouts"
+      ],
+      "neg": []
+    },
+    "ROAD STRIPING NEEDED": {
+      "pos": [
+        "Requests in this category involve the need for repainting or restoring road markings, including lane lines, stop lines, and bike lane stripi"
+      ],
+      "neg": []
+    },
+    "ROADSIDE DRAINAGE ISSUE": {
+      "pos": [
+        "Requests in this category involve issues related to clogged or blocked roadside drainage systems, including ditches and culverts, that imped",
+        "Issues with clogged or blocked roadside drainage systems",
+        "Issues with clogged roadside drainage systems"
+      ],
+      "neg": []
+    },
+    "ROADSIDE EROSION ISSUE": {
+      "pos": [
+        "Requests related to erosion or deterioration of roadside areas that may affect safety or accessibility, including potholes and surface damag"
+      ],
+      "neg": []
+    },
+    "SAME DAY SERVICE STATUS": {
+      "pos": [
+        "Requests in this category pertain to instances where scheduled garbage collection services were not performed on the designated service day."
+      ],
+      "neg": []
+    },
+    "SCHOOL ZONE/SCHOOL FLASHER ISSUE": {
+      "pos": [
+        "Requests in this category pertain to issues with school zone signage or flashing lights that affect traffic safety near educational institut"
+      ],
+      "neg": []
+    },
+    "SHOULDER REPAIR NEEDED": {
+      "pos": [
+        "Requests in this category pertain to the need for repairs on the road shoulder, indicating damage that affects safety or accessibility."
+      ],
+      "neg": []
+    },
+    "SIDEWALK ISSUE": {
+      "pos": [
+        "Requests in this category pertain to physical defects or hazards related to sidewalks, including buckling, cracking, sinking, or the presenc"
+      ],
+      "neg": [
+        "Requests related to sidewalk defects or hazards"
+      ]
+    },
+    "SIGN WITHOUT A PERMIT/ABANDONED SIGN": {
+      "pos": [
+        "Requests in this category involve the presence of signs that are either erected without the necessary permits or are deemed abandoned, indic"
+      ],
+      "neg": []
+    },
+    "STOLEN RECYCLING CART": {
+      "pos": [
+        "Requests in this category pertain to reports of missing or stolen recycling carts, specifically indicating the absence of the cart and often"
+      ],
+      "neg": []
+    },
+    "STREET LIGHT OUTAGE OR DAMAGE": {
+      "pos": [
+        "Requests in this category report outages, damage, or malfunctioning of street lights, including flickering or burnt-out bulbs."
+      ],
+      "neg": [
+        "These belong to MAJOR SIGNAL ISSUE, not STREET LIGHT OUTAGE OR DAMAGE"
+      ]
+    },
+    "TALL GRASS": {
+      "pos": [
+        "Requests in this category pertain to reports of overgrown grass on residential or vacant properties, often indicating neglect or abandonment",
+        "Reports of overgrown grass on residential or vacant properties"
+      ],
+      "neg": []
+    },
+    "TIRE DUMPING": {
+      "pos": [
+        "Requests in this category involve reports of illegally discarded tires in public or private areas."
+      ],
+      "neg": []
+    },
+    "TREE IN ROAD": {
+      "pos": [
+        "Requests in this category involve fallen or obstructive trees and limbs that impede road access or pose hazards, requiring removal or attent"
+      ],
+      "neg": [
+        "Requests involving fallen trees that block lanes or hang in roadways"
+      ]
+    },
+    "ZONING CODE VIOLATION": {
+      "pos": [
+        "Requests in this category involve violations of local zoning regulations, including unauthorized business operations, improper signage, and "
+      ],
+      "neg": []
+    }
+  }
+}

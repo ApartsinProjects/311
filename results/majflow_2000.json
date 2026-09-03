@@ -1,0 +1,47 @@
+{
+  "budget": 2000,
+  "classes": [
+    "Excessive Growth",
+    "Parking on Unimproved Surface",
+    "Recycling",
+    "Sewer Problems (Sanitary Sewers)",
+    "Sidewalk Snow Removal",
+    "Street Snow Removal",
+    "Temporary Signage w/o permit",
+    "Trash",
+    "Water Quality",
+    "Water Utility Problems",
+    "Yard Waste"
+  ],
+  "zero_shot": 0.8384458077709611,
+  "flow": 0.8384458077709611,
+  "paired": {
+    "delta": 0.0,
+    "ci": [
+      0.0,
+      0.0
+    ],
+    "a_only_right": 0,
+    "b_only_right": 0,
+    "p_mcnemar": 1.0,
+    "significant": false
+  },
+  "gate_rules": [
+    "RISK if request mentions \"in plastic bags\" without specifying item type or collection context.",
+    "RISK if request references \"missed pick-up\" combined with \"recycling\" or \"yard waste\" in any form.",
+    "RISK if request states \"exceeds weight limit\" or \"weight limit of 40 lbs\" without specifying container or item.",
+    "RISK if request describes \"container exceeds 35 gal\" without clear reference to trash or recycling.",
+    "RISK if request involves ambiguous or narrative descriptions of location or origin, such as \"magically appeared\" or unclear address details.",
+    "RISK if request mentions \"not sorted\" or \"trash mixed in\" without specifying which materials or streams are involved.",
+    "RISK if request describes water issues inside a building, such as \"sooty water\" or \"pipes rattling,\" without specifying if it is a plumbing or utility concern.",
+    "RISK if request references standing water on private property with unclear boundaries or multiple lots mentioned.",
+    "RISK if request uses narrative or conversational language rather than standard complaint format (e.g., \"maintenance man is there now\").",
+    "RISK if request references property ownership or third-party responsibility (e.g., \"Mr. Sinn owns the property\") rather than direct service needs.",
+    "RISK if request mentions weight or size limits but omits whether it applies to bags, cans, or specific waste types.",
+    "RISK if request references missed pick-up without specifying the type of material or scheduled collection day."
+  ],
+  "hard_rules": [],
+  "flagged": 1098,
+  "fixed": 0,
+  "broke": 0
+}
