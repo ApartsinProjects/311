@@ -1,0 +1,44 @@
+{
+  "rules": [
+    {
+      "q": "Does the request mention a missed recycling pick-up or that recycling was left at the curb on a non-recycling day?",
+      "from": "Recycling",
+      "to": "Trash"
+    },
+    {
+      "q": "Does the request mention a missed pick-up for yard waste without referencing stickers, weight limits, or payment requirements?",
+      "from": "Yard Waste",
+      "to": "Trash"
+    },
+    {
+      "q": "Does the request describe vegetation as \"overgrown\" or \"excessive\" in addition to mentioning a line of sight or visibility issue?",
+      "from": "Line of Sight",
+      "to": "Excessive Growth"
+    },
+    {
+      "q": "Does the request describe overgrown vegetation or plant debris as the primary cause of the obstruction?",
+      "from": "Blocked Street",
+      "to": "Excessive Growth"
+    },
+    {
+      "q": "Does the request mention a storm drain, storm sewer, or inlet rather than a sanitary sewer or indoor plumbing issue?",
+      "from": "Sewer Problems (Sanitary Sewers)",
+      "to": "Sidewalk Snow Removal"
+    },
+    {
+      "q": "Does the request mention overgrown vegetation, tall grass, or weeds as a primary concern?",
+      "from": "Unsafe Buildings",
+      "to": "Excessive Growth"
+    },
+    {
+      "q": "Does the request mention damage to a fire hydrant or water utility infrastructure rather than issues with sewer function or odor?",
+      "from": "Sewer Problems (Sanitary Sewers)",
+      "to": "Water Utility Problems"
+    },
+    {
+      "q": "Does the request mention snow or ice specifically on sidewalks rather than on streets or roadways?",
+      "from": "Sidewalk Snow Removal",
+      "to": "Street Snow Removal"
+    }
+  ]
+}

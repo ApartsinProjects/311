@@ -41,9 +41,12 @@ def get(k):
 
 def put(k, model, resp):
     if OFF or resp is None: return
-    with _lock:
-        _db().execute("INSERT OR REPLACE INTO c VALUES (?,?,?)", (k, model, resp))
-        _db().commit()
+    try:
+        with _lock:
+            _db().execute("INSERT OR REPLACE INTO c VALUES (?,?,?)", (k, model, resp))
+            _db().commit()
+    except Exception:
+        pass   # a transient cross-process lock must never kill a worker
 
 
 def stats():

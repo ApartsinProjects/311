@@ -17,7 +17,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from oaillm import chat_many, _call
 
 CLF_MODEL = "gpt-4o-mini"     # per-sample classification (cheap)
-MINE_MODEL = "gpt-4.1"        # one-time rule/description mining (SOTA)
+MINE_MODEL = "gpt-5"          # one-time rule mining (reasoning model; diagnose + refine)
 MAXPOS, MAXNEG = 5, 4
 TRUNC = 500
 
@@ -162,20 +162,28 @@ def _revid(r, k=2):
 
 
 def _dline(T, c, D):
-    """Rendered for the CLASSIFIER: rule text only (evidence stays in the artifact, not the prompt)."""
+    """Rendered for the CLASSIFIER: the class definition plus its REMAP overrides (imperative
+    conditions that send a look-alike to another class). The 'neg' slot holds remap phrases."""
     pos = "; ".join(_rtext(x) for x in D[c]["pos"][:MAXPOS]) or c.lower()
-    neg = "; ".join(_rtext(x) for x in D[c]["neg"][:MAXNEG])
-    return f"{c}: {pos}" + (f" | NOT: {neg}" if neg else "")
+    rem = "; ".join(_rtext(x) for x in D[c]["neg"][:MAXNEG])
+    return f"{c}: {pos}" + (f"  OVERRIDE: {rem}" if rem else "")
+
+
+def desc_sys(T):
+    """The classifier's system prompt (shared so per-class acceptance renders identically)."""
+    return (f"Classify the {T.item} into its single best {T.label} using the definitions below. These "
+            f"{T.label}s are the organization's FILING CONVENTIONS, which sometimes contradict common sense.\n"
+            f"Each definition may list OVERRIDE conditions: if an OVERRIDE condition matches the {T.item}, "
+            f"FOLLOW IT and assign the {T.label} it names, even if the wording otherwise fits this category. "
+            f"Apply overrides literally; they encode counterintuitive routing the organization actually uses. "
+            f"Reply with ONLY one {T.label} name.")
 
 
 def _desc_classify(T, texts, D):
     book = "\n".join(_dline(T, c, D) for c in T.LBL)
-    sys = (f"Classify the {T.item} into its single best {T.label} using the descriptions "
-           f"(what belongs, and what does NOT). These {T.label}s are the organization's FILING CONVENTIONS, "
-           f"which sometimes contradict common sense: when a description states a convention, FOLLOW IT over "
-           f"your own intuition about the wording. Reply with ONLY one {T.label} name.")
+    sys = desc_sys(T)
     msgs = [[{"role": "system", "content": sys},
-             {"role": "user", "content": f"{T.label.capitalize()} descriptions:\n{book}\n\n{T.item.capitalize()}: {t[:TRUNC]}\n{T.label.capitalize()}:"}] for t in texts]
+             {"role": "user", "content": f"{T.label.capitalize()} definitions:\n{book}\n\n{T.item.capitalize()}: {t[:TRUNC]}\n{T.label.capitalize()}:"}] for t in texts]
     return [T.parse(o) for o in chat_many(msgs, model=CLF_MODEL, max_tokens=24)]
 
 
@@ -437,7 +445,7 @@ def paired_test(preds_a, preds_b, gold, n_boot=5000, seed=0):
 MARGIN = 0.01
 
 
-def mine_rulebook(T, mine, val, rounds=5, batches=8, gate_n=300, verbose=True):
+def mine_rulebook(T, mine, val, rounds=5, batches=8, gate_n=300, mine_cap=1500, verbose=True):
     """CANONICAL miner with PER-EDIT validation.
     Each confusion pair's edit is applied only if it does not hurt a held-out gate slice, so a single
     inverted rule can no longer ride in on a batch (the failure that made mining degrade with budget)."""
@@ -456,10 +464,19 @@ def mine_rulebook(T, mine, val, rounds=5, batches=8, gate_n=300, verbose=True):
     full = list(range(len(V_txt)))
     cur = vacc(D, full)
     if verbose: print(f"  [mine] seed gate={cur:.3f} (val n={len(V_txt)}, rotating slice {gate_n}, margin {MARGIN})")
+    # error DISCOVERY runs on a capped sample (confusion ranking is stable well before the full budget);
+    # rule WRITING still draws its examples from the full mine set below.
+    if len(m_txt) > mine_cap:
+        _s = np.random.RandomState(1).permutation(len(m_txt))[:mine_cap]
+        d_txt = [m_txt[i] for i in _s]; d_gold = [m_gold[i] for i in _s]
+    else:
+        d_txt, d_gold = m_txt, m_gold
     for rnd in range(rounds):
-        m_pred = _desc_classify(T, m_txt, D)
-        conf = Counter((m_gold[i], m_pred[i]) for i in range(len(mine))
-                       if m_pred[i] != m_gold[i] and m_pred[i] != "UNPARSED")
+        sl_round = gate_slice()                    # rotate ONCE per round -> v_old reused across edits
+        v_old_round = vacc(D, sl_round)
+        m_pred = _desc_classify(T, d_txt, D)
+        conf = Counter((d_gold[i], m_pred[i]) for i in range(len(d_txt))
+                       if m_pred[i] != d_gold[i] and m_pred[i] != "UNPARSED")
         bt = [(g, p) for (g, p), _ in conf.most_common() if (g, p) not in tried and conf[(g, p)] >= 2][:batches]
         if not bt:
             if verbose: print("  [mine] no recurring confusions left"); 
@@ -467,19 +484,20 @@ def mine_rulebook(T, mine, val, rounds=5, batches=8, gate_n=300, verbose=True):
         base = {c: len(T.by[c]) for c in T.LBL}
         kept = 0
         for gt, pr in bt:
-            exs = [m_txt[i] for i in range(len(mine)) if m_gold[i] == gt and m_pred[i] == pr]
-            contrast = [m_txt[i] for i in range(len(mine)) if m_gold[i] == pr and m_pred[i] == pr]
+            exs = [d_txt[i] for i in range(len(d_txt)) if d_gold[i] == gt and m_pred[i] == pr]
+            contrast = [d_txt[i] for i in range(len(d_txt)) if d_gold[i] == pr and m_pred[i] == pr]
             diag = _diagnose(T, gt, pr, exs, contrast, D, n_err=conf[(gt, pr)])
             upd = _refine(T, gt, pr, exs, D, contrast=contrast, base_rates=base,
                           n_err=conf[(gt, pr)], diag=diag)
             tried.add((gt, pr))
             if not upd: continue
             trial = copy.deepcopy(D); apply_update(trial, upd)
-            sl = gate_slice()                              # fresh sample for THIS edit
-            v_old, v_new = vacc(D, sl), vacc(trial, sl)
+            sl = sl_round                                  # one slice per round (cheaper, still rotates)
+            v_old, v_new = v_old_round, vacc(trial, sl)
             ok = v_new >= v_old + MARGIN                   # require a real margin, not noise
             if ok:
                 D, kept = trial, kept + 1
+                v_old_round = v_new
                 cur = vacc(D, full)                        # re-anchor on the FULL val
             _trace("edit_gate", gt=gt, pred=pr, slice_n=len(sl),
                    gate_before=v_old, gate_trial=v_new, margin=MARGIN, accepted=bool(ok), full_gate=cur)

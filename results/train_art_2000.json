@@ -1,0 +1,231 @@
+{
+  "D": {
+    "Blocked Street": {
+      "pos": [
+        "Physical obstruction that blocks or significantly narrows a public travelway (street, alley, sidewalk, bike lane), impeding passage.",
+        "Long-term placement of dumpsters, trailers, storage pods, or construction staging in the right-of-way reducing lane or sidewalk access.",
+        "Overgrown or overhanging vegetation intruding into street or sidewalk so people or vehicles cannot safely pass without leaving the facility.",
+        "Private items on tree lawn/tree plot obstructing curb cuts, driveways, hydrants, or sidewalk beyond brief loading/unloading."
+      ],
+      "neg": [
+        "if detached tree limbs, logs, brush piles, or a fallen tree (yard waste) are the obstruction, classify as Excessive Growth instead",
+        "if vegetation maintenance is requested without describing blocked passage in the public right‑of‑way, classify as Excessive Growth instead",
+        "if complaint centers on dumpster overflow, scattered garbage, odor, or pickup/cleanup, classify as Trash instead",
+        "if residential trash or recycling carts are left blocking sidewalk or street, classify as Trash instead"
+      ]
+    },
+    "Excessive Growth": {
+      "pos": [
+        "Overgrown vegetation on private property: tall grass/weeds/shrubs/hedges, including vacant lots and neglected yards",
+        "Private-property overgrowth encroaching onto sidewalks, driveways, or corner views from a specific yard, hedge, or fence",
+        "Accumulation of non-garbage junk/debris or scattered litter on private grounds, porches, alleys, or parking lots, absent curbside service context",
+        "Property-generated yard waste, limbs, or residents’ containers/debris creating a cleanup issue, even when spilling into adjacent sidewalk/right‑of‑way"
+      ],
+      "neg": [
+        "if household garbage, dumpster overflow, dumped bulky item (couch/mattress/appliance), or odor/rodents are mentioned, classify as Trash instead",
+        "if vegetation in the public right‑of‑way or city‑maintained area creates a traffic sightline hazard, classify as Line of Sight instead",
+        "if a freestanding object placed in the street/sidewalk (e.g., roll‑off dumpster/equipment) is the obstruction, classify as Blocked Street instead",
+        "if rocks/gravel/backfill or yard/drive damage after water utility digs, meter/line work, or restoration requests, classify as Water Utility Problems instead"
+      ]
+    },
+    "Line of Sight": {
+      "pos": [
+        "Vegetation in a public right-of-way obstructs a driver's view of oncoming traffic or traffic-control devices on a public street",
+        "Vegetation limits motorists’ ability to see cross-traffic at a public intersection, corner, or roundabout",
+        "Vegetation prevents drivers from seeing to exit a driveway or alley onto a named public street",
+        "Vegetation in a median, island, shoulder, or ditch creates a sight-distance hazard for roadway users",
+        "A traffic-safety or Risk Management report identifies a vegetation-related sight-distance hazard on a public roadway"
+      ],
+      "neg": [
+        "if vegetation originates from a specific private property’s yard, hedge, fence, or lot, classify as Excessive Growth instead",
+        "if the issue is vegetation encroaching on sidewalks/paths or forcing pedestrians into the street, classify as Excessive Growth instead",
+        "if a driveway/frontage/parking-lot visibility complaint omits the name of the public street being entered, classify as Excessive Growth instead",
+        "if an intersection report lacks explicit driver-action phrasing (e.g., pull out, turn, merge, approach) or public right-of-way location, classify as Excessive Growth instead"
+      ]
+    },
+    "Parking on Unimproved Surface": {
+      "pos": [
+        "Vehicle parked on grass, dirt, landscaped area, or other unpaved ground of a private yard or lot.",
+        "Any part of a vehicle rests on lawn, dirt, or unpaved ground, even if the remainder is in the street or driveway.",
+        "Vehicle parked on grassy/landscaped public greenspace—parks, medians, easements, or trail entrances—where no designated parking area exists.",
+        "Repeated or ongoing use of unpaved yard or ground for vehicle parking or storage, regardless of driveway availability.",
+        "Administrative requests explicitly about citations, notices, or hearings for parking on grass/unpaved surface violations."
+      ],
+      "neg": [
+        "if obstruction is a non-vehicle object blocking a travel lane, alley, or sidewalk in the public right‑of‑way, classify as Blocked Street instead",
+        "if the issue is junk, debris, tires, or auto parts accumulation on the property rather than vehicles, classify as Trash instead",
+        "if vehicles are explicitly inoperable/abandoned or stored for months with no emphasis on unpaved surfaces, classify as Trash instead",
+        "if the request is a parking ticket billing/payment issue with no mention of grass/unpaved surfaces, classify as Parking Tickets/Payments instead"
+      ]
+    },
+    "Parks & Playgrounds": {
+      "pos": [
+        "Parks programming/amenities feedback and offers of materials/donations (e.g., summer concerts, supplies for facilities)"
+      ],
+      "neg": [
+        "vegetation overgrowth/blight on park-adjacent private property (Excessive Growth); signs at parks (Temporary Signage w/o"
+      ]
+    },
+    "Recycling": {
+      "pos": [
+        "Explicit recycling cue (recycling/recyclables/blue cart/bin) plus unsorted, mixed with trash/non-program items, or contamination noted.",
+        "Explicit recycling cue plus instruction or violation about preparation: please sort, no bags, rinse/empty, flatten or bundle cardboard.",
+        "Non-recyclable items placed in a recycling cart/bin or recyclables placed in plastic bags or outside required container.",
+        "Crew note or tag citing contaminated recycling (food, feces, cigarette butts) requiring education/compliance.",
+        "Items set out as recycling are not included in the recycling program."
+      ],
+      "neg": [
+        "if collection failure is described (missed, not picked up, please pick up, no notice, others collected but not here), classify as Trash instead",
+        "if text references yard waste stream (yard waste, brush, leaves, grass, clippings), classify as Yard Waste instead",
+        "if contamination framed as garbage mixed with yard waste, classify as Yard Waste instead",
+        "if yard-waste-specific set-out is the issue (bundling limbs/brush, yard waste in plastic bags, sticker or weight limit), classify as Yard Waste instead"
+      ]
+    },
+    "Sewer Problems (Sanitary Sewers)": {
+      "pos": [
+        "Wastewater/sewer backup, overflow, clog, or slow drains implicating sanitary sewers, service laterals, mains, or manholes (indoors or discharging to street).",
+        "Sewer or rotten-egg/H2S odors, or symptoms attributed to sewer gas, indoors or outdoors.",
+        "Requests targeting sanitary-sewer assets: inspect/flush/jet/CCTV lines or manholes, or site restoration/yard repair explicitly tied to sewer main/lateral work.",
+        "Dye/smoke testing to verify sanitary-sewer connections, cross-connections, illicit connections, or service availability/status.",
+        "Failures, alarms, leaks, or overflows from lift/grinder stations, force mains, or private sewer ejector pumps, especially discharging wastewater to ground or street."
+      ],
+      "neg": [
+        "if explicit potable-water asset (main/service line/meter/hydrant/valve) or drinking-water pressure/quality issue and no sewer-specific term/effect, classify as Water Utility Problems instead",
+        "if issue concerns storm drain, catch basin, storm sewer, culvert, or rain-driven street flooding, classify as Storm Drain Issues instead",
+        "if odor described as natural gas, propane, fuel, chemical, or carbon monoxide alarm, classify as Gas Utility Problems instead",
+        "if problem explicitly with private septic tank, leach field, or cesspool (onsite, not municipal), classify as Septic System Issues instead"
+      ]
+    },
+    "Sidewalk & Curb Complaints": {
+      "pos": [
+        "Physical sidewalk/curb condition and grade issues (e.g., sidewalk elevation lower than street, wraparound grade problems)"
+      ],
+      "neg": [
+        "sanitation service issues like missed trash pickup (Trash); sidewalk snow/ice and shoveling enforcement (Street Snow Rem"
+      ]
+    },
+    "Sidewalk Snow Removal": {
+      "pos": [
+        "Reports of clogged or blocked storm drains, inlets, catch basins, driveway culverts, ditches, or standpipes.",
+        "Storm sewer backing up, surcharging, or not conveying runoff during or after rain.",
+        "Standing or ponded water on streets or public right-of-way due to rainfall or blocked inlets.",
+        "Requests to install, adjust, or maintain public drainage components (inlets, culverts, standpipes, pipes, outfalls).",
+        "Drainage complaints or questions tied to grading, development, or parking-lot changes affecting runoff."
+      ],
+      "neg": [
+        "if mentions water mains/service lines, meters, valves, hydrants, or shutoffs, classify as Water Utility Problems instead.",
+        "if yard-only standing water, no rain/storm/drain terms, and suspected leak, classify as Water Utility Problems instead.",
+        "if sanitary sewer backups, manholes overflowing, or sewage odors, classify as Sewer Problems instead.",
+        "if snow or ice on sidewalks or failure to shovel sidewalks, classify as Street Snow Removal instead."
+      ]
+    },
+    "Street Snow Removal": {
+      "pos": [
+        "Snow and ice on public sidewalks and shoveling enforcement for adjacent properties/businesses (including public facilities), despite the “street” label"
+      ],
+      "neg": [
+        "storm drain/storm sewer clogs and leaf blockages (Sidewalk Snow Removal); sidewalk/curb defects (Sidewalk & Curb Complai"
+      ]
+    },
+    "Temporary Signage w/o permit": {
+      "pos": [
+        "Unpermitted or illegal business/temporary signs, including signs in the right-of-way, drive-through/pole promo signs, and similar temporary advertising"
+      ],
+      "neg": [
+        "objects/vehicles blocking ROW (Blocked Street); permanent structure safety (Unsafe Buildings); litter complaints (Trash)"
+      ]
+    },
+    "Traffic Related Complaints": {
+      "pos": [
+        "General traffic control/behavior issues (e.g., red-light running), alley direction/one-way configuration requests, and public street light outages"
+      ],
+      "neg": [
+        "vegetation-caused visibility problems (Line of Sight); ROW obstructions (Blocked Street); vehicles parked on lawns (Park"
+      ]
+    },
+    "Trash": {
+      "pos": [
+        "Missed or partial curbside collection; return requested, no notice left, or neighbors collected but not here.",
+        "Set‑out/compliance violations: overweight (>40 lb), oversize can (>35 gal), missing pay‑per‑bag sticker, unacceptable container, or improper curb placement.",
+        "Hauler handling issues: bags ripped/dragged, spillage left, or carts/cans placed improperly by crew.",
+        "Refuse/debris cleanup: dumped household garbage, bulky household items, overflowing service carts/dumpsters, or waste causing odors/rodents/animal scattering.",
+        "Bulky household item at curb awaiting trash pickup for days/weeks."
+      ],
+      "neg": [
+        "if explicit yard‑waste stream (yard waste/yardwaste/brush/leaves/branches) or yard‑waste program cues (seasonal rules, yard‑waste stickers/fees), classify as Yard Waste instead",
+        "if explicit recycling stream (recycling/recyclables/blue cart/bin) and issue is sorting/contamination/preparation or container delivery/size/placement, classify as Recycling instead",
+        "if accumulation on private grounds (yard/behind/beside/lot) with no curbside/hauler/dumpster/cart context, classify as Excessive Growth instead",
+        "if concern is obstruction of travel/right‑of‑way by objects with no cleanup/compliance intent, classify as Blocked Street instead"
+      ]
+    },
+    "Unsafe Buildings": {
+      "pos": [
+        "Vacant or abandoned building has broken/missing doors/windows or other unsealed openings allowing public entry or weather intrusion.",
+        "Any structure shows visible structural failure or imminent collapse: leaning, partial collapse, foundation/roof holes, or separation from chimney or wall.",
+        "Detached garage, shed, or outbuilding reported unsafe or collapsing, or requiring boarding/sealing to prevent unauthorized entry.",
+        "Fire-damaged building reported unsecured or structurally unsafe after a fire incident.",
+        "Scaffolding or temporary shoring left long-term or visibly unstable, posing collapse or falling-debris risk to the public."
+      ],
+      "neg": [
+        "if the dwelling is stated occupied and only minor defects are reported (e.g., broken window, rickety stairs), classify as Trash instead.",
+        "if the complaint references permits, inspection scheduling, or scope compliance without describing a physical hazard, classify as Trash instead.",
+        "if the issue is junk, debris, or hazardous materials on the porch/yard rather than a building defect, classify as Trash instead.",
+        "if the request concerns people living there or welfare checks without any building defect or unsecured opening, classify as Trash instead."
+      ]
+    },
+    "Water Quality": {
+      "pos": [
+        "Single-premises tap complaint of unusual taste, odor, discoloration, cloudiness, or sediment; customer requests investigation or guidance.",
+        "Single-premises hydraulic issues: low/no pressure, pressure surges, air/sputter, or pipe banging; request to check or test at the meter.",
+        "Single-premises leak concern with no visible water, damage, or flow; including near meter pit/curb/front yard; inspection only requested.",
+        "Appliance or interior-plumbing problem affecting water quality, temperature, or pressure at one premises; no request to repair utility assets.",
+        "Explicit account start/stop for a specific premises (activation/deactivation), including scheduled or after-hours appointments."
+      ],
+      "neg": [
+        "if visible running/standing water, bubbling, sinkhole, or a confirmed break/leak in street/right‑of‑way, classify as Water Utility Problems instead",
+        "if asked to operate, repair, or replace city-owned hardware (meter, meter box/lid, curb stop, valve, hydrant), classify as Water Utility Problems instead",
+        "if turn-on/turn-off is requested without explicit account activation/deactivation, or to support a repair/curb‑stop operation, classify as Water Utility Problems instead",
+        "if request says 'possible water leak' or generic leak check without single-premises symptom/location, classify as Water Utility Problems instead"
+      ]
+    },
+    "Water Utility Billing Problems": {
+      "pos": [
+        "Account/billing disputes and errors: misapplied addresses, incorrect bills, erroneous disconnect notices, and similar correspondence-driven billing issues"
+      ],
+      "neg": [
+        "operational sewer/water system failures (Sewer Problems/Water Utility Problems); water taste/color/pressure/noise (Water"
+      ]
+    },
+    "Water Utility Problems": {
+      "pos": [
+        "Visible or confirmed failures of potable-water assets (mains, services, hydrants, valves/curb stops, meters/pits/lids/boxes) causing leakage/flow, breakage, unsafe condition, or loss of control.",
+        "Continuous water surfacing or persistent yard/ground saturation without stormwater/drainage context, indicating a probable buried potable main/service leak on or near private property.",
+        "Suspected main/service leak or break needing field investigation, after-hours dispatches, or area-wide discoloration/grit persisting many hours beyond a single tap or appliance.",
+        "Operate/repair potable-water control points: curb stops/valves, or perform non-account water shutoff/turn-on for repairs, leak isolation, or contractor work.",
+        "Property restoration or cleanup (reseeding, backfill settlement, debris, driveway/sidewalk repair) explicitly due to water-utility excavation or meter/main/service work."
+      ],
+      "neg": [
+        "if street ponding/flooding, or mentions storm/drainage assets (ditch/culvert/inlet/catch basin/standpipe) or erosion/drainage/grading/development, classify as Sidewalk Snow Removal instead.",
+        "if sewer assets/symptoms appear—manhole/cover, sewer main/lateral, lift/grinder/ejector pump, backups/clogs/slow drains/sewer odors, or restoration after sewer work—classify as Sewer Problems (Sanitary Sewers) instead.",
+        "if single-premises taste/odor/color/pressure/noise issues, appliance/water-heater problems, or 'leak' by meter pit/curb/front without visible flow/damage, classify as Water Quality instead.",
+        "if water turn-on/off is for moving, start/stop service, or account activation/deactivation, classify as Water Quality instead."
+      ]
+    },
+    "Yard Waste": {
+      "pos": [
+        "Explicit yard‑waste/brush/leaves/branches term or 40‑lb limit, with set‑out compliance: required sticker/fee, 35‑gal can oversize/overfilled, or overweight.",
+        "Yard‑waste referenced container/prep violation: in plastic bags, improper container, not tied/bundled brush, packed too tight, or prohibited contents like dirt/rocks.",
+        "Yard‑waste program timing/season rules: not out by required time, wrong day, no winter collection, seasonal suspension, or placement violations.",
+        "Contamination involving yard waste: garbage mixed with yard waste or non‑program items included with brush/leaves.",
+        "Courtesy pickup documented for a yard‑waste violation/education, with explicit yard‑waste/brush/leaves reference."
+      ],
+      "neg": [
+        "if sticker or 35‑gal/can size compliance is noted without any yard‑waste/brush/leaves/branches terms, classify as Trash instead",
+        "if complaint is a missed pickup/collection, even when yard‑waste is mentioned, classify as Trash instead",
+        "if recycling, recycle/blue cart/bin, or recyclables (bottles, cans, paper) are referenced, classify as Recycling instead",
+        "if tie/bundle requirement concerns cardboard or boxes without yard‑waste terms, classify as Recycling instead"
+      ]
+    }
+  },
+  "val": 0.8766666666666667
+}

@@ -1,0 +1,390 @@
+{
+  "D": {
+    "Blocked Street": {
+      "pos": [
+        {
+          "t": "Physical obstructions (vegetation, vehicles, dumpsters, trailers) that fully block passage for vehicles or pedestrians in streets, alleys, or sidewalks.",
+          "ev": [
+            "Rec'd a call from Candy of Parker Mgmt to say the alley behind 601 N Walnut is overgrown. The limbs and shrubs are scrat",
+            "The yard is overgrown and the bushes and weeds are blocking the sidewalk and making it difficult to see to turn onto the",
+            "Mr. Craig called and said that tree limbs need to be picked up at the corner of Countryside and Thompson Park Dr. He sai"
+          ],
+          "n": 10
+        }
+      ],
+      "neg": [
+        {
+          "t": "Vegetation or brush that only encroaches on or impedes but does not fully block passage (see Excessive Growth).",
+          "ev": [
+            "Rec'd a call from Candy of Parker Mgmt to say the alley behind 601 N Walnut is overgrown. The limbs and shrubs are scrat",
+            "The yard is overgrown and the bushes and weeds are blocking the sidewalk and making it difficult to see to turn onto the",
+            "Mr. Craig called and said that tree limbs need to be picked up at the corner of Countryside and Thompson Park Dr. He sai"
+          ],
+          "n": 10
+        },
+        {
+          "t": "Overgrown yards or grass not affecting passage.",
+          "ev": [
+            "Rec'd a call from Candy of Parker Mgmt to say the alley behind 601 N Walnut is overgrown. The limbs and shrubs are scrat",
+            "The yard is overgrown and the bushes and weeds are blocking the sidewalk and making it difficult to see to turn onto the",
+            "Mr. Craig called and said that tree limbs need to be picked up at the corner of Countryside and Thompson Park Dr. He sai"
+          ],
+          "n": 10
+        }
+      ]
+    },
+    "Excessive Growth": {
+      "pos": [
+        {
+          "t": "Overgrown vegetation, weeds, or brush on private property, yards, sidewalks, or alleys, including when it encroaches on or impedes but does not fully block passage.",
+          "ev": [
+            "Rec'd a call from Candy of Parker Mgmt to say the alley behind 601 N Walnut is overgrown. The limbs and shrubs are scrat",
+            "The yard is overgrown and the bushes and weeds are blocking the sidewalk and making it difficult to see to turn onto the",
+            "Mr. Craig called and said that tree limbs need to be picked up at the corner of Countryside and Thompson Park Dr. He sai"
+          ],
+          "n": 10
+        },
+        {
+          "t": "Vegetation making sidewalks or alleys difficult to use, scratch vehicles, or reduce accessibility, unless passage is completely blocked.",
+          "ev": [
+            "Rec'd a call from Candy of Parker Mgmt to say the alley behind 601 N Walnut is overgrown. The limbs and shrubs are scrat",
+            "The yard is overgrown and the bushes and weeds are blocking the sidewalk and making it difficult to see to turn onto the",
+            "Mr. Craig called and said that tree limbs need to be picked up at the corner of Countryside and Thompson Park Dr. He sai"
+          ],
+          "n": 10
+        }
+      ],
+      "neg": [
+        {
+          "t": "Vegetation or objects that fully block passage for vehicles or pedestrians (see Blocked Street).",
+          "ev": [
+            "Rec'd a call from Candy of Parker Mgmt to say the alley behind 601 N Walnut is overgrown. The limbs and shrubs are scrat",
+            "The yard is overgrown and the bushes and weeds are blocking the sidewalk and making it difficult to see to turn onto the",
+            "Mr. Craig called and said that tree limbs need to be picked up at the corner of Countryside and Thompson Park Dr. He sai"
+          ],
+          "n": 10
+        },
+        {
+          "t": "Line of sight issues only (see Line of Sight).",
+          "ev": [
+            "Rec'd a call from Candy of Parker Mgmt to say the alley behind 601 N Walnut is overgrown. The limbs and shrubs are scrat",
+            "The yard is overgrown and the bushes and weeds are blocking the sidewalk and making it difficult to see to turn onto the",
+            "Mr. Craig called and said that tree limbs need to be picked up at the corner of Countryside and Thompson Park Dr. He sai"
+          ],
+          "n": 10
+        }
+      ]
+    },
+    "Line of Sight": {
+      "pos": [
+        "Vegetation or objects obstructing visibility for drivers or pedestrians at intersections or driveways, even if the wording mentions blocking or overgrowth."
+      ],
+      "neg": [
+        "General overgrowth or blockage not related to visibility (see Blocked Street or Excessive Growth)."
+      ]
+    },
+    "Parking on Unimproved Surface": {
+      "pos": [
+        {
+          "t": "Vehicles (including inoperable, stored, or multiple vehicles) parked on non-paved surfaces (grass, dirt, gravel, or unpaved driveways/lots), even if surface type is implied or omit",
+          "ev": [
+            "mattress in back of unit",
+            "sofa and chairs on front porch"
+          ],
+          "n": 2
+        },
+        {
+          "t": "Only classify as this if a vehicle (car, truck, boat, etc.) is explicitly mentioned as parked on a non-paved surface.",
+          "ev": [
+            "mattress in back of unit",
+            "sofa and chairs on front porch"
+          ],
+          "n": 2
+        }
+      ],
+      "neg": [
+        {
+          "t": "Complaints about non-vehicle items (e.g., furniture, mattresses, household goods) left outdoors, on porches, or in yards—see Trash.",
+          "ev": [
+            "mattress in back of unit",
+            "sofa and chairs on front porch"
+          ],
+          "n": 2
+        },
+        {
+          "t": "Parking complaints involving traffic flow, signage, or dangerous driving (see Traffic Related Complaints).",
+          "ev": [
+            "mattress in back of unit",
+            "sofa and chairs on front porch"
+          ],
+          "n": 2
+        },
+        {
+          "t": "Complaints about vehicles parked on paved streets, legal driveways, or parking lots unless surface is specified or implied as non-paved.",
+          "ev": [
+            "mattress in back of unit",
+            "sofa and chairs on front porch"
+          ],
+          "n": 2
+        }
+      ]
+    },
+    "Parks & Playgrounds": {
+      "pos": [
+        "Issues, suggestions, or compliments related to parks, trails, playgrounds, recreation programs, or park maintenance, including wildflowers and events."
+      ],
+      "neg": [
+        "Overgrowth or maintenance issues outside park property (see Excessive Growth); trash or recycling in parks (see Trash or"
+      ]
+    },
+    "Recycling": {
+      "pos": [
+        {
+          "t": "Complaints about improper sorting, mixing, or inclusion of non-recyclable items in recycling bins, even if trash is mentioned.",
+          "ev": [
+            "Courtesy Pick up. matt picked up Friday",
+            "was not out by curb",
+            "trash mixed in"
+          ],
+          "n": 22
+        },
+        {
+          "t": "Missed or refused recycling pickups due to non-compliant items, wrong set-out time, or placement (e.g., 'not out by curb', 'out on wrong day', 'set out late').",
+          "ev": [
+            "Courtesy Pick up. matt picked up Friday",
+            "was not out by curb",
+            "trash mixed in"
+          ],
+          "n": 22
+        },
+        {
+          "t": "References to 'items not included in program' or 'courtesy pick up' for recycling.",
+          "ev": [
+            "Courtesy Pick up. matt picked up Friday",
+            "was not out by curb",
+            "trash mixed in"
+          ],
+          "n": 22
+        }
+      ],
+      "neg": [
+        {
+          "t": "Sticker, weight, or size compliance issues (see Trash); yard waste or brush (see Yard Waste); trash-only issues (see Trash).",
+          "ev": [
+            "Courtesy Pick up. matt picked up Friday",
+            "was not out by curb",
+            "trash mixed in"
+          ],
+          "n": 22
+        }
+      ]
+    },
+    "Sewer Problems (Sanitary Sewers)": {
+      "pos": [
+        "Issues with sanitary sewer systems, including backups, odors, or manhole problems, regardless of whether water is also mentioned."
+      ],
+      "neg": [
+        "Stormwater or drainage issues (see Sidewalk Snow Removal); water utility problems (see Water Utility Problems)."
+      ]
+    },
+    "Sidewalk & Curb Complaints": {
+      "pos": [
+        "Physical defects or hazards in sidewalks or curbs, such as trip hazards, uneven surfaces, or debris left after work. Includes dead trees if specifically noted a"
+      ],
+      "neg": [
+        "Snow or ice on sidewalks (see Street Snow Removal); overgrowth or blockage (see Blocked Street or Excessive Growth)."
+      ]
+    },
+    "Sidewalk Snow Removal": {
+      "pos": [
+        "Issues with water, leaks, or drainage affecting sidewalks, including stormwater, retention ponds, or erosion, even if snow is not mentioned."
+      ],
+      "neg": [
+        "Snow or ice complaints (see Street Snow Removal); sewer problems (see Sewer Problems (Sanitary Sewers))."
+      ]
+    },
+    "Street Snow Removal": {
+      "pos": [
+        "Complaints about snow or ice not being cleared from sidewalks, streets, or parking areas, including accessibility issues due to snow."
+      ],
+      "neg": [
+        "Water or drainage issues (see Sidewalk Snow Removal); sidewalk defects (see Sidewalk & Curb Complaints)."
+      ]
+    },
+    "Temporary Signage w/o permit": {
+      "pos": [
+        "Reports of temporary or permanent signs, banners, or pennants displayed without a permit, regardless of sign type or location."
+      ],
+      "neg": [
+        "Permanent signage with permits (not represented); unrelated code violations."
+      ]
+    },
+    "Traffic Related Complaints": {
+      "pos": [
+        {
+          "t": "Requests or complaints about traffic control (e.g., stop lights, stop signs), parking restrictions (e.g., time limits, permit zones), signage visibility (except strictly line of si",
+          "ev": [
+            "Inoperable vehicle parked in parking lot",
+            "4 to 5 cars in drive, another car in front of house",
+            "He says he received a parking violation but the car in question has not been operable for two years and that he was not "
+          ],
+          "n": 3
+        },
+        {
+          "t": "If complaint is about how vehicles affect traffic movement, safety, or signage, not just where they are parked, use this category.",
+          "ev": [
+            "Inoperable vehicle parked in parking lot",
+            "4 to 5 cars in drive, another car in front of house",
+            "He says he received a parking violation but the car in question has not been operable for two years and that he was not "
+          ],
+          "n": 3
+        }
+      ],
+      "neg": [
+        {
+          "t": "Complaints solely about vehicles parked on non-paved surfaces, regardless of operability or number (see Parking on Unimproved Surface).",
+          "ev": [
+            "Inoperable vehicle parked in parking lot",
+            "4 to 5 cars in drive, another car in front of house",
+            "He says he received a parking violation but the car in question has not been operable for two years and that he was not "
+          ],
+          "n": 3
+        },
+        {
+          "t": "Do not use for complaints only about location or storage of parked vehicles without mention of traffic control, signage, or dangerous driving.",
+          "ev": [
+            "Inoperable vehicle parked in parking lot",
+            "4 to 5 cars in drive, another car in front of house",
+            "He says he received a parking violation but the car in question has not been operable for two years and that he was not "
+          ],
+          "n": 3
+        }
+      ]
+    },
+    "Trash": {
+      "pos": [
+        {
+          "t": "Issues with trash collection involving sticker requirements, overweight/oversized containers, or improper trash containers.",
+          "ev": [
+            "mattress in back of unit",
+            "sofa and chairs on front porch"
+          ],
+          "n": 2
+        },
+        {
+          "t": "Missed trash pickups due to non-compliance with trash-specific rules (e.g., stickers, weight, size, can/gallon limits), or references to non-collection notices without mention of b",
+          "ev": [
+            "mattress in back of unit",
+            "sofa and chairs on front porch"
+          ],
+          "n": 2
+        },
+        {
+          "t": "Hazardous materials in trash collection.",
+          "ev": [
+            "mattress in back of unit",
+            "sofa and chairs on front porch"
+          ],
+          "n": 2
+        },
+        {
+          "t": "Bulky household items (e.g., mattress, sofa, chairs, furniture) left outdoors, on porches, or in yards, regardless of vehicle presence.",
+          "ev": [
+            "mattress in back of unit",
+            "sofa and chairs on front porch"
+          ],
+          "n": 2
+        }
+      ],
+      "neg": [
+        {
+          "t": "Recycling-specific issues (see Recycling), including improper sorting, non-recyclable items, or missed/late recycling pickups.",
+          "ev": [
+            "mattress in back of unit",
+            "sofa and chairs on front porch"
+          ],
+          "n": 2
+        },
+        {
+          "t": "Yard waste or brush (see Yard Waste); trash in yards as part of overgrowth (see Excessive Growth).",
+          "ev": [
+            "mattress in back of unit",
+            "sofa and chairs on front porch"
+          ],
+          "n": 2
+        },
+        {
+          "t": "Any complaint or question explicitly about water or sewer billing, charges, or account status (see Water Utility Billing Problems).",
+          "ev": [
+            "mattress in back of unit",
+            "sofa and chairs on front porch"
+          ],
+          "n": 2
+        },
+        {
+          "t": "Complaints about vehicles (cars, trucks, boats) parked on any surface—see Parking on Unimproved Surface.",
+          "ev": [
+            "mattress in back of unit",
+            "sofa and chairs on front porch"
+          ],
+          "n": 2
+        }
+      ]
+    },
+    "Unsafe Buildings": {
+      "pos": [
+        "Reports of vacant, abandoned, or structurally unsafe buildings, including concerns about collapse, entry, or habitation."
+      ],
+      "neg": [
+        "General property maintenance or overgrowth (see Excessive Growth); utility issues (see Water Utility Problems)."
+      ]
+    },
+    "Water Quality": {
+      "pos": [
+        "Issues with water pressure, water clarity, or water service quality, including requests for meter testing or water turn-on."
+      ],
+      "neg": [
+        "Water utility billing (see Water Utility Billing Problems); leaks or repairs (see Water Utility Problems)."
+      ]
+    },
+    "Water Utility Billing Problems": {
+      "pos": [
+        {
+          "t": "Complaints, appeals, or questions explicitly about water or sewer billing, charges, billing policies, or disputes over service status.",
+          "ev": [
+            "nothing was marked on non-collection notice",
+            "can limit of of 35 gallons"
+          ],
+          "n": 2
+        }
+      ],
+      "neg": [
+        {
+          "t": "Operational or compliance issues with trash collection, including container size/limits, non-collection notices, or trash-specific rules (see Trash).",
+          "ev": [
+            "nothing was marked on non-collection notice",
+            "can limit of of 35 gallons"
+          ],
+          "n": 2
+        }
+      ]
+    },
+    "Water Utility Problems": {
+      "pos": [
+        "Physical problems with water utility infrastructure, such as leaks, meter issues, or yard restoration after water line work."
+      ],
+      "neg": [
+        "Water quality (see Water Quality); billing issues (see Water Utility Billing Problems)."
+      ]
+    },
+    "Yard Waste": {
+      "pos": [
+        "Complaints about yard waste collection, including container size, weight limits, and fees for bags or cans."
+      ],
+      "neg": [
+        "Overgrown vegetation (see Excessive Growth); trash or recycling (see Trash or Recycling)."
+      ]
+    }
+  },
+  "gate": 0.8358333333333333
+}

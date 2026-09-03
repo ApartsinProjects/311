@@ -1,0 +1,354 @@
+{
+  "D": {
+    "Blocked Street": {
+      "pos": [
+        {
+          "t": "If the request states or clearly implies that a dumpster, trash, debris, brush, or vegetation is physically blocking or encroaching into the street or right-of-way, file as Blocked",
+          "ev": [
+            "across the street from this address, brush piled in the street, not know from whence it came, magically appeared by God'",
+            "Bath tub in yard, on corner",
+            "Dumpster/trailer has been sitting in the driveway (lower) for a couple of years. is currently overflowing with trash and"
+          ],
+          "n": 7
+        }
+      ],
+      "neg": [
+        {
+          "t": "If the request only describes overflowing dumpsters, trash, or debris present but not physically blocking the street/right-of-way, do not file as Blocked Street.",
+          "ev": [
+            "across the street from this address, brush piled in the street, not know from whence it came, magically appeared by God'",
+            "Bath tub in yard, on corner",
+            "Dumpster/trailer has been sitting in the driveway (lower) for a couple of years. is currently overflowing with trash and"
+          ],
+          "n": 7
+        },
+        {
+          "t": "General overgrown vegetation not specifically blocking the street (see Excessive Growth); line of sight issues (see Line).",
+          "ev": [
+            "across the street from this address, brush piled in the street, not know from whence it came, magically appeared by God'",
+            "Bath tub in yard, on corner",
+            "Dumpster/trailer has been sitting in the driveway (lower) for a couple of years. is currently overflowing with trash and"
+          ],
+          "n": 7
+        }
+      ]
+    },
+    "Excessive Growth": {
+      "pos": [
+        {
+          "t": "Overgrown grass, weeds, or vegetation on private property or vacant lots.",
+          "ev": [
+            "PILES OF ROCK IN HIS YARD, HE WANTS THEM REMOVED",
+            "HAS QUESTIONS IN REGARD TO YARD WORK.",
+            "NEEDS YARD WORK AND DRIVE REPAIR"
+          ],
+          "n": 3
+        },
+        {
+          "t": "Accumulation of trash or junk scattered in yards, when not involving requests for repair or removal of non-vegetative materials.",
+          "ev": [
+            "PILES OF ROCK IN HIS YARD, HE WANTS THEM REMOVED",
+            "HAS QUESTIONS IN REGARD TO YARD WORK.",
+            "NEEDS YARD WORK AND DRIVE REPAIR"
+          ],
+          "n": 3
+        }
+      ],
+      "neg": [
+        {
+          "t": "Requests for yard work or repairs involving non-vegetative materials (e.g., rock removal, drive repair) or general yard work without mention of vegetation or trash/junk (see Water ",
+          "ev": [
+            "PILES OF ROCK IN HIS YARD, HE WANTS THEM REMOVED",
+            "HAS QUESTIONS IN REGARD TO YARD WORK.",
+            "NEEDS YARD WORK AND DRIVE REPAIR"
+          ],
+          "n": 3
+        },
+        {
+          "t": "Vegetation specifically blocking the street or right-of-way (see Blocked Street); vegetation causing line of sight issue.",
+          "ev": [
+            "PILES OF ROCK IN HIS YARD, HE WANTS THEM REMOVED",
+            "HAS QUESTIONS IN REGARD TO YARD WORK.",
+            "NEEDS YARD WORK AND DRIVE REPAIR"
+          ],
+          "n": 3
+        }
+      ]
+    },
+    "Line of Sight": {
+      "pos": [
+        "Vegetation or objects (e.g., trees, bushes, brush) that block visibility for drivers or pedestrians at intersections or driveways."
+      ],
+      "neg": [
+        "General overgrowth (see Excessive Growth); blockages of the street/right-of-way (see Blocked Street); traffic signal/sig"
+      ]
+    },
+    "Parking on Unimproved Surface": {
+      "pos": [
+        "Vehicles parked on grass, yards, or other non-paved surfaces, including business vehicles and multiple cars."
+      ],
+      "neg": [
+        "General parking violations not related to surface type; lost parking bills or violations not about surface (these are in"
+      ]
+    },
+    "Parks & Playgrounds": {
+      "pos": [
+        "Comments, complaints, or offers related to parks, playgrounds, or recreational programming."
+      ],
+      "neg": [
+        "General trash or maintenance issues in parks (see Trash or Yard Waste)."
+      ]
+    },
+    "Recycling": {
+      "pos": [
+        {
+          "t": "File as Recycling only if the request explicitly references improper sorting, contamination, or handling of recyclable items (e.g., 'recyclable items not properly sorted').",
+          "ev": [
+            "PLEASE TIE AND BUNDLE CARDBOARD.",
+            "recycling and non recycling mixed ++items not included in program"
+          ],
+          "n": 2
+        }
+      ],
+      "neg": [
+        {
+          "t": "Do not file as Recycling if the request refers to bundling, tying, or handling of items that could be yard waste (e.g., cardboard, brush) without explicit recycling context.",
+          "ev": [
+            "PLEASE TIE AND BUNDLE CARDBOARD.",
+            "recycling and non recycling mixed ++items not included in program"
+          ],
+          "n": 2
+        },
+        {
+          "t": "Do not file as Recycling if the request mentions 'items not included in program' and the items could be yard waste.",
+          "ev": [
+            "PLEASE TIE AND BUNDLE CARDBOARD.",
+            "recycling and non recycling mixed ++items not included in program"
+          ],
+          "n": 2
+        }
+      ]
+    },
+    "Sewer Problems (Sanitary Sewers)": {
+      "pos": [
+        "Odors, backups, leaks, or health problems related to sanitary sewers, including private sewer pumps."
+      ],
+      "neg": [
+        "Storm drain or storm sewer issues (see Sidewalk Snow Removal); water quality or utility issues (see Water Quality or Wat"
+      ]
+    },
+    "Sidewalk & Curb Complaints": {
+      "pos": [
+        "Physical problems with sidewalks or curbs, such as being lower than street level."
+      ],
+      "neg": [
+        "Snow/ice on sidewalks (see Street Snow Removal); missed trash pick-up (see Trash)."
+      ]
+    },
+    "Sidewalk Snow Removal": {
+      "pos": [
+        "Clogged storm drains, storm sewer backups, and leaves clogging storm drains, as well as snow/ice removal from sidewalks. (Note: This category includes storm dra"
+      ],
+      "neg": [
+        "Sanitary sewer issues (see Sewer Problems); snow/ice on streets (see Street Snow Removal)."
+      ]
+    },
+    "Street Snow Removal": {
+      "pos": [
+        "Snow and ice not removed from sidewalks or public walkways, including around public buildings. (Note: This category is used for sidewalk snow removal, not stree"
+      ],
+      "neg": [
+        "Clogged storm drains (see Sidewalk Snow Removal); snow/ice on streets (not sidewalks)."
+      ]
+    },
+    "Temporary Signage w/o permit": {
+      "pos": [
+        "Temporary or illegal signs, including those in right-of-way, parking lots, or drive-throughs, and signs without permits."
+      ],
+      "neg": [
+        "Permanent signage issues."
+      ]
+    },
+    "Traffic Related Complaints": {
+      "pos": [
+        "Complaints about traffic behavior (e.g., running red lights), street lights, one-way streets, and line of sight problems due to bushes (when framed as a traffic"
+      ],
+      "neg": [
+        "Vegetation causing line of sight issues not framed as traffic (see Line of Sight); blocked streets (see Blocked Street)."
+      ]
+    },
+    "Trash": {
+      "pos": [
+        {
+          "t": "If the request describes overflowing dumpsters, trash containers, or trash/debris left at curb, in yard, or on property, and does not state they are physically blocking the street/",
+          "ev": [
+            "across the street from this address, brush piled in the street, not know from whence it came, magically appeared by God'",
+            "Bath tub in yard, on corner",
+            "Dumpster/trailer has been sitting in the driveway (lower) for a couple of years. is currently overflowing with trash and"
+          ],
+          "n": 7
+        },
+        {
+          "t": "If the request mentions large trash items (e.g., furniture, bathtubs, desks) left at curb, in yard, or on property, and does not state they are blocking the street/right-of-way, fi",
+          "ev": [
+            "across the street from this address, brush piled in the street, not know from whence it came, magically appeared by God'",
+            "Bath tub in yard, on corner",
+            "Dumpster/trailer has been sitting in the driveway (lower) for a couple of years. is currently overflowing with trash and"
+          ],
+          "n": 7
+        },
+        {
+          "t": "If the request mentions missed trash pick-up, improper trash containers, or trash sticker issues with no reference (explicit or implicit) to yard waste, file as Trash.",
+          "ev": [
+            "across the street from this address, brush piled in the street, not know from whence it came, magically appeared by God'",
+            "Bath tub in yard, on corner",
+            "Dumpster/trailer has been sitting in the driveway (lower) for a couple of years. is currently overflowing with trash and"
+          ],
+          "n": 7
+        },
+        {
+          "t": "If wording is generic (e.g., 'Bags must have sticker attached', 'Exceeds can limit of 35 gallons') and there is no mention or implication of yard waste, choose Trash.",
+          "ev": [
+            "across the street from this address, brush piled in the street, not know from whence it came, magically appeared by God'",
+            "Bath tub in yard, on corner",
+            "Dumpster/trailer has been sitting in the driveway (lower) for a couple of years. is currently overflowing with trash and"
+          ],
+          "n": 7
+        }
+      ],
+      "neg": [
+        {
+          "t": "If the request states or clearly implies that a dumpster, trash, or debris is physically blocking the street or right-of-way, do not file as Trash.",
+          "ev": [
+            "across the street from this address, brush piled in the street, not know from whence it came, magically appeared by God'",
+            "Bath tub in yard, on corner",
+            "Dumpster/trailer has been sitting in the driveway (lower) for a couple of years. is currently overflowing with trash and"
+          ],
+          "n": 7
+        },
+        {
+          "t": "If the issue mentions or implies yard waste (including ambiguous cases), do not file as Trash.",
+          "ev": [
+            "across the street from this address, brush piled in the street, not know from whence it came, magically appeared by God'",
+            "Bath tub in yard, on corner",
+            "Dumpster/trailer has been sitting in the driveway (lower) for a couple of years. is currently overflowing with trash and"
+          ],
+          "n": 7
+        }
+      ]
+    },
+    "Unsafe Buildings": {
+      "pos": [
+        "Vacant, unsecured, or structurally unsafe buildings, including broken windows, dangerous scaffolding, and unsafe outbuildings."
+      ],
+      "neg": [
+        "General property maintenance or overgrowth (see Excessive Growth)."
+      ]
+    },
+    "Water Quality": {
+      "pos": [
+        "Issues with water taste, smell, color, pressure, or rattling pipes."
+      ],
+      "neg": [
+        "Water utility infrastructure problems (see Water Utility Problems); billing issues (see Water Utility Billing Problems)."
+      ]
+    },
+    "Water Utility Billing Problems": {
+      "pos": [
+        "Problems with water utility bills, including incorrect bills, disconnect notices, and billing for wrong addresses."
+      ],
+      "neg": [
+        "Water quality or utility infrastructure issues (see Water Quality or Water Utility Problems)."
+      ]
+    },
+    "Water Utility Problems": {
+      "pos": [
+        {
+          "t": "Physical problems with water utility infrastructure, such as main breaks, broken valves, meter issues, and standing water.",
+          "ev": [
+            "PILES OF ROCK IN HIS YARD, HE WANTS THEM REMOVED",
+            "HAS QUESTIONS IN REGARD TO YARD WORK.",
+            "NEEDS YARD WORK AND DRIVE REPAIR"
+          ],
+          "n": 3
+        },
+        {
+          "t": "Requests for yard work or repairs involving non-vegetative materials (e.g., rock removal, drive repair), unless vegetation or trash/junk is the main issue.",
+          "ev": [
+            "PILES OF ROCK IN HIS YARD, HE WANTS THEM REMOVED",
+            "HAS QUESTIONS IN REGARD TO YARD WORK.",
+            "NEEDS YARD WORK AND DRIVE REPAIR"
+          ],
+          "n": 3
+        }
+      ],
+      "neg": [
+        {
+          "t": "Water quality complaints (see Water Quality); billing issues (see Water Utility Billing Problems).",
+          "ev": [
+            "PILES OF ROCK IN HIS YARD, HE WANTS THEM REMOVED",
+            "HAS QUESTIONS IN REGARD TO YARD WORK.",
+            "NEEDS YARD WORK AND DRIVE REPAIR"
+          ],
+          "n": 3
+        },
+        {
+          "t": "Requests solely about overgrown vegetation or accumulation of trash/junk (see Excessive Growth).",
+          "ev": [
+            "PILES OF ROCK IN HIS YARD, HE WANTS THEM REMOVED",
+            "HAS QUESTIONS IN REGARD TO YARD WORK.",
+            "NEEDS YARD WORK AND DRIVE REPAIR"
+          ],
+          "n": 3
+        }
+      ]
+    },
+    "Yard Waste": {
+      "pos": [
+        {
+          "t": "If the request mentions yard waste explicitly, file as Yard Waste.",
+          "ev": [
+            "PLEASE TIE AND BUNDLE CARDBOARD.",
+            "recycling and non recycling mixed ++items not included in program"
+          ],
+          "n": 2
+        },
+        {
+          "t": "If the request involves bundling, tying, or container/sticker issues AND refers to items commonly included in yard waste (e.g., branches, cardboard, brush), file as Yard Waste.",
+          "ev": [
+            "PLEASE TIE AND BUNDLE CARDBOARD.",
+            "recycling and non recycling mixed ++items not included in program"
+          ],
+          "n": 2
+        },
+        {
+          "t": "If the request mentions items not included in the recycling program but could be yard waste (e.g., 'items not included in program' with no explicit recycling reference), file as Ya",
+          "ev": [
+            "PLEASE TIE AND BUNDLE CARDBOARD.",
+            "recycling and non recycling mixed ++items not included in program"
+          ],
+          "n": 2
+        }
+      ],
+      "neg": [
+        {
+          "t": "Do not file as Yard Waste if there is no explicit or implicit reference to yard waste or yard waste-eligible items.",
+          "ev": [
+            "PLEASE TIE AND BUNDLE CARDBOARD.",
+            "recycling and non recycling mixed ++items not included in program"
+          ],
+          "n": 2
+        },
+        {
+          "t": "Do not file as Yard Waste if the request only mentions improper sorting or handling of recyclable items with no ambiguity.",
+          "ev": [
+            "PLEASE TIE AND BUNDLE CARDBOARD.",
+            "recycling and non recycling mixed ++items not included in program"
+          ],
+          "n": 2
+        }
+      ]
+    }
+  },
+  "gate": 0.8533333333333334
+}

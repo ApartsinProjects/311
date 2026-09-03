@@ -1,0 +1,258 @@
+{
+  "D": {
+    "Blocked Street": {
+      "pos": [
+        {
+          "t": "Requests where vegetation, objects, or vehicles fully block passage, forcing pedestrians or vehicles to leave the intended path (sidewalk, alley, or street) and enter a hazardous a",
+          "ev": [
+            "The yard is overgrown and the bushes and weeds are blocking the sidewalk and making it difficult to see to turn onto the",
+            "alley obstructed, weeds, limbs, etc. overgrown causing passage  problems",
+            "Mr. Craig called and said that tree limbs need to be picked up at the corner of Countryside and Thompson Park Dr. He sai"
+          ],
+          "n": 30
+        },
+        {
+          "t": "Includes fallen trees, trailers, dumpsters, fences, or other objects physically preventing use of the path.",
+          "ev": [
+            "The yard is overgrown and the bushes and weeds are blocking the sidewalk and making it difficult to see to turn onto the",
+            "alley obstructed, weeds, limbs, etc. overgrown causing passage  problems",
+            "Mr. Craig called and said that tree limbs need to be picked up at the corner of Countryside and Thompson Park Dr. He sai"
+          ],
+          "n": 30
+        }
+      ],
+      "neg": [
+        {
+          "t": "Overgrown or encroaching vegetation that makes passage difficult but does not require leaving the path (see Excessive Growth).",
+          "ev": [
+            "The yard is overgrown and the bushes and weeds are blocking the sidewalk and making it difficult to see to turn onto the",
+            "alley obstructed, weeds, limbs, etc. overgrown causing passage  problems",
+            "Mr. Craig called and said that tree limbs need to be picked up at the corner of Countryside and Thompson Park Dr. He sai"
+          ],
+          "n": 30
+        },
+        {
+          "t": "Requests about visibility or line of sight only (see Line of Sight).",
+          "ev": [
+            "The yard is overgrown and the bushes and weeds are blocking the sidewalk and making it difficult to see to turn onto the",
+            "alley obstructed, weeds, limbs, etc. overgrown causing passage  problems",
+            "Mr. Craig called and said that tree limbs need to be picked up at the corner of Countryside and Thompson Park Dr. He sai"
+          ],
+          "n": 30
+        }
+      ]
+    },
+    "Excessive Growth": {
+      "pos": [
+        {
+          "t": "Overgrown vegetation, weeds, or brush on private property, yards, sidewalks, or alleys, including when encroaching or partially obstructing passage but not forcing rerouting into s",
+          "ev": [
+            "The yard is overgrown and the bushes and weeds are blocking the sidewalk and making it difficult to see to turn onto the",
+            "alley obstructed, weeds, limbs, etc. overgrown causing passage  problems",
+            "Mr. Craig called and said that tree limbs need to be picked up at the corner of Countryside and Thompson Park Dr. He sai"
+          ],
+          "n": 30
+        },
+        {
+          "t": "Mentions of vegetation 'blocking', 'encroaching', or 'hanging over' sidewalks/alleys where passage is difficult but still possible without leaving the path.",
+          "ev": [
+            "The yard is overgrown and the bushes and weeds are blocking the sidewalk and making it difficult to see to turn onto the",
+            "alley obstructed, weeds, limbs, etc. overgrown causing passage  problems",
+            "Mr. Craig called and said that tree limbs need to be picked up at the corner of Countryside and Thompson Park Dr. He sai"
+          ],
+          "n": 30
+        }
+      ],
+      "neg": [
+        {
+          "t": "If vegetation or object forces pedestrians or vehicles to leave the sidewalk, alley, or street and enter a hazardous area, see Blocked Street.",
+          "ev": [
+            "The yard is overgrown and the bushes and weeds are blocking the sidewalk and making it difficult to see to turn onto the",
+            "alley obstructed, weeds, limbs, etc. overgrown causing passage  problems",
+            "Mr. Craig called and said that tree limbs need to be picked up at the corner of Countryside and Thompson Park Dr. He sai"
+          ],
+          "n": 30
+        },
+        {
+          "t": "Requests about fallen trees, placed objects, or non-vegetation obstructions blocking passage (see Blocked Street).",
+          "ev": [
+            "The yard is overgrown and the bushes and weeds are blocking the sidewalk and making it difficult to see to turn onto the",
+            "alley obstructed, weeds, limbs, etc. overgrown causing passage  problems",
+            "Mr. Craig called and said that tree limbs need to be picked up at the corner of Countryside and Thompson Park Dr. He sai"
+          ],
+          "n": 30
+        }
+      ]
+    },
+    "Line of Sight": {
+      "pos": [
+        "Vegetation or objects obstructing visibility for drivers or pedestrians at intersections or driveways, even if the wording mentions blocking or overgrowth."
+      ],
+      "neg": [
+        "General overgrowth or blockage not related to visibility (see Blocked Street or Excessive Growth)."
+      ]
+    },
+    "Parking on Unimproved Surface": {
+      "pos": [
+        "Vehicles parked on grass, dirt, or other non-paved surfaces, including boats and trailers, regardless of whether the complaint mentions code or zoning."
+      ],
+      "neg": [
+        "Vehicles blocking streets or sidewalks (see Blocked Street); parking complaints about legal surfaces (see Traffic Relate"
+      ]
+    },
+    "Parks & Playgrounds": {
+      "pos": [
+        "Issues, suggestions, or compliments related to parks, trails, playgrounds, recreation programs, or park maintenance, including wildflowers and events."
+      ],
+      "neg": [
+        "Overgrowth or maintenance issues outside park property (see Excessive Growth); trash or recycling in parks (see Trash or"
+      ]
+    },
+    "Recycling": {
+      "pos": [
+        "Complaints about improper sorting, mixing, or inclusion of non-recyclable items in recycling bins, regardless of whether trash is also mentioned."
+      ],
+      "neg": [
+        "Trash-only issues (see Trash); yard waste or brush (see Yard Waste); missed pickups (see Trash)."
+      ]
+    },
+    "Sewer Problems (Sanitary Sewers)": {
+      "pos": [
+        "Issues with sanitary sewer systems, including backups, odors, or manhole problems, regardless of whether water is also mentioned."
+      ],
+      "neg": [
+        "Stormwater or drainage issues (see Sidewalk Snow Removal); water utility problems (see Water Utility Problems)."
+      ]
+    },
+    "Sidewalk & Curb Complaints": {
+      "pos": [
+        "Physical defects or hazards in sidewalks or curbs, such as trip hazards, uneven surfaces, or debris left after work. Includes dead trees if specifically noted a"
+      ],
+      "neg": [
+        "Snow or ice on sidewalks (see Street Snow Removal); overgrowth or blockage (see Blocked Street or Excessive Growth)."
+      ]
+    },
+    "Sidewalk Snow Removal": {
+      "pos": [
+        "Issues with water, leaks, or drainage affecting sidewalks, including stormwater, retention ponds, or erosion, even if snow is not mentioned."
+      ],
+      "neg": [
+        "Snow or ice complaints (see Street Snow Removal); sewer problems (see Sewer Problems (Sanitary Sewers))."
+      ]
+    },
+    "Street Snow Removal": {
+      "pos": [
+        "Complaints about snow or ice not being cleared from sidewalks, streets, or parking areas, including accessibility issues due to snow."
+      ],
+      "neg": [
+        "Water or drainage issues (see Sidewalk Snow Removal); sidewalk defects (see Sidewalk & Curb Complaints)."
+      ]
+    },
+    "Temporary Signage w/o permit": {
+      "pos": [
+        "Reports of temporary or permanent signs, banners, or pennants displayed without a permit, regardless of sign type or location."
+      ],
+      "neg": [
+        "Permanent signage with permits (not represented); unrelated code violations."
+      ]
+    },
+    "Traffic Related Complaints": {
+      "pos": [
+        "Requests or complaints about traffic control, parking restrictions, signage visibility (if not strictly line of sight), or dangerous driving conditions."
+      ],
+      "neg": [
+        "Vehicles parked on grass (see Parking on Unimproved Surface); line of sight issues (see Line of Sight)."
+      ]
+    },
+    "Trash": {
+      "pos": [
+        {
+          "t": "Issues with trash collection, including overweight bags, missing stickers, improper containers, or trash left out. Includes hazardous materials and missed pickup.",
+          "ev": [
+            "faxed ljl/ Missed pick-up/yard waste:",
+            "faxed missed pick-up/yard waste:",
+            "Exceeds weight limit of 40 lbs, Exceeds can size of 32 gallons.  954"
+          ],
+          "n": 452
+        },
+        {
+          "t": "If container/can size or weight violations are mentioned without explicit reference to yard waste, classify as Trash.",
+          "ev": [
+            "faxed ljl/ Missed pick-up/yard waste:",
+            "faxed missed pick-up/yard waste:",
+            "Exceeds weight limit of 40 lbs, Exceeds can size of 32 gallons.  954"
+          ],
+          "n": 452
+        }
+      ],
+      "neg": [
+        {
+          "t": "Recycling issues (see Recycling); yard waste explicitly mentioned (see Yard Waste); trash in yards as part of overgrowth (see Excessive Growth).",
+          "ev": [
+            "faxed ljl/ Missed pick-up/yard waste:",
+            "faxed missed pick-up/yard waste:",
+            "Exceeds weight limit of 40 lbs, Exceeds can size of 32 gallons.  954"
+          ],
+          "n": 452
+        }
+      ]
+    },
+    "Unsafe Buildings": {
+      "pos": [
+        "Reports of vacant, abandoned, or structurally unsafe buildings, including concerns about collapse, entry, or habitation."
+      ],
+      "neg": [
+        "General property maintenance or overgrowth (see Excessive Growth); utility issues (see Water Utility Problems)."
+      ]
+    },
+    "Water Quality": {
+      "pos": [
+        "Issues with water pressure, water clarity, or water service quality, including requests for meter testing or water turn-on."
+      ],
+      "neg": [
+        "Water utility billing (see Water Utility Billing Problems); leaks or repairs (see Water Utility Problems)."
+      ]
+    },
+    "Water Utility Billing Problems": {
+      "pos": [
+        "Complaints or appeals about water or sewer billing, including incorrect charges, billing policies, or disputes over service status."
+      ],
+      "neg": [
+        "Water quality or service issues (see Water Quality or Water Utility Problems)."
+      ]
+    },
+    "Water Utility Problems": {
+      "pos": [
+        "Physical problems with water utility infrastructure, such as leaks, meter issues, or yard restoration after water line work."
+      ],
+      "neg": [
+        "Water quality (see Water Quality); billing issues (see Water Utility Billing Problems)."
+      ]
+    },
+    "Yard Waste": {
+      "pos": [
+        {
+          "t": "Complaints about yard waste collection where yard waste is explicitly mentioned, including container size, weight limits, stickers, or fees for yard waste bags/cans.",
+          "ev": [
+            "faxed ljl/ Missed pick-up/yard waste:",
+            "faxed missed pick-up/yard waste:",
+            "Exceeds weight limit of 40 lbs, Exceeds can size of 32 gallons.  954"
+          ],
+          "n": 452
+        }
+      ],
+      "neg": [
+        {
+          "t": "If yard waste is not explicitly mentioned, do not classify as Yard Waste; trash or recycling (see Trash or Recycling); overgrown vegetation (see Excessive Growth).",
+          "ev": [
+            "faxed ljl/ Missed pick-up/yard waste:",
+            "faxed missed pick-up/yard waste:",
+            "Exceeds weight limit of 40 lbs, Exceeds can size of 32 gallons.  954"
+          ],
+          "n": 452
+        }
+      ]
+    }
+  },
+  "gate": 0.8229166666666666
+}

@@ -1,0 +1,170 @@
+{
+  "D": {
+    "Blocked Street": {
+      "pos": [
+        "Roll-off dumpsters placed on or along the street that obstruct travel or sit long-term, including behind a building if it sits in the street/right-of-way."
+      ],
+      "neg": [
+        "cars parked on lawns (Parking on Unimproved Surface); sign issues (Temporary Signage w/o permit); drainage/flooding (Sid"
+      ]
+    },
+    "Excessive Growth": {
+      "pos": [
+        "Overgrown living vegetation on a specific private property: tall grass, weeds, hedges encroaching or blocking yard, sidewalk, mailbox, or that property's driveway/frontage.",
+        "Ongoing yard or lot maintenance neglect at a residence or business (unmowed lawn, unmaintained landscaping, recurring overgrowth complaints).",
+        "Accumulated trash/junk blighting a property's grounds or around structures, including overflowing private dumpsters, with no curbside set-out, sticker, cart-size, or missed-pickup context.",
+        "Vegetation from a specific address obstructs egress from its driveway/frontage or grows over wall/fence/sidewalk; not at a public intersection sight triangle.",
+        "Mowed grass clippings left piled or windrowed on that property’s yard (excluding discrete cut limbs/trees)."
+      ],
+      "neg": [
+        "if visibility obstruction involves a public street intersection or crosswalk sight triangle or corner, classify as Line of Sight instead",
+        "if report cites curbside set-out/service cues (tags/stickers, cart size/limits, missed pickup) or 'at curb', classify as Trash instead",
+        "if it names discrete removable debris (loose trash bags, shopping carts, furniture/appliances, tires, or cut brush/trees), classify as Trash instead",
+        "if the primary concern is a vehicle parked on grass/dirt or creating an unimproved parking area, classify as Parking on Unimproved Surface instead"
+      ]
+    },
+    "Line of Sight": {
+      "pos": [
+        "Visibility obstructions at corners/intersections caused by vegetation or fences (e.g., bushes, overgrown vegetation, chain link fence with slats) that block the"
+      ],
+      "neg": [
+        "general overgrowth/yard maintenance (Excessive Growth); driver behavior complaints like red-light running (Traffic Relat"
+      ]
+    },
+    "Parking on Unimproved Surface": {
+      "pos": [
+        "Vehicles parked on lawns/grass or other non-improved surfaces; attempts to create/expand gravel parking or re-grading to park; vehicles partly on grass and part"
+      ],
+      "neg": [
+        "dumpsters blocking streets (Blocked Street); general on-street parking violations unrelated to surface (not covered here"
+      ]
+    },
+    "Parks & Playgrounds": {
+      "pos": [
+        "Parks programming/amenities feedback (e.g., comments about summer concerts)."
+      ],
+      "neg": [
+        "mowing/overgrowth in parks or grounds (Excessive Growth); signage issues (Temporary Signage w/o permit)."
+      ]
+    },
+    "Recycling": {
+      "pos": [
+        "Recycling compliance notice: unsorted/contaminated recyclables, trash mixed with recyclables, or non-accepted items; includes tags, citations, code 945 references.",
+        "Directions to correct recycling set-out: sort/separate recyclables, remove trash from recycling, or place recycling at the specified location.",
+        "Issues about recycling bin/blue cart use, eligibility, size/too-big, or overflow within the recycling program, excluding pickup timing or crew performance.",
+        "Requests tied to the recycling stream (recycling, recyclables, blue cart/bin, code 945) that do not seek collection service.",
+        "Education-only follow-ups after recycling write-ups: document warnings or outreach without any pickup/drop action."
+      ],
+      "neg": [
+        "if the request reports missed/late/not-picked-up recycling or any pickup/collection/route/schedule/crew/delay action, classify as Trash instead.",
+        "if the container issue concerns a trash/garbage cart rather than the recycling bin/blue cart, classify as Trash instead.",
+        "if the issue is yard waste, compost, leaves, or their set-out/stickers, classify as Yard Waste instead."
+      ]
+    },
+    "Sewer Problems (Sanitary Sewers)": {
+      "pos": [
+        "Sanitary sewer issues—backups, toilets backing up, strong sewer odors, private sewer pump leaks causing flow in street; post-sewer-work yard restoration request"
+      ],
+      "neg": [
+        "stormwater/drainage or street flooding (Sidewalk Snow Removal); water main/meter pit leaks or street buckling (Water Uti"
+      ]
+    },
+    "Sidewalk & Curb Complaints": {
+      "pos": [
+        "Internal routing note (faxed/forwarded to Sanitation) about a missed waste pickup explicitly stating 'no notice left' or equivalent ('no tag/sticker left')."
+      ],
+      "neg": [
+        "if a missed solid-waste pickup note lacks 'no notice left' or requests collection (e.g., 'please pick up'), classify as Trash instead.",
+        "if a missed pickup message mentions 'no notice left' but is not an internal fax/forward, classify as Trash instead."
+      ]
+    },
+    "Sidewalk Snow Removal": {
+      "pos": [
+        "Stormwater drainage problems—flooded inlets/intersections, detention ponds full, water bubbling up from street, water standing in street, yards acting as storm "
+      ],
+      "neg": [
+        "unshoveled/icy sidewalks (Street Snow Removal); sanitary sewer backups (Sewer Problems (Sanitary Sewers))."
+      ]
+    },
+    "Street Snow Removal": {
+      "pos": [
+        "Sidewalk snow/ice not cleared—unshoveled sidewalks and walkways along streets and blocks. Counterintuitively, sidewalk snow is filed here."
+      ],
+      "neg": [
+        "drainage/flooding issues (Sidewalk Snow Removal); road plowing/ice control requests on the driving lanes (not shown here"
+      ]
+    },
+    "Temporary Signage w/o permit": {
+      "pos": [
+        "Temporary banners/signs/sandwich boards and “now hiring” banners on properties/buildings, including off-premise banners."
+      ],
+      "neg": [
+        "permanent sign permits/violations (not here); parking or traffic signs (Traffic Related Complaints)."
+      ]
+    },
+    "Traffic Related Complaints": {
+      "pos": [
+        "General traffic behavior/safety complaints such as motorists running red lights."
+      ],
+      "neg": [
+        "visibility/line-of-sight due to vegetation or fences (Line of Sight); parking on grass or private property surface issue"
+      ]
+    },
+    "Trash": {
+      "pos": [
+        "Solid waste service issues—missed trash pickup, improper/overfull/unacceptable containers, missing required stickers/tags, courtesy pickups, and litter complain"
+      ],
+      "neg": [
+        "recycling sorting/mixing violations (Recycling); yard waste set-out/weight/sticker/missed collection (Yard Waste)."
+      ]
+    },
+    "Unsafe Buildings": {
+      "pos": [
+        "Vacant/abandoned or unsecured/dangerous structures (e.g., roof failing, unsecured trailer after fire)."
+      ],
+      "neg": [
+        "overgrowth/yard neglect (Excessive Growth); trash accumulation (Trash)."
+      ]
+    },
+    "Water Quality": {
+      "pos": [
+        "Customer-side water service/quality and simple service requests—after-hours or routine turn-ons/turn-offs, minor “leak at meter” reports, in-home issues like wa"
+      ],
+      "neg": [
+        "main breaks, street bubbling, meter pit damage, open holes (Water Utility Problems); billing/credits (Water Utility Bill"
+      ]
+    },
+    "Water Utility Billing Problems": {
+      "pos": [
+        "Billing/credit/account disputes and adjustments (e.g., requests for partial credit, questionable bill amounts)."
+      ],
+      "neg": [
+        "service activation/shutoffs or field valve operations (Water Utility Problems or Water Quality as above); leaks or water"
+      ]
+    },
+    "Water Utility Problems": {
+      "pos": [
+        "Distribution system/field-crew issues—water bubbling up in street, leaks causing street buckling, open holes near curb/sidewalk, meter pit leaks/damage (e.g., f"
+      ],
+      "neg": [
+        "customer-side quality/noise/water heater or simple turn-on requests (Water Quality); billing disputes (Water Utility Bil"
+      ]
+    },
+    "Yard Waste": {
+      "pos": [
+        "Mentions yard-waste program or materials (yard waste/yardwaste, brush, leaves, limbs, clippings, yard bags) with a set-out, sticker, container, or pickup issue.",
+        "Missed, delayed, or seasonally suspended yard-waste collection (e.g., no winter collection).",
+        "Yard-waste packaging violations: placed in plastic bags, not bundled/tied, or not in approved paper yard bags/carts.",
+        "Yard-waste size/weight/container limits exceeded: bundles oversize, over 40 lb, or over 32-gallon yard-waste can.",
+        "Citation, tag, or sticker explicitly for yard waste (e.g., code 950, yard-waste tag wording)."
+      ],
+      "neg": [
+        "if citation code 944 appears, classify as Trash instead",
+        "if only a 35-gallon can limit is cited without any yard-waste terms, classify as Trash instead",
+        "if mentions overweight/too heavy or sticker/tag requirement but contains no yard-waste/organics cues, classify as Trash instead",
+        "if request is a courtesy pickup without any yard-waste terms or seasonality context, classify as Trash instead"
+      ]
+    }
+  },
+  "val": 0.8555555555555555
+}

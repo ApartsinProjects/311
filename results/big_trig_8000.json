@@ -1,0 +1,24 @@
+{
+  "rules": [
+    {
+      "q": "Does the request mention a missed recycling pick-up without referencing sorting or mixing of recyclable and non-recyclable items?",
+      "from": "Recycling",
+      "to": "Trash"
+    },
+    {
+      "q": "Does the request mention yard waste items such as a Christmas tree or use the term \"yard waste\"?",
+      "from": "Trash",
+      "to": "Yard Waste"
+    },
+    {
+      "q": "Does the request mention a \"courtesy pick up\" or specific individuals picking up items, without referencing recycling sorting or non-recyclable materials?",
+      "from": "Recycling",
+      "to": "Yard Waste"
+    },
+    {
+      "q": "Does the request mention the presence of trash, junk, or debris in the yard or property?",
+      "from": "Excessive Growth",
+      "to": "Trash"
+    }
+  ]
+}

@@ -1,0 +1,319 @@
+{
+  "D": {
+    "Blocked Street": {
+      "pos": [
+        "Requests about physical obstructions in streets, alleys, or sidewalks caused by vehicles, vegetation, or debris that block passage or access, including blocked "
+      ],
+      "neg": [
+        "Overgrown vegetation that only causes visibility issues (see Line of Sight), or general overgrowth not specifically bloc"
+      ]
+    },
+    "Excessive Growth": {
+      "pos": [
+        "Requests about overgrown vegetation, junk, trashy yards, brush piles, and general property neglect, including junk cars and trash piles, even if the wording men"
+      ],
+      "neg": [
+        "Vegetation specifically blocking passage (see Blocked Street) or obstructing visibility at intersections/signs (see Line"
+      ]
+    },
+    "Line of Sight": {
+      "pos": [
+        "Requests about vegetation or objects obstructing visibility at intersections, driveways, or traffic signs, even if the wording mentions overgrowth or blocking, "
+      ],
+      "neg": [
+        "General overgrowth or blocked passage (see Excessive Growth and Blocked Street)."
+      ]
+    },
+    "Parking on Unimproved Surface": {
+      "pos": [
+        "Requests about vehicles parked on lawns, grass, or other non-paved surfaces, including shared drives and unplated/inoperable vehicles parked in grass."
+      ],
+      "neg": [
+        "Junk cars as part of general property neglect (see Excessive Growth)."
+      ]
+    },
+    "Parks & Playgrounds": {
+      "pos": [
+        "Requests about parks, playgrounds, recreational facilities, or related programming, including complaints about spending or sign-ups for classes."
+      ],
+      "neg": [
+        "Issues about signage or trash in parks (see Temporary Signage w/o permit or Trash)."
+      ]
+    },
+    "Recycling": {
+      "pos": [
+        "Requests about improper sorting, contamination, or handling of recyclable materials, including missed recycling pickups and non-recyclables in recycling bins."
+      ],
+      "neg": [
+        "General trash issues or missed trash pickup (see Trash)."
+      ]
+    },
+    "Sewer Problems (Sanitary Sewers)": {
+      "pos": [
+        {
+          "t": "Requests about sanitary sewer issues, including overflows, odors, manhole problems, sewer backups, slow drains, or sewage backing up indoors.",
+          "ev": [
+            "WATER FROM STOOL ON FLOOR",
+            "Drains very slow.  Had plumber out last week.",
+            "\"water turned off, septic failed, if house has occupants make sure Mo.Co.Health Dept. has inspected the septic or sanita"
+          ],
+          "n": 3
+        },
+        {
+          "t": "Mentions of indoor plumbing fixtures (e.g., stool, drains, septic), or requests for septic/sanitary inspection.",
+          "ev": [
+            "WATER FROM STOOL ON FLOOR",
+            "Drains very slow.  Had plumber out last week.",
+            "\"water turned off, septic failed, if house has occupants make sure Mo.Co.Health Dept. has inspected the septic or sanita"
+          ],
+          "n": 3
+        }
+      ],
+      "neg": [
+        {
+          "t": "Requests about potable water supply, outdoor water leaks, irrigation, or meter issues (see Water Utility Problems).",
+          "ev": [
+            "WATER FROM STOOL ON FLOOR",
+            "Drains very slow.  Had plumber out last week.",
+            "\"water turned off, septic failed, if house has occupants make sure Mo.Co.Health Dept. has inspected the septic or sanita"
+          ],
+          "n": 3
+        }
+      ]
+    },
+    "Sidewalk & Curb Complaints": {
+      "pos": [
+        "Requests about physical damage or hazards to sidewalks and curbs, such as broken sidewalks or fallen retaining walls."
+      ],
+      "neg": [
+        "Sidewalks blocked by vegetation or snow (see Blocked Street or Street Snow Removal)."
+      ]
+    },
+    "Sidewalk Snow Removal": {
+      "pos": [
+        "Requests about clogged storm inlets, drainage, culverts, storm sewer drains, and water flow issues related to sidewalks, even if not directly about snow."
+      ],
+      "neg": [
+        "Snow or ice removal from streets or general snow complaints (see Street Snow Removal)."
+      ]
+    },
+    "Street Snow Removal": {
+      "pos": [
+        "Requests about snow and ice removal from streets and sidewalks, including complaints about plowing, shoveling, and snow piles from parking lots."
+      ],
+      "neg": [
+        "Drainage or stormwater issues (see Sidewalk Snow Removal)."
+      ]
+    },
+    "Temporary Signage w/o permit": {
+      "pos": [
+        "Requests about temporary, flashing, moving, or unpermitted signs, including balloons, scrolling message boards, and event signage."
+      ],
+      "neg": [
+        "Permanent signage or signs causing visibility issues (see Line of Sight)."
+      ]
+    },
+    "Traffic Related Complaints": {
+      "pos": [
+        "Requests about traffic flow, speed, signage placement, street lighting, and intersection studies, including complaints about traffic signs creating line of sigh"
+      ],
+      "neg": [
+        "Physical obstructions or visibility blocked by vegetation (see Blocked Street or Line of Sight)."
+      ]
+    },
+    "Trash": {
+      "pos": [
+        {
+          "t": "Requests about trash collection, missed pickups, can size limits, stickers, dumpsters, trash left on property, and weight/container limits for trash (including 'weight limit', '40 ",
+          "ev": [
+            "Larry Barker requested that this address be turned over the HAND for noncompliance of 40lb weight restriction.  Question",
+            "Exceeds weight limit",
+            "Weight limit of 40 lbs, ."
+          ],
+          "n": 5
+        },
+        {
+          "t": "If the request mentions 'bags' or 'cans' with stickers but does NOT mention 'yard waste', file as Trash.",
+          "ev": [
+            "Larry Barker requested that this address be turned over the HAND for noncompliance of 40lb weight restriction.  Question",
+            "Exceeds weight limit",
+            "Weight limit of 40 lbs, ."
+          ],
+          "n": 5
+        }
+      ],
+      "neg": [
+        {
+          "t": "If the request explicitly mentions 'yard waste' or yard waste in plastic bags, do NOT file as Trash.",
+          "ev": [
+            "Larry Barker requested that this address be turned over the HAND for noncompliance of 40lb weight restriction.  Question",
+            "Exceeds weight limit",
+            "Weight limit of 40 lbs, ."
+          ],
+          "n": 5
+        }
+      ]
+    },
+    "Unsafe Buildings": {
+      "pos": [
+        "Requests about structurally unsafe buildings, walls, cisterns, or trailers, including concerns about children’s safety and vacant properties."
+      ],
+      "neg": [
+        "General property neglect or trashy yards (see Excessive Growth)."
+      ]
+    },
+    "Water Quality": {
+      "pos": [
+        {
+          "t": "Requests about water taste, odor, or suspected chemical/contaminant presence (e.g., bleach smell, bad taste, request for water testing).",
+          "ev": [
+            "orange colored water coming out of faucet",
+            "WATER IS GREEN THAT COMES OUT OF THEIR 3\" LINE AND 3\" METER THAT THEY USE TO FILL UP THE TANKS TO FILL POOLS."
+          ],
+          "n": 2
+        }
+      ],
+      "neg": [
+        {
+          "t": "Water appearance complaints involving color changes (e.g., orange, green, brown water) or visible particles due to infrastructure issues (see Water Utility Problems).",
+          "ev": [
+            "orange colored water coming out of faucet",
+            "WATER IS GREEN THAT COMES OUT OF THEIR 3\" LINE AND 3\" METER THAT THEY USE TO FILL UP THE TANKS TO FILL POOLS."
+          ],
+          "n": 2
+        },
+        {
+          "t": "Water billing issues (see Water Utility Billing Problems).",
+          "ev": [
+            "orange colored water coming out of faucet",
+            "WATER IS GREEN THAT COMES OUT OF THEIR 3\" LINE AND 3\" METER THAT THEY USE TO FILL UP THE TANKS TO FILL POOLS."
+          ],
+          "n": 2
+        }
+      ]
+    },
+    "Water Utility Billing Problems": {
+      "pos": [
+        {
+          "t": "Requests about water billing errors, high bills, fee disputes, and requests for bill reviews or adjustments.",
+          "ev": [
+            "Larry Barker requested that this address be turned over the HAND for noncompliance of 40lb weight restriction.  Question",
+            "Exceeds weight limit",
+            "Weight limit of 40 lbs, ."
+          ],
+          "n": 5
+        }
+      ],
+      "neg": [
+        {
+          "t": "If the request concerns physical collection, container issues, or weight limits, do NOT file as Water Utility Billing Problems.",
+          "ev": [
+            "Larry Barker requested that this address be turned over the HAND for noncompliance of 40lb weight restriction.  Question",
+            "Exceeds weight limit",
+            "Weight limit of 40 lbs, ."
+          ],
+          "n": 5
+        },
+        {
+          "t": "Water quality or leak issues (see Water Quality or Water Utility Problems).",
+          "ev": [
+            "Larry Barker requested that this address be turned over the HAND for noncompliance of 40lb weight restriction.  Question",
+            "Exceeds weight limit",
+            "Weight limit of 40 lbs, ."
+          ],
+          "n": 5
+        }
+      ]
+    },
+    "Water Utility Problems": {
+      "pos": [
+        {
+          "t": "Requests about potable water supply, outdoor water leaks, standing water outdoors, malfunctioning sprinklers, meter issues, water bubbling/seeping up outside.",
+          "ev": [
+            "orange colored water coming out of faucet",
+            "WATER IS GREEN THAT COMES OUT OF THEIR 3\" LINE AND 3\" METER THAT THEY USE TO FILL UP THE TANKS TO FILL POOLS."
+          ],
+          "n": 2
+        },
+        {
+          "t": "Suspected leaks due to high water bills.",
+          "ev": [
+            "orange colored water coming out of faucet",
+            "WATER IS GREEN THAT COMES OUT OF THEIR 3\" LINE AND 3\" METER THAT THEY USE TO FILL UP THE TANKS TO FILL POOLS."
+          ],
+          "n": 2
+        },
+        {
+          "t": "Water appearance complaints involving color changes (e.g., orange, green, brown water) or visible particles due to infrastructure issues (main breaks, pipe corrosion, hydrant flush",
+          "ev": [
+            "orange colored water coming out of faucet",
+            "WATER IS GREEN THAT COMES OUT OF THEIR 3\" LINE AND 3\" METER THAT THEY USE TO FILL UP THE TANKS TO FILL POOLS."
+          ],
+          "n": 2
+        }
+      ],
+      "neg": [
+        {
+          "t": "Issues involving indoor waste, slow drains, sewage backup, or septic/sanitary inspection (see Sewer Problems (Sanitary Sewers)).",
+          "ev": [
+            "orange colored water coming out of faucet",
+            "WATER IS GREEN THAT COMES OUT OF THEIR 3\" LINE AND 3\" METER THAT THEY USE TO FILL UP THE TANKS TO FILL POOLS."
+          ],
+          "n": 2
+        },
+        {
+          "t": "Water complaints based solely on taste, odor, or suspected chemical/contaminant presence (see Water Quality).",
+          "ev": [
+            "orange colored water coming out of faucet",
+            "WATER IS GREEN THAT COMES OUT OF THEIR 3\" LINE AND 3\" METER THAT THEY USE TO FILL UP THE TANKS TO FILL POOLS."
+          ],
+          "n": 2
+        }
+      ]
+    },
+    "Yard Waste": {
+      "pos": [
+        {
+          "t": "Requests explicitly mentioning 'yard waste', or referencing yard waste weight/container limits, or yard waste in plastic bags.",
+          "ev": [
+            "Bags must have sticker attached.",
+            "Bags must have sticker attached.",
+            "Bags/cans must have sticker attached.  950"
+          ],
+          "n": 210
+        },
+        {
+          "t": "If the request says 'yard waste' must have sticker attached, file as Yard Waste.",
+          "ev": [
+            "Bags must have sticker attached.",
+            "Bags must have sticker attached.",
+            "Bags/cans must have sticker attached.  950"
+          ],
+          "n": 210
+        }
+      ],
+      "neg": [
+        {
+          "t": "If the request only mentions 'bags' or 'cans' with stickers and does NOT mention 'yard waste', do NOT file as Yard Waste.",
+          "ev": [
+            "Bags must have sticker attached.",
+            "Bags must have sticker attached.",
+            "Bags/cans must have sticker attached.  950"
+          ],
+          "n": 210
+        },
+        {
+          "t": "General trash, recycling, or overgrown vegetation (see Trash, Recycling, or Excessive Growth).",
+          "ev": [
+            "Bags must have sticker attached.",
+            "Bags must have sticker attached.",
+            "Bags/cans must have sticker attached.  950"
+          ],
+          "n": 210
+        }
+      ]
+    }
+  },
+  "gate": 0.8133333333333334,
+  "seed": 2
+}

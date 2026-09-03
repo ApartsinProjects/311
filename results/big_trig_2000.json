@@ -1,0 +1,24 @@
+{
+  "rules": [
+    {
+      "q": "Does the request mention snow or ice on a sidewalk rather than a storm drain, inlet, or driveway?",
+      "from": "Sidewalk Snow Removal",
+      "to": "Street Snow Removal"
+    },
+    {
+      "q": "Does the request mention that vegetation is blocking or covering a sidewalk, forcing pedestrians to walk in the street?",
+      "from": "Line of Sight",
+      "to": "Excessive Growth"
+    },
+    {
+      "q": "Does the request mention a pile of yard debris that has been left uncollected for an extended period or is accumulating on the property?",
+      "from": "Yard Waste",
+      "to": "Excessive Growth"
+    },
+    {
+      "q": "Does the request mention overgrown vegetation or yard conditions as a primary concern?",
+      "from": "Unsafe Buildings",
+      "to": "Excessive Growth"
+    }
+  ]
+}

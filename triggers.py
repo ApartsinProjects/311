@@ -38,6 +38,28 @@ def write_trigger(T, gt, pred, exs, contrast, n_err):
     return q if 10 < len(q) < 220 else ""
 
 
+def write_triggers_many(T, specs):
+    """Batch-write one yes/no question per (gt,pred,exs,contrast,n) spec in a SINGLE chat_many call.
+    Questions do not depend on acceptance order, so they can all be generated at once."""
+    msgs = []
+    for (gt, pred, exs, contrast, n) in specs:
+        sysm = (f"You write ONE yes/no question that identifies when a {T.item} currently classified as "
+                f"'{pred}' should actually be filed as '{gt}' by this organization.\n"
+                f"The question must be answerable from the {T.item} text alone, must be TRUE for the misfiled "
+                f"examples, and FALSE for the correctly-classified contrast examples. Be specific and narrow: "
+                f"a question that is too broad will misfire. Output ONLY the question, max 25 words.")
+        msg = (f"Misfiled as '{pred}' but truly '{gt}' ({n} cases):\n{_freq_examples(exs, 8)}\n\n"
+               f"Correctly '{pred}' (the question must be NO for these):\n{_freq_examples(contrast, 6)}\n\n"
+               f"Write the yes/no question:")
+        msgs.append([{"role": "system", "content": sysm}, {"role": "user", "content": msg}])
+    outs = chat_many(msgs, model=MINE_MODEL, max_tokens=60)
+    qs = []
+    for o in outs:
+        q = (o or "").strip().strip('"').replace("\n", " ")
+        qs.append(q if 10 < len(q) < 220 else "")
+    return qs
+
+
 def ask_trigger(T, texts, q):
     sysm = "Answer the question about the text with ONLY YES or NO."
     msgs = [[{"role": "system", "content": sysm},
@@ -76,12 +98,16 @@ def mine_triggers(T, m_txt, m_gold, m_base, v_txt, v_gold, v_base,
         if not cands:
             print(f"  [trig] round {rnd+1}: no new confusions"); break
         added = 0
+        # PRE-WRITE all candidate questions for this round in ONE batch (no per-candidate single call)
+        specs = []
         for (gt, pr), n in cands:
-            if len(rules) >= max_rules: break
-            tried.add((gt, pr))
             exs = [m_txt[i] for i in range(len(m_txt)) if m_gold[i] == gt and m_cur[i] == pr]
             contrast = [m_txt[i] for i in range(len(m_txt)) if m_gold[i] == pr and m_cur[i] == pr]
-            q = write_trigger(T, gt, pr, exs, contrast, n)
+            specs.append((gt, pr, exs, contrast, n))
+        qs = write_triggers_many(T, specs)
+        for ((gt, pr), n), q in zip(cands, qs):
+            if len(rules) >= max_rules: break
+            tried.add((gt, pr))
             if not q: continue
             cand = rules + [{"q": q, "from": pr, "to": gt}]
             vp = apply_triggers(T, v_txt, v_base, cand)

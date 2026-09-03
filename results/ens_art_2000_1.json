@@ -1,0 +1,209 @@
+{
+  "D": {
+    "Blocked Street": {
+      "pos": [
+        "Requests about physical obstructions to streets or alleys, including overgrown bushes/trees, dumpsters, or fallen trees that block passage, and questions about "
+      ],
+      "neg": [
+        "Overgrown vegetation that only affects visibility (see Line of Sight), or overgrowth that is primarily about property ma"
+      ]
+    },
+    "Excessive Growth": {
+      "pos": [
+        {
+          "t": "Accumulation of trash, debris, or junk on private or vacant property, including yards, porches, or around buildings, as a sign of property neglect.",
+          "ev": [
+            "Dumpsters on Rogers on side & trash all over ground.",
+            "Trash & vehicles.  \"Quite a mess.\"",
+            "S. of 1306 N. Maple. trash everywhere 20 bags on rear deck"
+          ],
+          "n": 19
+        },
+        {
+          "t": "Overgrown grass, weeds, shrubs, or general yard neglect on private or vacant property, including vacant lots and unmaintained yards.",
+          "ev": [
+            "Dumpsters on Rogers on side & trash all over ground.",
+            "Trash & vehicles.  \"Quite a mess.\"",
+            "S. of 1306 N. Maple. trash everywhere 20 bags on rear deck"
+          ],
+          "n": 19
+        }
+      ],
+      "neg": [
+        {
+          "t": "Issues strictly about trash collection process, container compliance, or required stickers/tags (see Trash).",
+          "ev": [
+            "Dumpsters on Rogers on side & trash all over ground.",
+            "Trash & vehicles.  \"Quite a mess.\"",
+            "S. of 1306 N. Maple. trash everywhere 20 bags on rear deck"
+          ],
+          "n": 19
+        },
+        {
+          "t": "Overgrowth that blocks streets or alleys (see Blocked Street), overgrowth that blocks visibility at intersections (see L).",
+          "ev": [
+            "Dumpsters on Rogers on side & trash all over ground.",
+            "Trash & vehicles.  \"Quite a mess.\"",
+            "S. of 1306 N. Maple. trash everywhere 20 bags on rear deck"
+          ],
+          "n": 19
+        }
+      ]
+    },
+    "Line of Sight": {
+      "pos": [
+        "Overgrown vegetation or parked vehicles that block visibility at intersections or signage, making driving hazardous."
+      ],
+      "neg": [
+        "Overgrowth that blocks physical passage on streets or sidewalks (see Blocked Street), or general yard overgrowth (see Ex"
+      ]
+    },
+    "Parking on Unimproved Surface": {
+      "pos": [
+        "Vehicles or trailers parked on lawns, grass, or other non-paved surfaces, including inoperable vehicles in yards."
+      ],
+      "neg": [
+        "Parking issues related to blocking streets (see Blocked Street) or visibility (see Line of Sight)."
+      ]
+    },
+    "Parks & Playgrounds": {
+      "pos": [
+        "Issues or requests specifically about park facilities, playground equipment, or recreation program sign-ups."
+      ],
+      "neg": [
+        "General yard or property maintenance (see Excessive Growth), or signage issues (see Temporary Signage w/o permit)."
+      ]
+    },
+    "Recycling": {
+      "pos": [
+        "Issues with recyclable items, especially improper sorting or preparation for pick-up."
+      ],
+      "neg": [
+        "General trash or yard waste (see Trash or Yard Waste)."
+      ]
+    },
+    "Sewer Problems (Sanitary Sewers)": {
+      "pos": [
+        "Issues with sanitary sewer lines, backups, manholes, or septic failures."
+      ],
+      "neg": [
+        "Stormwater drainage or storm sewer issues (see Sidewalk Snow Removal)."
+      ]
+    },
+    "Sidewalk & Curb Complaints": {
+      "pos": [
+        "Physical damage or deterioration of sidewalks or curbs, such as washing away or broken sections."
+      ],
+      "neg": [
+        "Snow or drainage issues on sidewalks (see Sidewalk Snow Removal), or overgrowth blocking sidewalks (see Blocked Street)."
+      ]
+    },
+    "Sidewalk Snow Removal": {
+      "pos": [
+        "Storm sewer or drainage issues, including clogged or collapsed drains, even if not directly about snow."
+      ],
+      "neg": [
+        "Sidewalks not shoveled or snow/ice on sidewalks (see Street Snow Removal), or physical sidewalk damage (see Sidewalk & C"
+      ]
+    },
+    "Street Snow Removal": {
+      "pos": [
+        "Failure to remove snow or ice from sidewalks, walkways, or property-adjacent public ways, including complaints about unshoveled sidewalks."
+      ],
+      "neg": [
+        "Storm sewer or drainage issues (see Sidewalk Snow Removal)."
+      ]
+    },
+    "Temporary Signage w/o permit": {
+      "pos": [
+        "Complaints about temporary banners, signs, or flags placed without permits, including those on private property or in right-of-way."
+      ],
+      "neg": [
+        "Permanent signage issues or park signage (see Parks & Playgrounds)."
+      ]
+    },
+    "Traffic Related Complaints": {
+      "pos": [
+        "Issues about traffic flow, signage, speed limits, signal timing, or requests for loading zones."
+      ],
+      "neg": [
+        "Visibility issues due to overgrowth (see Line of Sight), or parking on lawns (see Parking on Unimproved Surface)."
+      ]
+    },
+    "Trash": {
+      "pos": [
+        {
+          "t": "Requests about trash collection process, including missing stickers/tags, improper containers, overweight cans, or noncompliant set-out for pick-up.",
+          "ev": [
+            "Dumpsters on Rogers on side & trash all over ground.",
+            "Trash & vehicles.  \"Quite a mess.\"",
+            "S. of 1306 N. Maple. trash everywhere 20 bags on rear deck"
+          ],
+          "n": 19
+        }
+      ],
+      "neg": [
+        {
+          "t": "Accumulation of trash or debris on property as a sign of neglect (see Excessive Growth).",
+          "ev": [
+            "Dumpsters on Rogers on side & trash all over ground.",
+            "Trash & vehicles.  \"Quite a mess.\"",
+            "S. of 1306 N. Maple. trash everywhere 20 bags on rear deck"
+          ],
+          "n": 19
+        },
+        {
+          "t": "Yard waste (see Yard Waste), or recycling sorting issues (see Recycling).",
+          "ev": [
+            "Dumpsters on Rogers on side & trash all over ground.",
+            "Trash & vehicles.  \"Quite a mess.\"",
+            "S. of 1306 N. Maple. trash everywhere 20 bags on rear deck"
+          ],
+          "n": 19
+        }
+      ]
+    },
+    "Unsafe Buildings": {
+      "pos": [
+        "Reports of unsafe, uninhabitable, or structurally unsound buildings, including lack of utilities or dangerous conditions."
+      ],
+      "neg": [
+        "General property maintenance (see Excessive Growth), or sewer/water issues (see Sewer Problems or Water Utility Problems"
+      ]
+    },
+    "Water Quality": {
+      "pos": [
+        "Issues with water clarity, pressure, leaks inside homes, or suspected leaks affecting usage."
+      ],
+      "neg": [
+        "Water utility billing (see Water Utility Billing Problems), or external water infrastructure issues (see Water Utility P"
+      ]
+    },
+    "Water Utility Billing Problems": {
+      "pos": [
+        "Disputes or questions about water bills, charges, credits, or account responsibility."
+      ],
+      "neg": [
+        "Water quality or leaks (see Water Quality or Water Utility Problems)."
+      ]
+    },
+    "Water Utility Problems": {
+      "pos": [
+        "Issues with external water infrastructure, such as leaks in streets, hydrants, meter pits, or requests for gravel after repairs."
+      ],
+      "neg": [
+        "Water quality inside homes (see Water Quality), or billing issues (see Water Utility Billing Problems)."
+      ]
+    },
+    "Yard Waste": {
+      "pos": [
+        "Issues with yard waste collection, including missed pick-ups, improper containers, or lack of stickers."
+      ],
+      "neg": [
+        "General trash (see Trash), or overgrown yards (see Excessive Growth)."
+      ]
+    }
+  },
+  "gate": 0.8033333333333333,
+  "seed": 1
+}

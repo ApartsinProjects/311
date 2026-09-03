@@ -1,0 +1,471 @@
+{
+  "D": {
+    "Blocked Street": {
+      "pos": [
+        {
+          "t": "Requests about physical obstructions in the street or sidewalk caused by tangible objects such as vehicles, vegetation, debris, fences, or trailers that block passage or visibility",
+          "ev": [
+            "palette blocking sidewalk, sidewalks not cleared in area",
+            "north side of street above high street",
+            "covenanter cemetary, high and hillside, impassable (This is likely the SE corner of High St. and Moore's Pike)"
+          ],
+          "n": 4
+        },
+        {
+          "t": "Only use if the cause of blockage is a physical object, not weather-related (snow/ice).",
+          "ev": [
+            "palette blocking sidewalk, sidewalks not cleared in area",
+            "north side of street above high street",
+            "covenanter cemetary, high and hillside, impassable (This is likely the SE corner of High St. and Moore's Pike)"
+          ],
+          "n": 4
+        }
+      ],
+      "neg": [
+        {
+          "t": "Obstructions or blockages caused by snow or ice (see Street Snow Removal).",
+          "ev": [
+            "palette blocking sidewalk, sidewalks not cleared in area",
+            "north side of street above high street",
+            "covenanter cemetary, high and hillside, impassable (This is likely the SE corner of High St. and Moore's Pike)"
+          ],
+          "n": 4
+        },
+        {
+          "t": "Overgrown yards or grass not directly blocking passage (see Excessive Growth); line of sight issues (see Line of Sight).",
+          "ev": [
+            "palette blocking sidewalk, sidewalks not cleared in area",
+            "north side of street above high street",
+            "covenanter cemetary, high and hillside, impassable (This is likely the SE corner of High St. and Moore's Pike)"
+          ],
+          "n": 4
+        }
+      ]
+    },
+    "Excessive Growth": {
+      "pos": [
+        {
+          "t": "Overgrown vegetation, weeds, or brush on private property or in yards, including when associated with vacant, abandoned, or neglected buildings, unless there is an explicit structu",
+          "ev": [
+            "Overgrown w/tree limbs and grass.  Owner died -- house appears vacant.",
+            "several abandoned vehicles behind house (Planning also has a complaint about demo of house and putting down all that cru",
+            "3 abandoned vehicles lined up 1 motor home, 1 van, 1 car they have been there for months have broken windows and flat ti"
+          ],
+          "n": 26
+        },
+        {
+          "t": "Reports of property neglect (junk, trash, abandoned vehicles, unmowed grass) even if the property is vacant or appears abandoned, unless structural safety or entry is mentioned.",
+          "ev": [
+            "Overgrown w/tree limbs and grass.  Owner died -- house appears vacant.",
+            "several abandoned vehicles behind house (Planning also has a complaint about demo of house and putting down all that cru",
+            "3 abandoned vehicles lined up 1 motor home, 1 van, 1 car they have been there for months have broken windows and flat ti"
+          ],
+          "n": 26
+        }
+      ],
+      "neg": [
+        {
+          "t": "Explicit concerns about structural safety, collapse, unauthorized entry, or habitation (see Unsafe Buildings).",
+          "ev": [
+            "Overgrown w/tree limbs and grass.  Owner died -- house appears vacant.",
+            "several abandoned vehicles behind house (Planning also has a complaint about demo of house and putting down all that cru",
+            "3 abandoned vehicles lined up 1 motor home, 1 van, 1 car they have been there for months have broken windows and flat ti"
+          ],
+          "n": 26
+        },
+        {
+          "t": "Vegetation specifically blocking passage (see Blocked Street); line of sight issues (see Line of Sight); yard waste for pickup (see Yard Waste).",
+          "ev": [
+            "Overgrown w/tree limbs and grass.  Owner died -- house appears vacant.",
+            "several abandoned vehicles behind house (Planning also has a complaint about demo of house and putting down all that cru",
+            "3 abandoned vehicles lined up 1 motor home, 1 van, 1 car they have been there for months have broken windows and flat ti"
+          ],
+          "n": 26
+        }
+      ]
+    },
+    "Line of Sight": {
+      "pos": [
+        "Vegetation or objects obstructing visibility for drivers or pedestrians at intersections or driveways, even if the wording mentions blocking or overgrowth."
+      ],
+      "neg": [
+        "General overgrowth or blockage not related to visibility (see Blocked Street or Excessive Growth)."
+      ]
+    },
+    "Parking on Unimproved Surface": {
+      "pos": [
+        {
+          "t": "File as Parking on Unimproved Surface ONLY if the complaint is solely about vehicles (including boats/trailers) parked on grass, dirt, or other non-paved surfaces, with no mention ",
+          "ev": [
+            "Cars parking on lawn. This has been going on for months. They park there daily. Received photographs of the cars on the ",
+            "Five inoperable vehicles parked on the side yard and in back (on the lawn). Some of the vehicles have trash, etc.  Compl",
+            "Car on blocks in driveway for 1 month."
+          ],
+          "n": 6
+        }
+      ],
+      "neg": [
+        {
+          "t": "If the request mentions both trash/junk accumulation and vehicles (including inoperable/junk vehicles), do not file as Parking on Unimproved Surface.",
+          "ev": [
+            "Cars parking on lawn. This has been going on for months. They park there daily. Received photographs of the cars on the ",
+            "Five inoperable vehicles parked on the side yard and in back (on the lawn). Some of the vehicles have trash, etc.  Compl",
+            "Car on blocks in driveway for 1 month."
+          ],
+          "n": 6
+        },
+        {
+          "t": "Vehicles blocking streets or sidewalks (see Blocked Street); parking complaints about legal surfaces (see Traffic Related).",
+          "ev": [
+            "Cars parking on lawn. This has been going on for months. They park there daily. Received photographs of the cars on the ",
+            "Five inoperable vehicles parked on the side yard and in back (on the lawn). Some of the vehicles have trash, etc.  Compl",
+            "Car on blocks in driveway for 1 month."
+          ],
+          "n": 6
+        }
+      ]
+    },
+    "Parks & Playgrounds": {
+      "pos": [
+        "Issues, suggestions, or compliments related to parks, trails, playgrounds, recreation programs, or park maintenance, including wildflowers and events."
+      ],
+      "neg": [
+        "Overgrowth or maintenance issues outside park property (see Excessive Growth); trash or recycling in parks (see Trash or"
+      ]
+    },
+    "Recycling": {
+      "pos": [
+        {
+          "t": "Complaints about improper sorting, mixing, or inclusion of non-recyclable items in recycling bins, even if described with trash-related language or container violations.",
+          "ev": [
+            "cardboard not flattened",
+            "cardboard not flattened, had large fridge box out stuffed with plastic and other items",
+            "Courtesy Pick up. matt picked up Friday"
+          ],
+          "n": 57
+        },
+        {
+          "t": "Issues with recycling program violations (e.g., 'items not included in program', 'cardboard not flattened', 'boxes not broken down', 'out on wrong day' for recycling), regardless o",
+          "ev": [
+            "cardboard not flattened",
+            "cardboard not flattened, had large fridge box out stuffed with plastic and other items",
+            "Courtesy Pick up. matt picked up Friday"
+          ],
+          "n": 57
+        },
+        {
+          "t": "If container size/weight/sticker violations are mentioned AND the context is about recycling bins or materials, file as Recycling.",
+          "ev": [
+            "cardboard not flattened",
+            "cardboard not flattened, had large fridge box out stuffed with plastic and other items",
+            "Courtesy Pick up. matt picked up Friday"
+          ],
+          "n": 57
+        }
+      ],
+      "neg": [
+        {
+          "t": "Trash-only issues (see Trash); yard waste or brush (see Yard Waste); missed pickups (see Trash).",
+          "ev": [
+            "cardboard not flattened",
+            "cardboard not flattened, had large fridge box out stuffed with plastic and other items",
+            "Courtesy Pick up. matt picked up Friday"
+          ],
+          "n": 57
+        },
+        {
+          "t": "If container size/weight/sticker violations are mentioned with no reference to recycling or improper sorting, do not file as Recycling.",
+          "ev": [
+            "cardboard not flattened",
+            "cardboard not flattened, had large fridge box out stuffed with plastic and other items",
+            "Courtesy Pick up. matt picked up Friday"
+          ],
+          "n": 57
+        }
+      ]
+    },
+    "Sewer Problems (Sanitary Sewers)": {
+      "pos": [
+        "Issues with sanitary sewer systems, including backups, odors, or manhole problems, regardless of whether water is also mentioned."
+      ],
+      "neg": [
+        "Stormwater or drainage issues (see Sidewalk Snow Removal); water utility problems (see Water Utility Problems)."
+      ]
+    },
+    "Sidewalk & Curb Complaints": {
+      "pos": [
+        "Physical defects or hazards in sidewalks or curbs, such as trip hazards, uneven surfaces, or debris left after work. Includes dead trees if specifically noted a"
+      ],
+      "neg": [
+        "Snow or ice on sidewalks (see Street Snow Removal); overgrowth or blockage (see Blocked Street or Excessive Growth)."
+      ]
+    },
+    "Sidewalk Snow Removal": {
+      "pos": [
+        {
+          "t": "Drainage, standing water, or water flow issues involving streets, sidewalks, curbs, ditches, or stormwater infrastructure (e.g., storm pipes, storm sewers, retention ponds).",
+          "ev": [
+            "Mr. Impey says that there was water coming up from the street which was the result of poor drainage from the Deer Park d",
+            "SERVICE LINE IS LEAKING",
+            "Ms. Johnson has a problem with water running into her yard from the street. She wants a curb installed."
+          ],
+          "n": 28
+        }
+      ],
+      "neg": [
+        {
+          "t": "Any issue involving potable water utility infrastructure (service lines, meters, main breaks, meter pits, yard restoration after water line work).",
+          "ev": [
+            "Mr. Impey says that there was water coming up from the street which was the result of poor drainage from the Deer Park d",
+            "SERVICE LINE IS LEAKING",
+            "Ms. Johnson has a problem with water running into her yard from the street. She wants a curb installed."
+          ],
+          "n": 28
+        }
+      ]
+    },
+    "Street Snow Removal": {
+      "pos": [
+        {
+          "t": "Complaints about snow or ice not being cleared from sidewalks, streets, or parking areas, including when described as 'impassable', 'not cleared', or 'blocked' due to snow/ice.",
+          "ev": [
+            "palette blocking sidewalk, sidewalks not cleared in area",
+            "north side of street above high street",
+            "covenanter cemetary, high and hillside, impassable (This is likely the SE corner of High St. and Moore's Pike)"
+          ],
+          "n": 4
+        },
+        {
+          "t": "If the obstruction is due to weather-related conditions (snow, ice), regardless of whether snow/ice is explicitly mentioned, file here.",
+          "ev": [
+            "palette blocking sidewalk, sidewalks not cleared in area",
+            "north side of street above high street",
+            "covenanter cemetary, high and hillside, impassable (This is likely the SE corner of High St. and Moore's Pike)"
+          ],
+          "n": 4
+        }
+      ],
+      "neg": [
+        {
+          "t": "Obstructions caused by physical objects (vehicles, vegetation, debris, fences, trailers) not related to snow or ice (see Blocked Street).",
+          "ev": [
+            "palette blocking sidewalk, sidewalks not cleared in area",
+            "north side of street above high street",
+            "covenanter cemetary, high and hillside, impassable (This is likely the SE corner of High St. and Moore's Pike)"
+          ],
+          "n": 4
+        },
+        {
+          "t": "Water or drainage issues (see Sidewalk Snow Removal); sidewalk defects (see Sidewalk & Curb Complaints).",
+          "ev": [
+            "palette blocking sidewalk, sidewalks not cleared in area",
+            "north side of street above high street",
+            "covenanter cemetary, high and hillside, impassable (This is likely the SE corner of High St. and Moore's Pike)"
+          ],
+          "n": 4
+        }
+      ]
+    },
+    "Temporary Signage w/o permit": {
+      "pos": [
+        "Reports of temporary or permanent signs, banners, or pennants displayed without a permit, regardless of sign type or location."
+      ],
+      "neg": [
+        "Permanent signage with permits (not represented); unrelated code violations."
+      ]
+    },
+    "Traffic Related Complaints": {
+      "pos": [
+        "Requests or complaints about traffic control, parking restrictions, signage visibility (if not strictly line of sight), or dangerous driving conditions."
+      ],
+      "neg": [
+        "Vehicles parked on grass (see Parking on Unimproved Surface); line of sight issues (see Line of Sight)."
+      ]
+    },
+    "Trash": {
+      "pos": [
+        {
+          "t": "If the request mentions both trash/junk accumulation and vehicles (including inoperable/junk vehicles), file as Trash.",
+          "ev": [
+            "Cars parking on lawn. This has been going on for months. They park there daily. Received photographs of the cars on the ",
+            "Five inoperable vehicles parked on the side yard and in back (on the lawn). Some of the vehicles have trash, etc.  Compl",
+            "Car on blocks in driveway for 1 month."
+          ],
+          "n": 6
+        },
+        {
+          "t": "Issues with trash collection, including overweight bags, missing stickers, improper containers, or trash left out, IF NOT about recycling bins/materials or improper sorting.",
+          "ev": [
+            "Cars parking on lawn. This has been going on for months. They park there daily. Received photographs of the cars on the ",
+            "Five inoperable vehicles parked on the side yard and in back (on the lawn). Some of the vehicles have trash, etc.  Compl",
+            "Car on blocks in driveway for 1 month."
+          ],
+          "n": 6
+        },
+        {
+          "t": "If only generic container size/weight/sticker language (e.g., 'can exceeds 35 gal', 'exceeds 40 lbs', 'bags must have sticker attached') with no mention of recycling or improper so",
+          "ev": [
+            "Cars parking on lawn. This has been going on for months. They park there daily. Received photographs of the cars on the ",
+            "Five inoperable vehicles parked on the side yard and in back (on the lawn). Some of the vehicles have trash, etc.  Compl",
+            "Car on blocks in driveway for 1 month."
+          ],
+          "n": 6
+        }
+      ],
+      "neg": [
+        {
+          "t": "If the request is solely about vehicles parked on grass, dirt, or other non-paved surfaces, with no mention of trash/junk, do not file as Trash.",
+          "ev": [
+            "Cars parking on lawn. This has been going on for months. They park there daily. Received photographs of the cars on the ",
+            "Five inoperable vehicles parked on the side yard and in back (on the lawn). Some of the vehicles have trash, etc.  Compl",
+            "Car on blocks in driveway for 1 month."
+          ],
+          "n": 6
+        },
+        {
+          "t": "If the request specifically mentions yard waste as the material (e.g., 'yard waste', 'yardwaste'), do not file as Trash.",
+          "ev": [
+            "Cars parking on lawn. This has been going on for months. They park there daily. Received photographs of the cars on the ",
+            "Five inoperable vehicles parked on the side yard and in back (on the lawn). Some of the vehicles have trash, etc.  Compl",
+            "Car on blocks in driveway for 1 month."
+          ],
+          "n": 6
+        },
+        {
+          "t": "If the issue concerns improper sorting, non-recyclables in recycling, or recycling program violations, do not file as Trash.",
+          "ev": [
+            "Cars parking on lawn. This has been going on for months. They park there daily. Received photographs of the cars on the ",
+            "Five inoperable vehicles parked on the side yard and in back (on the lawn). Some of the vehicles have trash, etc.  Compl",
+            "Car on blocks in driveway for 1 month."
+          ],
+          "n": 6
+        }
+      ]
+    },
+    "Unsafe Buildings": {
+      "pos": [
+        {
+          "t": "Reports of vacant, abandoned, or occupied buildings with explicit concerns about structural safety, collapse, holes, dangerous conditions, unauthorized entry, or habitation.",
+          "ev": [
+            "Overgrown w/tree limbs and grass.  Owner died -- house appears vacant.",
+            "several abandoned vehicles behind house (Planning also has a complaint about demo of house and putting down all that cru",
+            "3 abandoned vehicles lined up 1 motor home, 1 van, 1 car they have been there for months have broken windows and flat ti"
+          ],
+          "n": 26
+        },
+        {
+          "t": "Mentions of buildings with failing roofs, collapsing walls, holes in foundation, or unsecured entry points.",
+          "ev": [
+            "Overgrown w/tree limbs and grass.  Owner died -- house appears vacant.",
+            "several abandoned vehicles behind house (Planning also has a complaint about demo of house and putting down all that cru",
+            "3 abandoned vehicles lined up 1 motor home, 1 van, 1 car they have been there for months have broken windows and flat ti"
+          ],
+          "n": 26
+        }
+      ],
+      "neg": [
+        {
+          "t": "General property maintenance, overgrowth, or neglect (see Excessive Growth), even if the property is vacant or abandoned, unless structural safety or entry is a concern.",
+          "ev": [
+            "Overgrown w/tree limbs and grass.  Owner died -- house appears vacant.",
+            "several abandoned vehicles behind house (Planning also has a complaint about demo of house and putting down all that cru",
+            "3 abandoned vehicles lined up 1 motor home, 1 van, 1 car they have been there for months have broken windows and flat ti"
+          ],
+          "n": 26
+        },
+        {
+          "t": "Utility issues (see Water Utility Problems).",
+          "ev": [
+            "Overgrown w/tree limbs and grass.  Owner died -- house appears vacant.",
+            "several abandoned vehicles behind house (Planning also has a complaint about demo of house and putting down all that cru",
+            "3 abandoned vehicles lined up 1 motor home, 1 van, 1 car they have been there for months have broken windows and flat ti"
+          ],
+          "n": 26
+        }
+      ]
+    },
+    "Water Quality": {
+      "pos": [
+        "Issues with water pressure, water clarity, or water service quality, including requests for meter testing or water turn-on."
+      ],
+      "neg": [
+        "Water utility billing (see Water Utility Billing Problems); leaks or repairs (see Water Utility Problems)."
+      ]
+    },
+    "Water Utility Billing Problems": {
+      "pos": [
+        "Complaints or appeals about water or sewer billing, including incorrect charges, billing policies, or disputes over service status."
+      ],
+      "neg": [
+        "Water quality or service issues (see Water Quality or Water Utility Problems)."
+      ]
+    },
+    "Water Utility Problems": {
+      "pos": [
+        {
+          "t": "Physical problems with potable water utility infrastructure: service lines, meters, main breaks, meter pits, or yard restoration after water line work.",
+          "ev": [
+            "Mr. Impey says that there was water coming up from the street which was the result of poor drainage from the Deer Park d",
+            "SERVICE LINE IS LEAKING",
+            "Ms. Johnson has a problem with water running into her yard from the street. She wants a curb installed."
+          ],
+          "n": 28
+        }
+      ],
+      "neg": [
+        {
+          "t": "Stormwater, drainage, or standing water issues involving streets, sidewalks, curbs, ditches, or stormwater infrastructure.",
+          "ev": [
+            "Mr. Impey says that there was water coming up from the street which was the result of poor drainage from the Deer Park d",
+            "SERVICE LINE IS LEAKING",
+            "Ms. Johnson has a problem with water running into her yard from the street. She wants a curb installed."
+          ],
+          "n": 28
+        }
+      ]
+    },
+    "Yard Waste": {
+      "pos": [
+        {
+          "t": "Complaints about yard waste collection, including container size, weight limits, stickers, or fees, only if yard waste is explicitly mentioned as the material.",
+          "ev": [
+            "faxed ljl/ Missed pick-up/yard waste:",
+            "faxed missed pick-up/yard waste:",
+            "Exceeds weight limit of 40 lbs, Exceeds can size of 32 gallons.  954"
+          ],
+          "n": 452
+        },
+        {
+          "t": "If the request mentions 'yard waste' or 'yardwaste' and references container size, weight, stickers, or missed pick-up, file as Yard Waste.",
+          "ev": [
+            "faxed ljl/ Missed pick-up/yard waste:",
+            "faxed missed pick-up/yard waste:",
+            "Exceeds weight limit of 40 lbs, Exceeds can size of 32 gallons.  954"
+          ],
+          "n": 452
+        }
+      ],
+      "neg": [
+        {
+          "t": "Do not file as Yard Waste if the material is not specified as yard waste, even if container size/weight is mentioned.",
+          "ev": [
+            "faxed ljl/ Missed pick-up/yard waste:",
+            "faxed missed pick-up/yard waste:",
+            "Exceeds weight limit of 40 lbs, Exceeds can size of 32 gallons.  954"
+          ],
+          "n": 452
+        },
+        {
+          "t": "Do not file as Yard Waste for generic container/can violations unless 'yard waste' is explicitly referenced.",
+          "ev": [
+            "faxed ljl/ Missed pick-up/yard waste:",
+            "faxed missed pick-up/yard waste:",
+            "Exceeds weight limit of 40 lbs, Exceeds can size of 32 gallons.  954"
+          ],
+          "n": 452
+        }
+      ]
+    }
+  },
+  "gate": 0.8504166666666667
+}

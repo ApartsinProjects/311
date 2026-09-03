@@ -1,0 +1,34 @@
+{
+  "rules": [
+    {
+      "q": "Does the request mention a container or bag exceeding 35 gallons in size?",
+      "from": "Yard Waste",
+      "to": "Trash"
+    },
+    {
+      "q": "Does the request mention a missed recycling pick-up or that recycling was not collected on the scheduled day?",
+      "from": "Recycling",
+      "to": "Trash"
+    },
+    {
+      "q": "Does the request mention cardboard, recycling program rules, or mixing trash with recyclables?",
+      "from": "Trash",
+      "to": "Recycling"
+    },
+    {
+      "q": "Does the request describe discarded household items or piles of trash left in public areas rather than natural debris, fences, or dumpsters blocking access?",
+      "from": "Blocked Street",
+      "to": "Trash"
+    },
+    {
+      "q": "Does the request mention trash, junk, or debris in addition to vehicles or parking?",
+      "from": "Parking on Unimproved Surface",
+      "to": "Trash"
+    },
+    {
+      "q": "Does the request mention snow or ice removal specifically from a sidewalk rather than from a street, intersection, or roadway?",
+      "from": "Sidewalk Snow Removal",
+      "to": "Street Snow Removal"
+    }
+  ]
+}
