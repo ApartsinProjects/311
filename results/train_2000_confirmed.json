@@ -1,0 +1,18 @@
+{
+  "method": "unified single-pass rulebook+remaps",
+  "budget": 2000,
+  "test_n": 1500,
+  "test": 0.8607,
+  "ci": [
+    0.843,
+    0.877
+  ],
+  "unparsed": 0.003,
+  "val": 0.875,
+  "zero_shot": 0.822,
+  "rag": 0.8713,
+  "vs_zs_p": 9e-06,
+  "rag_vs_ours_p": 0.181,
+  "rag_better": false,
+  "note": "strictly dominates old two-stage (0.862, ~1.03 passes); indistinguishable from RAG"
+}

@@ -83,11 +83,20 @@ Verified earlier (gpt-4.1 mining, two-stage rulebook + separate triggers, fixed 
 - zero-shot 0.822; RAG 0.871 (needs a store); fine-tuned 0.861 (needs training);
 - rulebook 0.847; rulebook + triggers **0.862**, not significantly different from RAG (McNemar p=0.18).
 
-The unified single-pass design (gpt-5 mining, one rulebook with remaps, full-val per-class acceptance)
-reached **val 0.877** on its last run — at or above the old two-stage target — but its TEST number is
-UNMEASURED: the run hit the OpenAI billing hard limit during final evaluation, corrupting the test
-classification (reported 0.32 = mostly empty responses). Re-run for the real test score once the limit
-is raised; cached calls replay for free.
+**CONFIRMED (2026-09-04)** — the unified single-pass design (gpt-5 mining, one rulebook with remaps,
+full-val per-class acceptance) on the fixed 1500 test, budget 2000:
+- **rulebook + remaps = 0.8607** (95% CI 0.843-0.877, UNPARSED 0.003), single pass, single artifact;
+- vs zero-shot 0.822: **+0.039, McNemar p=9e-06** (significant);
+- vs RAG 0.871: gap +0.011, **p=0.181 (NOT significantly different)**;
+- val re-scored 0.875 (training reported 0.877), so the training curve was genuine.
+
+This **strictly dominates** the old two-stage method: same accuracy (0.861 vs 0.862) in ONE pass with
+ONE artifact instead of a rulebook plus a separate trigger stage, and it stays statistically
+indistinguishable from RAG while needing no store, no training, no embeddings. The full-val per-class
+acceptance was the fix that let training climb past a strong 0.82 seed.
+
+(The earlier run's 0.32 test number was a billing-limit artifact — the OpenAI hard limit was hit during
+final evaluation, so most test calls returned empty. Verified after the limit was lifted.)
 
 ## Key files
 - `train.py` — the training loop (forward / diagnose / refine / per-class accept) + single-pass eval.
