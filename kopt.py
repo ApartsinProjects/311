@@ -28,45 +28,50 @@ def _classify_with(T, texts, demos_by):
     return [T.parse(o) for o in chat_many(msgs, model=CLF_MODEL, max_tokens=24)]
 
 
-def optimize(T, val_txt, val_gold, k=2, pool_per_class=6, rounds=None):
-    """Greedy forward selection of demos to maximize val accuracy, capped at k per class."""
-    cand = {l: semclf._diverse_demos(T.by[l], pool_per_class) for l in T.LBL}  # diverse shortlist
+def _sysm(T):
+    return (f"Classify the {T.item} into its single best {T.label} using the labeled examples. "
+            f"Reply with ONLY one {T.label} name.")
+
+
+def optimize(T, val_txt, val_gold, k=2, pool_per_class=3):
+    """Per-class greedy forward selection over k rounds (tractable): each round, for EVERY class,
+    evaluate adding each of its candidate demos to the current set and keep that class's best add.
+    All classes' candidates for a round are evaluated in ONE batched val classification.
+    Cost ~ k * (classes * pool) * |val| -- far cheaper than global greedy (which re-scores all options
+    every single demo-add)."""
+    cand = {l: semclf._diverse_demos(T.by[l], pool_per_class) for l in T.LBL}
     chosen = defaultdict(list)
     def acc(dby):
         p = _classify_with(T, val_txt, dby)
         return float(np.mean([p[i] == val_gold[i] for i in range(len(val_gold))]))
     cur = acc(chosen)
-    print(f"  [kopt] start (0 demos) val={cur:.4f}")
-    total_slots = k * len(T.LBL)
-    for step in range(rounds or total_slots):
-        # evaluate every legal (class, demo) addition in ONE batch
-        options = []
-        for l in T.LBL:
-            if len(chosen[l]) >= k: continue
-            for ex in cand[l]:
-                if ex in chosen[l]: continue
-                options.append((l, ex))
+    print(f"  [kopt] start (0 demos) val={cur:.4f}  (val={len(val_gold)}, pool/class={pool_per_class})")
+    for rnd in range(k):
+        options = [(l, ex) for l in T.LBL for ex in cand[l] if ex not in chosen[l]]
         if not options: break
         big, spans = [], []
         for l, ex in options:
             trial = {c: list(chosen[c]) for c in T.LBL}; trial[l].append(ex)
             block = "\n".join(f"- \"{e[:100]}\" -> {c}" for c in T.LBL for e in trial.get(c, []))
             s0 = len(big)
-            sysm = (f"Classify the {T.item} into its single best {T.label} using the labeled examples. "
-                    f"Reply with ONLY one {T.label} name.")
             for t in val_txt:
-                big.append([{"role": "system", "content": sysm},
+                big.append([{"role": "system", "content": _sysm(T)},
                             {"role": "user", "content": f"Examples:\n{block}\n\n{T.item.capitalize()}: {t[:TRUNC]}\n{T.label.capitalize()}:"}])
             spans.append((l, ex, s0, len(big)))
         outs = chat_many(big, model=CLF_MODEL, max_tokens=24)
-        best = (cur, None)
+        by_class = defaultdict(list)                        # class -> [(acc, demo)]
         for l, ex, s0, s1 in spans:
             preds = [T.parse(o) for o in outs[s0:s1]]
             a = np.mean([preds[i] == val_gold[i] for i in range(len(val_gold))])
-            if a > best[0]: best = (a, (l, ex))
-        if best[1] is None: print(f"  [kopt] step {step+1}: no add improves val -> stop"); break
-        l, ex = best[1]; chosen[l].append(ex); cur = best[0]
-        print(f"  [kopt] step {step+1}: +demo[{l}] val={cur:.4f}  ({sum(len(v) for v in chosen.values())} demos)")
+            by_class[l].append((a, ex))
+        added = 0
+        for l in T.LBL:
+            if not by_class[l]: continue
+            a, ex = max(by_class[l], key=lambda x: x[0])
+            if a >= cur:                                    # add this class's best demo if it doesn't hurt
+                chosen[l].append(ex); added += 1
+        cur = acc(chosen)
+        print(f"  [kopt] round {rnd+1}: +{added} demos, {sum(len(v) for v in chosen.values())} total, val={cur:.4f}")
     return dict(chosen), cur
 
 
@@ -78,7 +83,7 @@ def main():
     bud = stratified_budget(T.pool, 2000, seed=0)
     T.budget = bud; T.by = defaultdict(list)
     for r in bud: T.by[r["label"]].append(r["text"])
-    n_val = 400
+    n_val = 120
     val = bud[-n_val:]                                   # held-out slice for selection
     v_txt = [r["text"] for r in val]; v_gold = [r["label"] for r in val]
     test = T.test + T.test_dup; t_txt = [r["text"] for r in test]; t_gold = [r["label"] for r in test]
