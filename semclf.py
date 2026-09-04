@@ -17,7 +17,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from oaillm import chat_many, _call
 
 CLF_MODEL = "gpt-4o-mini"     # per-sample classification (cheap)
-MINE_MODEL = "gpt-5"          # one-time rule mining (reasoning model; diagnose + refine)
+MINE_MODEL = "gpt-4.1"        # one-time rule mining (cheaper for the multi-domain sweep)
 MAXPOS, MAXNEG = 5, 4
 TRUNC = 500
 
