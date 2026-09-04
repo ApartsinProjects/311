@@ -452,10 +452,14 @@ def _try(name, *a):
 
 
 TASKS = {k: v for k, v in {
-    "bloom": _try("bloom", "results/bloom_fair.json", "municipal service request", "service category"),
-    "br":    _try("br", "results/br_split.json", "municipal service request", "service category"),
+    # PRIMARY: legal contract-provision classification (definition-driven, many labels)
+    "ledgar": _try("ledgar", "results/ledgar_split.json", "contract provision", "provision type"),
+    # other-domain comparison points
     "hupd":  _try("hupd", "results/hupd_split.json", "patent", "technical classification code"),
     "mimic": _try("mimic", "results/mimic_split.json", "clinical note", "diagnosis category"),
+    # 311 (dropped from consideration; split files kept on disk):
+    # "bloom": _try("bloom", "results/bloom_fair.json", "municipal service request", "service category"),
+    # "br":    _try("br", "results/br_split.json", "municipal service request", "service category"),
 }.items() if v is not None}
 if __name__ == "__main__":
     main()

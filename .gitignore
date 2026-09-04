@@ -53,3 +53,7 @@ results/llm_cache.sqlite
 results/*_trace.jsonl
 results/llm_cache.sqlite-wal
 results/llm_cache.sqlite-shm
+results/ledgar_split.json
+results/hupd_split.json
+results/mimic_split.json
+results/br_split.json
