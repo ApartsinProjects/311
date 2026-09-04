@@ -140,14 +140,45 @@ def lexical_rag(T, texts, k=12):
     return [T.parse(o) for o in chat_many(msgs, model=CLF_MODEL, max_tokens=24)]
 
 
-def kshot_per_class(T, texts, k=2):
-    def templates(ts, kk):
-        c = Counter(norm(x) for x in ts); reps = {}
-        for x in ts:
-            n = norm(x)
-            if n not in reps: reps[n] = x
-        return [reps[n] for n, _ in c.most_common(kk)]
-    block = "\n".join(f"- \"{ex[:100]}\" -> {l}" for l in T.LBL for ex in templates(T.by[l], k))
+def _diverse_demos(ts, k):
+    """Pick k demos that COVER a class's variation (farthest-point sampling on TF-IDF). Works when texts
+    are all unique (frequency-selection degenerates there); falls back to frequent templates if repeated."""
+    c = Counter(norm(x) for x in ts); reps = {}
+    for x in ts:
+        n = norm(x)
+        if n not in reps: reps[n] = x
+    uniq = list(reps.values())
+    if len(uniq) <= k:
+        return uniq
+    # if strongly templated, most-frequent is meaningful; else diversify
+    if c.most_common(1)[0][1] >= 5:
+        return [reps[n] for n, _ in c.most_common(k)]
+    try:
+        V = TfidfVectorizer(sublinear_tf=True, ngram_range=(1, 2), min_df=1, max_features=8000)
+        X = V.fit_transform([u[:200] for u in uniq])
+        chosen = [0]                                    # farthest-point sampling
+        sims = (X @ X.T).toarray()
+        while len(chosen) < k:
+            mind = sims[:, chosen].max(1)               # similarity to nearest chosen (higher=closer)
+            nxt = int(np.argmin([mind[i] if i not in chosen else 2 for i in range(len(uniq))]))
+            chosen.append(nxt)
+        return [uniq[i] for i in chosen]
+    except Exception:
+        return uniq[:k]
+
+
+def kshot_per_class(T, texts, k=2, select="diverse"):
+    """Fixed (prompt-only) k-shot. select='diverse' covers each class's variation (fair on unique text);
+    'frequent' is the old most-common-template selection (only meaningful when texts repeat)."""
+    def demos(ts, kk):
+        if select == "frequent":
+            c = Counter(norm(x) for x in ts); reps = {}
+            for x in ts:
+                n = norm(x)
+                if n not in reps: reps[n] = x
+            return [reps[n] for n, _ in c.most_common(kk)]
+        return _diverse_demos(ts, kk)
+    block = "\n".join(f"- \"{ex[:100]}\" -> {l}" for l in T.LBL for ex in demos(T.by[l], k))
     sys = f"Classify the {T.item} into its single best {T.label} using the labeled examples. Reply with ONLY one {T.label} name."
     msgs = [[{"role": "system", "content": sys},
              {"role": "user", "content": f"Examples:\n{block}\n\n{T.item.capitalize()}: {t[:TRUNC]}\n{T.label.capitalize()}:"}] for t in texts]

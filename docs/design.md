@@ -4,6 +4,35 @@ A text classifier built **entirely from LLM calls over mined text**: no fine-tun
 no retrieval store, no embeddings at inference. Everything the classifier "knows" is a compact,
 human-readable rulebook, produced offline by an error-driven training loop.
 
+## Objective and where each baseline sits (the claim)
+
+The objective is a **prompt-only classifier**: one FIXED prompt, no store, no per-query retrieval. The
+claim is that **instruction mining is the best way to tune that fixed prompt**.
+
+| method | prompt-only? | how the prompt is tuned | needs store? | role |
+|---|---|---|---|---|
+| zero-shot | yes | nothing | no | lower bound |
+| fixed k-shot | yes | demonstrations chosen offline | no | **head-to-head baseline** |
+| **instruction mining (ours)** | yes | mined rules (pos + remap) | no | **our method** |
+| RAG | NO (prompt changes per query) | retrieval | YES | store-based **upper reference** |
+
+RAG is a baseline but NOT prompt-only -- it rewrites the prompt per query and needs a live store, so it
+is the ceiling we chase with a fixed prompt, not a peer. The decisive comparison is **ours vs a
+WELL-TUNED fixed k-shot**: beating a naive k-shot proves nothing. Two fair-baseline requirements:
+- **Demo selection must be real, not frequency.** "Most frequent template" is meaningful only when texts
+  repeat (Bloomington: top template recurs 565x). On unique-text domains it degenerates to arbitrary
+  first-k (MIMIC: every text unique). Fair k-shot uses DIVERSE selection (farthest-point on TF-IDF,
+  `select="diverse"`) or validation-optimized selection (greedy, val-maximizing -- the demo analog of
+  our rule mining). Frequency selection is kept only for the templated domain.
+- **"RAG distilled to a fixed instruction"** is the conceptual bridge and a good extra baseline:
+  summarize what RAG retrieves into one fixed prompt. That is literally naive instruction mining;
+  our error-driven diagnose->refine is the principled version. Framing: mining = compressing retrieval
+  into an inspectable fixed prompt.
+
+Prompt-only methods are limited by construction where our method wins most: a demo is one INSTANCE, it
+cannot state a general convention, and fixed k-shot cannot scale to many classes (the prompt explodes).
+HUPD (20-160 non-semantic classes) is where tuned k-shot breaks and mining wins clearest.
+
 ## The method (single method, single artifact, single inference pass)
 
 The classifier is **one rulebook**. Each class has:

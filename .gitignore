@@ -51,3 +51,5 @@ results/mimic_rulebook.json
 # local response cache (large, regenerates)
 results/llm_cache.sqlite
 results/*_trace.jsonl
+results/llm_cache.sqlite-wal
+results/llm_cache.sqlite-shm
