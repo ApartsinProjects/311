@@ -1,0 +1,17 @@
+{
+  "task": "mimic",
+  "auto": "light",
+  "zero_shot": 0.5558333333333333,
+  "miprov2": 0.5533333333333333,
+  "vs_zs": {
+    "delta": -0.0025,
+    "ci": [
+      -0.015833333333333335,
+      0.010833333333333334
+    ],
+    "a_only_right": 33,
+    "b_only_right": 36,
+    "p_mcnemar": 0.8099490529189248,
+    "significant": false
+  }
+}

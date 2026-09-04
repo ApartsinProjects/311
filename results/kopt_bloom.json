@@ -1,0 +1,87 @@
+{
+  "task": "bloom",
+  "k": 2,
+  "zero_shot": 0.822,
+  "kshot_diverse": 0.7626666666666667,
+  "kshot_valopt": 0.818,
+  "demos": {
+    "Blocked Street": [
+      "American Sunbelt has a dumpster bihind this building that always sits in the alley and not in their own parking lot."
+    ],
+    "Excessive Growth": [
+      "General trash and scattered litter",
+      "The grass is 3 feet tall."
+    ],
+    "Line of Sight": [
+      "Tree blocking visability on College Avenue.",
+      "The property owner on the northeast corner has a chain link fence with pine trees.  The trees have become overgrown and are causing a line of sight problem for drivers pulling off of Huntington onto Miller Drive."
+    ],
+    "Parking on Unimproved Surface": [
+      "car on grass",
+      "Cars parked in the yard."
+    ],
+    "Parks & Playgrounds": [
+      "Ms. Hessman called Chris Truelock to offer free paint and other materials for the BBCC.  When Chris went to Lowe's to pick upthe goods - Gayla said she called the BBCC because her two sons had gone there for various programs and had a great time.  She said she found their experiences very positive."
+    ],
+    "Recycling": [
+      "Recyclable items not properly sorted. Must be sorted for pick-up 945 las",
+      "Recycable items not properly sorted."
+    ],
+    "Sewer Problems (Sanitary Sewers)": [
+      "HAS PLUBMER OUT RAN LINES,HAD A CLOG WANT CITY TO CHECK THEIR LINES",
+      "SEWER ODOR IN #10 (MERRY MAIDS)"
+    ],
+    "Sidewalk & Curb Complaints": [
+      "sidewalk lower than street level at point where sidewalk wraps around tree, water forms and creates mud hole",
+      "faxed to sanitation ll/ missed pick-up/trash no notice left."
+    ],
+    "Sidewalk Snow Removal": [
+      "Mr. Sinn owns the property at 409 S. Swain Avenue. On the east end of the lot which involves three lots is standing water.  This is an ongoing problem and Mr. Sinn would like an update regarding this issue.  Please give him a call.  He stated that he has been trying to contact Mr. Heald but has been unable to do so.  He requested a citizen action order to be issued.",
+      "STORM DRAIN IS CLOGGED."
+    ],
+    "Street Snow Removal": [
+      "Snow has not been cleared around the public library.",
+      "400 & 500 block of Eastside Dr"
+    ],
+    "Temporary Signage w/o permit": [
+      "Euro Deli ahs a temporary sign without permit",
+      "On North Kinser Pike, between 17th Street and the Bypass, there are three (3) large illegal  Celebration Fireworks signs."
+    ],
+    "Traffic Related Complaints": [
+      "concerned citizen complaining about motorists who run red lights\nreply- sent your email to the BPD\nreply- don't stop with BPD send it to the mayor\nreply- sent email to mayor's office, traffic control specialist, & engineering"
+    ],
+    "Trash": [
+      "can exceeds size limit",
+      "Bags must have sticker attached."
+    ],
+    "Unsafe Buildings": [
+      "Outbuildings need to be sealed, someone living in building on northeast corner of property.",
+      "Trailer vacant - windows broken out."
+    ],
+    "Water Quality": [
+      "AFTER HOURS CALL - WANTS WATER SHUT  OFF",
+      "Mr Garret was referred to SG by Ed Sherfield. T&D has put a water line in that serves Mr Garret. Since water has been turned back on customer has experienced milky water. Also water does not taste good. SG advised customer he was experiencing air in the new water line and it should clear soon. SG gave customer his phone number and advised customer to call back if there is no improvement in two days."
+    ],
+    "Water Utility Billing Problems": [
+      "Ltr. rec'd. from Mark Warner stated that bill at 1412 W. 11th was for $436.75. Mr. Warner feels that was an error and an adjustment should be made. Meter was checked by CBU, and no problem found. Mr. Warner feels that they have paid for bills and should be credited for the estimated bills received.",
+      "Mobile home park pump station not able to pump sewer upgravity. Shannon Childers, Mgr., says they have to have sewage pumped and hauled off and feels they are paying twice for sewage disposal, plus they are fored to use water hydrants for clean-up and boaring the new force mains."
+    ],
+    "Water Utility Problems": [
+      "HAS BLACK SOOTY WATER COMING OUT OF PIPES IN APARTMENT 4-MAINTENANCE MAN IS THERE NOW"
+    ],
+    "Yard Waste": [
+      "Yardwaste Must have sticker attached."
+    ]
+  },
+  "vs_zs": {
+    "delta": -0.004,
+    "ci": [
+      -0.016666666666666666,
+      0.008
+    ],
+    "a_only_right": 42,
+    "b_only_right": 48,
+    "p_mcnemar": 0.5984117182335189,
+    "significant": false
+  }
+}

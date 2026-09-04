@@ -16,7 +16,7 @@ import semclf
 from semclf import TASKS, score, paired_test, stratified_budget
 from openai_batch import _load_key
 
-os.environ.setdefault("OPENAI_API_KEY", _load_key())
+os.environ["OPENAI_API_KEY"] = _load_key()   # FORCE the .env key (a stale env key was shadowing it)
 
 
 def run(task="bloom", auto="light", smoke=False):
@@ -25,8 +25,8 @@ def run(task="bloom", auto="light", smoke=False):
     T.budget = bud; T.by = defaultdict(list)
     for r in bud: T.by[r["label"]].append(r["text"])
     LBL = T.LBL
-    task_lm = dspy.LM("openai/gpt-4o-mini", temperature=0, max_tokens=24, cache=True)
-    prompt_lm = dspy.LM("openai/gpt-4.1", temperature=0.7, max_tokens=2000, cache=True)
+    task_lm = dspy.LM("openai/gpt-4o-mini", temperature=0, max_tokens=24, cache=True, num_retries=8)
+    prompt_lm = dspy.LM("openai/gpt-4.1", temperature=0.7, max_tokens=2000, cache=True, num_retries=8)
     dspy.configure(lm=task_lm)
 
     class Classify(dspy.Signature):
@@ -40,15 +40,15 @@ def run(task="bloom", auto="light", smoke=False):
         return 1.0 if T.parse(getattr(pred, "category", "")) == example.label else 0.0
 
     def ex(r): return dspy.Example(text=r["text"][:500], label=r["label"]).with_inputs("text")
-    n_tr = 60 if smoke else 300
-    n_va = 40 if smoke else 150
+    n_tr = 60 if smoke else 1400
+    n_va = 40 if smoke else 600
     trainset = [ex(r) for r in bud[:n_tr]]
     valset = [ex(r) for r in bud[n_tr:n_tr + n_va]]
     print(f"MIPROv2 {task}: train={len(trainset)} val={len(valset)} classes={len(LBL)} auto={auto}")
 
     tp = dspy.MIPROv2(metric=metric, prompt_model=prompt_lm, task_model=task_lm,
                       auto=("light" if smoke else auto), num_threads=3)
-    kwargs = dict(requires_permission_to_run=False)
+    kwargs = dict(requires_permission_to_run=False, max_bootstrapped_demos=8, max_labeled_demos=8)
     if smoke:
         kwargs.update(max_bootstrapped_demos=2, max_labeled_demos=2)
     compiled = tp.compile(program, trainset=trainset, valset=valset, **kwargs)

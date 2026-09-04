@@ -1,0 +1,17 @@
+{
+  "task": "hupd",
+  "auto": "light",
+  "zero_shot": 0.5353333333333333,
+  "miprov2": 0.546,
+  "vs_zs": {
+    "delta": 0.010666666666666666,
+    "ci": [
+      -0.014,
+      0.034
+    ],
+    "a_only_right": 174,
+    "b_only_right": 158,
+    "p_mcnemar": 0.4104144705567767,
+    "significant": false
+  }
+}

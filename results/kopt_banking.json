@@ -1,0 +1,297 @@
+{
+  "task": "banking",
+  "k": 2,
+  "zero_shot": 0.6226666666666667,
+  "kshot_diverse": 0.804,
+  "kshot_valopt": 0.7753333333333333,
+  "demos": {
+    "Refund_not_showing_up": [
+      "They said I would get a refund but I don't see it on my statement."
+    ],
+    "activate_my_card": [
+      "Tell me how to go about activating my new card?"
+    ],
+    "age_limit": [
+      "What is the youngest age for an account?",
+      "How do I go about setting up an account for my daughter?"
+    ],
+    "apple_pay_or_google_pay": [
+      "Hi, I have an apple watch. How do I use it to top up my card?"
+    ],
+    "atm_support": [
+      "Can I use my card to withdraw from my account?",
+      "Where are the ATMs that accept this card?"
+    ],
+    "automatic_top_up": [
+      "I will be traveling and want money to be added automatically in certain intervals. Is this possible?"
+    ],
+    "balance_not_updated_after_bank_transfer": [
+      "How long do transfers to international banks take? I made one to france a couple of days ago, but it's still not there.",
+      "Where is my transfer from [country]?"
+    ],
+    "balance_not_updated_after_cheque_or_cash_deposit": [
+      "Why is the check I deposited this morning not showing up?",
+      "I can't see my cash deposit in my account."
+    ],
+    "beneficiary_not_allowed": [
+      "Just received a message that my transfer is not possible??  What is going on.  I have done this before with no issues.",
+      "Why can't my beneficiary access my account?"
+    ],
+    "cancel_transfer": [
+      "I used the wrong account number!",
+      "I need a transfer cancelled."
+    ],
+    "card_about_to_expire": [
+      "Once my card expires, what should I do?"
+    ],
+    "card_acceptance": [
+      "Where do I pay with my debit or credit card?"
+    ],
+    "card_arrival": [
+      "Is my card lost? I am still waiting for it to be delivered.",
+      "Why haven't I gotten my new card?"
+    ],
+    "card_delivery_estimate": [
+      "When are cards shipped?",
+      "Can I have it be delivered at a certain time?"
+    ],
+    "card_linking": [
+      "Can I put my old card back in the app?"
+    ],
+    "card_not_working": [
+      "How do I fix a broken card?"
+    ],
+    "card_payment_fee_charged": [
+      "What is this fee showing up in my account for?"
+    ],
+    "card_payment_not_recognised": [
+      "There's a payment in the app I don't recognize."
+    ],
+    "card_payment_wrong_exchange_rate": [
+      "In regards to my card payment, the exchange rate is incorrect.",
+      "I exchanged Russian rubles for British pounds today and got less than I expected. Was exchange rate correct?"
+    ],
+    "card_swallowed": [
+      "I was getting cash and can't get my card back."
+    ],
+    "cash_withdrawal_charge": [
+      "What is this charge on my account for a cash withdrawl?"
+    ],
+    "cash_withdrawal_not_recognised": [
+      "A withdrawal is showing that I don't recognize"
+    ],
+    "change_pin": [
+      "What steps do I have to take to change my PIN?"
+    ],
+    "compromised_card": [
+      "Somebody used my card without my knowledge!"
+    ],
+    "contactless_not_working": [
+      "Why wouldn't my contactless work for the metro?"
+    ],
+    "country_support": [
+      "How many countries do you support?",
+      "Are cards available to those outside of the UK?"
+    ],
+    "declined_card_payment": [
+      "Do you know why my card payment is declined?"
+    ],
+    "declined_cash_withdrawal": [
+      "My ATM withdrawal was declined."
+    ],
+    "declined_transfer": [
+      "I think my transfer was declined, but why?",
+      "Hi, during online shopping payment is getting declined yesterday and today as well. Please check the issue."
+    ],
+    "direct_debit_payment_not_recognised": [
+      "I was checking the app for my account and I noticed there is an authorized charge on it.  I haven't used my card today, so I know I didn't do it.  I would like the transaction reversed and the money replaced.",
+      "I see a direct debit charge that I did not approve"
+    ],
+    "disposable_card_limits": [
+      "What are the restrictions on the virtual cards?",
+      "Please specify any limitations that come along with disposable cards."
+    ],
+    "edit_personal_details": [
+      "Please tell me how to edit my personal details."
+    ],
+    "exchange_charge": [
+      "Any extra charges for exchanging currencies?",
+      "What is your currency exchange fee?"
+    ],
+    "exchange_rate": [
+      "Please explain your exchange rate policy.",
+      "what are exchange rates based on"
+    ],
+    "exchange_via_app": [
+      "Will this app exchange currencies?",
+      "How can I change to another currency?"
+    ],
+    "extra_charge_on_statement": [
+      "I need some help figuring out what this strange payment is on my account. It's stays pending and won't go away.",
+      "$1 charge in transaction."
+    ],
+    "failed_transfer": [
+      "Why hasn't my transfer been made?",
+      "Transfer has failed."
+    ],
+    "fiat_currency_support": [
+      "What currencies can I hold money in?",
+      "There is an incoming payment into my account, but it is deactivated. Will they still be processed?"
+    ],
+    "get_disposable_virtual_card": [
+      "Are there virtual disposable cards?"
+    ],
+    "get_physical_card": [
+      "How do I get started when I get my card?",
+      "I am yet to receive my pin."
+    ],
+    "getting_spare_card": [
+      "Is it possible to order another card?"
+    ],
+    "getting_virtual_card": [
+      "How come I didn't get a virtual card yet?",
+      "Which part of the app do I order virtual cards from?"
+    ],
+    "lost_or_stolen_card": [
+      "I lost my wallet and all my cards were in it.",
+      "How do I deactivate a stolen card?"
+    ],
+    "lost_or_stolen_phone": [
+      "My phone is missing or stolen.",
+      "lost phone, can i still access account?"
+    ],
+    "order_physical_card": [
+      "how do I ask for a physical card?",
+      "Is there a fee to get an actual card?"
+    ],
+    "passcode_forgotten": [
+      "My passcode is not being accepted",
+      "I've completely forgot the code to get into the app."
+    ],
+    "pending_card_payment": [
+      "I have a payment that is still pending",
+      "When will the transaction go through?"
+    ],
+    "pending_cash_withdrawal": [
+      "What does it mean if my cash withdrawal does not show up properly?"
+    ],
+    "pending_top_up": [
+      "How long do I need to wait til my top up isn't pending?",
+      "I topped-up my account, but I don't think it went through."
+    ],
+    "pending_transfer": [
+      "How long do EU transfers actually take? I recently bought something online a few days ago, sent the money immediately online but the seller says it's still not there yet."
+    ],
+    "pin_blocked": [
+      "I enetered the wrong information, I need my account unblocked How do I do that?",
+      "My PIN was entered wrong and now I am blocked.  Please unblock."
+    ],
+    "receiving_money": [
+      "Can i get payed through this system?",
+      "How can I receive my salary in another currency?"
+    ],
+    "request_refund": [
+      "How do I begin the process of a refund?",
+      "I want to cancel a purchase"
+    ],
+    "reverted_card_payment?": [
+      "Did a card payment that I made get cancelled?",
+      "How come I can't find my payment?"
+    ],
+    "supported_cards_and_currencies": [
+      "What cards and currencies are supported?",
+      "can i use my mastercard to add money to my account"
+    ],
+    "terminate_account": [
+      "How do I shut down my account and get out of this company?",
+      "I am asking to end my account."
+    ],
+    "top_up_by_bank_transfer_charge": [
+      "Are there any charges for receiving money?"
+    ],
+    "top_up_by_card_charge": [
+      "Will I be charged for adding money using an international card?"
+    ],
+    "top_up_by_cash_or_cheque": [
+      "How long before a check I send clears?",
+      "I want to use cash to top up."
+    ],
+    "top_up_failed": [
+      "My top-up is not working. Why is that?"
+    ],
+    "top_up_limits": [
+      "Please tell me the limit to topping-up.",
+      "What is maximum top up?"
+    ],
+    "top_up_reverted": [
+      "When I topped up, the app reverted my funds.",
+      "I attempted to complete a topup, and I thought all was well, but now the money is gone again. Has there been a glitch?"
+    ],
+    "topping_up_by_card": [
+      "My wallet is empty even though I topped it up an hour ago.",
+      "how can i top up?"
+    ],
+    "transaction_charged_twice": [
+      "Looks like my card payment was duplicated after all. I went to pay at the store earlier, got declined once,second time it works. App still stays pending for one of the payments. Can you please remove one of them as it's wrong and was declined?",
+      "Why have I been charged twice?"
+    ],
+    "transfer_fee_charged": [
+      "Is there a fee that comes with transfers?",
+      "I was charged for something I didn't expect"
+    ],
+    "transfer_into_account": [
+      "How is my money transferred to the account"
+    ],
+    "transfer_not_received_by_recipient": [
+      "The money has not yet been placed in recipients account."
+    ],
+    "transfer_timing": [
+      "Why hasn't my transfer from Europe gone through?"
+    ],
+    "unable_to_verify_identity": [
+      "The app does not know it is me.",
+      "My identity can't be verified for some reason"
+    ],
+    "verify_my_identity": [
+      "Where can I go to find out how to verify my identity?"
+    ],
+    "verify_source_of_funds": [
+      "need to verify source of funds"
+    ],
+    "verify_top_up": [
+      "How do I go forth verifying my top-up card?",
+      "can you tell me where to find the top-up verification code?"
+    ],
+    "virtual_card_not_working": [
+      "I was trying to use my virtual card at a merchant and it was rejected. How can I fix this?",
+      "virtual card won't work for me"
+    ],
+    "visa_or_mastercard": [
+      "Is it possible to receive a Visa and a MasterCard?",
+      "Do I have to pick a creditcard brand?"
+    ],
+    "why_verify_identity": [
+      "Is the identity check part of bank policy?",
+      "Why do I need to verify my identity?"
+    ],
+    "wrong_amount_of_cash_received": [
+      "Why did I only receive a partial amount of what I tried to withdraw?",
+      "The ATM gave me less cash than requested"
+    ],
+    "wrong_exchange_rate_for_cash_withdrawal": [
+      "The exchange rate for my withdrawal was wrong.",
+      "Rates were applied wrong while using foreign currency at an ATM."
+    ]
+  },
+  "vs_zs": {
+    "delta": 0.15266666666666667,
+    "ci": [
+      0.13,
+      0.17466666666666666
+    ],
+    "a_only_right": 280,
+    "b_only_right": 51,
+    "p_mcnemar": 2.004761027735078e-39,
+    "significant": true
+  }
+}

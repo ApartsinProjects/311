@@ -59,7 +59,7 @@ MINE_TEMP = float(__import__("os").environ.get("TRAIN_MINE_TEMP", "0"))  # refin
 
 
 # ---------- OPTIMIZER: NVAR refiner variants per GOLD class, all in ONE batch ----------
-def refine_batch(T, class_diags, exs_by, contrast_by, D, base):
+def refine_batch(T, class_diags, exs_by, contrast_by, D, base, recall=None):
     """Returns {class: [candidate_update, ...]} -- NVAR proposals per class (population search).
     class_diags[c] = list of (other_class, role, diag) where role='gt' (c true) or 'pr' (c wrong pick)."""
     msgs, keys = [], []
@@ -75,6 +75,9 @@ def refine_batch(T, class_diags, exs_by, contrast_by, D, base):
                 ex = _freq_examples(exs_by[(other, c)], 5)
                 blocks.append(f"* vs '{other}' -- these are truly '{other}' but leaked INTO '{c}'.\n"
                               f"    axis: {dim}\n    '{other}' side: {dg.get('gt_signal','')}\n    fix: {fix}\n    examples of the leak:\n{ex}")
+        if recall and recall.get(c):
+            blocks.append(f"* RECALL GAPS (missed '{c}' items incl. rare phrasings) -- add general pos "
+                          f"coverage for these WITHOUT over-widening:\n    " + "\n    ".join(recall[c]))
         rate = base.get(c, 0) / (sum(base.values()) or 1) * 100
         confusers = sorted({other for other, _, _ in items})
         pos_ex = _freq_examples(T.by.get(c, [])[:40], 6)
@@ -189,6 +192,45 @@ def compact_batch(T, D, over_frac=1.3):
     return upd
 
 
+RECALL_OFF = __import__("os").environ.get("RECALL_OFF") == "1"
+
+
+def recall_batch(T, m_txt, m_gold, pred, D, min_missed=3):
+    """IDEA 2: per-class RECALL loss. The pair loss (min_err>=2) is blind to the ~75% of errors that are
+    unique-phrasing singletons. For each gold class, gather ALL its missed items (regardless of predicted
+    class, incl. singletons) and ask the miner what phrasing families the pos rules fail to cover. Returns
+    {class: coverage_text} to inject into refine_batch as extra evidence."""
+    if RECALL_OFF: return {}
+    missed = defaultdict(list)
+    for i in range(len(m_txt)):
+        if pred[i] != m_gold[i] and pred[i] != "UNPARSED":
+            missed[m_gold[i]].append(m_txt[i])
+    targets = [c for c in T.LBL if len(missed[c]) >= min_missed]
+    if not targets: return {}
+    msgs = []
+    for c in targets:
+        sysm = (f"You improve the RECALL of ONE {T.label}: '{c}'. Below are {T.item}s that TRULY are '{c}' "
+                f"but the current rules missed (they include one-off phrasings, not just repeated patterns). "
+                f"Identify the phrasing FAMILIES the current pos rules fail to cover, and output 2-3 GENERAL "
+                f"coverage conditions that would catch them WITHOUT over-widening to other classes. Each must "
+                f"be a general principle (not one instance), under 25 words.")
+        usr = (f"Current pos rules for '{c}': {_rules_json(D, c)}\n\n"
+               f"MISSED '{c}' {T.item}s (incl. rare phrasings):\n{_freq_examples(missed[c], 12)}\n\n"
+               f'STRICT JSON: {{"coverage": ["also counts as {c} when <general condition>", ...]}}')
+        msgs.append([{"role": "system", "content": sysm}, {"role": "user", "content": usr}])
+    outs = chat_many(msgs, model=MINE_MODEL, max_tokens=300)
+    rec = {}
+    for c, o in zip(targets, outs):
+        m = re.search(r"\{.*\}", o or "", re.S)
+        if not m: continue
+        try:
+            cov = [str(x).strip() for x in json.loads(m.group(0)).get("coverage", []) if str(x).strip()]
+            if cov: rec[c] = cov
+        except Exception:
+            pass
+    return rec
+
+
 def train(T, mine, val, epochs=6, min_err=2, patience=2, gate_n=10**9):  # full val for acceptance
     m_txt = [r["text"] for r in mine]; m_gold = [r["label"] for r in mine]
     v_txt = [r["text"] for r in val]; v_gold = [r["label"] for r in val]
@@ -217,12 +259,17 @@ def train(T, mine, val, epochs=6, min_err=2, patience=2, gate_n=10**9):  # full 
         for (gt, pr) in pairs:
             class_diags[gt].append((pr, "gt", diags[(gt, pr)]))
             class_diags[pr].append((gt, "pr", diags[(gt, pr)]))
+        # IDEA 2: per-class RECALL signal from ALL missed items (incl. singletons); ensure those classes
+        # get refined even if they have no ≥2 confusion pair.
+        recall = recall_batch(T, m_txt, m_gold, pred, D)
+        for c in recall:
+            class_diags.setdefault(c, [])
         # OPTIMIZER: all class rewrites computed in ONE batch, then accepted PER CLASS. Each candidate is
         # judged alone against a fixed val slice so one bad rewrite cannot sink the good ones; all the
         # per-class judgements run as ONE batched classification (slice x candidates), keeping it cheap.
         # POPULATION SEARCH: NVAR variant rewrites per class; each variant judged ALONE on the val slice
         # in one big batch; keep the BEST variant per class if it beats the current book (fitness gate).
-        cands = refine_batch(T, class_diags, exs_by, contrast_by, D, base)
+        cands = refine_batch(T, class_diags, exs_by, contrast_by, D, base, recall=recall)
         n = min(gate_n, len(v_txt))
         # SPLIT val: SEL half picks the best variant, ACC half gates acceptance -> the argmax is not
         # computed on the same data that judges it (removes the maximization/overfitting bias).
