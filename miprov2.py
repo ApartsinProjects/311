@@ -40,14 +40,14 @@ def run(task="bloom", auto="light", smoke=False):
         return 1.0 if T.parse(getattr(pred, "category", "")) == example.label else 0.0
 
     def ex(r): return dspy.Example(text=r["text"][:500], label=r["label"]).with_inputs("text")
-    n_tr = 60 if smoke else 700
-    n_va = 40 if smoke else 300
+    n_tr = 60 if smoke else 300
+    n_va = 40 if smoke else 150
     trainset = [ex(r) for r in bud[:n_tr]]
     valset = [ex(r) for r in bud[n_tr:n_tr + n_va]]
     print(f"MIPROv2 {task}: train={len(trainset)} val={len(valset)} classes={len(LBL)} auto={auto}")
 
     tp = dspy.MIPROv2(metric=metric, prompt_model=prompt_lm, task_model=task_lm,
-                      auto=("light" if smoke else auto), num_threads=8)
+                      auto=("light" if smoke else auto), num_threads=3)
     kwargs = dict(requires_permission_to_run=False)
     if smoke:
         kwargs.update(max_bootstrapped_demos=2, max_labeled_demos=2)

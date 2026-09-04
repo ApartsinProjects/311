@@ -453,6 +453,7 @@ def _try(name, *a):
 
 TASKS = {k: v for k, v in {
     "bloom": _try("bloom", "results/bloom_fair.json", "municipal service request", "service category"),
+    "br":    _try("br", "results/br_split.json", "municipal service request", "service category"),
     "hupd":  _try("hupd", "results/hupd_split.json", "patent", "technical classification code"),
     "mimic": _try("mimic", "results/mimic_split.json", "clinical note", "diagnosis category"),
 }.items() if v is not None}
