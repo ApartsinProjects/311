@@ -140,6 +140,55 @@ def refine_batch(T, class_diags, exs_by, contrast_by, D, base):
     return dict(cands)
 
 
+RULEBOOK_MAX = int(__import__("os").environ.get("TRAIN_RULEBOOK_MAX", "6000"))  # target chars for the whole book
+
+
+def _book_chars(T, D):
+    return sum(len(semclf._dline(T, c, D)) for c in T.LBL)
+
+
+def compact_batch(T, D, over_frac=1.3):
+    """COMPACTER: when the rendered rulebook exceeds RULEBOOK_MAX, ask the LLM to rewrite the LONGEST
+    classes' rules more tightly -- merge redundant rules, drop low-value ones, shorten wording -- WITHOUT
+    losing the discriminative pos rules or the remap overrides. Returns {class: compacted_update}; each is
+    gated on val by the caller exactly like a refine candidate, so a lossy compaction is rejected."""
+    sizes = {c: len(semclf._dline(T, c, D)) for c in T.LBL}
+    total = sum(sizes.values())
+    if total <= RULEBOOK_MAX:
+        return {}
+    fair = RULEBOOK_MAX / max(len(T.LBL), 1)
+    targets = [c for c in T.LBL if sizes[c] > fair * over_frac and (D[c]["pos"] or D[c]["neg"])]
+    targets = sorted(targets, key=lambda c: -sizes[c])[:12]
+    if not targets:
+        return {}
+    msgs = []
+    for c in targets:
+        budget_words = max(int(fair / 6), 25)          # ~6 chars/word
+        sysm = (f"You COMPACT the rulebook for ONE {T.label}: '{c}', to fit a tight length budget WITHOUT "
+                f"losing accuracy. Merge redundant rules, delete low-value ones, and shorten wording, but KEEP "
+                f"every discriminating condition and every REMAP override (the 'if ... classify as X instead' "
+                f"rules that route look-alikes elsewhere -- these carry the most weight). Prefer fewer, sharper "
+                f"rules. Do not add new content. Target about {budget_words} words total across pos+remap.")
+        usr = (f"Current rules for '{c}' (too long): {_rules_json(D, c)}\n\n"
+               f"Rewrite them shorter.\n"
+               f'STRICT JSON: {{"pos":["..."],"remap":["if <condition>, classify as <CLASS> instead"]}}.')
+        msgs.append([{"role": "system", "content": sysm}, {"role": "user", "content": usr}])
+    outs = chat_many(msgs, model=MINE_MODEL, max_tokens=600)
+    upd = {}
+    for c, o in zip(targets, outs):
+        m = re.search(r"\{.*\}", o or "", re.S)
+        if not m: continue
+        try:
+            j = json.loads(m.group(0))
+            pos = [str(x).strip()[:260] for x in j.get("pos", []) if str(x).strip()][:semclf.MAXPOS]
+            rem = [str(x).strip()[:260] for x in j.get("remap", j.get("neg", [])) if str(x).strip()][:semclf.MAXNEG]
+            if pos: upd[c] = {"pos": pos, "neg": rem}
+        except Exception:
+            pass
+    _trace("compact", n_targets=len(targets), book_before=total, target=RULEBOOK_MAX)
+    return upd
+
+
 def train(T, mine, val, epochs=6, min_err=2, patience=2, gate_n=10**9):  # full val for acceptance
     m_txt = [r["text"] for r in mine]; m_gold = [r["label"] for r in mine]
     v_txt = [r["text"] for r in val]; v_gold = [r["label"] for r in val]
@@ -205,15 +254,51 @@ def train(T, mine, val, epochs=6, min_err=2, patience=2, gate_n=10**9):  # full 
                 apply_update(D, {c: cand}); accepted += 1
         v = vacc(D)
         nprop = sum(len(vs) for vs in cands.values())
+        # COMPACTER: if the rulebook is over budget, compress the longest classes; keep each compaction
+        # only if it holds accuracy on the ACC val half (a lossy compaction is rejected, same gate).
+        comp_upd = compact_batch(T, D); comp_acc = 0
+        if comp_upd:
+            cbase = [T.parse(o) for o in _desc_classify(T, sl_txt, D)]
+            cbase_acc = np.mean([cbase[i] == sl_gold[i] for i in acc_i])
+            cmsgs, cspans = [], []
+            for c, cand in comp_upd.items():
+                trial = copy.deepcopy(D); apply_update(trial, {c: cand})
+                book = "\n".join(semclf._dline(T, cc, trial) for cc in T.LBL); s0 = len(cmsgs)
+                for t in sl_txt:
+                    cmsgs.append([{"role": "system", "content": semclf.desc_sys(T)},
+                                  {"role": "user", "content": f"{T.label.capitalize()} definitions:\n{book}\n\n{T.item.capitalize()}: {t[:semclf.TRUNC]}\n{T.label.capitalize()}:"}])
+                cspans.append((c, s0, len(cmsgs)))
+            couts = chat_many(cmsgs, model=CLF_MODEL, max_tokens=24)
+            for c, s0, s1 in cspans:
+                preds = [T.parse(o) for o in couts[s0:s1]]
+                if np.mean([preds[i] == sl_gold[i] for i in acc_i]) >= cbase_acc - 0.005:  # small size/acc tolerance
+                    apply_update(D, {c: comp_upd[c]}); comp_acc += 1
+            v = vacc(D)
+        nchars = _book_chars(T, D)
         print(f"  [epoch {ep}] train={tr_acc:.3f} pairs={len(pairs)} classes={len(cands)} "
-              f"proposals={nprop} accepted={accepted} val={v:.4f} (best {max(v,best_v):.4f})")
+              f"proposals={nprop} accepted={accepted} compacted={comp_acc} book={nchars}c val={v:.4f} (best {max(v,best_v):.4f})")
         if v > best_v:
             best_v, best_D = v, copy.deepcopy(D); bad = 0
         else:
             bad += 1
             if bad >= patience:
                 print(f"  [early stop] no val gain for {patience} epochs"); break
-    return best_D, best_v
+    # FINAL compaction on the returned artifact: shrink best_D under budget, keep only compactions that
+    # hold val within tolerance. Loops until at/under target or no more lossless compaction is possible.
+    for _ in range(4):
+        if _book_chars(T, best_D) <= RULEBOOK_MAX: break
+        cu = compact_batch(T, best_D)
+        if not cu: break
+        vt = [r["text"] for r in val]; vg = [r["label"] for r in val]
+        b0 = np.mean([p == vg[i] for i, p in enumerate(_desc_classify(T, vt, best_D))])
+        kept = 0
+        for c, cand in cu.items():
+            trial = copy.deepcopy(best_D); apply_update(trial, {c: cand})
+            a = np.mean([p == vg[i] for i, p in enumerate(_desc_classify(T, vt, trial))])
+            if a >= b0 - 0.005: best_D = trial; kept += 1
+        print(f"  [final compact] book={_book_chars(T, best_D)}c kept={kept} val={vacc(best_D):.4f}")
+        if kept == 0: break
+    return best_D, vacc(best_D)
 
 
 def main():
