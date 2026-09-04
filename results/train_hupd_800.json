@@ -1,0 +1,30 @@
+{
+  "budget": 800,
+  "epochs": 3,
+  "zero_shot": 0.5353333333333333,
+  "rulebook_no_disambig": 0.564,
+  "rulebook": 0.5906666666666667,
+  "rag": 0.5913333333333334,
+  "vs_zs": {
+    "delta": 0.05533333333333333,
+    "ci": [
+      0.03,
+      0.08
+    ],
+    "a_only_right": 235,
+    "b_only_right": 152,
+    "p_mcnemar": 2.8738957969134576e-05,
+    "significant": true
+  },
+  "rag_vs_ours": {
+    "delta": 0.0006666666666666666,
+    "ci": [
+      -0.024666666666666667,
+      0.02666666666666667
+    ],
+    "a_only_right": 193,
+    "b_only_right": 192,
+    "p_mcnemar": 1.0,
+    "significant": false
+  }
+}

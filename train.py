@@ -13,7 +13,7 @@
 
   python train.py [budget] [epochs]
 """
-import sys, json, re, copy
+import sys, os, json, re, copy
 import numpy as np
 from collections import defaultdict, Counter
 import semclf, triggers
@@ -301,6 +301,36 @@ def train(T, mine, val, epochs=6, min_err=2, patience=2, gate_n=10**9):  # full 
     return best_D, vacc(best_D)
 
 
+def add_disambiguation(T, D, mine, val, min_err=2, gate_n=400):
+    """IDEA 1: turn the (already-computed) diagnostic axes into persistent pairwise TIE-BREAKER lines
+    rendered at the end of the prompt, val-gated. Gives confusable-neighbor pairs the decision BOUNDARY
+    that RAG can't provide. Reuses diagnose_batch; each line greedily kept only if it doesn't hurt val."""
+    m_txt = [r["text"] for r in mine]; m_gold = [r["label"] for r in mine]
+    v_txt = [r["text"] for r in val][:gate_n]; v_gold = [r["label"] for r in val][:gate_n]
+    pred = _desc_classify(T, m_txt, D)
+    conf = Counter((m_gold[i], pred[i]) for i in range(len(mine)) if pred[i] != m_gold[i] and pred[i] != "UNPARSED")
+    pairs = [p for p, n in conf.most_common(semclf.MAXDISAMB * 2) if n >= min_err]
+    if not pairs: return D
+    exs_by = {(g, p): [m_txt[i] for i in range(len(mine)) if m_gold[i] == g and pred[i] == p] for (g, p) in pairs}
+    contrast_by = {(g, p): [m_txt[i] for i in range(len(mine)) if m_gold[i] == p and pred[i] == p] for (g, p) in pairs}
+    diags = diagnose_batch(T, pairs, exs_by, contrast_by, D)
+    def vacc(DD):
+        vp = _desc_classify(T, v_txt, DD)
+        return float(np.mean([vp[i] == v_gold[i] for i in range(len(v_gold))]))
+    D = copy.deepcopy(D); D.setdefault("__disamb__", [])
+    cur = vacc(D); kept = 0
+    for (g, p) in pairs:
+        dg = diags.get((g, p), {})
+        line = f"{g} vs {p}: decide by {dg.get('dimension','the key difference')} -- {g} if {dg.get('gt_signal','')}; {p} if {dg.get('pr_signal','')}"
+        if len(line) > 240: line = line[:240]
+        trial = copy.deepcopy(D); trial["__disamb__"] = D["__disamb__"] + [line]
+        v = vacc(trial)
+        if v >= cur:
+            D["__disamb__"].append(line); cur = v; kept += 1
+    print(f"  [disambig] kept {kept}/{len(pairs)} tie-breakers, val={cur:.4f}")
+    return D
+
+
 def main():
     task = sys.argv[3] if len(sys.argv) > 3 else "bloom"
     b = int(sys.argv[1]) if len(sys.argv) > 1 else 2000
@@ -316,18 +346,24 @@ def main():
     print(f"TRAIN b={b} epochs={epochs}: train={len(mine)} val={len(val)} test={len(test)}")
 
     D, vfin = train(T, mine, val, epochs=epochs)
+    # IDEA 1: post-training pairwise tie-breakers (unless DISAMB_OFF=1)
+    a_before = None
+    if os.environ.get("DISAMB_OFF") != "1":
+        preds0 = _desc_classify(T, txt, D); a_before, _, _ = score(T, preds0, gold)
+        D = add_disambiguation(T, D, mine, val)
     json.dump({"D": D, "val": vfin}, open(f"results/train_art_{task}_{b}.json", "w"), indent=2, ensure_ascii=False)
-    # SINGLE-PASS: the richer rulebook (pos + imperative REMAP overrides) IS the whole method.
+    # SINGLE-PASS: the richer rulebook (pos + REMAP overrides + tie-breakers) IS the whole method.
     preds = _desc_classify(T, txt, D); a0, ci0, _ = score(T, preds, gold)
     zs = semclf.zero_shot(T, txt); azs, _, _ = score(T, zs, gold)
     ptz = paired_test(preds, zs, gold)
     rag = semclf.lexical_rag(T, txt); ar, _, _ = score(T, rag, gold); ptr = paired_test(rag, preds, gold)
-    print(f"\n=== RESULTS (test n={len(test)}, single-pass rulebook w/ remaps) ===")
+    print(f"\n=== RESULTS (test n={len(test)}, single-pass rulebook w/ remaps+tie-breakers) ===")
     print(f"  zero-shot           {azs:.4f}")
-    print(f"  rulebook+remaps     {a0:.4f} CI=({ci0[0]:.3f},{ci0[1]:.3f})  vs zero-shot {ptz['delta']:+.4f} p={ptz['p_mcnemar']:.1e}")
+    if a_before is not None: print(f"  rulebook (no disambig) {a_before:.4f}")
+    print(f"  rulebook FINAL      {a0:.4f} CI=({ci0[0]:.3f},{ci0[1]:.3f})  vs zero-shot {ptz['delta']:+.4f} p={ptz['p_mcnemar']:.1e}")
     print(f"  RAG {ar:.4f}  gap={ar-a0:+.4f} p={ptr['p_mcnemar']:.3f} RAG_better={ptr['significant']}")
-    json.dump({"budget": b, "epochs": epochs, "zero_shot": azs, "rulebook": a0, "rag": ar,
-               "vs_zs": ptz, "rag_vs_ours": ptr},
+    json.dump({"budget": b, "epochs": epochs, "zero_shot": azs, "rulebook_no_disambig": a_before,
+               "rulebook": a0, "rag": ar, "vs_zs": ptz, "rag_vs_ours": ptr},
               open(f"results/train_{task}_{b}.json", "w"), indent=2)
     print(f"wrote results/train_{task}_{b}.json")
 

@@ -19,6 +19,7 @@ from oaillm import chat_many, _call
 CLF_MODEL = "gpt-4o-mini"     # per-sample classification (cheap)
 MINE_MODEL = "gpt-4.1"        # one-time rule mining (cheaper for the multi-domain sweep)
 MAXPOS, MAXNEG = 5, 4
+MAXDISAMB = 12   # idea 1: max pairwise tie-breaker lines rendered
 TRUNC = 500
 
 # ---- full provenance trace of the mining process (every request + response) ----
@@ -207,14 +208,25 @@ def desc_sys(T):
             f"Each definition may list OVERRIDE conditions: if an OVERRIDE condition matches the {T.item}, "
             f"FOLLOW IT and assign the {T.label} it names, even if the wording otherwise fits this category. "
             f"Apply overrides literally; they encode counterintuitive routing the organization actually uses. "
+            f"If a TIE-BREAKERS section is present, use it to decide between two categories that both seem to fit. "
             f"Reply with ONLY one {T.label} name.")
 
 
-def _desc_classify(T, texts, D):
+def _render_book(T, D):
     book = "\n".join(_dline(T, c, D) for c in T.LBL)
-    sys = desc_sys(T)
+    dis = D.get("__disamb__", [])                       # idea 1: pairwise tie-breakers from diagnostics
+    if dis:
+        book += "\n\nTIE-BREAKERS (when two categories both seem to fit, use these):\n" + \
+                "\n".join(f"- {_rtext(x)}" for x in dis[:MAXDISAMB])
+    return book
+
+
+def _desc_classify(T, texts, D):
+    # idea 10: the whole static rulebook goes in the SYSTEM message (item only in user) so the vendor's
+    # automatic prefix caching applies across every item in a wave (50-90% input-cost cut, no acc change).
+    sys = desc_sys(T) + "\n\n" + f"{T.label.capitalize()} definitions:\n{_render_book(T, D)}"
     msgs = [[{"role": "system", "content": sys},
-             {"role": "user", "content": f"{T.label.capitalize()} definitions:\n{book}\n\n{T.item.capitalize()}: {t[:TRUNC]}\n{T.label.capitalize()}:"}] for t in texts]
+             {"role": "user", "content": f"{T.item.capitalize()}: {t[:TRUNC]}\n{T.label.capitalize()}:"}] for t in texts]
     return [T.parse(o) for o in chat_many(msgs, model=CLF_MODEL, max_tokens=24)]
 
 
