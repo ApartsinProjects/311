@@ -452,11 +452,12 @@ def _try(name, *a):
 
 
 TASKS = {k: v for k, v in {
-    # PRIMARY: legal contract-provision classification (definition-driven, many labels)
-    "ledgar": _try("ledgar", "results/ledgar_split.json", "contract provision", "provision type"),
-    # other-domain comparison points
+    # SWEET-SPOT domains (low zero-shot: non-semantic / fine-grained labels demos can't cover)
+    "banking": _try("banking", "results/banking_split.json", "customer banking query", "intent"),
     "hupd":  _try("hupd", "results/hupd_split.json", "patent", "technical classification code"),
     "mimic": _try("mimic", "results/mimic_split.json", "clinical note", "diagnosis category"),
+    # too-easy zero-shot (labels are nameable) -- kept for reference, not primary:
+    "ledgar": _try("ledgar", "results/ledgar_split.json", "contract provision", "provision type"),
     # 311 (dropped from consideration; split files kept on disk):
     # "bloom": _try("bloom", "results/bloom_fair.json", "municipal service request", "service category"),
     # "br":    _try("br", "results/br_split.json", "municipal service request", "service category"),
