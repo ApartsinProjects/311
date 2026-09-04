@@ -415,9 +415,16 @@ def main():
         print(line)
 
 
-TASKS = {
-    "bloom": Task("bloom", "results/bloom_fair.json", "municipal service request", "service category"),
-}
+def _try(name, *a):
+    try: return Task(name, *a)
+    except Exception: return None
+
+
+TASKS = {k: v for k, v in {
+    "bloom": _try("bloom", "results/bloom_fair.json", "municipal service request", "service category"),
+    "hupd":  _try("hupd", "results/hupd_split.json", "patent", "technical classification code"),
+    "mimic": _try("mimic", "results/mimic_split.json", "clinical note", "diagnosis category"),
+}.items() if v is not None}
 if __name__ == "__main__":
     main()
 

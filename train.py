@@ -53,9 +53,15 @@ def diagnose_batch(T, pairs, exs_by, contrast_by, D):
     return diags
 
 
-# ---------- OPTIMIZER: one refiner call per GOLD class in ONE batch ----------
+NVAR = int(__import__("os").environ.get("TRAIN_NVAR", "1"))     # candidate rewrites proposed per class
+MARGIN = float(__import__("os").environ.get("TRAIN_MARGIN", "0"))        # acceptance margin on the ACC val half
+MINE_TEMP = float(__import__("os").environ.get("TRAIN_MINE_TEMP", "0"))  # refiner temperature (search noise)
+
+
+# ---------- OPTIMIZER: NVAR refiner variants per GOLD class, all in ONE batch ----------
 def refine_batch(T, class_diags, exs_by, contrast_by, D, base):
-    """class_diags[c] = list of (other_class, role, diag) where role='gt' (c was true) or 'pr' (c was wrong pick)."""
+    """Returns {class: [candidate_update, ...]} -- NVAR proposals per class (population search).
+    class_diags[c] = list of (other_class, role, diag) where role='gt' (c true) or 'pr' (c wrong pick)."""
     msgs, keys = [], []
     for c, items in class_diags.items():
         blocks = []
@@ -104,31 +110,34 @@ def refine_batch(T, class_diags, exs_by, contrast_by, D, base):
             f"ERROR EVIDENCE (each must be handled):\n" + "\n".join(blocks) + "\n\n"
             f"Infer what '{c}' TRULY is, then write pos rules and narrow remap overrides.\n"
             f'STRICT JSON: {{"pos":["condition that makes it {c}"],"remap":["if <narrow condition>, classify as <CLASS> instead"]}}.')
-        msgs.append([{"role": "system", "content": sysm}, {"role": "user", "content": usr}]); keys.append(c)
-    outs = chat_many(msgs, model=MINE_MODEL, max_tokens=700)
-    upd = {}
-    for c, o in zip(keys, outs):
+        # emit NVAR variant proposals for this class (distinct prompts -> distinct, cacheable rewrites;
+        # combined with MINE_TEMP this samples the rule space)
+        for k in range(NVAR):
+            vhint = usr if k == 0 else (usr + f"\n\nProposal variant #{k+1}: offer a DIFFERENT valid "
+                                        f"formulation than an obvious first attempt -- rephrase the axis, "
+                                        f"try alternative narrow conditions -- while staying correct.")
+            msgs.append([{"role": "system", "content": sysm}, {"role": "user", "content": vhint}])
+            keys.append((c, k))
+    outs = chat_many(msgs, model=MINE_MODEL, max_tokens=700, temperature=MINE_TEMP)
+    cands = defaultdict(list)
+    for (c, k), o in zip(keys, outs):
         m = re.search(r"\{.*\}", o or "", re.S)
         if not m: continue
-        def _clean(x):
+        def _clean(x, c=c):
             x = str(x).strip()
-            # strip any embedded "-> ClassName" verdict from a POS rule so a class's own description
-            # never contains a pointer to another class (that cross-contaminates the classifier)
             x = re.sub(r"\s*-+>\s*" + re.escape(c) + r"\b.*$", "", x).strip()
             return x[:260]
         try:
             j = json.loads(m.group(0))
             pos = [_clean(x) for x in j.get("pos", []) if str(x).strip()]
             pos = [x for x in pos if x][:semclf.MAXPOS]
-            # 'remap' is the new field; fall back to 'neg' for compatibility. Stored in the neg slot,
-            # rendered as OVERRIDE by _dline.
             rem = j.get("remap", j.get("neg", []))
             rem = [str(x).strip()[:260] for x in rem if str(x).strip()][:semclf.MAXNEG]
-            if pos: upd[c] = {"pos": pos, "neg": rem}
+            if pos: cands[c].append({"pos": pos, "neg": rem})
         except Exception:
             pass
-        _trace("refine_batch", cls=c, response=o)
-    return upd
+    _trace("refine_variants", n_classes=len(cands), n_proposals=sum(len(v) for v in cands.values()))
+    return dict(cands)
 
 
 def train(T, mine, val, epochs=6, min_err=2, patience=2, gate_n=10**9):  # full val for acceptance
@@ -162,32 +171,42 @@ def train(T, mine, val, epochs=6, min_err=2, patience=2, gate_n=10**9):  # full 
         # OPTIMIZER: all class rewrites computed in ONE batch, then accepted PER CLASS. Each candidate is
         # judged alone against a fixed val slice so one bad rewrite cannot sink the good ones; all the
         # per-class judgements run as ONE batched classification (slice x candidates), keeping it cheap.
-        upd = refine_batch(T, class_diags, exs_by, contrast_by, D, base)
-        sl = list(range(min(gate_n, len(v_txt))))
-        sl_txt = [v_txt[i] for i in sl]; sl_gold = [v_gold[i] for i in sl]
-        base_pred = _desc_classify(T, sl_txt, D)                       # 1 batch: current rulebook on slice
-        base_acc = np.mean([base_pred[i] == sl_gold[i] for i in range(len(sl))])
-        # build one big batch: each candidate class-rewrite applied ALONE, classified over the slice
+        # POPULATION SEARCH: NVAR variant rewrites per class; each variant judged ALONE on the val slice
+        # in one big batch; keep the BEST variant per class if it beats the current book (fitness gate).
+        cands = refine_batch(T, class_diags, exs_by, contrast_by, D, base)
+        n = min(gate_n, len(v_txt))
+        # SPLIT val: SEL half picks the best variant, ACC half gates acceptance -> the argmax is not
+        # computed on the same data that judges it (removes the maximization/overfitting bias).
+        sel = list(range(0, n, 2)); acc_i = list(range(1, n, 2))
+        sl_txt = [v_txt[i] for i in range(n)]; sl_gold = [v_gold[i] for i in range(n)]
+        base_pred = _desc_classify(T, sl_txt, D)
+        base_acc = np.mean([base_pred[i] == sl_gold[i] for i in acc_i])
         big_msgs, spans = [], []
-        cand_classes = list(upd)
-        for c in cand_classes:
-            trial = copy.deepcopy(D); apply_update(trial, {c: upd[c]})
-            book = "\n".join(semclf._dline(T, cc, trial) for cc in T.LBL)
-            start = len(big_msgs)
-            for t in sl_txt:
-                big_msgs.append([{"role": "system", "content": semclf.desc_sys(T)},
-                                 {"role": "user", "content": f"{T.label.capitalize()} definitions:\n{book}\n\n{T.item.capitalize()}: {t[:semclf.TRUNC]}\n{T.label.capitalize()}:"}])
-            spans.append((c, start, len(big_msgs)))
-        outs = chat_many(big_msgs, model=CLF_MODEL, max_tokens=24)      # ONE batch for all candidates
-        accepted = 0
-        for c, s0, s1 in spans:
+        for c, variants in cands.items():
+            for vi, cand in enumerate(variants):
+                trial = copy.deepcopy(D); apply_update(trial, {c: cand})
+                book = "\n".join(semclf._dline(T, cc, trial) for cc in T.LBL)
+                start = len(big_msgs)
+                for t in sl_txt:
+                    big_msgs.append([{"role": "system", "content": semclf.desc_sys(T)},
+                                     {"role": "user", "content": f"{T.label.capitalize()} definitions:\n{book}\n\n{T.item.capitalize()}: {t[:semclf.TRUNC]}\n{T.label.capitalize()}:"}])
+                spans.append((c, vi, start, len(big_msgs)))
+        outs = chat_many(big_msgs, model=CLF_MODEL, max_tokens=24)      # ONE batch, all classes x variants
+        best_var = {}                                                  # c -> (sel_acc, acc_acc, cand)
+        for c, vi, s0, s1 in spans:
             preds = [T.parse(o) for o in outs[s0:s1]]
-            acc = np.mean([preds[i] == sl_gold[i] for i in range(len(sl))])
-            if acc >= base_acc:                                        # keep only rewrites that don't hurt
-                apply_update(D, {c: upd[c]}); accepted += 1
+            sel_acc = np.mean([preds[i] == sl_gold[i] for i in sel])
+            acc_acc = np.mean([preds[i] == sl_gold[i] for i in acc_i])
+            if c not in best_var or sel_acc > best_var[c][0]:          # pick winner on SEL
+                best_var[c] = (sel_acc, acc_acc, cands[c][vi])
+        accepted = 0
+        for c, (sel_acc, acc_acc, cand) in best_var.items():
+            if acc_acc >= base_acc + MARGIN:                          # gate the SEL-winner on ACC half
+                apply_update(D, {c: cand}); accepted += 1
         v = vacc(D)
-        print(f"  [epoch {ep}] train={tr_acc:.3f} pairs={len(pairs)} proposed={len(upd)} "
-              f"accepted={accepted} val={v:.4f} (best {max(v,best_v):.4f})")
+        nprop = sum(len(vs) for vs in cands.values())
+        print(f"  [epoch {ep}] train={tr_acc:.3f} pairs={len(pairs)} classes={len(cands)} "
+              f"proposals={nprop} accepted={accepted} val={v:.4f} (best {max(v,best_v):.4f})")
         if v > best_v:
             best_v, best_D = v, copy.deepcopy(D); bad = 0
         else:
@@ -198,10 +217,11 @@ def train(T, mine, val, epochs=6, min_err=2, patience=2, gate_n=10**9):  # full 
 
 
 def main():
+    task = sys.argv[3] if len(sys.argv) > 3 else "bloom"
     b = int(sys.argv[1]) if len(sys.argv) > 1 else 2000
     epochs = int(sys.argv[2]) if len(sys.argv) > 2 else 6
-    T = TASKS["bloom"]
-    semclf.set_trace(f"results/train_trace_{b}.jsonl")
+    T = TASKS[task]
+    semclf.set_trace(f"results/train_trace_{task}_{b}.jsonl")
     bud = stratified_budget(T.pool, b, seed=0)
     T.budget = bud; T.by = defaultdict(list)
     for r in bud: T.by[r["label"]].append(r["text"])
@@ -211,7 +231,7 @@ def main():
     print(f"TRAIN b={b} epochs={epochs}: train={len(mine)} val={len(val)} test={len(test)}")
 
     D, vfin = train(T, mine, val, epochs=epochs)
-    json.dump({"D": D, "val": vfin}, open(f"results/train_art_{b}.json", "w"), indent=2, ensure_ascii=False)
+    json.dump({"D": D, "val": vfin}, open(f"results/train_art_{task}_{b}.json", "w"), indent=2, ensure_ascii=False)
     # SINGLE-PASS: the richer rulebook (pos + imperative REMAP overrides) IS the whole method.
     preds = _desc_classify(T, txt, D); a0, ci0, _ = score(T, preds, gold)
     zs = semclf.zero_shot(T, txt); azs, _, _ = score(T, zs, gold)
@@ -223,8 +243,8 @@ def main():
     print(f"  RAG {ar:.4f}  gap={ar-a0:+.4f} p={ptr['p_mcnemar']:.3f} RAG_better={ptr['significant']}")
     json.dump({"budget": b, "epochs": epochs, "zero_shot": azs, "rulebook": a0, "rag": ar,
                "vs_zs": ptz, "rag_vs_ours": ptr},
-              open(f"results/train_{b}.json", "w"), indent=2)
-    print(f"wrote results/train_{b}.json")
+              open(f"results/train_{task}_{b}.json", "w"), indent=2)
+    print(f"wrote results/train_{task}_{b}.json")
 
 
 if __name__ == "__main__":

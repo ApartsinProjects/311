@@ -10,25 +10,24 @@
     },
     "Excessive Growth": {
       "pos": [
-        "Overgrown living vegetation on a specific private property: tall grass, weeds, hedges encroaching or blocking yard, sidewalk, mailbox, or that property's driveway/frontage.",
-        "Ongoing yard or lot maintenance neglect at a residence or business (unmowed lawn, unmaintained landscaping, recurring overgrowth complaints).",
-        "Accumulated trash/junk blighting a property's grounds or around structures, including overflowing private dumpsters, with no curbside set-out, sticker, cart-size, or missed-pickup context.",
-        "Vegetation from a specific address obstructs egress from its driveway/frontage or grows over wall/fence/sidewalk; not at a public intersection sight triangle.",
-        "Mowed grass clippings left piled or windrowed on that property’s yard (excluding discrete cut limbs/trees)."
+        "Tall grass/weeds and general yard maintenance neglect (front/back yards, businesses), including unmowed yards and piles of molded/mowed grass left on site."
       ],
       "neg": [
-        "if visibility obstruction involves a public street intersection or crosswalk sight triangle or corner, classify as Line of Sight instead",
-        "if report cites curbside set-out/service cues (tags/stickers, cart size/limits, missed pickup) or 'at curb', classify as Trash instead",
-        "if it names discrete removable debris (loose trash bags, shopping carts, furniture/appliances, tires, or cut brush/trees), classify as Trash instead",
-        "if the primary concern is a vehicle parked on grass/dirt or creating an unimproved parking area, classify as Parking on Unimproved Surface instead"
+        "visibility/line-of-sight complaints due to vegetation (Line of Sight); litter/trash accumulation complaints (Trash)."
       ]
     },
     "Line of Sight": {
       "pos": [
-        "Visibility obstructions at corners/intersections caused by vegetation or fences (e.g., bushes, overgrown vegetation, chain link fence with slats) that block the"
+        "Visibility obstruction within a public street intersection sight triangle (including T-intersections) limiting view of cross traffic, pedestrians, or intersection controls.",
+        "Obstruction caused by corner vegetation, hedges, trees, shrubs, fences, walls, or berms at or immediately approaching an intersection corner.",
+        "Reports explicitly citing “line of sight” at a street corner or inability to see oncoming traffic when turning at an intersection.",
+        "Corner growth blocking visibility of stop/yield signs or signal heads at a public intersection."
       ],
       "neg": [
-        "general overgrowth/yard maintenance (Excessive Growth); driver behavior complaints like red-light running (Traffic Relat"
+        "if visibility is blocked when exiting a private driveway, parking lot, or alley, classify as Excessive Growth instead",
+        "if vegetation is described “in front of” a specific address or neighbor’s property without intersection-corner context, classify as Excessive Growth instead",
+        "if the issue is midblock frontage or sidewalk encroachment rather than at a street intersection, classify as Excessive Growth instead",
+        "if it requests grass/weeds/bushes trimming with no mention of intersection corners or sightlines, classify as Excessive Growth instead"
       ]
     },
     "Parking on Unimproved Surface": {
@@ -49,16 +48,16 @@
     },
     "Recycling": {
       "pos": [
-        "Recycling compliance notice: unsorted/contaminated recyclables, trash mixed with recyclables, or non-accepted items; includes tags, citations, code 945 references.",
-        "Directions to correct recycling set-out: sort/separate recyclables, remove trash from recycling, or place recycling at the specified location.",
-        "Issues about recycling bin/blue cart use, eligibility, size/too-big, or overflow within the recycling program, excluding pickup timing or crew performance.",
-        "Requests tied to the recycling stream (recycling, recyclables, blue cart/bin, code 945) that do not seek collection service.",
-        "Education-only follow-ups after recycling write-ups: document warnings or outreach without any pickup/drop action."
+        "Recycling set-out compliance issues: recyclables unsorted, mixed with trash, include non-accepted items, or contaminated—often noted by tag/sticker/notice.",
+        "Instructions to correct recyclables preparation or placement: separate materials, remove trash from recyclables, or place recycling at specified location/side for pickup.",
+        "Issues explicitly about recycle cart/bin/blue cart compliance, including container size/type/overflow acceptable for the recycling program.",
+        "Requests clearly tied to recycling stream materials or rules, even if mentioning pickup, courtesy, or the word 'trash' in a contamination context."
       ],
       "neg": [
-        "if the request reports missed/late/not-picked-up recycling or any pickup/collection/route/schedule/crew/delay action, classify as Trash instead.",
-        "if the container issue concerns a trash/garbage cart rather than the recycling bin/blue cart, classify as Trash instead.",
-        "if the issue is yard waste, compost, leaves, or their set-out/stickers, classify as Yard Waste instead."
+        "if it says 'no notice left' with recycling missed pickup or tag, classify as Trash instead",
+        "if asking for a come-back/return due to missed recycling pickup without sorting/contamination instructions, classify as Trash instead",
+        "if mentions schedule/route delay (e.g., snow emergency, holiday) or crew/driver actions regarding recycling collection, classify as Trash instead",
+        "if complaint centers on crew behavior (threw/spilled/damaged) during pickup rather than recycling rules or materials, classify as Trash instead"
       ]
     },
     "Sewer Problems (Sanitary Sewers)": {
@@ -71,11 +70,13 @@
     },
     "Sidewalk & Curb Complaints": {
       "pos": [
-        "Internal routing note (faxed/forwarded to Sanitation) about a missed waste pickup explicitly stating 'no notice left' or equivalent ('no tag/sticker left')."
+        "Internal routing/forwarded sanitation communication explicitly stating no notice/tag/hanger was left by the collection crew.",
+        "Missed-pickup administrative note whose only actionable content is the lack of a notice/tag/hanger, not a request for pickup.",
+        "Applies across all waste streams (trash, recycling, yard waste, bulk) when it documents missing notice/tag without seeking service."
       ],
       "neg": [
-        "if a missed solid-waste pickup note lacks 'no notice left' or requests collection (e.g., 'please pick up'), classify as Trash instead.",
-        "if a missed pickup message mentions 'no notice left' but is not an internal fax/forward, classify as Trash instead."
+        "if a sanitation message reports missed pickup without an explicit \"no notice left\" indicator, classify as Trash instead.",
+        "if the message asks to collect (e.g., \"please pick up\", \"request pickup\", \"needs pickup\"), classify as Trash instead."
       ]
     },
     "Sidewalk Snow Removal": {
@@ -152,19 +153,19 @@
     },
     "Yard Waste": {
       "pos": [
-        "Mentions yard-waste program or materials (yard waste/yardwaste, brush, leaves, limbs, clippings, yard bags) with a set-out, sticker, container, or pickup issue.",
-        "Missed, delayed, or seasonally suspended yard-waste collection (e.g., no winter collection).",
-        "Yard-waste packaging violations: placed in plastic bags, not bundled/tied, or not in approved paper yard bags/carts.",
-        "Yard-waste size/weight/container limits exceeded: bundles oversize, over 40 lb, or over 32-gallon yard-waste can.",
-        "Citation, tag, or sticker explicitly for yard waste (e.g., code 950, yard-waste tag wording)."
+        "Text explicitly mentions the yard-waste program: 'yard waste/yardwaste', brush/leaves/branches/grass, or yard bags/bundles/carts.",
+        "Missed collection clearly for yard waste, yard bags/bundles, or during yard-waste seasonal suspension (e.g., 'no winter collection').",
+        "Sticker/tag/fee compliance framed for yard-waste set-outs, or citations specifically coded 950/952.",
+        "Packaging violations unique to yard waste: material in plastic bags, not in paper yard bags, or unbundled brush.",
+        "Size/weight limits stated for yard waste (e.g., 'yard waste' over 40 lb, or yard-waste can over 32–35 gallons)."
       ],
       "neg": [
-        "if citation code 944 appears, classify as Trash instead",
-        "if only a 35-gallon can limit is cited without any yard-waste terms, classify as Trash instead",
-        "if mentions overweight/too heavy or sticker/tag requirement but contains no yard-waste/organics cues, classify as Trash instead",
-        "if request is a courtesy pickup without any yard-waste terms or seasonality context, classify as Trash instead"
+        "if 'bags must have sticker' and no yard-waste terms (yard waste/brush/leaves/code 950/952), classify as Trash instead",
+        "if citation code 944 appears without any yard-waste cues, classify as Trash instead",
+        "if 35-gallon can limit mentioned with no yard-waste context, classify as Trash instead",
+        "if 'Courtesy Pick Up' noted and there is no yard-waste wording, classify as Trash instead"
       ]
     }
   },
-  "val": 0.8555555555555555
+  "val": 0.8611111111111112
 }
